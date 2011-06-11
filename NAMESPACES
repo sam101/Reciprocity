@@ -1,0 +1,10 @@
+______________________
+	Chunk
+______________________
+Contient les classes gérant un chunk, ainsi que les diverses
+classes permettant de générer les chunks.
+___________________
+	Map
+___________________
+Contient les informations liées aux diverses tiles et entités
+d'une carte.
