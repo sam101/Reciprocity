@@ -1,6 +1,6 @@
 #ifndef MAP_ENTITY_H
 #define MAP_ENTITY_H
-
+#include <QtCore/Qt>
 namespace Map
 {
     /**
@@ -11,7 +11,14 @@ namespace Map
     class Entity
     {
         protected:
-
+            /**
+              * Position X de l'entité
+              */
+            qint32 _x;
+           /**
+             * Position Y de l'entité
+             */
+            qint32 _y;
         public:
     };
 }
