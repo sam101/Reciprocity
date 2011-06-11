@@ -1,18 +1,21 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2011-05-29T11:55:02
-#
-#-------------------------------------------------
+QT       += core gui
 
-QT       += core
-
-QT       -= gui
 
 TARGET = Viewer
 CONFIG   += console
-CONFIG   -= app_bundle
 
 TEMPLATE = app
 
+INCLUDEPATH += include
 
-SOURCES +=
+SOURCES += \
+    src/Chunk/Chunk.cpp \
+    src/Map/Entity.cpp \
+    src/Map/Tile.cpp \
+    src/Viewer/main.cpp
+
+HEADERS += \
+    include/Chunk/Chunk.h \
+    include/Map/Entity.h \
+    include/Map/Tile.h \
+    include/Map/TileType.h
