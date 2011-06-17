@@ -9,10 +9,11 @@ namespace Config
       */
     class Config
     {
-        /**
-          * Taille d'un chunk
-          */
-        static const int CHUNK_SIZE = 32;
+        public:
+            /**
+              * Taille d'un chunk
+              */
+            static const int CHUNK_SIZE = 32;
     };
 }
 #endif //CONFIG_CONFIG_H
