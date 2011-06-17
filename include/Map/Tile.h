@@ -44,6 +44,28 @@ namespace Map
             * Position Y dans le tileset.
             */
           qint32 _y;
+      public:
+          /**
+            * Renvoie les capacités de la tile
+            */
+          int getFlags() const;
+          /**
+            * Renvoie le type de la tile.
+            */
+          TileType getType() const;
+          /**
+            * Renvoie la productivité de la tile.
+            */
+          qint32 getOutput() const;
+          /**
+            * Renvoie la position X de la tile dans le tileset.
+            */
+          qint32 getX() const;
+          /**
+            * Renvoie la position Y de la tile dans le tileset.
+            */
+          qint32 getY() const;
+
 
     };
 }
