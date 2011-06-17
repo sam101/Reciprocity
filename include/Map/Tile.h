@@ -26,7 +26,7 @@ namespace Map
            /**
              * Capacités de la tile
              */
-           int _flags;
+           qint32 _flags;
            /**
              * Type de la tile
              */
@@ -46,9 +46,13 @@ namespace Map
           qint32 _y;
       public:
           /**
+            * Constructeur
+            */
+          Tile(qint32 flags, TileType type, qint32 output, qint32 x, qint32 y);
+          /**
             * Renvoie les capacités de la tile
             */
-          int getFlags() const;
+          qint32 getFlags() const;
           /**
             * Renvoie le type de la tile.
             */
