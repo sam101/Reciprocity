@@ -36,6 +36,7 @@ namespace Map
              */
           qint32 _output;
 
+          //TODO: Un peu pourri comme système. A changer.
           /**
             * Position X dans le tileset.
             */
