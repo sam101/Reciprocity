@@ -12,7 +12,21 @@ namespace Chunk
       */
     class Chunk
     {
+        public:
+            /**
+              * Type du chunk
+              */
+            enum ChunkType
+            {
+                SEA = 0,
+                ISLAND = 1
+            };
+
         protected:
+            /**
+              * Type du chunk
+              */
+            ChunkType _type;
             /**
               * Tableau de tiles du chunk
               */
