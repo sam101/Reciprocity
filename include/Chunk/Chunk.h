@@ -24,6 +24,14 @@ namespace Chunk
 
         protected:
             /**
+              * Position X du chunk
+              */
+            qint32 _x;
+            /**
+              * Position Y du chunk
+              */
+            qint32 _y;
+            /**
               * Type du chunk
               */
             ChunkType _type;
@@ -41,6 +49,15 @@ namespace Chunk
               * Constructeur
               */
             Chunk(ChunkType type = SEA);
+            /**
+              * Renvoie une tile du chunk
+              */
+            Map::Tile& getTile(int x, int y);
+            /**
+              * Renvoie une tile du chunk.
+              * surchargé constant.
+              */
+            const MapTile& getTile(int x, int y) const;
 
 
     };
