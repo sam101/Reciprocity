@@ -57,7 +57,7 @@ namespace Chunk
               * Renvoie une tile du chunk.
               * surchargé constant.
               */
-            const MapTile& getTile(int x, int y) const;
+            const Map::Tile& getTile(int x, int y) const;
 
 
     };
