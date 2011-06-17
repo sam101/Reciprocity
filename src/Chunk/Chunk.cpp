@@ -5,7 +5,9 @@ namespace Chunk
     /**
       * Constructeur
       */
-    Chunk::Chunk(ChunkType type) :
+    Chunk::Chunk(qint32 x, qint32 y, ChunkType type) :
+    _x(x),
+    _y(y),
     _type(type)
     {
         /*
@@ -29,6 +31,20 @@ namespace Chunk
                 _entities[i][j] = -1;
             }
         }
+    }
+    /**
+      * Renvoie la position x du chunk
+      */
+    qint32 Chunk::getX() const
+    {
+        return _x;
+    }
+    /**
+      * Renvoie la position y du chunk
+      */
+    qint32 Chunk::getY() const
+    {
+        return _y;
     }
     /**
       * Renvoie une tile du chunk

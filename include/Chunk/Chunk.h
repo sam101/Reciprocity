@@ -48,7 +48,15 @@ namespace Chunk
             /**
               * Constructeur
               */
-            Chunk(ChunkType type = SEA);
+            Chunk(qint32 x, qint32 y, ChunkType type = SEA);
+            /**
+              * Renvoie la position x du chunk
+              */
+            qint32 getX() const;
+            /**
+              * Renvoie la position y du chunk
+              */
+            qint32 getY() const;
             /**
               * Renvoie une tile du chunk
               */
