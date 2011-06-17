@@ -16,5 +16,18 @@ namespace Chunk
         {
             _tiles[i].resize(Config::Config::CHUNK_SIZE);
         }
+        /*
+         * On construit le tableau des id d'entités
+         */
+        _entities.resize(Config::Config::CHUNK_SIZE);
+        for (int i = 0; i < _entities.size(); i++)
+        {
+            _entities.resize(Config::Config::CHUNK_SIZE);
+
+            for (int j = 0; j < _entities[i].size(); i++)
+            {
+                _entities[i][j] = -1;
+            }
+        }
     }
 }

@@ -32,9 +32,9 @@ namespace Chunk
               */
             QVector<QVector<Map::Tile> > _tiles;
             /**
-              * Entitées présentes dans le chunk
+              * Id des entitées présentes dans le chunk
               */
-            QVector<QVector<Map::Entity*> > _entities;
+            QVector<QVector<int> > _entities;
 
     public:
             /**
