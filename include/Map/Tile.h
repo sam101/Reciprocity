@@ -48,7 +48,7 @@ namespace Map
           /**
             * Constructeur
             */
-          Tile(qint32 flags, TileType type, qint32 output, qint32 x, qint32 y);
+          Tile(qint32 flags = PASSABLE, TileType type = GRASS  , qint32 output = 0, qint32 x = 0, qint32 y = 0);
           /**
             * Renvoie les capacités de la tile
             */

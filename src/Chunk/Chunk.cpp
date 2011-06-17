@@ -33,6 +33,13 @@ namespace Chunk
         }
     }
     /**
+      * Renvoie le type du chunk
+      */
+    Chunk::ChunkType Chunk::getType() const
+    {
+        return _type;
+    }
+    /**
       * Renvoie la position x du chunk
       */
     qint32 Chunk::getX() const

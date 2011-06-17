@@ -19,4 +19,5 @@ HEADERS += \
     include/Map/Entity.h \
     include/Map/Tile.h \
     include/Map/TileType.h \
-    include/Config/Config.h
+    include/Config/Config.h \
+    include/World/World.h

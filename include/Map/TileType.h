@@ -11,9 +11,13 @@ namespace Map
     enum TileType
     {
         /**
+          * Rien du tout
+          */
+        NOTHING = 0,
+        /**
           * Herbe
           */
-        GRASS = 0
+        GRASS = 1
     };
 }
 #endif

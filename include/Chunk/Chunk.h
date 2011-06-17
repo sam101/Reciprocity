@@ -58,6 +58,10 @@ namespace Chunk
               */
             qint32 getY() const;
             /**
+              * Renvoie le type du chunk
+              */
+            ChunkType getType() const;
+            /**
               * Renvoie une tile du chunk
               */
             Map::Tile& getTile(int x, int y);
