@@ -1,5 +1,6 @@
 #ifndef CHUNK_CHUNK_H
 #define CHUNK_CHUNK_H
+#include <Chunk/ChunkType.h>
 #include <Map/Entity.h>
 #include <Map/Tile.h>
 #include <QtCore/QVector>
@@ -13,14 +14,6 @@ namespace Chunk
     class Chunk
     {
         public:
-            /**
-              * Type du chunk
-              */
-            enum ChunkType
-            {
-                SEA = 0,
-                ISLAND = 1
-            };
 
         protected:
             /**

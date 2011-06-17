@@ -35,7 +35,7 @@ namespace Chunk
     /**
       * Renvoie le type du chunk
       */
-    Chunk::ChunkType Chunk::getType() const
+    ChunkType Chunk::getType() const
     {
         return _type;
     }

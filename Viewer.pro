@@ -20,4 +20,5 @@ HEADERS += \
     include/Map/Tile.h \
     include/Map/TileType.h \
     include/Config/Config.h \
-    include/World/World.h
+    include/World/World.h \
+    include/Chunk/ChunkType.h
