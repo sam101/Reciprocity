@@ -37,6 +37,11 @@ namespace Chunk
             QVector<QVector<Map::Entity*> > _entities;
 
     public:
+            /**
+              * Constructeur
+              */
+            Chunk(ChunkType type = SEA);
+
 
     };
 }

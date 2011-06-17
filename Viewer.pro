@@ -18,4 +18,5 @@ HEADERS += \
     include/Chunk/Chunk.h \
     include/Map/Entity.h \
     include/Map/Tile.h \
-    include/Map/TileType.h
+    include/Map/TileType.h \
+    include/Config/Config.h
