@@ -13,7 +13,8 @@ SOURCES += \
     src/Map/Entity.cpp \
     src/Map/Tile.cpp \
     src/Viewer/main.cpp \
-    src/World/World.cpp
+    src/World/World.cpp \
+    src/Chunk/ChunkGenerator.cpp
 
 HEADERS += \
     include/Chunk/Chunk.h \
@@ -22,4 +23,5 @@ HEADERS += \
     include/Map/TileType.h \
     include/Config/Config.h \
     include/World/World.h \
-    include/Chunk/ChunkType.h
+    include/Chunk/ChunkType.h \
+    include/Chunk/ChunkGenerator.h
