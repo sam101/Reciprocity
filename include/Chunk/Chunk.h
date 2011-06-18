@@ -57,12 +57,12 @@ namespace Chunk
             /**
               * Renvoie une tile du chunk
               */
-            Map::Tile& getTile(int x, int y);
+            Map::Tile& getTile(qint32 x, qint32 y);
             /**
               * Renvoie une tile du chunk.
               * surchargé constant.
               */
-            const Map::Tile& getTile(int x, int y) const;
+            const Map::Tile& getTile(qint32 x, qint32 y) const;
 
 
     };

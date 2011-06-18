@@ -56,7 +56,7 @@ namespace Chunk
     /**
       * Renvoie une tile du chunk
       */
-    Map::Tile& Chunk::getTile(int x, int y)
+    Map::Tile& Chunk::getTile(qint32 x, qint32 y)
     {
         return _tiles[y - _y][x - _x];
     }
@@ -64,7 +64,7 @@ namespace Chunk
       * Renvoie une tile du chunk.
       * surchargé constant.
       */
-    const Map::Tile& Chunk::getTile(int x, int y) const
+    const Map::Tile& Chunk::getTile(qint32 x, qint32 y) const
     {
         return _tiles[y - _y][x - _x];
     }
