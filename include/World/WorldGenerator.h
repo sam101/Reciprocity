@@ -23,6 +23,15 @@ namespace World
               * Constructeur
               */
             WorldGenerator(World *world);
+            /**
+              * Demande la génération d'un chunk.
+              * Peut entrainer en cascade la génération d'autres
+              * chunk.
+              * @param x Position X du chunk à générer.
+              * @param y Position Y du chunk à générer.
+              */
+            virtual void generate(qint32 x, qint32 y);
     };
+
 }
 #endif //WORLD_WORLDGENERATOR_H
