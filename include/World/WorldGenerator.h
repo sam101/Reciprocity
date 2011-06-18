@@ -1,5 +1,6 @@
 #ifndef WORLD_WORLDGENERATOR_H
 #define WORLD_WORLDGENERATOR_H
+#include <QtCore/Qt>
 namespace World
 {
     class World;
@@ -23,6 +24,10 @@ namespace World
               * Constructeur
               */
             WorldGenerator(World *world);
+            /**
+              * Destructeur
+              */
+            virtual ~WorldGenerator();
             /**
               * Demande la génération d'un chunk.
               * Peut entrainer en cascade la génération d'autres

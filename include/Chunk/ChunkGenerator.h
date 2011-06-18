@@ -16,7 +16,7 @@ namespace Chunk
               * Genère un chunk
               * @param chunk Pointeur vers le chunk a générer (déjà alloué)
               */
-            virtual void generate(Chunk::Chunk *chunk) = 0;
+            virtual void generate(Chunk *chunk) = 0;
     };
 }
 #endif //CHUNK_CHUNKGENERATOR_H
