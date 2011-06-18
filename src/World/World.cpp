@@ -25,6 +25,21 @@ namespace World
       */
     Chunk::Chunk* World::getChunk(int x, int y)
     {
+        //On gère les cas positifs/négatifs.
+        if (x < 0)
+        {
+            if (y < 0)
+            {
 
+            }
+            else
+            {
+
+            }
+        }
+        else
+        {
+
+        }
     }
 }

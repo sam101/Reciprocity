@@ -18,4 +18,4 @@ namespace Chunk
     };
 
 }
-#endif // CHUNKTYPE_H
+#endif //CHUNK_CHUNKTYPE_H
