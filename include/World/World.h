@@ -41,6 +41,17 @@ namespace World
                   * dans le monde
                   */
                 virtual ~World();
-    };
+                /**
+                  * Renvoie un chunk du monde. Les coordonnées
+                  * sont par chunk (et non par tile).
+                  * Cette méthode n'est pas const car il y'a possibilité
+                  * de génération d'un nouveau chunk à l'appel.
+                  */
+                Chunk::Chunk* getChunk(int x, int y);
+                /**
+                  * Renvoie une tile du monde
+                  */
+                Map::Tile& getTile(int x, int y);
+    };   
 }
 #endif //WORLD_WORLD_H
