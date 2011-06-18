@@ -3,6 +3,7 @@
 #include <QtCore/QVector>
 
 #include <Chunk/Chunk.h>
+#include <World/WorldGenerator.h>
 namespace World
 {
     /**
@@ -14,6 +15,10 @@ namespace World
     class World
     {
         protected:
+            /**
+              * Pointeur vers le générateur du monde
+              */
+            WorldGenerator *_generator;
             /**
               * Tableau des chunks en haut à gauche
               */
