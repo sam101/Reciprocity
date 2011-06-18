@@ -12,6 +12,10 @@ namespace Chunk
     class ChunkGenerator
     {
         public:
+            /**
+              * Genère un chunk
+              * @param chunk Pointeur vers le chunk a générer (déjà alloué)
+              */
             virtual void generate(Chunk::Chunk *chunk) = 0;
     };
 }
