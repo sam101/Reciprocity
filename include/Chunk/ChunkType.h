@@ -7,8 +7,14 @@ namespace Chunk
       */
     enum ChunkType
     {
+        /**
+          * Chunk contenant que de l'eau et de petites iles
+          */
         SEA = 0,
-         LAND = 1
+        /**
+          * Chunk contenant uniquement un monde intérieur parsemé de lacs
+          */
+        LAND = 1
     };
 
 }
