@@ -54,7 +54,8 @@ namespace World
                   */
                 Chunk::Chunk* getChunk(int x, int y);
                 /**
-                  * Renvoie une tile du monde
+                  * Renvoie une tile du monde.
+                  * N'est pas const car possibiliré de génération d'un chunk.
                   */
                 Map::Tile& getTile(int x, int y);
     };   

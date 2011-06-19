@@ -1,4 +1,5 @@
 #include <World/World.h>
+#include <Config/Config.h>
 namespace World
 {
     /**
@@ -75,6 +76,35 @@ namespace World
                     _generator->generate(x,y);
                 }
                 return _chunkBR[x][y];
+            }
+        }
+    }
+    /**
+      * Renvoie une tile du monde.
+      * N'est pas const car possibiliré de génération d'un chunk.
+      */
+    Map::Tile& World::getTile(int x, int y)
+    {
+        if (x < 0)
+        {
+            if (y < 0)
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE - 1)->getTile(x,y);
+            }
+            else
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE + 1)->getTile(x,y);
+            }
+        }
+        else
+        {
+            if (y < 0)
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE - 1)->getTile(x,y);
+            }
+            else
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE + 1)->getTile(x,y);
             }
         }
     }
