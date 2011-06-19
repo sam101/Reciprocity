@@ -68,4 +68,11 @@ namespace Chunk
     {
         return _tiles[y - _y][x - _x];
     }
+    /**
+      * Définit le type du chunk
+      */
+    void Chunk::setType(ChunkType type)
+    {
+        _type = type;
+    }
 }

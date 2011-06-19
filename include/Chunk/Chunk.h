@@ -63,7 +63,10 @@ namespace Chunk
               * surchargé constant.
               */
             const Map::Tile& getTile(qint32 x, qint32 y) const;
-
+            /**
+              * Défini le type du chunk
+              */
+            void setType(ChunkType type);
 
     };
 }
