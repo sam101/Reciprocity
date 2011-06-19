@@ -81,7 +81,7 @@ namespace World
                 {
                     oldSize = _world->_chunkBR.size();
                     _world->_chunkBR[i].resize(x + 1);
-                    for (int j = oldSize; j < (abs(x) + 1); j++)
+                    for (int j = oldSize; j < (x + 1); j++)
                     {
                         _world->_chunkBR[i][j] = new Chunk::Chunk(j * Config::Config::CHUNK_SIZE, i * Config::Config::CHUNK_SIZE);
                     }

@@ -28,6 +28,9 @@ namespace World
         {
             delete _generator;
         }
+        /*
+         * On détruit le tableau de chunk
+         */
     }
     /**
       * Renvoie un chunk du monde. Les coordonnées
