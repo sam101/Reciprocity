@@ -47,7 +47,7 @@ namespace World
                 {
                     _generator->generate(x,y);
                 }
-                return _chunkTL[abs(x)][y];
+                return _chunkTL[y][abs(x)];
             }
             else
             {
@@ -55,7 +55,7 @@ namespace World
                 {
                     _generator->generate(x,y);
                 }
-                return _chunkBL[abs(x)][y];
+                return _chunkBL[y][abs(x)];
             }
         }
         else
@@ -67,7 +67,7 @@ namespace World
                 {
                     _generator->generate(x,y);
                 }
-                return _chunkTR[x][abs(y)];
+                return _chunkTR[abs(y)][x];
             }
             else
             {
@@ -75,7 +75,7 @@ namespace World
                 {
                     _generator->generate(x,y);
                 }
-                return _chunkBR[x][y];
+                return _chunkBR[y][x];
             }
         }
     }
