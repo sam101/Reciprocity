@@ -18,23 +18,19 @@ namespace World
 
     }
     /**
-      * Demande la génération d'un chunk.
-      * Peut entrainer en cascade la génération d'autres
-      * chunk.
-      * @param x Position X du chunk à générer.
-      * @param y Position Y du chunk à générer.
+      * Redimensionne la taille des tableaux de chunk
       */
-    void WorldGenerator::generate(qint32 x, qint32 y)
+    void WorldGenerator::_redim(qint32 x, qint32 y)
     {
         if (y < 0)
         {
-            if (y > _world->_chunkBL.size())
-            {
-
-            }
-
             if (x < 0)
             {
+                if (y >= _world->_chunkBL.size())
+                {
+                    _world->_chunkBL.resize(y);
+                }
+
             }
             else
             {
@@ -52,5 +48,17 @@ namespace World
 
             }
         }
+
+    }
+    /**
+      * Demande la génération d'un chunk.
+      * Peut entrainer en cascade la génération d'autres
+      * chunk.
+      * @param x Position X du chunk à générer.
+      * @param y Position Y du chunk à générer.
+      */
+    void WorldGenerator::generate(qint32 x, qint32 y)
+    {
+        _redim(x,y);
     }
 }

@@ -20,6 +20,10 @@ namespace World
               * Pointeur vers le monde à générer
               */
             World *_world;
+            /**
+              * Redimensionne la taille des tableaux de chunk
+              */
+            void _redim(qint32 x, qint32 y);
         public:
             /**
               * Constructeur
