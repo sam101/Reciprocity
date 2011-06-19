@@ -26,6 +26,27 @@ namespace World
       */
     void WorldGenerator::generate(qint32 x, qint32 y)
     {
+        if (y < 0)
+        {
+            if (x < 0)
+            {
 
+            }
+            else
+            {
+
+            }
+        }
+        else
+        {
+            if (x < 0)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
     }
 }
