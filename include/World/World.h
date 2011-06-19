@@ -26,7 +26,7 @@ namespace World
             /**
               * Tableau des chunks en haut à droite
               */
-                QVector<QVector<Chunk::Chunk*> > _chunkTR;
+            QVector<QVector<Chunk::Chunk*> > _chunkTR;
             /**
               * Tableau des chunks en bas à gauche
               */
@@ -34,7 +34,7 @@ namespace World
             /**
               * Tableau des chunks en bas à droite
               */
-                QVector<QVector<Chunk::Chunk*> > _chunkBR;
+             QVector<QVector<Chunk::Chunk*> > _chunkBR;
         public:
                 /**
                   * Constructeur

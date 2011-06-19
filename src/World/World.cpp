@@ -4,12 +4,16 @@ namespace World
     /**
       * Constructeur
       */
-    World::World()
+    World::World() :
+    _generator(NULL)
     {
+        //On donne la taille de départ du tableau
         _chunkTL.resize(1);
         _chunkTR.resize(1);
         _chunkBL.resize(1);
         _chunkBR.resize(1);
+        //On alloue le générateur
+        _generator = new WorldGenerator(this);
 
     }
     /**
@@ -19,7 +23,10 @@ namespace World
       */
     World::~World()
     {
-
+        if (_generator != NULL)
+        {
+            delete _generator;
+        }
     }
     /**
       * Renvoie un chunk du monde. Les coordonnées
