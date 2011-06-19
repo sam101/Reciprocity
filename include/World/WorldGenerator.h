@@ -22,7 +22,7 @@ namespace World
             /**
               * Redimensionne la taille des tableaux de chunk
               */
-            void _redim(qint32 x, qint32 y);
+            QList<Chunk::Chunk*> _redim(qint32 x, qint32 y);
         public:
             /**
               * Constructeur

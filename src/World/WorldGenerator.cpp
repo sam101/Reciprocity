@@ -21,9 +21,11 @@ namespace World
     /**
       * Redimensionne la taille des tableaux de chunk.
       * Positionne aussi la position des chunk nouvellement conçus.
+      * @return La liste des chunk à générer
       */
-    void WorldGenerator::_redim(qint32 x, qint32 y)
+    QList<Chunk::Chunk*> WorldGenerator::_redim(qint32 x, qint32 y)
     {
+        QList<Chunk::Chunk*> list;
         int oldSize;
         if (y < 0)
         {
@@ -98,6 +100,7 @@ namespace World
 
             }
         }
+        return list;
 
     }
     /**
@@ -110,5 +113,6 @@ namespace World
     void WorldGenerator::generate(qint32 x, qint32 y)
     {
         _redim(x,y);
+
     }
 }
