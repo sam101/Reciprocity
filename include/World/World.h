@@ -14,6 +14,7 @@ namespace World
       */
     class World
     {
+        friend class WorldGenerator;
         protected:
             /**
               * Pointeur vers le générateur du monde

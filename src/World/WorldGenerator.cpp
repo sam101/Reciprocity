@@ -26,14 +26,28 @@ namespace World
         {
             if (x < 0)
             {
-                if (y >= _world->_chunkBL.size())
+                y = abs(y);
+                x = abs(x);
+                if (y >= _world->_chunkTL.size())
                 {
-                    _world->_chunkBL.resize(y);
+                    _world->_chunkTL.resize(y + 1);
                 }
-
+                for (int i = 0; i <= y; i++)
+                {
+                    _world->_chunkTL[i].resize(x + 1);
+                }
             }
             else
             {
+                y = abs(y);
+                if (y >= _world->_chunkTR.size())
+                {
+                    _world->_chunkTR.resize(y + 1);
+                }
+                for (int i = 0; i <= y; i++)
+                {
+                    _world->_chunkTR[i].resize(x + 1);
+                }
 
             }
         }
@@ -41,10 +55,26 @@ namespace World
         {
             if (x < 0)
             {
-
+                x = abs(x);
+                if (y >= _world->_chunkBL.size())
+                {
+                    _world->_chunkBL.resize(y + 1);
+                }
+                for (int i = 0; i <= y; i++)
+                {
+                    _world->_chunkBL[i].resize(x + 1);
+                }
             }
             else
             {
+                if (y >= _world->_chunkBR.size())
+                {
+                    _world->_chunkBR.resize(y + 1);
+                }
+                for (int i = 0; i <= y; i++)
+                {
+                    _world->_chunkBR[i].resize(x + 1);
+                }
 
             }
         }
