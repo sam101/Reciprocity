@@ -18,10 +18,12 @@ namespace World
 
     }
     /**
-      * Redimensionne la taille des tableaux de chunk
+      * Redimensionne la taille des tableaux de chunk.
+      * Positionne aussi la position des chunk nouvellement conçus.
       */
     void WorldGenerator::_redim(qint32 x, qint32 y)
     {
+        int oldSize;
         if (y < 0)
         {
             if (x < 0)
@@ -34,6 +36,7 @@ namespace World
                 }
                 for (int i = 0; i <= y; i++)
                 {
+                    oldSize = _world->_chunkTL.size();
                     _world->_chunkTL[i].resize(x + 1);
                 }
             }
@@ -46,6 +49,7 @@ namespace World
                 }
                 for (int i = 0; i <= y; i++)
                 {
+                    oldSize = _world->_chunkTR.size();
                     _world->_chunkTR[i].resize(x + 1);
                 }
 
@@ -62,6 +66,7 @@ namespace World
                 }
                 for (int i = 0; i <= y; i++)
                 {
+                    oldSize = _world->_chunkBL.size();
                     _world->_chunkBL[i].resize(x + 1);
                 }
             }
@@ -73,6 +78,7 @@ namespace World
                 }
                 for (int i = 0; i <= y; i++)
                 {
+                    oldSize = _world->_chunkBR.size();
                     _world->_chunkBR[i].resize(x + 1);
                 }
 
