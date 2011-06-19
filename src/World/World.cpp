@@ -47,15 +47,15 @@ namespace World
                 {
                     _generator->generate(x,y);
                 }
-                return _chunkTL[x][y];
+                return _chunkTL[abs(x)][y];
             }
             else
             {
-                if (abs(x) >= _chunkBL[0].size() || abs(y) >= _chunkBL.size())
+                if (abs(x) >= _chunkBL[0].size() || y >= _chunkBL.size())
                 {
                     _generator->generate(x,y);
                 }
-                return _chunkBL[x][y];
+                return _chunkBL[abs(x)][y];
             }
         }
         else
@@ -67,7 +67,7 @@ namespace World
                 {
                     _generator->generate(x,y);
                 }
-                return _chunkTR[x][y];
+                return _chunkTR[x][abs(y)];
             }
             else
             {
