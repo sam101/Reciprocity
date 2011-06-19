@@ -28,9 +28,13 @@ namespace World
     {
         if (y < 0)
         {
-            if (x < 0)
+            if (y > _world->_chunkBL.size())
             {
 
+            }
+
+            if (x < 0)
+            {
             }
             else
             {
