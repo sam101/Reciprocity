@@ -36,15 +36,6 @@ namespace Map
              */
           qint32 _output;
 
-          //TODO: Un peu pourri comme système. A changer.
-          /**
-            * Position X dans le tileset.
-            */
-          qint32 _x;
-          /**
-            * Position Y dans le tileset.
-            */
-          qint32 _y;
       public:
           /**
             * Constructeur

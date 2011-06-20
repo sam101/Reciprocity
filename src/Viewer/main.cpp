@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
     World::World w;
 
-    for (int i = -31; i < 32 ; i++)
+    for (int i = -3100; i < 32 ; i++)
     {
         for (int j = -31; j < 32; j++)
         {
