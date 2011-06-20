@@ -15,9 +15,21 @@ namespace Map
           */
         NOTHING = 0,
         /**
-          * Herbe
+          * Mer
           */
-        GRASS = 1
+        SEA = 1,
+        /**
+          * Plaines
+          */
+        LOWLAND = 2,
+        /**
+          * Forêt
+          */
+        FOREST = 3,
+        /**
+          * Lac
+          */
+        LAKE = 4
     };
 }
 #endif
