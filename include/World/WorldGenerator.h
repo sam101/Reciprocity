@@ -1,5 +1,7 @@
 #ifndef WORLD_WORLDGENERATOR_H
 #define WORLD_WORLDGENERATOR_H
+#include <Chunk/Chunk.h>
+#include <QtCore/QList>
 #include <QtCore/Qt>
 namespace World
 {

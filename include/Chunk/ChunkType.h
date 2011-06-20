@@ -14,7 +14,12 @@ namespace Chunk
         /**
           * Chunk contenant uniquement un monde intérieur parsemé de lacs
           */
-        LAND = 1
+        LAND = 1,
+
+        /**
+          * Nombre de types de chunk
+          */
+        LAST = 2
     };
 
 }

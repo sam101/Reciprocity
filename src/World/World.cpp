@@ -1,5 +1,6 @@
 #include <World/World.h>
 #include <Config/Config.h>
+#include <QDebug>
 namespace World
 {
     /**
@@ -78,6 +79,8 @@ namespace World
                 {
                     _generator->generate(x,y);
                 }
+
+
                 return _chunkBR[y][x];
             }
         }
