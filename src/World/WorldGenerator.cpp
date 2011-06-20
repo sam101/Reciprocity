@@ -136,7 +136,7 @@ namespace World
         while (it.hasNext())
         {
             current = it.next();
-            qDebug() << "Chunk:" << current->getX() << current->getY();
+
         }
 
     }

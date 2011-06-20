@@ -7,7 +7,9 @@ namespace Map
     Tile::Tile(qint32 x, qint32 y,qint32 flags, TileType type, qint32 output) :
     _flags(flags),
     _type(type),
-    _output(output)
+    _output(output),
+    _x(x),
+    _y(y)
     {
 
     }

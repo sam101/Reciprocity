@@ -35,6 +35,14 @@ namespace Map
              * Productivité de la tile
              */
           qint32 _output;
+          /**
+            * Position X de la tile
+            */
+          qint32 _x;
+          /**
+            * Position Y de la tile
+            */
+          qint32 _y;
 
       public:
           /**
