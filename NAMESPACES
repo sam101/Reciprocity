@@ -8,3 +8,7 @@ ___________________
 ___________________
 Contient les informations liées aux diverses tiles et entités
 d'une carte.
+_____________________
+        World
+_____________________
+Contient les classes gérant le monde du jeu et sa génération.
