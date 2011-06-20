@@ -1,4 +1,5 @@
 #include <Chunk/SeaChunkGenerator.h>
+#include <Config/Config.h>
 namespace Chunk
 {
     /**
@@ -7,6 +8,15 @@ namespace Chunk
       */
     void SeaChunkGenerator::generate(Chunk *chunk)
     {
+        /**
+          * On remplit le chunk de mer
+          */
+        for (int i = 0; i < Config::Config::CHUNK_SIZE; i++)
+        {
+            for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
+            {
 
+            }
+        }
     }
 }
