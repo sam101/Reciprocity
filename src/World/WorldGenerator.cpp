@@ -32,6 +32,7 @@ namespace World
         {
             if (x < 0)
             {
+                x = abs(x);
                 if (abs(y) >= _world->_chunkTL.size())
                 {
                     _world->_chunkTL.resize(abs(y) + 1);
@@ -39,11 +40,12 @@ namespace World
                 for (int i = 1; i <= abs(y); i++)
                 {
                     oldSize = _world->_chunkTL[i].size();
+                    oldSize = oldSize == 0 ? 1 : oldSize;
                     _world->_chunkTL[i].resize(abs(x) + 1);
                     for (int j = oldSize; j <= x; j++)
                     {
-                        qDebug() << "Génération du chunk:" << j << "," << i << "Position:" << -1 * j * Config::Config::CHUNK_SIZE - 1 << -1 * i * Config::Config::CHUNK_SIZE - 1;
-                        _world->_chunkTL[i][j] = new Chunk::Chunk(-1 * j * Config::Config::CHUNK_SIZE - 1, -1 * i * Config::Config::CHUNK_SIZE - 1);
+                        qDebug() << "Génération du chunk:-" << j << ",-" << i << "Position:" << -1 * (j - 1) * Config::Config::CHUNK_SIZE - 1 << -1 * (i - 1) * Config::Config::CHUNK_SIZE - 1;
+                        _world->_chunkTL[i][j] = new Chunk::Chunk(-1 * (j - 1) * Config::Config::CHUNK_SIZE - 1, -1 * (i - 1) * Config::Config::CHUNK_SIZE - 1);
                         list.push_back(_world->_chunkTL[i][j]);
                     }
                 }
@@ -57,11 +59,12 @@ namespace World
                 for (int i = 1; i <= abs(y); i++)
                 {
                     oldSize = _world->_chunkTR[i].size();
+                    oldSize = oldSize == 0 ? 1 : oldSize;
                     _world->_chunkTR[i].resize(x + 1);
                     for (int j = oldSize; j <= x; j++)
                     {                      
-                        qDebug() << "Génération du chunk:" << j << "," << i << "Position:" << j * Config::Config::CHUNK_SIZE << -1 * i * Config::Config::CHUNK_SIZE - 1 ;
-                        _world->_chunkTR[i][j] = new Chunk::Chunk(j * Config::Config::CHUNK_SIZE, -1 * i * Config::Config::CHUNK_SIZE - 1);
+                        qDebug() << "Génération du chunk:" << j << ", -" << i << "Position:" << (j - 1) * Config::Config::CHUNK_SIZE << -1 * (i - 1) * Config::Config::CHUNK_SIZE - 1 ;
+                        _world->_chunkTR[i][j] = new Chunk::Chunk((j - 1) * Config::Config::CHUNK_SIZE, -1 * (i - 1) * Config::Config::CHUNK_SIZE - 1);
                         list.push_back(_world->_chunkTR[i][j]);
                     }
 
@@ -73,6 +76,7 @@ namespace World
         {
             if (x < 0)
             {
+                x = abs(x);
                 if (y >= _world->_chunkBL.size())
                 {
                     _world->_chunkBL.resize(y + 1);
@@ -80,11 +84,12 @@ namespace World
                 for (int i = 1; i <= y; i++)
                 {
                     oldSize = _world->_chunkBL[i].size();
+                    oldSize = oldSize == 0 ? 1 : oldSize;
                     _world->_chunkBL[i].resize(abs(x) + 1);
                     for (int j = oldSize; j <= abs(x); j++)
                     {                        
-                        qDebug() << "Génération du chunk:" << j << "," << i << "Position:" << -1 * j * Config::Config::CHUNK_SIZE - 1 << i * Config::Config::CHUNK_SIZE;
-                        _world->_chunkBL[i][j] = new Chunk::Chunk(-1 * j * Config::Config::CHUNK_SIZE - 1, i * Config::Config::CHUNK_SIZE);
+                        qDebug() << "Génération du chunk: -" << j << "," << i << "Position:" << -1 * (j - 1) * Config::Config::CHUNK_SIZE - 1 << (i - 1) * Config::Config::CHUNK_SIZE;
+                        _world->_chunkBL[i][j] = new Chunk::Chunk(-1 * (j - 1) * Config::Config::CHUNK_SIZE - 1, (i - 1)  * Config::Config::CHUNK_SIZE);
                         list.push_back(_world->_chunkBL[i][j]);
                     }
                 }
@@ -98,11 +103,12 @@ namespace World
                 for (int i = 1; i <= y; i++)
                 {
                     oldSize = _world->_chunkBR[i].size();
+                    oldSize = oldSize == 0 ? 1 : oldSize;
                     _world->_chunkBR[i].resize(x + 1);
                     for (int j = oldSize; j <= x; j++)
                     {                        
-                        qDebug() << "Génération du chunk:" << j << "," << i << "Position:" << j * Config::Config::CHUNK_SIZE << i * Config::Config::CHUNK_SIZE;
-                        _world->_chunkBR[i][j] = new Chunk::Chunk(j * Config::Config::CHUNK_SIZE, i * Config::Config::CHUNK_SIZE);
+                        qDebug() << "Génération du chunk:" << j << "," << i << "Position:" << (j - 1) * Config::Config::CHUNK_SIZE << (i - 1) * Config::Config::CHUNK_SIZE;
+                        _world->_chunkBR[i][j] = new Chunk::Chunk((j - 1) * Config::Config::CHUNK_SIZE, (i - 1) * Config::Config::CHUNK_SIZE);
                         list.push_back(_world->_chunkBR[i][j]);
                     }
                 }

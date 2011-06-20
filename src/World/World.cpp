@@ -51,7 +51,7 @@ namespace World
                 {
                     _generator->generate(x,y);
                 }
-                return _chunkTL[y][abs(x)];
+                return _chunkTL[abs(y)][abs(x)];
             }
             else
             {
