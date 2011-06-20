@@ -12,8 +12,13 @@ int main(int argc, char *argv[])
 
     World::World w;
 
-    qDebug() << w.getChunk(-1,-1)->getTile(-30,-30).getX() << w.getChunk(-1,-1)->getTile(-30,-30).getY();
-
+    for (int i = -31; i < 32 ; i++)
+    {
+        for (int j = -31; j < 32; j++)
+        {
+            qDebug() << "Tile:" << j << i << w.getTile(j,i).getX() << w.getTile(j,i).getY();
+        }
+    }
 
     return a.exec();
 }

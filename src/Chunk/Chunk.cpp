@@ -11,8 +11,8 @@ namespace Chunk
     _y(y),
     _type(type)
     {
-        int signX = x > 0 ? 1 : -1;
-        int signY = y > 0 ? 1 : -1;
+        int signX = x >= 0 ? 1 : -1;
+        int signY = y >= 0 ? 1 : -1;
         /*
          * On construit le tableau de tiles
          */
@@ -22,7 +22,7 @@ namespace Chunk
             _tiles[i].resize(Config::Config::CHUNK_SIZE);
             for (int j = 0; j < _tiles[i].size(); j++)
             {
-                _tiles[i][j] = Map::Tile(signX * j + _x,signY * i + _y );
+                _tiles[i][j] = Map::Tile(signX * j  + _x,signY * i + _y);
             }
         }
         /*
