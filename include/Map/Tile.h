@@ -19,7 +19,7 @@ namespace Map
               {
                     PASSABLE = 1,
                     BOAT_PASSABLE = 2,
-                    FARMING = 4
+                    FARMING_CAPABLE = 4
               };
 
         protected:
