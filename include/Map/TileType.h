@@ -29,7 +29,15 @@ namespace Map
         /**
           * Lac
           */
-        LAKE = 4
+        LAKE = 4,
+        /**
+          * Rivière
+          */
+        RIVER = 5,
+        /**
+          * Montagnes
+          */
+        MOUNTAIN = 6
     };
 }
 #endif
