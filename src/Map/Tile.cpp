@@ -48,4 +48,23 @@ namespace Map
     {
         return _y;
     }
+    /**
+      * Définit les paramètres de la tile
+      */
+    void Tile::setTile(TileType type, qint32 flags)
+    {
+        _type = type;
+        if (flags != 0)
+        {
+            _flags = flags;
+        }
+    }
+    /**
+      * Définit le rendement de la tile.
+      */
+    void Tile::setOutput(qint32 output)
+    {
+        _output = output;
+    }
 }
+
