@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
     {
         for (int j = -31; j < 32; j++)
         {
-            qDebug() << "Tile:" << j << i << w.getTile(j,i).getX() << w.getTile(j,i).getY();
         }
     }
 

@@ -15,7 +15,7 @@ namespace Chunk
         {
             for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
             {
-                chunk->getTile(j,i).setTile(Map::SEA,BOAT_PASSABLE);
+                chunk->getTile(j,i).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
             }
         }
     }
