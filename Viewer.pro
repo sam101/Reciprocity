@@ -15,7 +15,8 @@ SOURCES += \
     src/Viewer/main.cpp \
     src/World/World.cpp \
     src/Chunk/ChunkGenerator.cpp \
-    src/World/WorldGenerator.cpp
+    src/World/WorldGenerator.cpp \
+    src/Chunk/SeaChunkGenerator.cpp
 
 HEADERS += \
     include/Chunk/Chunk.h \
@@ -26,4 +27,5 @@ HEADERS += \
     include/World/World.h \
     include/Chunk/ChunkType.h \
     include/Chunk/ChunkGenerator.h \
-    include/World/WorldGenerator.h
+    include/World/WorldGenerator.h \
+    include/Chunk/SeaChunkGenerator.h
