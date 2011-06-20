@@ -129,5 +129,15 @@ namespace World
     {
         QList<Chunk::Chunk*> listToGenerate = _redim(x,y);
 
+        Chunk::Chunk *current;
+
+        QListIterator<Chunk::Chunk*> it(listToGenerate);
+
+        while (it.hasNext())
+        {
+            current = it.next();
+            qDebug() << "Chunk:" << current->getX() << current->getY();
+        }
+
     }
 }

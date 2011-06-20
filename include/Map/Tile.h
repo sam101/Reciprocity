@@ -53,14 +53,7 @@ namespace Map
             * Renvoie la productivité de la tile.
             */
           qint32 getOutput() const;
-          /**
-            * Renvoie la position X de la tile dans le tileset.
-            */
-          qint32 getX() const;
-          /**
-            * Renvoie la position Y de la tile dans le tileset.
-            */
-          qint32 getY() const;
+
           /**
             * Définit les paramètres de la tile
             */

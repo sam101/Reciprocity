@@ -7,9 +7,7 @@ namespace Map
     Tile::Tile(qint32 x, qint32 y,qint32 flags, TileType type, qint32 output) :
     _flags(flags),
     _type(type),
-    _output(output),
-    _x(x),
-    _y(y)
+    _output(output)
     {
 
     }
@@ -34,20 +32,7 @@ namespace Map
     {
         return _output;
     }
-    /**
-      * Renvoie la position X de la tile dans le tileset.
-      */
-    qint32 Tile::getX() const
-    {
-        return _x;
-    }
-    /**
-      * Renvoie la position Y de la tile dans le tileset.
-      */
-    qint32 Tile::getY() const
-    {
-        return _y;
-    }
+
     /**
       * Définit les paramètres de la tile
       */
