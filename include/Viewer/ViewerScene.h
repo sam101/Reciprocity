@@ -2,6 +2,7 @@
 #define VIEWER_VIEWERSCENE_H
 #include <QtGui/QGraphicsPixmapItem>
 #include <QtGui/QGraphicsScene>
+#include <World/World.h>
 namespace Viewer
 {
     /**
@@ -12,7 +13,15 @@ namespace Viewer
     class ViewerScene : public QGraphicsScene
     {
         protected:
-
+            /**
+              * Pointeur vers l'objet de monde
+              */
+            World::World *_world;
+        public:
+        /**
+          * Constructeur
+          */
+        ViewerScene(World::World *world);
     };
 }
 #endif // VIEWERSCENE_H
