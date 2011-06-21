@@ -10,7 +10,7 @@ namespace World
     WorldGenerator::WorldGenerator(World *world) :
     _world(world)
     {
-
+        _initChunkGenerator();
     }
     /**
       * Destructeur
@@ -19,6 +19,14 @@ namespace World
     {
 
     }
+    /**
+      * Initialise les générateurs de chunk
+      */
+    void WorldGenerator::_initChunkGenerator()
+    {
+
+    }
+
     /**
       * Redimensionne la taille des tableaux de chunk.
       * Positionne aussi la position des chunk nouvellement conçus.

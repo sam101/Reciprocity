@@ -1,6 +1,7 @@
 #ifndef WORLD_WORLDGENERATOR_H
 #define WORLD_WORLDGENERATOR_H
 #include <Chunk/Chunk.h>
+#include <Chunk/ChunkGenerator.h>
 #include <QtCore/QList>
 #include <QtCore/Qt>
 namespace World
@@ -25,6 +26,14 @@ namespace World
               * Redimensionne la taille des tableaux de chunk
               */
             QList<Chunk::Chunk*> _redim(qint32 x, qint32 y);
+            /**
+              * Générateurs de chunk
+              */
+            QList<Chunk::ChunkGenerator*> _generators;
+            /**
+              * Initialise les générateurs de chunk.
+              */
+            void _initChunkGenerator();
         public:
             /**
               * Constructeur
