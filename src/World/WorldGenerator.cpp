@@ -156,6 +156,8 @@ namespace World
         while (it.hasNext())
         {
             current = it.next();
+            //On genère le type du chunk.
+            //TODO: Faire un truc moins aléatoire
         }
 
     }
