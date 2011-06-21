@@ -4,7 +4,10 @@ namespace Viewer
     /**
       * Constructeur
       */
-    ViewerItem::ViewerItem(World::World *world)
+    ViewerItem::ViewerItem(World::World *world) :
+    _world(world),
+    _xCamera(0),
+    _yCamera(0)
     {
 
     }

@@ -16,6 +16,14 @@ namespace Viewer
               * Pointeur vers l'objet de monde
               */
             World::World *_world;
+            /**
+              * Position X de la caméra
+              */
+            qint32 _xCamera;
+            /**
+              * Position Y de la caméra
+              */
+            qint32 _yCamera;
         public:
             /**
               * Constructeur
