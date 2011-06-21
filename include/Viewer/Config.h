@@ -10,7 +10,11 @@ namespace Viewer
       */
     class Config
     {
-
+        public:
+            /**
+              * Stocke la taille d'une tile
+              */
+            static const qint32 TILE_SIZE = 32;
     };
 }
 #endif //VIEWER_CONFIG_H
