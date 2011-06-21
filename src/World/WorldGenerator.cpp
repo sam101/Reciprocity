@@ -1,6 +1,9 @@
 #include <World/WorldGenerator.h>
 #include <World/World.h>
+
 #include <Config/Config.h>
+#include <Chunk/SeaChunkGenerator.h>
+
 #include <QDebug>
 namespace World
 {
@@ -17,16 +20,22 @@ namespace World
       */
     WorldGenerator::~WorldGenerator()
     {
-
+        /**
+          * On détruit les générateurs de chunk
+          */
+        for (int i = 0; i < _generators.size(); i++)
+        {
+            delete _generators[i];
+        }
     }
     /**
       * Initialise les générateurs de chunk
       */
     void WorldGenerator::_initChunkGenerator()
     {
-
+        //Générateur de Chunk Mer.
+        _generators.append(new Chunk::SeaChunkGenerator);
     }
-
     /**
       * Redimensionne la taille des tableaux de chunk.
       * Positionne aussi la position des chunk nouvellement conçus.
@@ -141,10 +150,12 @@ namespace World
 
         QListIterator<Chunk::Chunk*> it(listToGenerate);
 
+        /*
+         * On itère sur chaque élément de la liste des chunk à générer
+         */
         while (it.hasNext())
         {
             current = it.next();
-
         }
 
     }
