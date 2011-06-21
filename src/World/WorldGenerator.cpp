@@ -3,8 +3,11 @@
 
 #include <Config/Config.h>
 #include <Chunk/SeaChunkGenerator.h>
+#include <Tools/Random.h>
 
-#include <QDebug>
+#include <QtCore/QDebug>
+
+using namespace Tools;
 namespace World
 {
     /**
