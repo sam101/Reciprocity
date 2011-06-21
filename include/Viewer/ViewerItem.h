@@ -1,6 +1,7 @@
 #ifndef VIEWER_VIEWERITEM_H
 #define VIEWER_VIEWERITEM_H
 #include <QtGui/QGraphicsItem>
+#include <World/World.h>
 namespace Viewer
 {
     /**
@@ -10,7 +11,24 @@ namespace Viewer
       */
     class ViewerItem : public QGraphicsItem
     {
-
+        protected:
+            /**
+              * Pointeur vers l'objet de monde
+              */
+            World::World *_world;
+        public:
+            /**
+              * Constructeur
+              */
+            ViewerItem(World::World *world);
+            /**
+              * Renvoie le boundingRect de l'objet
+              */
+            virtual QRectF boundingRect() const;
+            /**
+              * Répaint l'objet.
+              */
+            virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     };
 }
 #endif //VIEWER_VIEWERITEM_H_
