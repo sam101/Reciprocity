@@ -23,7 +23,14 @@ namespace Viewer
               */
             World::World *_world;
         public:
+            /**
+              * Constructeur
+              */
             ViewerView();
+            /**
+              * Destructeur
+              */
+            ~ViewerView();
     };
 }
 #endif //VIEWER_VIEWERVIEW_H
