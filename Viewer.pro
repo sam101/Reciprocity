@@ -20,7 +20,8 @@ SOURCES += \
     src/Tools/Random.cpp \
     src/Chunk/LandChunkGenerator.cpp \
     src/Viewer/ViewerScene.cpp \
-    src/Viewer/ViewerView.cpp
+    src/Viewer/ViewerView.cpp \
+    src/Viewer/ViewerItem.cpp
 
 HEADERS += \
     include/Chunk/Chunk.h \
@@ -36,4 +37,5 @@ HEADERS += \
     include/Tools/Random.h \
     include/Chunk/LandChunkGenerator.h \
     include/Viewer/ViewerScene.h \
-    include/Viewer/ViewerView.h
+    include/Viewer/ViewerView.h \
+    include/Viewer/ViewerItem.h
