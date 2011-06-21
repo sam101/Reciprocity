@@ -2,6 +2,7 @@
 #include <World/World.h>
 
 #include <Config/Config.h>
+#include <Chunk/LandChunkGenerator.h>
 #include <Chunk/SeaChunkGenerator.h>
 #include <Tools/Random.h>
 
@@ -38,8 +39,8 @@ namespace World
     {
         //Générateur de Chunk Mer.
         _generators.append(new Chunk::SeaChunkGenerator);
-        //TODO: Changer par LandChunkGenerator
-        _generators.append(new Chunk::SeaChunkGenerator);
+        //Générateur de Chunk "Land".
+        _generators.append(new Chunk::LandChunkGenerator);
 
     }
     /**
