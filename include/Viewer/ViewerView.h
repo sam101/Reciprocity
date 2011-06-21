@@ -30,7 +30,7 @@ namespace Viewer
             /**
               * Destructeur
               */
-            ~ViewerView();
+            virtual ~ViewerView();
     };
 }
 #endif //VIEWER_VIEWERVIEW_H
