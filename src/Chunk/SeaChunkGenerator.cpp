@@ -19,5 +19,6 @@ namespace Chunk
                 chunk->getTile(j,i).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
             }
         }
+        //TODO: Générer des iles en plus.
     }
 }
