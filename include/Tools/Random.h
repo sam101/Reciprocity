@@ -32,7 +32,7 @@ namespace Tools
          * @param seed Graine à utiliser
          * @param Etat actuel du générateur
          */
-        static void init(int seed, int state);
+        static void init(int seed, int state = 0);
         /**
          * Renvoie un nombre pseudo-aléatoire entre min et max
          * @param seed Minimum du nombre

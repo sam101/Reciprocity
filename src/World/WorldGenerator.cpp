@@ -150,6 +150,7 @@ namespace World
         QList<Chunk::Chunk*> listToGenerate = _redim(x,y);
 
         Chunk::Chunk *current;
+        int chunkType;
 
         QListIterator<Chunk::Chunk*> it(listToGenerate);
 
@@ -161,6 +162,8 @@ namespace World
             current = it.next();
             //On genère le type du chunk.
             //TODO: Faire un truc moins aléatoire
+            chunkType = Random::next(0,Chunk::LAST);
+            current->setType((Chunk::ChunkType)chunkType);
         }
 
     }

@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 
     w.getChunk(1,1);
 
+    qDebug() << w.getChunk(1,1)->getTile(0,0).getType();
 
     return a.exec();
 }
