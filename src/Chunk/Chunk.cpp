@@ -22,7 +22,7 @@ namespace Chunk
             _tiles[i].resize(Config::Config::CHUNK_SIZE);
             for (int j = 0; j < _tiles[i].size(); j++)
             {
-                _tiles[i][j] = Map::Tile(signX * j  + _x,signY * i + _y);
+                _tiles[i][j] = Map::Tile(signX * j  + _x,signY * i + _y,0,Map::NOTHING);
             }
         }
         /*
