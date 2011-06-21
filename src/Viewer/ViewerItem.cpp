@@ -7,7 +7,8 @@ namespace Viewer
     ViewerItem::ViewerItem(World::World *world) :
     _world(world),
     _xCamera(0),
-    _yCamera(0)
+    _yCamera(0),
+    _size(QRectF(0,0,640,480))
     {
 
     }
@@ -16,7 +17,7 @@ namespace Viewer
       */
     QRectF ViewerItem::boundingRect() const
     {
-        return QRectF;
+        return _size;
     }
     /**
       * Repaint l'objet

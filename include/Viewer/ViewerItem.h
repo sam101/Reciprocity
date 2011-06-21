@@ -24,6 +24,10 @@ namespace Viewer
               * Position Y de la caméra
               */
             qint32 _yCamera;
+            /**
+              * Taille de la caméra
+              */
+            QRectF _size;
         public:
             /**
               * Constructeur
