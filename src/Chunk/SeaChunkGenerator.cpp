@@ -1,5 +1,6 @@
 #include <Chunk/SeaChunkGenerator.h>
 #include <Config/Config.h>
+#include <QtCore/QDebug>
 namespace Chunk
 {
     /**

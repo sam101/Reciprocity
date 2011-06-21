@@ -38,6 +38,9 @@ namespace World
     {
         //Générateur de Chunk Mer.
         _generators.append(new Chunk::SeaChunkGenerator);
+        //TODO: Changer par LandChunkGenerator
+        _generators.append(new Chunk::SeaChunkGenerator);
+
     }
     /**
       * Redimensionne la taille des tableaux de chunk.
@@ -164,6 +167,8 @@ namespace World
             //TODO: Faire un truc moins aléatoire
             chunkType = Random::next(0,Chunk::LAST);
             current->setType((Chunk::ChunkType)chunkType);
+            //On genère le chunk.
+            _generators[chunkType]->generate(current);
         }
 
     }
