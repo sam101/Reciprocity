@@ -5,6 +5,7 @@
 #include <ctime>
 
 #include <Tools/Random.h>
+#include <Viewer/ViewerView.h>
 #include <World/World.h>
 using namespace Tools;
 
@@ -17,13 +18,11 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
     //On initialise l'objet aléatoire
     Random::init(time(NULL));
+    //On déclare une ViewverView (TODO: Faire une MainWindow)
+    Viewer::ViewerView *view = new Viewer::ViewerView;
+    //On l'affiche
+    view->show();
 
-    //Tests.
-    World::World w;
-
-    w.getChunk(1,1);
-
-    qDebug() << w.getChunk(1,1)->getTile(0,0).getType();
 
     return a.exec();
 }

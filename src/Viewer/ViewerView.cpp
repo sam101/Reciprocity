@@ -12,6 +12,7 @@ namespace Viewer
         _world = new World::World;
         //On alloue la scène.
         _scene = new ViewerScene(_world);
+        setScene(_scene);
     }
     /**
       * Destructeur
