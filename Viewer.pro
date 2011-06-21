@@ -19,7 +19,8 @@ SOURCES += \
     src/Chunk/SeaChunkGenerator.cpp \
     src/Tools/Random.cpp \
     src/Chunk/LandChunkGenerator.cpp \
-    src/Viewer/ViewerScene.cpp
+    src/Viewer/ViewerScene.cpp \
+    src/Viewer/ViewerView.cpp
 
 HEADERS += \
     include/Chunk/Chunk.h \
@@ -34,4 +35,5 @@ HEADERS += \
     include/Chunk/SeaChunkGenerator.h \
     include/Tools/Random.h \
     include/Chunk/LandChunkGenerator.h \
-    include/Viewer/ViewerScene.h
+    include/Viewer/ViewerScene.h \
+    include/Viewer/ViewerView.h
