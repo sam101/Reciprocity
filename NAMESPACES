@@ -12,3 +12,7 @@ _____________________
         World
 _____________________
 Contient les classes gérant le monde du jeu et sa génération.
+_____________________
+	Tools
+_____________________
+Contient les classes "outils" utilisées par les autres classes.
