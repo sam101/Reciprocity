@@ -53,5 +53,21 @@ namespace Map
     {
         _output = output;
     }
+    /**
+      * Définit la tile comme étant une montagne
+      */
+    void Tile::setAsMountain()
+    {
+        _type = MOUNTAIN;
+        _flags=  PASSABLE;
+    }
+    /**
+      * Définit la tile comme étant une foret
+      */
+    void Tile::setAsForest()
+    {
+        _type = FOREST;
+        _flags=  PASSABLE;
+    }
 }
 

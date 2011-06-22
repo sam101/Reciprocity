@@ -70,6 +70,14 @@ namespace Map
             * Définit le rendement de la tile.
             */
           void setOutput(qint32 output);
+          /**
+            * Définit la tile comme étant une montagne
+            */
+          void setAsMountain();
+          /**
+            * Définit la tile comme étant une foret
+            */
+          void setAsForest();
 
 
     };
