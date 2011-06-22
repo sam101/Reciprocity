@@ -13,7 +13,6 @@ namespace Viewer
     _view(view),
     _world(world)
     {
-
         //On gère la caméra
         setSceneRect(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
     }

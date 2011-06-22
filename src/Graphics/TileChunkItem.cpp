@@ -40,7 +40,6 @@ namespace Graphics
         {
             y = _chunk->getY() *  Config::Config::TILE_SIZE;
         }
-        qDebug() << "Position:" << x << y << chunk->getX() << chunk->getY();
         setPos(x,y);
     }
     /**
