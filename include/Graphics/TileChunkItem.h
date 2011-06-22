@@ -1,7 +1,9 @@
 #ifndef GRAPHICS_TILECHUNKITEM_H
 #define GRAPHICS_TILECHUNKITEM_H
 #include <Chunk/Chunk.h>
+#include <QtCore/QList>
 #include <QtGui/QGraphicsItem>
+#include <QtGui/QPixmap>
 namespace Graphics
 {
     /**
@@ -24,6 +26,10 @@ namespace Graphics
               * Pointeur vers le Chunk duquel on doit dessiner les tiles
               */
             Chunk::Chunk *_chunk;
+            /**
+              * Tableau contenant les pixmap des tiles
+              */
+            QList<QPixmap> _tiles;
         public:
             /**
               * Constructeur
