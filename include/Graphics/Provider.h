@@ -23,6 +23,8 @@ namespace Graphics
             QMap<QString,QPixmap> _tiles;
         public:
             static void init(QString path);
+
+            static QPixmap getTile(QString name);
     };
 }
 #endif //GRAPHICS_PROVIDER_H

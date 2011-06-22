@@ -23,8 +23,11 @@ namespace Graphics
             /**
               * Pointeur vers le Chunk duquel on doit dessiner les tiles
               */
-            Chunk::Chunk _chunk;
+            Chunk::Chunk *_chunk;
         public:
+            /**
+              * Constructeur
+              */
             TileChunkItem(Chunk::Chunk *chunk);
     };
 }
