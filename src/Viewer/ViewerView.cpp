@@ -13,6 +13,7 @@ namespace Viewer
         //On alloue la scène.
         _scene = new ViewerScene(_world);
         setScene(_scene);
+
     }
     /**
       * Destructeur

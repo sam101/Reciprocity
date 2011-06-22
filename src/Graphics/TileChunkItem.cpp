@@ -21,6 +21,9 @@ namespace Graphics
         _tiles.append(Provider::getTile("lake"));
         _tiles.append(Provider::getTile("river"));
         _tiles.append(Provider::getTile("mountain"));
+        //On définit la position.
+        setPos(_chunk->getX(),_chunk->getY());
+
     }
     /**
       * Renvoie le boundingRect de l'item.

@@ -1,7 +1,11 @@
 #ifndef VIEWER_VIEWERSCENE_H
 #define VIEWER_VIEWERSCENE_H
+#include <QtCore/QMap>
+#include <QtCore/QPair>
 #include <QtGui/QGraphicsPixmapItem>
 #include <QtGui/QGraphicsScene>
+
+#include <Graphics/TileChunkItem.h>
 #include <World/World.h>
 namespace Viewer
 {
@@ -17,11 +21,19 @@ namespace Viewer
               * Pointeur vers l'objet de monde
               */
             World::World *_world;
+            /**
+              * Liste des chunk de la scène
+              */
+            QMap< QPair<qint32,qint32> ,Graphics::TileChunkItem* > _chunks;
         public:
         /**
           * Constructeur
           */
         ViewerScene(World::World *world);
+        /**
+          * Ajoute un chunk à la liste des chunk de la scène
+          */
+        void addChunk(qint32 xChunk, qint32 yChunk);
     };
 }
 #endif // VIEWERSCENE_H
