@@ -1,6 +1,7 @@
 #ifndef MAP_ENTITY_H
 #define MAP_ENTITY_H
 #include <QtCore/Qt>
+#include <QtCore/QVector>
 #include <Map/EntityAbilities.h>
 namespace Map
 {
