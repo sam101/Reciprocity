@@ -22,8 +22,13 @@ namespace Graphics
               */
             QMap<QString,QPixmap> _tiles;
         public:
+            /**
+              * Initialise le chemin vers lequel on doit trouver les données
+              */
             static void init(QString path);
-
+            /**
+              * Renvoie un Pixmap d'une tile
+              */
             static QPixmap getTile(QString name);
     };
 }
