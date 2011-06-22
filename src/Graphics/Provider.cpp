@@ -28,7 +28,7 @@ namespace Graphics
         else
         {
             //On charge le pixmap.
-            _tiles[name] = QPixmap(_path + "/" + name + ".png");
+            _tiles[name] = QPixmap(_path + "/Tiles/" + name + ".png");
             return _tiles.value(name);
         }
     }
