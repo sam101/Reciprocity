@@ -54,6 +54,14 @@ namespace Map
         _output = output;
     }
     /**
+      * Définit la tile comme étant une plaine
+      */
+    void Tile::setAsLowLand()
+    {
+        _type = LOWLAND;
+        _flags = PASSABLE | FARMING_CAPABLE;
+    }
+    /**
       * Définit la tile comme étant une montagne
       */
     void Tile::setAsMountain()

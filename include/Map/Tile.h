@@ -71,6 +71,10 @@ namespace Map
             */
           void setOutput(qint32 output);
           /**
+            * Définit la tile comme étant une plaine
+            */
+          void setAsLowLand();
+          /**
             * Définit la tile comme étant une montagne
             */
           void setAsMountain();
