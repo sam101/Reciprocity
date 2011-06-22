@@ -61,24 +61,16 @@ namespace Viewer
         //On change la caméra.
         setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
         //On genère les chunk liés à la caméra.
-        //addChunk(_xCamera / Config::Config::TILE_SIZE / Config::Config::TILE_SIZE,_yCamera / Config::Config::TILE_SIZE / Config::Config::TILE_SIZE);
-
-        int xPos = _xCamera / Config::Config::CHUNK_SIZE;
-        int yPos = _xCamera / Config::Config::CHUNK_SIZE;
-        if (xPos == 0) xPos = 1;
-        if (yPos == 0) yPos = 1;
-        if (xPos < 0) xPos--;
-        if (yPos < 0) yPos--;
-        if (yPos > 0) yPos++;
-        if (xPos > 0) xPos++;
-        qDebug() << "X:" << xPos << "Y:" << yPos;
-
-
-        addChunk(xPos,yPos);
-        addChunk(xPos - 1,yPos);
-        addChunk(xPos,yPos - 1);
-        addChunk(xPos + 1,yPos);
-        addChunk(xPos,yPos + 1);
-
+        //On calcule la position de la caméra par rapport au chunk.
+        qint32 xPos = _xCamera / Config::Config::CHUNK_SIZE;
+        qint32 yPos = _yCamera / Config::Config::CHUNK_SIZE;
+        //On genère les deux chunk les plus loins par rapport à la caméra.
+        for (int i = xPos - 2; i <= xPos + 2; i++)
+        {
+            for (int j = yPos - 2; j <= yPos + 2; j++)
+            {
+                addChunk(i,j);
+            }
+        }
     }
 }
