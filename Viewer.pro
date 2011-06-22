@@ -39,6 +39,5 @@ HEADERS += \
     include/Chunk/LandChunkGenerator.h \
     include/Viewer/ViewerScene.h \
     include/Viewer/ViewerView.h \
-    include/Viewer/Config.h \
     include/Graphics/TileChunkItem.h \
     include/Graphics/Provider.h
