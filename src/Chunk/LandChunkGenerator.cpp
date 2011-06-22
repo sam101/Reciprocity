@@ -18,7 +18,7 @@ namespace Chunk
         {
             for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
             {
-                chunk->getTileAbs(j,i).setTile(Map::LOWLAND,Map::Tile::PASSABLE | Map::Tile::FARMING_CAPABLE);
+                chunk->getTileAbs(j,i).setAsLowLand();
             }
         }
 
