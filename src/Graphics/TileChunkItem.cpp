@@ -1,4 +1,5 @@
 #include <Graphics/TileChunkItem.h>
+#include <Graphics/Provider.h>
 #include <Config/Config.h>
 namespace Graphics
 {
@@ -8,7 +9,9 @@ namespace Graphics
     TileChunkItem::TileChunkItem(Chunk::Chunk *chunk) :
     _chunk(chunk)
     {
+        //On définit le boundingRect de l'Item
         _boundingRect = QRectF(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
+        //On charge le tableau de tiles.
     }
     /**
       * Renvoie le boundingRect de l'item.
