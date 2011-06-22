@@ -19,6 +19,9 @@ namespace Map
              * Position Y de l'entité
              */
             qint32 _y;
+            /**
+              * Points de vie actuels de l'entité
+              */
         public:
     };
 }

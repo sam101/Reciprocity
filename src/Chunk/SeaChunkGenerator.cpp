@@ -21,7 +21,7 @@ namespace Chunk
                 chunk->getTileAbs(j,i).setAsSea();
             }
         }
-        /*n
+        /*
           * On ajoute des iles de 1*1
           */
         int nbIsles = Random::next(0,Config::Config::CHUNK_SIZE);
