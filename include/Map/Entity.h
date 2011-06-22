@@ -45,6 +45,35 @@ namespace Map
               */
             QVector<qreal> _abilities;
         public:
+
+            /**
+              * Renvoie la position X de l'entité
+              */
+            qint32 getX() const;
+            /**
+              * Renvoie la position Y de l'entité
+              */
+            qint32 getY() const;
+            /**
+              * Renvoie les points de vie de l'entité
+              */
+            qint32 getLifePoints() const;
+            /**
+              * Renvoie les points de vie maximums de l'entité
+              */
+            qint32 getMaxLifePoints() const;
+            /**
+              * Renvoie si l'entité s'est déjà déplacée
+              */
+            bool hasMoved() const;
+            /**
+              * Renvoie si l'entité est morte
+              */
+            bool isDead() const;
+            /**
+              * Renvoie l'age de l'entité
+              */
+            qint32 getAge() const;
     };
 }
 #endif
