@@ -1,5 +1,6 @@
 #ifndef CONFIG_CONFIG_H
 #define CONFIG_CONFIG_H
+#include <QtCore/QString>
 namespace Config
 {
     /**

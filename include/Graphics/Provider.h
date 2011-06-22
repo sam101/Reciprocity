@@ -20,7 +20,7 @@ namespace Graphics
             /**
               * Cache des tiles utilisées dans  le jeu
               */
-            QMap<QString,QPixmap> _tiles;
+            static QMap<QString,QPixmap> _tiles;
         public:
             /**
               * Initialise le chemin vers lequel on doit trouver les données
