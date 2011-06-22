@@ -43,6 +43,10 @@ namespace Graphics
               * Renvoie le boundingRect de l'item.
               */
             QRectF boundingRect() const;
+            /**
+              * Repaint l'objet
+              */
+            void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     };
 }
 #endif //GRAPHICS_TILECHUNKITEM_H
