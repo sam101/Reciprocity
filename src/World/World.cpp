@@ -41,6 +41,10 @@ namespace World
       */
     Chunk::Chunk* World::getChunk(int x, int y)
     {
+        if (x == 0 || y == 0)
+        {
+            return NULL;
+        }
         //On gère les cas positifs/négatifs.
         if (x < 0)
         {

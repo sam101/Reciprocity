@@ -26,20 +26,21 @@ namespace Graphics
         int x,y;
         if (_chunk->getX() < 0)
         {
-            x = (_chunk->getX()) * Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE;
+            x = (_chunk->getX() - Config::Config::CHUNK_SIZE + 1) * Config::Config::TILE_SIZE;
         }
         else
         {
-            x = _chunk->getX() * Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE;
+            x = _chunk->getX() * Config::Config::TILE_SIZE;
         }
         if (_chunk->getY() < 0)
         {
-            y = (_chunk->getY()) * Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE;
+            y = (_chunk->getY() - Config::Config::CHUNK_SIZE + 1) * Config::Config::TILE_SIZE;
         }
         else
         {
-            y = _chunk->getY() * Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE;
+            y = _chunk->getY() *  Config::Config::TILE_SIZE;
         }
+        qDebug() << "Position:" << x << y << chunk->getX() << chunk->getY();
         setPos(x,y);
     }
     /**

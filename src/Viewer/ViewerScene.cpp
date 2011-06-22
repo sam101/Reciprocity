@@ -21,10 +21,13 @@ namespace Viewer
       */
     void ViewerScene::addChunk(qint32 xChunk, qint32 yChunk)
     {
+        if (xChunk == 0 || yChunk == 0)
+        {
+            return;
+        }
         //On vérifie que le chunk n'existe pas déjà.
         if (_chunks.contains(QPair<qint32,qint32>(xChunk,yChunk)))
         {
-            qDebug() << "Le chunk existe déjà";
             return;
         }
         //On ajoute le chunk à la QMap.
@@ -57,5 +60,25 @@ namespace Viewer
         }
         //On change la caméra.
         setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
+        //On genère les chunk liés à la caméra.
+        //addChunk(_xCamera / Config::Config::TILE_SIZE / Config::Config::TILE_SIZE,_yCamera / Config::Config::TILE_SIZE / Config::Config::TILE_SIZE);
+
+        int xPos = _xCamera / Config::Config::CHUNK_SIZE;
+        int yPos = _xCamera / Config::Config::CHUNK_SIZE;
+        if (xPos == 0) xPos = 1;
+        if (yPos == 0) yPos = 1;
+        if (xPos < 0) xPos--;
+        if (yPos < 0) yPos--;
+        if (yPos > 0) yPos++;
+        if (xPos > 0) xPos++;
+        qDebug() << "X:" << xPos << "Y:" << yPos;
+
+
+        addChunk(xPos,yPos);
+        addChunk(xPos - 1,yPos);
+        addChunk(xPos,yPos - 1);
+        addChunk(xPos + 1,yPos);
+        addChunk(xPos,yPos + 1);
+
     }
 }
