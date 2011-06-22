@@ -40,4 +40,5 @@ HEADERS += \
     include/Viewer/ViewerScene.h \
     include/Viewer/ViewerView.h \
     include/Graphics/TileChunkItem.h \
-    include/Graphics/Provider.h
+    include/Graphics/Provider.h \
+    include/Map/EntityAbilities.h
