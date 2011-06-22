@@ -42,7 +42,7 @@ namespace Chunk
         {
             for (int j = 1; j < Config::Config::CHUNK_SIZE - 1; j++)
             {
-                if (Random::next(0,15) == 5)
+                if (Random::next(0,10) == 5)
                 {
                     chunk->getTileAbs(j,i).setAsForest();
                 }
