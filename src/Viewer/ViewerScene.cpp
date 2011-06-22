@@ -7,9 +7,10 @@ namespace Viewer
     /**
       * Constructeur
       */
-    ViewerScene::ViewerScene(World::World *world) :
+    ViewerScene::ViewerScene(World::World *world, qint32 view) :
     _xCamera(0),
     _yCamera(0),
+    _view(view),
     _world(world)
     {
 
@@ -65,9 +66,9 @@ namespace Viewer
         qint32 xPos = _xCamera / Config::Config::CHUNK_SIZE;
         qint32 yPos = _yCamera / Config::Config::CHUNK_SIZE;
         //On genère les deux chunk les plus loins par rapport à la caméra.
-        for (int i = xPos - 2; i <= xPos + 2; i++)
+        for (int i = xPos - _view; i <= xPos + _view; i++)
         {
-            for (int j = yPos - 2; j <= yPos + 2; j++)
+            for (int j = yPos - _view; j <= yPos + _view; j++)
             {
                 addChunk(i,j);
             }

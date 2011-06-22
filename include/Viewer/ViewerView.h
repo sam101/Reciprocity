@@ -22,6 +22,10 @@ namespace Viewer
               * Pointeur vers le monde actuel
               */
             World::World *_world;
+            /**
+              * Zoom actuel
+              */
+            qint32 _zoom;
         public:
             /**
               * Constructeur
@@ -31,6 +35,7 @@ namespace Viewer
               * Destructeur
               */
             virtual ~ViewerView();
+
     };
 }
 #endif //VIEWER_VIEWERVIEW_H

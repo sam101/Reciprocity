@@ -26,6 +26,10 @@ namespace Viewer
               */
             qint32 _yCamera;
             /**
+              * Nombre de chunk à générer par rapport à la caméra
+              */
+            qint32 _view;
+            /**
               * Pointeur vers l'objet de monde
               */
             World::World *_world;
@@ -37,7 +41,7 @@ namespace Viewer
         /**
           * Constructeur
           */
-        ViewerScene(World::World *world);
+        ViewerScene(World::World *world, qint32 view = 2);
         /**
           * Ajoute un chunk à la liste des chunk de la scène
           */
