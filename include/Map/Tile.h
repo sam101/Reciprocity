@@ -82,6 +82,18 @@ namespace Map
             * Définit la tile comme étant une foret
             */
           void setAsForest();
+          /**
+            * Définit la tile comme étant un lac
+            */
+          void setAsLake();
+          /**
+            * Définit la tile comme étant une rivière
+            */
+          void setAsRiver();
+          /**
+            * Définit la tile comme étant de la mer.
+            */
+          void setAsSea();
 
 
     };

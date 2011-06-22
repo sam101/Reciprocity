@@ -77,5 +77,29 @@ namespace Map
         _type = FOREST;
         _flags=  PASSABLE;
     }
+    /**
+      * Définit la tile comme étant un lac
+      */
+    void Tile::setAsLake()
+    {
+        _type = LAKE;
+        _flags = BOAT_PASSABLE;
+    }
+    /**
+      * Définit la tile comme étant une rivière
+      */
+    void Tile::setAsRiver()
+    {
+        _type = RIVER;
+        _flags = BOAT_PASSABLE | PASSABLE;
+    }
+    /**
+      * Définit la tile comme étant de la mer
+      */
+    void Tile::setAsSea()
+    {
+        _type = SEA;
+        _flags = BOAT_PASSABLE;
+    }
 }
 
