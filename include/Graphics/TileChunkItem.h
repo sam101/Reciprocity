@@ -30,6 +30,10 @@ namespace Graphics
               * Tableau contenant les pixmap des tiles
               */
             QList<QPixmap> _tiles;
+            /**
+              * BoundingRect de l'item
+              */
+            QRectF _boundingRect;
         public:
             /**
               * Constructeur

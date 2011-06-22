@@ -15,6 +15,11 @@ namespace Config
               * Taille d'un chunk
               */
             static const int CHUNK_SIZE = 32;
+            /**
+              * Stocke la taille d'une tile
+              */
+            static const qint32 TILE_SIZE = 32;
+
     };
 }
 #endif //CONFIG_CONFIG_H
