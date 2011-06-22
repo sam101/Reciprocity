@@ -16,7 +16,7 @@ namespace Chunk
         {
             for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
             {
-                chunk->getTile(j,i).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
+                chunk->getTileAbs(j,i).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
             }
         }
         //TODO: Générer des iles en plus.

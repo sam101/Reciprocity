@@ -43,9 +43,10 @@ namespace Viewer
           */
         void addChunk(qint32 xChunk, qint32 yChunk);
         /**
-          * Appelé à l'appui sur une touche
+          * Appelé à l'appui sur une touche.
+          * Bouge la caméra.
           */
-
+        void keyPressEvent(QKeyEvent *event);
     };
 }
 #endif // VIEWERSCENE_H

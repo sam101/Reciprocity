@@ -76,6 +76,21 @@ namespace Chunk
         return _tiles[y - _y][x - _x];
     }
     /**
+      * Renvoie une tile du chunk en position absolue
+      */
+    Map::Tile& Chunk::getTileAbs(qint32 x, qint32 y)
+    {
+        return _tiles[x][y];
+    }
+    /**
+      * Renvoie une tile du chunk en position absolue
+      * surchargé constant.
+      */
+    const Map::Tile& Chunk::getTileAbs(qint32 x, qint32 y) const
+    {
+        return _tiles[x][y];
+    }
+    /**
       * Définit le type du chunk
       */
     void Chunk::setType(ChunkType type)

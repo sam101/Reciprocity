@@ -50,6 +50,7 @@ namespace Chunk
               * Renvoie la position y du chunk
               */
             qint32 getY() const;
+
             /**
               * Renvoie le type du chunk
               */
@@ -63,6 +64,16 @@ namespace Chunk
               * surchargé constant.
               */
             const Map::Tile& getTile(qint32 x, qint32 y) const;
+            /**
+              * Renvoie une tile du chunk en position absolue
+              */
+            Map::Tile& getTileAbs(qint32 x, qint32 y);
+            /**
+              * Renvoie une tile du chunk en position absolue
+              * surchargé constant.
+              */
+            const Map::Tile& getTileAbs(qint32 x, qint32 y) const;
+
             /**
               * Défini le type du chunk
               */

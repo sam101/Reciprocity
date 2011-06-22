@@ -14,8 +14,14 @@ namespace Viewer
         //On alloue la scène.
         _scene = new ViewerScene(_world);
         setScene(_scene);
-        //On affiche le premier chunk
+        //On change la taille de la fenêtre
+        this->resize(_scene->sceneRect().width() + 32,_scene->sceneRect().height() + 32);
+        //On affiche les premiers chunk
         _scene->addChunk(1,1);
+        _scene->addChunk(-1,1);
+        _scene->addChunk(1,-1);
+        _scene->addChunk(-1,-1);
+
     }
     /**
       * Destructeur

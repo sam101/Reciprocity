@@ -16,7 +16,7 @@ namespace Chunk
         {
             for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
             {
-                chunk->getTile(j,i).setTile(Map::LOWLAND,Map::Tile::PASSABLE | Map::Tile::FARMING_CAPABLE);
+                chunk->getTileAbs(j,i).setTile(Map::LOWLAND,Map::Tile::PASSABLE | Map::Tile::FARMING_CAPABLE);
             }
         }
         /*
@@ -24,10 +24,10 @@ namespace Chunk
          */
         for (int i = 0; i < Config::Config::CHUNK_SIZE; i++)
         {
-            chunk->getTile(i,0).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
-            chunk->getTile(0,i).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
-            chunk->getTile(Config::Config::CHUNK_SIZE - 1,i).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
-            chunk->getTile(i,Config::Config::CHUNK_SIZE - 1).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
+            chunk->getTileAbs(i,0).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
+            chunk->getTileAbs(0,i).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
+            chunk->getTileAbs(Config::Config::CHUNK_SIZE - 1,i).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
+            chunk->getTileAbs(i,Config::Config::CHUNK_SIZE - 1).setTile(Map::SEA,Map::Tile::BOAT_PASSABLE);
         }
     }
 }
