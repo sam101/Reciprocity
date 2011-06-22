@@ -1,4 +1,5 @@
 #include <Viewer/ViewerScene.h>
+#include <Config/Config.h>
 #include <QtCore/QDebug>
 namespace Viewer
 {
@@ -8,7 +9,8 @@ namespace Viewer
     ViewerScene::ViewerScene(World::World *world) :
     _world(world)
     {
-
+        //On gère la caméra
+        setSceneRect(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
     }
     /**
       * Ajoute un chunk à la liste des chunk de la scène

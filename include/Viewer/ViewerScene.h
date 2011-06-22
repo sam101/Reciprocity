@@ -18,6 +18,14 @@ namespace Viewer
     {
         protected:
             /**
+              * Position X de la caméra
+              */
+            qint32 _xCamera;
+            /**
+              * Position Y de la caméra.
+              */
+            qint32 _yCamera;
+            /**
               * Pointeur vers l'objet de monde
               */
             World::World *_world;
@@ -34,6 +42,10 @@ namespace Viewer
           * Ajoute un chunk à la liste des chunk de la scène
           */
         void addChunk(qint32 xChunk, qint32 yChunk);
+        /**
+          * Appelé à l'appui sur une touche
+          */
+
     };
 }
 #endif // VIEWERSCENE_H
