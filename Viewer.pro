@@ -21,7 +21,8 @@ SOURCES += \
     src/Chunk/LandChunkGenerator.cpp \
     src/Viewer/ViewerScene.cpp \
     src/Viewer/ViewerView.cpp \
-    src/Graphics/TileChunkItem.cpp
+    src/Graphics/TileChunkItem.cpp \
+    src/Graphics/Provider.cpp
 
 HEADERS += \
     include/Chunk/Chunk.h \
@@ -39,4 +40,5 @@ HEADERS += \
     include/Viewer/ViewerScene.h \
     include/Viewer/ViewerView.h \
     include/Viewer/Config.h \
-    include/Graphics/TileChunkItem.h
+    include/Graphics/TileChunkItem.h \
+    include/Graphics/Provider.h
