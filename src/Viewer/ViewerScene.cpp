@@ -1,4 +1,5 @@
 #include <Viewer/ViewerScene.h>
+#include <QtCore/QDebug>
 namespace Viewer
 {
     /**

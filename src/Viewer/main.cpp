@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
     //On initialise l'objet aléatoire
     Random::init(time(NULL));
+    //On initialise provider
     //On déclare une ViewverView (TODO: Faire une MainWindow)
     Viewer::ViewerView *view = new Viewer::ViewerView;
     //On l'affiche

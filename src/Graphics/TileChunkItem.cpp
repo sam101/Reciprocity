@@ -2,6 +2,7 @@
 #include <Graphics/Provider.h>
 #include <Config/Config.h>
 
+#include <QtCore/QDebug>
 #include <QtGui/QPainter>
 namespace Graphics
 {
