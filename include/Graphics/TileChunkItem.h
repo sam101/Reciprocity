@@ -39,6 +39,10 @@ namespace Graphics
               * Constructeur
               */
             TileChunkItem(Chunk::Chunk *chunk);
+            /**
+              * Renvoie le boundingRect de l'item.
+              */
+            QRectF boundingRect() const;
     };
 }
 #endif //GRAPHICS_TILECHUNKITEM_H
