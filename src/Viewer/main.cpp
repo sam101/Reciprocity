@@ -4,6 +4,7 @@
 
 #include <ctime>
 
+#include <Graphics/Provider.h>
 #include <Tools/Random.h>
 #include <Viewer/ViewerView.h>
 #include <World/World.h>
@@ -19,6 +20,8 @@ int main(int argc, char *argv[])
     //On initialise l'objet aléatoire
     Random::init(time(NULL));
     //On initialise provider
+    //TODO: Chemin mieux.
+    Graphics::Provider::init("../Reciprocity/data");
     //On déclare une ViewverView (TODO: Faire une MainWindow)
     Viewer::ViewerView *view = new Viewer::ViewerView;
     //On l'affiche
