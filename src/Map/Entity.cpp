@@ -71,6 +71,15 @@ namespace Map
         return _age;
     }
     /**
+      * Change la position de l'entité
+      */
+    void Entity::setXY(qint32 x, qint32 y)
+    {
+        _x = x;
+        _y = y;
+    }
+
+    /**
       * Déplace l'entité
       */
     void Entity::move(qint32 x, qint32 y)

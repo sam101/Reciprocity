@@ -54,7 +54,7 @@ namespace Map
             /**
               * Constructeur
               */
-            Entity(qint32 x, qint32 y, qint32 owner, qint32 lifePoints = Config::Config::BASE_LIFE_POINTS, qint32 age = 0);
+            Entity(qint32 x = 0, qint32 y = 0, qint32 owner = -1, qint32 lifePoints = Config::Config::BASE_LIFE_POINTS, qint32 age = 0);
             /**
               * Renvoie la position X de l'entité
               */
@@ -87,6 +87,10 @@ namespace Map
               * Renvoie l'age de l'entité
               */
             qint32 getAge() const;
+            /**
+              * Change la position de l'entité.
+              */
+            void setXY(qint32 x, qint32 y);
             /**
               * Déplace l'entité
               */

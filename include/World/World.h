@@ -66,10 +66,13 @@ namespace World
                   */
                 Map::Tile& getTile(int x, int y);
                 /**
-                  * Ajoute une entité.
+                  * Ajoute une entité et renvoie son id.
                   */
                 qint32 addEntity(Map::Entity entity, qint32 x, qint32 y);
-
+                /**
+                  * Déplace une entité
+                  */
+                void moveEntity(qint32 id, qint32 x, qint32 y);
     };   
 }
 #endif //WORLD_WORLD_H

@@ -118,4 +118,14 @@ namespace World
             }
         }
     }
+    /**
+      * Ajoute une entité et renvoie son id.
+      */
+    qint32 World::addEntity(Map::Entity entity, qint32 x, qint32 y)
+    {
+        _entities.append(new Map::Entity(entity));
+        _entities.last()->setXY(x,y);
+
+        return _entities.size() - 1;
+    }
 }
