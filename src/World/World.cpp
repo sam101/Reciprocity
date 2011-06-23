@@ -131,4 +131,19 @@ namespace World
         //On renvoie son id
         return _entities.size() - 1;
     }
+    /**
+      * Renvoie une entité en fonction de son id
+      */
+    Map::Entity* World::getEntity(qint32 id)
+    {
+        return _entities[id];
+    }
+    /**
+      * Renvoie une entité en fonction de son id
+      * Surchargé constant.
+      */
+    const Map::Entity* World::getEntity(qint32 id) const
+    {
+        return _entities.at(id);
+    }
 }

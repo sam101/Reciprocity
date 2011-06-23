@@ -62,7 +62,7 @@ namespace World
                 Chunk::Chunk* getChunk(int x, int y);
                 /**
                   * Renvoie une tile du monde.
-                  * N'est pas const car possibiliré de génération d'un chunk.
+                  * N'est pas const car possibilité de génération d'un chunk.
                   */
                 Map::Tile& getTile(int x, int y);
                 /**
@@ -73,6 +73,15 @@ namespace World
                   * Déplace une entité
                   */
                 void moveEntity(qint32 id, qint32 x, qint32 y);
+                /**
+                  * Renvoie une entité en fonction de son id
+                  */
+                Map::Entity* getEntity(qint32 id);
+                /**
+                  * Renvoie une entité en fonction de son id
+                  * Surchargé constant
+                  */
+                const Map::Entity* getEntity(qint32 id) const;
     };   
 }
 #endif //WORLD_WORLD_H
