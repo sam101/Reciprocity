@@ -1,5 +1,5 @@
 #include <Tools/Random.h>
-#include <cstdlib>
+#include <QtCore/Qt>
 namespace Tools
 {
     /**
@@ -19,10 +19,10 @@ namespace Tools
     {
         _seed = seed;
         _state = state;
-
+        qsrand(seed);
         for (int i = 0; i < _state; i++)
         {
-            rand();
+            qrand();
         }
     }
     /**
@@ -32,7 +32,7 @@ namespace Tools
      */
      int Random::next(int min, int max)
      {
-         return (rand() % (max - min)) + min;
+         return (qrand() % (max - min)) + min;
      }
     /**
      * Renvoie la seed actuelle
