@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     //On initialise provider
     //TODO: Chemin mieux.
     Graphics::Provider::init("../Reciprocity/data");
-    //On déclare une ViewverView (TODO: Faire une MainWindow)
+    //On déclare une ViewerView (TODO: Faire une MainWindow)
     Viewer::ViewerView *view = new Viewer::ViewerView;
     //On l'affiche
     view->show();
