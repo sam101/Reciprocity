@@ -3,6 +3,7 @@
 #include <QtCore/QVector>
 
 #include <Chunk/Chunk.h>
+#include <Map/Entity.h>
 #include <World/WorldGenerator.h>
 namespace World
 {
@@ -36,6 +37,10 @@ namespace World
               * Tableau des chunks en bas à droite
               */
              QVector<QVector<Chunk::Chunk*> > _chunkBR;
+             /**
+               * Tableau des entités.
+               */
+             QList<Map::Entity*> _entities;
         public:
                 /**
                   * Constructeur
