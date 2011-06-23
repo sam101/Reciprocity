@@ -35,6 +35,10 @@ namespace Map
               */
             qint32 _owner;
             /**
+              * Volonté de l'entité.
+              */
+            qint32 _will;
+            /**
               * Indique si l'entité s'est déjà déplacée
               */
             bool _hasMoved;
@@ -54,7 +58,7 @@ namespace Map
             /**
               * Constructeur
               */
-            Entity(qint32 x = 0, qint32 y = 0, qint32 owner = -1, qint32 lifePoints = Config::Config::BASE_LIFE_POINTS, qint32 age = 0);
+            Entity(qint32 x = 0, qint32 y = 0, qint32 owner = -1, qint32 lifePoints = Config::Config::BASE_LIFE_POINTS, qint32 will = Config::Config::BASE_WILL, qint32 age = 0);
             /**
               * Renvoie la position X de l'entité
               */
@@ -76,6 +80,10 @@ namespace Map
               */
             qint32 getOwner() const;
             /**
+              * Renvoie la volonté de l'entité.
+              */
+            qint32 getWill() const;
+            /**
               * Renvoie si l'entité s'est déjà déplacée
               */
             bool hasMoved() const;
@@ -95,6 +103,18 @@ namespace Map
               * Déplace l'entité
               */
             void move(qint32 x, qint32 y);
+            /**
+              * Change la volonté de l'entité.
+              */
+            void setWill(qint32 will);
+            /**
+              * Ajoute à la volonté de l'entité.
+              */
+            void addWill(qint32 will);
+            /**
+              * Enlève de la volonté à l'entité
+              */
+            void delWill(qint32 will);
             /**
               * Tue l'entité
               */

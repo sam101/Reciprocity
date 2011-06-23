@@ -4,12 +4,13 @@ namespace Map
     /**
       * Constructeur
       */
-    Entity::Entity(qint32 x, qint32 y, qint32 owner, qint32 lifePoints, qint32 age) :
+    Entity::Entity(qint32 x, qint32 y, qint32 owner, qint32 lifePoints, qint32 will, qint32 age) :
     _x(x),
     _y(y),
     _lifePoints(lifePoints),
     _maxLifePoints(lifePoints),
     _owner(owner),
+    _will(will),
     _age(age)
     {
         _abilities.resize(Map::LAST);
@@ -50,6 +51,13 @@ namespace Map
         return _owner;
     }
     /**
+      * Renvoie la volonté de l'entité.
+      */
+    qint32 Entity::getWill() const
+    {
+        return _will;
+    }
+    /**
       * Renvoie si l'entité s'est déjà déplacée
       */
     bool Entity::hasMoved() const
@@ -87,6 +95,29 @@ namespace Map
         _x += x;
         _y += y;
     }
+    /**
+      * Change la volonté de l'entité.
+      */
+    void Entity::setWill(qint32 will)
+    {
+        _will = will;
+    }
+    /**
+      * Ajoute à la volonté de l'entité.
+      */
+    void Entity::addWill(qint32 will)
+    {
+        _will += will;
+    }
+    /**
+      * Enlève de la volonté à l'entité
+      */
+    void Entity::delWill(qint32 will)
+    {
+        _will -= will;
+        _will = _will < 0 ? 0 : _will;
+    }
+
     /**
       * Tue l'entité
       */
