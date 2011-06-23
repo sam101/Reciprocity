@@ -38,19 +38,19 @@ namespace Viewer
               */
             QMap< QPair<qint32,qint32> ,Graphics::TileChunkItem* > _chunks;
         public:
-        /**
-          * Constructeur
-          */
-        ViewerScene(World::World *world, qint32 view = 2);
-        /**
-          * Ajoute un chunk à la liste des chunk de la scène
-          */
-        void addChunk(qint32 xChunk, qint32 yChunk);
-        /**
-          * Appelé à l'appui sur une touche.
-          * Bouge la caméra.
-          */
-        void keyPressEvent(QKeyEvent *event);
+            /**
+              * Constructeur
+              */
+            ViewerScene(World::World *world, qint32 view = 2);
+            /**
+              * Ajoute un chunk à la liste des chunk de la scène
+              */
+            void addChunk(qint32 xChunk, qint32 yChunk);
+            /**
+              * Appelé à l'appui sur une touche.
+              * Bouge la caméra.
+              */
+            void keyPressEvent(QKeyEvent *event);
     };
 }
 #endif // VIEWERSCENE_H
