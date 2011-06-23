@@ -61,4 +61,27 @@ namespace Map
     {
         return _age;
     }
+    /**
+      * Déplace l'entité
+      */
+    void Entity::move(qint32 x, qint32 y)
+    {
+        _x += x;
+        _y += y;
+    }
+    /**
+      * Tue l'entité
+      */
+    void Entity::kill()
+    {
+        _dead = true;
+        _lifePoints = 0;
+    }
+    /**
+      * Ajoute un à l'age de l'entité.
+      */
+    void Entity::age()
+    {
+        _age++;
+    }
 }

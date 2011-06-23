@@ -79,6 +79,18 @@ namespace Map
               * Renvoie l'age de l'entité
               */
             qint32 getAge() const;
+            /**
+              * Déplace l'entité
+              */
+            void move(qint32 x, qint32 y);
+            /**
+              * Tue l'entité
+              */
+            void kill();
+            /**
+              * Ajoute un à l'age de l'entité
+              */
+            void age();
     };
 }
 #endif
