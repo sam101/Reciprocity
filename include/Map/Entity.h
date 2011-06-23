@@ -1,5 +1,6 @@
 #ifndef MAP_ENTITY_H
 #define MAP_ENTITY_H
+#include <Config/Config.h>
 #include <QtCore/Qt>
 #include <QtCore/QVector>
 #include <Map/EntityAbilities.h>
@@ -46,7 +47,10 @@ namespace Map
               */
             QVector<qreal> _abilities;
         public:
-
+            /**
+              * Constructeur
+              */
+            Entity(qint32 x, qint32 y, qint32 lifePoints = Config::Config::BASE_LIFE_POINTS, qint32 age = 0);
             /**
               * Renvoie la position X de l'entité
               */

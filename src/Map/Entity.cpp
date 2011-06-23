@@ -2,6 +2,17 @@
 namespace Map
 {
     /**
+      * Constructeur
+      */
+    Entity::Entity(qint32 x, qint32 y, qint32 lifePoints, qint32 age) :
+    _x(x),
+    _y(y),
+    _lifePoints(lifePoints),
+    _age(age)
+    {
+        _abilities.resize(Map::LAST);
+    }
+    /**
       * Renvoie la position X de l'entité
       */
     qint32 Entity::getX() const
