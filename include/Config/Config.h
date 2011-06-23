@@ -12,9 +12,13 @@ namespace Config
     {
         public:
             /**
+              * Port de base du serveur
+              */
+            static const qint32 SERVER_PORT = 4242;
+            /**
               * Taille d'un chunk
               */
-            static const int CHUNK_SIZE = 32;
+            static const qint32 CHUNK_SIZE = 32;
             /**
               * Stocke la taille d'une tile
               */
