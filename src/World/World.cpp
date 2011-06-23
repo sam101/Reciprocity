@@ -123,9 +123,12 @@ namespace World
       */
     qint32 World::addEntity(Map::Entity entity, qint32 x, qint32 y)
     {
+        //On l'ajoute au tableau d'entités.
         _entities.append(new Map::Entity(entity));
         _entities.last()->setXY(x,y);
-
+        //On l'ajoute au bon chunk
+        //TODO
+        //On renvoie son id
         return _entities.size() - 1;
     }
 }
