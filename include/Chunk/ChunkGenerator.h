@@ -17,6 +17,10 @@ namespace Chunk
               * @param chunk Pointeur vers le chunk a générer (déjà alloué)
               */
             virtual void generate(Chunk *chunk) = 0;
+            /**
+              * Genère une ile carré
+              */
+            void genSquareIsland(Chunk *chunk, int xStart, int xEnd, int yStart, int yEnd);
     };
 }
 #endif //CHUNK_CHUNKGENERATOR_H

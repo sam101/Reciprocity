@@ -24,33 +24,16 @@ namespace Chunk
         /*
           * On ajoute des iles.
           */
-        int xDebut, xFin, yDebut, yFin;
+        int xStart, xEnd, yStart, yEnd;
         int nbIsles = Random::next(0,Config::Config::CHUNK_SIZE / 4);
         for (int i = 0; i < nbIsles; i++)
         {
-            xDebut = Random::next(4,Config::Config::CHUNK_SIZE - 4);
-            xFin = xDebut + Random::next(0,4);
-            yDebut = Random::next(4,Config::Config::CHUNK_SIZE - 4);
-            yFin = xDebut + Random::next(0,4);
-            chunk->getTileAbs(Random::next(1,Config::Config::CHUNK_SIZE),Random::next(1,Config::Config::CHUNK_SIZE)).setAsLowLand();
-            for (int i = xDebut; i <= xFin; i++)
-            {
-                for (int j = yDebut; j <= yFin; j++)
-                {
-                    if (Random::next(0,10) == 5)
-                    {
-                        chunk->getTileAbs(i,j).setAsForest();
-                    }
-                    else if (Random::next(0,15) == 5)
-                    {
-                        chunk->getTileAbs(i,j).setAsMountain();
-                    }
-                    else
-                    {
-                        chunk->getTileAbs(i,j).setAsLowLand();
-                    }
-                }
-            }
+            xStart = Random::next(4,Config::Config::CHUNK_SIZE - 4);
+            xEnd = xStart + Random::next(0,4);
+            yStart = Random::next(4,Config::Config::CHUNK_SIZE - 4);
+            yEnd = yStart + Random::next(0,4);
+            genSquareIsland(chunk,xStart,xEnd,yStart,yEnd);
+
 
         }
     }
