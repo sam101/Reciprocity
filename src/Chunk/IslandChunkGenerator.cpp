@@ -21,19 +21,35 @@ namespace Chunk
             }
         }
         /*
-         * On détermine les coordonnées x,y de début et de fin
-         * de l'ile
-         */
-        int xDebut = Random::next(5,Config::Config::CHUNK_SIZE - 5);
-        int xFin = xDebut + Random::next(2,Config::Config::CHUNK_SIZE - xDebut - 1);
-        int yDebut = Random::next(5,Config::Config::CHUNK_SIZE - 5);
-        int yFin = yDebut + Random::next(2,Config::Config::CHUNK_SIZE - yDebut - 1);
-        qDebug() << xDebut << xFin << yDebut << yFin;
-        for (int i = xDebut; i <= xFin; i++)
+          * On ajoute des iles
+          */
+        int xDebut, xFin, yDebut, yFin;
+
+        int nbIsles = Random::next(0,Config::Config::CHUNK_SIZE);
+        for (int i = 0; i < nbIsles; i++)
         {
-            for (int j = yDebut; j <= yFin; j++)
+            xDebut = Random::next(4,Config::Config::CHUNK_SIZE - 4);
+            xFin = xDebut + Random::next(0,4);
+            yDebut = Random::next(4,Config::Config::CHUNK_SIZE - 4);
+            yFin = xDebut + Random::next(0,4);
+
+            for (int i = xDebut; i <= xFin; i++)
             {
-                chunk->getTileAbs(i,j).setAsLowLand();
+                for (int j = yDebut; j <= yFin; j++)
+                {
+                    if (Random::next(0,10) == 5)
+                    {
+                        chunk->getTileAbs(i,j).setAsForest();
+                    }
+                    else if (Random::next(0,15) == 5)
+                    {
+                        chunk->getTileAbs(i,j).setAsMountain();
+                    }
+                    else
+                    {
+                        chunk->getTileAbs(i,j).setAsLowLand();
+                    }
+                }
             }
         }
 
