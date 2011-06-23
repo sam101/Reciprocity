@@ -4,6 +4,7 @@
 
 #include <Chunk/Chunk.h>
 #include <Map/Entity.h>
+#include <Map/Tile.h>
 #include <World/WorldGenerator.h>
 namespace World
 {
@@ -64,6 +65,11 @@ namespace World
                   * N'est pas const car possibiliré de génération d'un chunk.
                   */
                 Map::Tile& getTile(int x, int y);
+                /**
+                  * Ajoute une entité.
+                  */
+                qint32 addEntity(Map::Entity entity, qint32 x, qint32 y);
+
     };   
 }
 #endif //WORLD_WORLD_H

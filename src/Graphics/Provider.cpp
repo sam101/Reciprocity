@@ -1,6 +1,6 @@
 #include <Graphics/Provider.h>
 #include <Config/Config.h>
-
+#include <QtCore/QDebug>
 using namespace Config;
 namespace Graphics
 {
