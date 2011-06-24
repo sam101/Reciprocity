@@ -11,6 +11,7 @@ namespace Viewer
         _slider = new QSlider(Qt::Horizontal);
         _slider->setMinimum(1);
         _slider->setMaximum(20);
+        _slider->setValue(10);
         addWidget(_slider);
         //On connecte le signal du slider au slot de la toolbar
         connect(_slider,SIGNAL(valueChanged(int)),this,SLOT(sliderChanged(int)));

@@ -43,6 +43,7 @@ namespace Viewer
     void ViewerView::setZoom(qreal zoom)
     {
         _zoom = zoom;
+        resetTransform();
         scale(zoom,zoom);
     }
 }
