@@ -24,6 +24,7 @@ namespace Viewer
         _scene->addChunk(1,-1);
         _scene->addChunk(-1,-1);
 
+        this->scale(0.5,0.5);
     }
     /**
       * Destructeur

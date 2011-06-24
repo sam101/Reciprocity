@@ -24,14 +24,15 @@ namespace Chunk
         /*
           * On genère un nombre important d'iles
           */
+        const int NB = 5;
         int xStart, xEnd, yStart, yEnd;
         int nbIsles = Random::next(Config::Config::CHUNK_SIZE * 2,Config::Config::CHUNK_SIZE * 4);
         for (int i = 0; i < nbIsles; i++)
         {
-            xStart = Random::next(5,Config::Config::CHUNK_SIZE - 5);
-            xEnd = xStart + Random::next(0,5);
-            yStart = Random::next(5,Config::Config::CHUNK_SIZE - 5);
-            yEnd = yStart + Random::next(0,5);
+            xStart = Random::next(NB,Config::Config::CHUNK_SIZE - NB);
+            xEnd = xStart + Random::next(0,NB);
+            yStart = Random::next(5,Config::Config::CHUNK_SIZE - NB);
+            yEnd = yStart + Random::next(0,NB);
             genSquareIsland(chunk,xStart,xEnd,yStart,yEnd);
         }
     }
