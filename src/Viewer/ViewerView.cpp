@@ -27,7 +27,7 @@ namespace Viewer
         //On active openGL
         setupViewport(new QGLWidget);
         //On scale la view
-        this->scale(0.5,0.5);
+        this->scale(0.1,0.1);
     }
     /**
       * Destructeur
