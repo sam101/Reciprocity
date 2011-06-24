@@ -2,6 +2,7 @@
 #define VIEWER_VIEWERWINDOW_H
 #include <QtGui/QMainWindow>
 #include <Viewer/ViewerView.h>
+#include <Viewer/ViewerZoomWidget.h>
 namespace Viewer
 {
     /**
@@ -11,11 +12,16 @@ namespace Viewer
       */
     class ViewerWindow : public QMainWindow
     {
+        Q_OBJECT
         protected:
             /**
               * Pointeur vers la vue actuelle
               */
             ViewerView *_view;
+            /**
+              * Pointeur vers le ZoomWidget
+              */
+            ViewerZoomWidget *_zoom;
        public:
             /**
               * Constructeur

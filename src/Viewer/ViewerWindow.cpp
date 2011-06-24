@@ -9,6 +9,10 @@ namespace Viewer
         //On crée la vue et on la positionne comme widget principal
         _view = new ViewerView;
         setCentralWidget(_view);
+        //On ajoute le widget de zoom
+        _zoom = new ViewerZoomWidget;
+        addToolBar(_zoom);
+
         //On change la taille de la fenêtre.
         resize(_view->width(),_view->height());
     }
