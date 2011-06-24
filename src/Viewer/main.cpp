@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 {
     //On déclare l'objet application
     QApplication a(argc,argv);
-    a.setKeyboardInputInterval(100);
+    a.setKeyboardInputInterval(10);
     //On passe toutes les chaines en UTF-8
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));

@@ -1,6 +1,7 @@
 #include <Viewer/ViewerView.h>
 #include <Config/Config.h>
 #include <QtGui/QWheelEvent>
+#include <QtOpenGL/QGLWidget>
 namespace Viewer
 {
     /**
@@ -23,7 +24,9 @@ namespace Viewer
         _scene->addChunk(-1,1);
         _scene->addChunk(1,-1);
         _scene->addChunk(-1,-1);
-
+        //On active openGL
+        setupViewport(new QGLWidget);
+        //On scale la view
         this->scale(0.5,0.5);
     }
     /**

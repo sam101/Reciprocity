@@ -41,7 +41,7 @@ namespace Viewer
             /**
               * Constructeur
               */
-            ViewerScene(World::World *world, qint32 view = 2);
+            ViewerScene(World::World *world, qint32 view = 4);
             /**
               * Ajoute un chunk à la liste des chunk de la scène
               */
