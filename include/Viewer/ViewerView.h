@@ -25,7 +25,7 @@ namespace Viewer
             /**
               * Zoom actuel
               */
-            qint32 _zoom;
+            qreal _zoom;
         public:
             /**
               * Constructeur
@@ -35,6 +35,10 @@ namespace Viewer
               * Destructeur
               */
             virtual ~ViewerView();
+            /**
+              * Change le zoom actuel
+              */
+            void setZoom(qreal zoom);
 
     };
 }

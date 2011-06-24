@@ -23,7 +23,8 @@ SOURCES += \
     src/Viewer/ViewerView.cpp \
     src/Graphics/TileChunkItem.cpp \
     src/Graphics/Provider.cpp \
-    src/Chunk/IslandChunkGenerator.cpp
+    src/Chunk/IslandChunkGenerator.cpp \
+    src/Viewer/ViewerWindow.cpp
 
 HEADERS += \
     include/Chunk/Chunk.h \
@@ -43,4 +44,5 @@ HEADERS += \
     include/Graphics/TileChunkItem.h \
     include/Graphics/Provider.h \
     include/Map/EntityAbilities.h \
-    include/Chunk/IslandChunkGenerator.h
+    include/Chunk/IslandChunkGenerator.h \
+    include/Viewer/ViewerWindow.h

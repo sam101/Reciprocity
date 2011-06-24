@@ -6,7 +6,7 @@
 
 #include <Graphics/Provider.h>
 #include <Tools/Random.h>
-#include <Viewer/ViewerView.h>
+#include <Viewer/ViewerWindow.h>
 #include <World/World.h>
 using namespace Tools;
 
@@ -23,10 +23,10 @@ int main(int argc, char *argv[])
     //On initialise provider
     //TODO: Chemin mieux.
     Graphics::Provider::init("../Reciprocity/data");
-    //On déclare une ViewerView (TODO: Faire une MainWindow)
-    Viewer::ViewerView *view = new Viewer::ViewerView;
+    //On déclare une ViewerWindow
+    Viewer::ViewerWindow *window = new Viewer::ViewerWindow;
     //On l'affiche
-    view->show();
+    window->show();
 
 
     return a.exec();

@@ -10,7 +10,7 @@ namespace Viewer
     ViewerView::ViewerView() :
     _scene(NULL),
     _world(NULL),
-    _zoom(1)
+    _zoom(0.5)
     {
         //On alloue l'objet de monde
         _world = new World::World;
@@ -27,7 +27,7 @@ namespace Viewer
         //On active openGL
         setupViewport(new QGLWidget);
         //On scale la view
-        this->scale(0.1,0.1);
+        scale(_zoom,_zoom);
     }
     /**
       * Destructeur
@@ -37,5 +37,12 @@ namespace Viewer
         delete _world;
         delete _scene;
     }
-
+    /**
+      * Change le zoom actuel
+      */
+    void ViewerView::setZoom(qreal zoom)
+    {
+        _zoom = zoom;
+        scale(zoom,zoom);
+    }
 }
