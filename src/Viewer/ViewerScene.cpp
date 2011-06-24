@@ -15,6 +15,14 @@ namespace Viewer
     {
         //On gère la caméra
         setSceneRect(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
+        //On genère les chunk de départ.
+        for (int i = -_view; i <= _view; i++)
+        {
+            for (int j = -_view; j<= _view; j++)
+            {
+                addChunk(i,j);
+            }
+        }
     }
     /**
       * Ajoute un chunk à la liste des chunk de la scène

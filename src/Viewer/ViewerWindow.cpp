@@ -15,6 +15,6 @@ namespace Viewer
         //On connecte le signal à la view
         connect(_zoom,SIGNAL(zoomChanged(qreal)),_view,SLOT(setZoom(qreal)));
         //On change la taille de la fenêtre.
-        resize(_view->width(),_view->height());
+        resize(_view->scene()->sceneRect().width() + 32,_view->scene()->sceneRect().height() + 32);
     }
 }
