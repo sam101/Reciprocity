@@ -12,41 +12,27 @@ namespace Chunk
     void LandChunkGenerator::generate(Chunk *chunk)
     {
         /*
-         * On genère des plaines sur tout le chunk tout d'abord.
+         * On genère de l'eau sur tout le chunk tout d'abord.
          */
         for (int i = 0; i  < Config::Config::CHUNK_SIZE; i++)
         {
             for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
             {
-                chunk->getTileAbs(j,i).setAsLowLand();
-            }
-        }
-
-        /*
-         * On ajoute des montagnes parsemées
-         */
-        for (int i = 1; i < Config::Config::CHUNK_SIZE - 1; i++)
-        {
-            for (int j = 1; j < Config::Config::CHUNK_SIZE - 1; j++)
-            {
-                if (Random::next(0,20) == 5)
-                {
-                    chunk->getTileAbs(j,i).setAsMountain();
-                }
+                chunk->getTileAbs(j,i).setAsSea();
             }
         }
         /*
-          * On ajoute des forêts parsemées
+          * On genère un nombre important d'iles
           */
-        for (int i = 1; i < Config::Config::CHUNK_SIZE - 1; i++)
+        int xStart, xEnd, yStart, yEnd;
+        int nbIsles = Random::next(Config::Config::CHUNK_SIZE * 2,Config::Config::CHUNK_SIZE * 4);
+        for (int i = 0; i < nbIsles; i++)
         {
-            for (int j = 1; j < Config::Config::CHUNK_SIZE - 1; j++)
-            {
-                if (Random::next(0,10) == 5)
-                {
-                    chunk->getTileAbs(j,i).setAsForest();
-                }
-            }
+            xStart = Random::next(5,Config::Config::CHUNK_SIZE - 5);
+            xEnd = xStart + Random::next(0,5);
+            yStart = Random::next(5,Config::Config::CHUNK_SIZE - 5);
+            yEnd = yStart + Random::next(0,5);
+            genSquareIsland(chunk,xStart,xEnd,yStart,yEnd);
         }
     }
 }
