@@ -13,6 +13,7 @@ namespace Viewer
       */
     class ViewerView : public QGraphicsView
     {
+        Q_OBJECT
         protected:
             /**
               * Pointeur vers la scène actuelle
@@ -35,6 +36,7 @@ namespace Viewer
               * Destructeur
               */
             virtual ~ViewerView();
+       public slots:
             /**
               * Change le zoom actuel
               */

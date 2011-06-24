@@ -20,6 +20,13 @@ namespace Viewer
               * Constructeur
               */
             ViewerZoomWidget();
+       public slots:
+            /**
+              * Appelé quand le slider à bougé
+              */
+            void sliderChanged(int value);
+       signals:
+            void zoomChanged(qreal value);
     };
 }
 #endif //VIEWER_VIEWERZOOMWIDGET_H

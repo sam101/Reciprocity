@@ -12,7 +12,8 @@ namespace Viewer
         //On ajoute le widget de zoom
         _zoom = new ViewerZoomWidget;
         addToolBar(_zoom);
-
+        //On connecte le signal à la view
+        connect(_zoom,SIGNAL(zoomChanged(qreal)),_view,SLOT(setZoom(qreal)));
         //On change la taille de la fenêtre.
         resize(_view->width(),_view->height());
     }
