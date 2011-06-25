@@ -35,7 +35,7 @@ namespace Chunk
             /**
               * Id des entitées présentes dans le chunk
               */
-            QVector<QVector<int> > _entities;
+            QList<qint32> _entities;
 
     public:
             /**
