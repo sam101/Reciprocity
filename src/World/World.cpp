@@ -158,9 +158,9 @@ namespace World
         out << (qint32)w._chunkTL.size();
         out << (qint32)w._chunkTL[0].size();
         //On stocke les chunk de chunkTL
-        for (int i = 0; i < w._chunkTL.size(); i++)
+        for (int i = 1; i < w._chunkTL.size(); i++)
         {
-            for (int j = 0; j < w._chunkTL[i].size(); i++)
+            for (int j = 1; j < w._chunkTL[i].size(); i++)
             {
                 out << *w._chunkTL[i][j];
             }
@@ -169,9 +169,9 @@ namespace World
         out << (qint32)w._chunkTR.size();
         out << (qint32)w._chunkTR[0].size();
         //On stocke les chunk de chunkTR
-        for (int i = 0; i < w._chunkTR.size(); i++)
+        for (int i = 1; i < w._chunkTR.size(); i++)
         {
-            for (int j = 0; j < w._chunkTR[i].size(); i++)
+            for (int j = 1; j < w._chunkTR[i].size(); i++)
             {
                 out << *w._chunkTR[i][j];
             }
@@ -179,10 +179,10 @@ namespace World
         //On stocke la taille de chunkBL
         out << (qint32)w._chunkBL.size();
         out << (qint32)w._chunkBL[0].size();
-        //On stocke les chunk de chunkTL
-        for (int i = 0; i < w._chunkBL.size(); i++)
+        //On stocke les chunk de chunBLL
+        for (int i = 1; i < w._chunkBL.size(); i++)
         {
-            for (int j = 0; j < w._chunkBL[i].size(); i++)
+            for (int j = 1; j < w._chunkBL[i].size(); i++)
             {
                 out << *w._chunkBL[i][j];
             }
@@ -191,14 +191,86 @@ namespace World
         out << (qint32)w._chunkBR.size();
         out << (qint32)w._chunkBR[0].size();
         //On stocke les chunk de chunkBR
-        for (int i = 0; i < w._chunkBR.size(); i++)
+        for (int i = 1; i < w._chunkBR.size(); i++)
         {
-            for (int j = 0; j < w._chunkBR[i].size(); i++)
+            for (int j = 1; j < w._chunkBR[i].size(); i++)
             {
                 out << *w._chunkBR[i][j];
             }
         }
 
         return out;
+    }
+    /**
+      * Recupère un monde d'un QDataStream
+      */
+    QDataStream& operator>>(QDataStream &in, World &w)
+    {
+        int width, height;
+        //On vérifie le magicNumber et la version
+        qint32 magicNumber, version;
+        in >> magicNumber;
+        in >> version;
+        Q_ASSERT(magicNumber == World::WORLD_MAGICNUMBER);
+        Q_ASSERT(version == World::WORLD_VERSION);
+
+        //On recupère les données de chunkTL
+        in >> height;
+        in >> width;
+
+        w._chunkTL.resize(height);
+        for (int i = 1; i < height; i++)
+        {
+            w._chunkTL[i].resize(width);
+            for (int j = 1; j < width; j++)
+            {
+                w._chunkTL[i][j] = new Chunk::Chunk(i,j);
+                in >> *w._chunkTL[i][j];
+            }
+        }
+        //On recupère les données de chunkTR
+        in >> height;
+        in >> width;
+
+        w._chunkTL.resize(height);
+        for (int i = 1; i < height; i++)
+        {
+            w._chunkTR[i].resize(width);
+            for (int j = 1; j < width; j++)
+            {
+                w._chunkTR[i][j] = new Chunk::Chunk(i,j);
+                in >> *w._chunkTR[i][j];
+            }
+        }
+        //On recupère les données de chunkBL
+        in >> height;
+        in >> width;
+
+        w._chunkBL.resize(height);
+        for (int i = 1; i < height; i++)
+        {
+            w._chunkBL[i].resize(width);
+            for (int j = 1; j < width; j++)
+            {
+                w._chunkBL[i][j] = new Chunk::Chunk(i,j);
+                in >> *w._chunkBL[i][j];
+            }
+        }
+        //On recupère les données de chunkBR
+        in >> height;
+        in >> width;
+
+        w._chunkBL.resize(height);
+        for (int i = 1; i < height; i++)
+        {
+            w._chunkBR[i].resize(width);
+            for (int j = 1; j < width; j++)
+            {
+                w._chunkBR[i][j] = new Chunk::Chunk(i,j);
+                in >> *w._chunkBR[i][j];
+            }
+        }
+
+        return in;
     }
 }
