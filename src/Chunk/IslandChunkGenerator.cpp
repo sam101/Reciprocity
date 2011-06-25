@@ -24,7 +24,7 @@ namespace Chunk
           * On ajoute des iles
           */
         int xStart, xEnd, yStart, yEnd;
-        int nbIsles = Random::next(3,Config::Config::CHUNK_SIZE);
+        int nbIsles = Random::next(Config::Config::CHUNK_SIZE,Config::Config::CHUNK_SIZE * 2);
         for (int i = 0; i < nbIsles; i++)
         {
             xStart = Random::next(4,Config::Config::CHUNK_SIZE - 4);
