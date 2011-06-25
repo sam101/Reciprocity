@@ -29,7 +29,7 @@ namespace Graphics
             /**
               * Tableau contenant les pixmap des tiles
               */
-            QVector<QPixmap> _tiles;
+            QVector<QImage> _tiles;
             /**
               * BoundingRect de l'item
               */

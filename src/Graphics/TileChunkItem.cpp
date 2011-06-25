@@ -15,13 +15,13 @@ namespace Graphics
         //On définit le boundingRect de l'Item
         _boundingRect = QRectF(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
         //On charge le tableau de tiles.
-        _tiles.append(Provider::getTile("nothing"));
-        _tiles.append(Provider::getTile("sea"));
-        _tiles.append(Provider::getTile("lowland"));
-        _tiles.append(Provider::getTile("forest"));
-        _tiles.append(Provider::getTile("lake"));
-        _tiles.append(Provider::getTile("river"));
-        _tiles.append(Provider::getTile("mountain"));
+        _tiles.append(Provider::getTile("nothing").toImage());
+        _tiles.append(Provider::getTile("sea").toImage());
+        _tiles.append(Provider::getTile("lowland").toImage());
+        _tiles.append(Provider::getTile("forest").toImage());
+        _tiles.append(Provider::getTile("lake").toImage());
+        _tiles.append(Provider::getTile("river").toImage());
+        _tiles.append(Provider::getTile("mountain").toImage());
         //On définit la position.
         int x,y;
         if (_chunk->getX() < 0)
@@ -63,7 +63,7 @@ namespace Graphics
             for (int j = 0; j < Config::Config::TILE_SIZE; j++)
             {
                 current = _chunk->getTileAbs(j,i).getType();
-                painter->drawPixmap(QPoint( (j) * Config::Config::TILE_SIZE,(i) * Config::Config::TILE_SIZE),_tiles[current]);
+                painter->drawImage(QPoint( (j) * Config::Config::TILE_SIZE,(i) * Config::Config::TILE_SIZE),_tiles[current]);
             }
         }
     }
