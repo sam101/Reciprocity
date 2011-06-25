@@ -22,11 +22,20 @@ namespace Viewer
               * Pointeur vers le ZoomWidget
               */
             ViewerZoomWidget *_zoom;
+            /**
+              * Construit le menu de la fenêtre
+              */
+            void _buildMenu();
        public:
             /**
               * Constructeur
               */
             ViewerWindow();
+       public slots:
+            /**
+              * Affiche la fenêtre "a propos de"
+              */
+            void about();
     };
 }
 #endif //VIEWER_VIEWERWINDOW_H
