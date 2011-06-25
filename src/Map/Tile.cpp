@@ -101,5 +101,43 @@ namespace Map
         _type = SEA;
         _flags = BOAT_PASSABLE;
     }
+
+    /**
+      * Stocke une tile dans un QDataStream
+      */
+    QDataStream& operator<<(QDataStream &out, const Tile &t)
+    {
+        out << Tile::TILE_MAGICNUMBER;
+        out << Tile::TILE_VERSION;
+        out << t._flags;
+        out << t._type;
+        out << t._output;
+        out << t._x;
+        out << t._y;
+
+        return out;
+    }
+    /**
+      * Recupère une tile d'un QDataStream
+      */
+    QDataStream& operator>>(QDataStream &in, Tile &t)
+    {
+        //On vérifie le magic number
+        qint32 magicNumber;
+        in >> magicNumber;
+        Q_ASSERT(magicNumber == Tile::TILE_MAGICNUMBER);
+        //On vérifie la version
+        //TODO: Gérer toutes les versions de Tile après la 0.1
+        qint32 version;
+        in >> version;
+        Q_ASSERT(version == Tile::TILE_VERSION);
+        //On recupère les données
+        in >> t._flags;
+        in >> t._output;
+        in >> t._x;
+        in >> t._y;
+
+        return in;
+    }
 }
 

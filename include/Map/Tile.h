@@ -1,6 +1,7 @@
 #ifndef MAP_TILE_H
 #define MAP_TILE_H
 #include <Map/TileType.h>
+#include <QtCore/QDataStream>
 #include <QtCore/Qt>
 namespace Map
 {
@@ -12,6 +13,14 @@ namespace Map
     class Tile
     {
         public:
+            /**
+              * "Magic number" de Tile
+              */
+            static const qint32 TILE_MAGICNUMBER = 0x42424200;
+            /**
+              * Numéro de version de Tile
+              */
+            static const qint32 TILE_VERSION = 1;
             /**
               * Capacités Possibles de la tile
               */
@@ -95,7 +104,14 @@ namespace Map
             */
           void setAsSea();
 
-
+          /**
+            * Stocke une tile dans un QDataStream
+            */
+          friend QDataStream& operator<<(QDataStream &out, const Tile &t);
+         /**
+           * Recupère une tile d'un QDataStream
+           */
+          friend QDataStream& operator>>(QDataStream &in, Tile &t);
     };
 }
 #endif
