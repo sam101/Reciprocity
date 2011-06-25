@@ -1,5 +1,6 @@
 #ifndef WORLD_WORLD_H
 #define WORLD_WORLD_H
+#include <QtCore/QDataStream>
 #include <QtCore/QVector>
 
 #include <Chunk/Chunk.h>

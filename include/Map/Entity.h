@@ -1,6 +1,7 @@
 #ifndef MAP_ENTITY_H
 #define MAP_ENTITY_H
 #include <Config/Config.h>
+#include <QtCore/QDataStream>
 #include <QtCore/Qt>
 #include <QtCore/QVector>
 #include <Map/EntityAbilities.h>
@@ -13,6 +14,15 @@ namespace Map
       */
     class Entity
     {
+        public:
+            /**
+              * "Magic number" de Entity
+              */
+            static const qint32 ENTITY_MAGICNUMBER = 0x42424202;
+            /**
+              * Version de Entity
+              */
+            static const qint32 ENTITY_VERSION = 1;
         protected:
             /**
               * Position X de l'entité
@@ -123,6 +133,14 @@ namespace Map
               * Ajoute un à l'age de l'entité
               */
             void age();
+            /**
+              * Stocke une entité dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out,const Entity &e);
+            /**
+              * Recupère une entité d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, Entity &e);
     };
 }
 #endif

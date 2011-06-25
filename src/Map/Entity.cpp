@@ -133,4 +133,50 @@ namespace Map
     {
         _age++;
     }
+    /**
+      * Stocke une entité dans un QDataStream
+      */
+    QDataStream& operator<<(QDataStream &out, const Entity &e)
+    {
+        out << Entity::ENTITY_MAGICNUMBER;
+        out << Entity::ENTITY_VERSION;
+        out << e._x;
+        out << e._y;
+        out << e._lifePoints;
+        out << e._maxLifePoints;
+        out << e._owner;
+        out << e._will;
+        out << e._hasMoved;
+        out << e._dead;
+        out << e._age;
+        out << e._abilities;
+
+        return out;
+    }
+    /**
+      * Recupère une entité d'un QDataStream
+      */
+    QDataStream& operator>>(QDataStream &in, Entity &e)
+    {
+        //On vérifie le magicNumber et la version
+        qint32 magicNumber;
+        in >> magicNumber;
+        Q_ASSERT(magicNumber == Entity::ENTITY_MAGICNUMBER);
+        qint32 version;
+        in >> version;
+        Q_ASSERT(version == Entity::ENTITY_VERSION);
+        //On recupère les données
+        in >> e._x;
+        in >> e._y;
+        in >> e._lifePoints;
+        in >> e._maxLifePoints;
+        in >> e._owner;
+        in >> e._will;
+        in >> e._hasMoved;
+        in >> e._dead;
+        in >> e._age;
+        in >> e._abilities;
+
+        return in;
+    }
 }
