@@ -21,7 +21,6 @@ namespace Viewer
       */
     void ViewerZoomWidget::sliderChanged(int value)
     {
-        qDebug() << "Value:" << value / 10.0;
         emit zoomChanged((value) / 10.0);
     }
 }
