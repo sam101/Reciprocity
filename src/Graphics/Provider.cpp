@@ -21,7 +21,7 @@ namespace Graphics
         /*
          * Si on l'a déjà chargé, on la renvoie
          */
-        if (0) //(_tiles.contains(name))
+        if (_tiles.contains(name))
         {
             return _tiles.value(name);
         }
