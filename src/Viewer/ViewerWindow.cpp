@@ -1,5 +1,7 @@
 #include <Viewer/ViewerWindow.h>
 #include <QtGui/QAction>
+#include <QtGui/QApplication>
+#include <QtGui/QMessageBox>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 namespace Viewer
@@ -42,6 +44,7 @@ namespace Viewer
 
             QAction *quitAction = fileMenu->addAction(tr("Quitter"));
             quitAction->setShortcut(QKeySequence("Ctrl+Q"));
+            connect(quitAction,SIGNAL(triggered()),qApp,SLOT(quit()));
 
        QMenu *helpMenu = menuBar()->addMenu(tr("Aide"));
             QAction *aboutAction = helpMenu->addAction(tr("A propos de"));
@@ -52,6 +55,6 @@ namespace Viewer
       */
     void ViewerWindow::about()
     {
-
+        QMessageBox::about(this,tr("A propos de"),tr("Visualiseur de monde pour Reciprocity \n. Par Sam101"));
     }
 }
