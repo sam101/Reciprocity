@@ -16,4 +16,4 @@ TEMPLATE = app
 
 
 SOURCES += \
-    Server/main.cpp
+    src/Server/main.cpp
