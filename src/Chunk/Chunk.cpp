@@ -25,19 +25,7 @@ namespace Chunk
                 _tiles[i][j] = Map::Tile(signX * j  + _x,signY * i + _y,0,Map::NOTHING);
             }
         }
-        /*
-         * On construit le tableau des id d'entités
-         */
-        _entities.resize(Config::Config::CHUNK_SIZE);
-        for (int i = 0; i < _entities.size(); i++)
-        {
-            _entities.resize(Config::Config::CHUNK_SIZE);
 
-            for (int j = 0; j < _entities[i].size(); i++)
-            {
-                _entities[i][j] = -1;
-            }
-        }
     }
     /**
       * Renvoie le type du chunk
@@ -96,5 +84,32 @@ namespace Chunk
     void Chunk::setType(ChunkType type)
     {
         _type = type;
+    }
+    /**
+      * Ajoute une entité au chunk
+      */
+    void Chunk::addEntity(qint32 id)
+    {
+        if (!_entities.contains(id))
+        {
+            _entities.insert(id);
+        }
+    }
+    /**
+      * Supprime une entité du chunk
+      */
+    void Chunk::delEntity(qint32 id)
+    {
+        if (_entities.contains(id))
+        {
+            _entities.remove(id);
+        }
+    }
+    /**
+      * Renvoie si l'entité fait partie du chunk
+      */
+    bool Chunk::hasEntity(qint32 id) const
+    {
+        return _entities.contains(id);
     }
 }

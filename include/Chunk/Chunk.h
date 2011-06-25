@@ -3,6 +3,7 @@
 #include <Chunk/ChunkType.h>
 #include <Map/Entity.h>
 #include <Map/Tile.h>
+#include <QtCore/QSet>
 #include <QtCore/QVector>
 namespace Chunk
 {
@@ -35,7 +36,7 @@ namespace Chunk
             /**
               * Id des entitées présentes dans le chunk
               */
-            QList<qint32> _entities;
+            QSet<qint32> _entities;
 
     public:
             /**
@@ -78,7 +79,18 @@ namespace Chunk
               * Défini le type du chunk
               */
             void setType(ChunkType type);
-
+            /**
+              * Ajoute une entité au chunk
+              */
+            void addEntity(qint32 id);
+            /**
+              * Supprime une entité du chunk
+              */
+            void delEntity(qint32 id);
+            /**
+              * Renvoie si l'entité fait partie du chunk
+              */
+            bool hasEntity(qint32 id) const;
     };
 }
 #endif
