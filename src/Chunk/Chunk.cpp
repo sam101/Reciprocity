@@ -112,4 +112,41 @@ namespace Chunk
     {
         return _entities.contains(id);
     }
+    /**
+      * Stocke un chunk dans un QDataStream
+      */
+    QDataStream& operator<<(QDataStream &out, const Chunk &c)
+    {
+        out << Chunk::CHUNK_MAGICNUMBER;
+        out << Chunk::CHUNK_VERSION;
+        out << c._x;
+        out << c._y;
+        out << (qint32)c._type;
+        out << c._tiles;
+        out << c._entities;
+
+        return out;
+    }
+    /**
+      * Recupère un chunk d'un QDataStream
+      */
+    QDataStream& operator>>(QDataStream &in, Chunk &c)
+    {
+        //On vérifie le magic number
+        qint32 magicNumber;
+        in >> magicNumber;
+        Q_ASSERT(magicNumber == Chunk::CHUNK_MAGICNUMBER);
+        //On vérifie la version
+        qint32 version;
+        in >> version;
+        Q_ASSERT(version == Chunk::CHUNK_VERSION);
+        //On recupère les données
+        in >> c._x;
+        in >> c._y;
+        in >> (qint32&)c._type;
+        in >> c._tiles;
+        in >> c._entities;
+
+        return in;
+    }
 }

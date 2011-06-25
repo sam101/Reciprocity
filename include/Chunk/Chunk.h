@@ -3,6 +3,7 @@
 #include <Chunk/ChunkType.h>
 #include <Map/Entity.h>
 #include <Map/Tile.h>
+#include <QtCore/QDataStream>
 #include <QtCore/QSet>
 #include <QtCore/QVector>
 namespace Chunk
@@ -15,7 +16,14 @@ namespace Chunk
     class Chunk
     {
         public:
-
+            /**
+              * Magic number de Chunk
+              */
+            static const qint32 CHUNK_MAGICNUMBER = 0x42424201;
+            /**
+              * Numéro de version de Chunk
+              */
+            static const qint32 CHUNK_VERSION = 1;
         protected:
             /**
               * Position X du chunk
@@ -91,6 +99,14 @@ namespace Chunk
               * Renvoie si l'entité fait partie du chunk
               */
             bool hasEntity(qint32 id) const;
+            /**
+              * Stocke un chunk dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const Chunk &c);
+            /**
+              * Recupère un chunk d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, Chunk &c);
     };
 }
 #endif
