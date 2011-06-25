@@ -41,6 +41,18 @@ namespace Viewer
               * Change le zoom actuel
               */
             void setZoom(qreal zoom);
+            /**
+              * Remet à zéro le monde.
+              */
+            void newWorld();
+            /**
+              * Charge un monde
+              */
+            void loadWorld(QString path);
+            /**
+              * Sauvegarde le monde actuel
+              */
+            void saveWorld(QString path);
 
     };
 }

@@ -32,7 +32,9 @@ namespace Viewer
         QMenu *fileMenu = menuBar()->addMenu(tr("Fichier"));
             QAction *newAction = fileMenu->addAction(tr("Nouveau monde"));
             newAction->setShortcut(QKeySequence("Ctrl+N"));
+            connect(newAction,SIGNAL(triggered()),_view,SLOT(newWorld()));
             fileMenu->addSeparator();
+
 
             QAction *loadAction = fileMenu->addAction(tr("Charger un monde"));
             loadAction->setShortcut(QKeySequence("Ctrl+O"));

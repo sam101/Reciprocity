@@ -41,4 +41,35 @@ namespace Viewer
         resetTransform();
         scale(zoom,zoom);
     }
+    /**
+      * Remet à zéro le monde
+      */
+    void ViewerView::newWorld()
+    {
+        //On supprime les éléments précédents
+        delete _world;
+        delete _scene;
+        //On alloue l'objet de monde
+        _world = new World::World;
+        //On alloue l'objet de scene.
+        _scene = new ViewerScene(_world);
+        setScene(_scene);
+
+    }
+    /**
+      * Charge un monde
+      */
+    void ViewerView::loadWorld(QString path)
+    {
+        //TODO
+        Q_UNUSED(path)
+    }
+    /**
+      * Sauvegarde le monde actuel
+      */
+    void ViewerView::saveWorld(QString path)
+    {
+        Q_UNUSED(path)
+        //TODO
+    }
 }
