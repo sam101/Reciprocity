@@ -18,6 +18,15 @@ namespace World
     class World
     {
         friend class WorldGenerator;
+        public:
+            /**
+              * Magic number de World
+              */
+             static const qint32 WORLD_MAGICNUMBER = 0x42424203;
+             /**
+               * Version de World
+               */
+             static const qint32 WORLD_VERSION = 1;
         protected:
             /**
               * Pointeur vers le générateur du monde
@@ -83,6 +92,14 @@ namespace World
                   * Surchargé constant
                   */
                 const Map::Entity* getEntity(qint32 id) const;
+                /**
+                  * Stocke un monde dans un QDataStream
+                  */
+                friend QDataStream& operator<<(QDataStream &out, const World &w);
+                /**
+                  * Recupère un monde d'un QDataStream
+                  */
+                friend QDataStream& operator>>(QDataStream &in, World &w);
     };   
 }
 #endif //WORLD_WORLD_H

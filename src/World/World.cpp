@@ -146,4 +146,59 @@ namespace World
     {
         return _entities.at(id);
     }
+    /**
+      * Stocke un monde dans un QDataStream
+      */
+    QDataStream& operator<<(QDataStream &out, const World &w)
+    {
+        out << World::WORLD_MAGICNUMBER;
+        out << World::WORLD_VERSION;
+
+        //On stocke la taille de chunkTL
+        out << (qint32)w._chunkTL.size();
+        out << (qint32)w._chunkTL[0].size();
+        //On stocke les chunk de chunkTL
+        for (int i = 0; i < w._chunkTL.size(); i++)
+        {
+            for (int j = 0; j < w._chunkTL[i].size(); i++)
+            {
+                out << *w._chunkTL[i][j];
+            }
+        }
+        //On stocke la taille de chunkTR
+        out << (qint32)w._chunkTR.size();
+        out << (qint32)w._chunkTR[0].size();
+        //On stocke les chunk de chunkTR
+        for (int i = 0; i < w._chunkTR.size(); i++)
+        {
+            for (int j = 0; j < w._chunkTR[i].size(); i++)
+            {
+                out << *w._chunkTR[i][j];
+            }
+        }
+        //On stocke la taille de chunkBL
+        out << (qint32)w._chunkBL.size();
+        out << (qint32)w._chunkBL[0].size();
+        //On stocke les chunk de chunkTL
+        for (int i = 0; i < w._chunkBL.size(); i++)
+        {
+            for (int j = 0; j < w._chunkBL[i].size(); i++)
+            {
+                out << *w._chunkBL[i][j];
+            }
+        }
+        //On stocke la taille de chunkBR
+        out << (qint32)w._chunkBR.size();
+        out << (qint32)w._chunkBR[0].size();
+        //On stocke les chunk de chunkBR
+        for (int i = 0; i < w._chunkBR.size(); i++)
+        {
+            for (int j = 0; j < w._chunkBR[i].size(); i++)
+            {
+                out << *w._chunkBR[i][j];
+            }
+        }
+
+        return out;
+    }
 }
