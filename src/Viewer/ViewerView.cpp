@@ -1,7 +1,7 @@
 #include <Viewer/ViewerView.h>
 #include <Config/Config.h>
+#include <QtGui/QSlider>
 #include <QtGui/QWheelEvent>
-#include <QtOpenGL/QGLWidget>
 namespace Viewer
 {
     /**
@@ -20,7 +20,6 @@ namespace Viewer
         //On change la taille de la fenêtre
         this->resize(1 * (_scene->sceneRect().width() + 32),1 * (_scene->sceneRect().height() + 32));
         //On active openGL
-        setupViewport(new QGLWidget);
         //On scale la view
         scale(_zoom,_zoom);
     }

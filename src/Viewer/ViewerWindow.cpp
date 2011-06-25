@@ -4,6 +4,8 @@
 #include <QtGui/QMessageBox>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
+#include <QtOpenGL/QGLWidget>
+#include <QtOpenGL/QGLFormat>
 namespace Viewer
 {
     /**
@@ -13,6 +15,8 @@ namespace Viewer
     {
         //On crée la vue et on la positionne comme widget principal
         _view = new ViewerView;
+        _view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers)));
+        _view->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
         setCentralWidget(_view);
         //On ajoute le widget de zoom
         _zoom = new ViewerZoomWidget;
