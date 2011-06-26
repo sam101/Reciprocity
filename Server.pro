@@ -24,7 +24,8 @@ SOURCES += \
     src/Chunk/LandChunkGenerator.cpp \
     src/Chunk/SeaChunkGenerator.cpp \
     src/Server/Server.cpp \
-    src/Game/Game.cpp
+    src/Game/Game.cpp \
+    src/Server/ClientHandler.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -43,4 +44,5 @@ HEADERS += \
     include/Chunk/LandChunkGenerator.h \
     include/Chunk/SeaChunkGenerator.h \
     include/Server/Server.h \
-    include/Game/Game.h
+    include/Game/Game.h \
+    include/Server/ClientHandler.h

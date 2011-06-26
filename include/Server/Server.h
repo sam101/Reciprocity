@@ -33,7 +33,6 @@ namespace Server
               * Initialise le serveur et commence l'écoute.
               */
             void init(qint32 port = Config::Config::SERVER_PORT);
-
     };
 }
 #endif //SERVER_SERVER_H
