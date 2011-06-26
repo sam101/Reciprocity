@@ -11,8 +11,29 @@ namespace Game
        */
     class Game
     {
-
-
+        protected:
+            /**
+              * Pointeur vers le monde
+              */
+            World::World *_world;
+        public:
+            /**
+              * Constructeur
+              */
+            Game();
+            /**
+              * Destructeur
+              */
+            virtual ~Game();
+            /**
+              * Renvoie le monde actuel
+              */
+            World::World* getWorld();
+            /**
+              * Renvoie le monde actuel
+              * surchargé constant
+              */
+            const World::World* getWorld() const;
     };
 }
 #endif //GAME_GAME_H

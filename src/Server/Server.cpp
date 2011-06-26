@@ -8,4 +8,11 @@ namespace Server
     {
         init(port);
     }
+    /**
+      * Initialise le serveur
+      */
+    void Server::init(qint32 port)
+    {
+        //TODO
+    }
 }
