@@ -16,7 +16,7 @@ namespace Viewer
         //On crée la vue et on la positionne comme widget principal
         _view = new ViewerView;
         _view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers)));
-        //_view->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
+        _view->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
         setCentralWidget(_view);
         //On ajoute le widget de zoom
         _zoom = new ViewerZoomWidget;

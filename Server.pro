@@ -41,4 +41,5 @@ HEADERS += \
     include/Chunk/IslandChunkGenerator.h \
     include/Chunk/LandChunkGenerator.h \
     include/Chunk/SeaChunkGenerator.h \
-    include/Server/Server.h
+    include/Server/Server.h \
+    include/Game/Game.h
