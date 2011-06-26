@@ -1,4 +1,5 @@
 #include <Server/Server.h>
+#include <QDebug>
 namespace Server
 {
     /**
@@ -30,6 +31,10 @@ namespace Server
         //On alloue l'objet
         _socketServer = new QTcpServer;
         //On commence à écouter les connexions entrantes
-        _socketServer->listen(QHostAddress::Any,port);
+        if (!_socketServer->listen(QHostAddress::Any,port))
+        {
+            qFatal("Erreur: Impossible de commencer l'écoute sur le port");
+        }
+        qDebug() << "Début de l'écoute du serveur";
     }
 }
