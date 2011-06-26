@@ -23,7 +23,8 @@ SOURCES += \
     src/Chunk/IslandChunkGenerator.cpp \
     src/Chunk/LandChunkGenerator.cpp \
     src/Chunk/SeaChunkGenerator.cpp \
-    src/Server/Server.cpp
+    src/Server/Server.cpp \
+    src/Game/Game.cpp
 
 HEADERS += \
     include/World/World.h \
