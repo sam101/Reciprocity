@@ -1,7 +1,7 @@
 #ifndef SERVER_SERVER_H
 #define SERVER_SERVER_H
 #include <Config/Config.h>
-#include <World/World.h>
+#include <Game/Game.h>
 
 #include <QtCore/QObject>
 #include <QtNetwork/QTcpServer>
@@ -23,6 +23,7 @@ namespace Server
             /**
               * Pointeur vers l'objet de jeu actuel
               */
+            Game::Game *_game;
        public:
             /**
               * Constructeur
