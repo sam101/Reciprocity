@@ -12,6 +12,8 @@ namespace Server
     {
         //On initialise le ClientHandler.
         _clientHandler = new ClientHandler;
+        //On initialise le serveur
+        init(port);
     }
     /**
       * Destructeur

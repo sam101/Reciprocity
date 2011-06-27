@@ -25,7 +25,8 @@ SOURCES += \
     src/Chunk/SeaChunkGenerator.cpp \
     src/Server/Server.cpp \
     src/Game/Game.cpp \
-    src/Server/ClientHandler.cpp
+    src/Server/ClientHandler.cpp \
+    src/Server/MessageHandler.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -45,4 +46,5 @@ HEADERS += \
     include/Chunk/SeaChunkGenerator.h \
     include/Server/Server.h \
     include/Game/Game.h \
-    include/Server/ClientHandler.h
+    include/Server/ClientHandler.h \
+    include/Server/MessageHandler.h
