@@ -7,10 +7,30 @@ namespace Server
       */
     Server::Server(qint32 port) :
     _socketServer(NULL),
+    _clientHandler(NULL),
     _game(NULL)
     {
+        //On initialise le ClientHandler.
+        _clientHandler = new ClientHandler;
+        //On initialise le serveur
         init(port);
     }
+    /**
+      * Destructeur
+      */
+    Server::~Server()
+    {
+        if (_socketServer != NULL)
+        {
+            delete _socketServer;
+        }
+        delete _clientHandler;
+        if (_game != NULL)
+        {
+            delete _game;
+        }
+    }
+
     /**
       * Initialise le serveur
       */
@@ -36,5 +56,7 @@ namespace Server
             qFatal("Erreur: Impossible de commencer l'écoute sur le port");
         }
         qDebug() << "Début de l'écoute du serveur";
+        //On connecte les signaux au ClientHandler.
+        connect(_socketServer,SIGNAL(newConnection()),_clientHandler,SLOT(handleIncomming()));
     }
 }

@@ -2,6 +2,7 @@
 #define SERVER_SERVER_H
 #include <Config/Config.h>
 #include <Game/Game.h>
+#include <Server/ClientHandler.h>
 
 #include <QtCore/QObject>
 #include <QtNetwork/QTcpServer>
@@ -21,6 +22,10 @@ namespace Server
               */
             QTcpServer *_socketServer;
             /**
+              * Pointeur vers le ClientHandler
+              */
+            ClientHandler *_clientHandler;
+            /**
               * Pointeur vers l'objet de jeu actuel
               */
             Game::Game *_game;
@@ -29,6 +34,10 @@ namespace Server
               * Constructeur
               */
             Server(qint32 port = Config::Config::SERVER_PORT);
+            /**
+              * Destructeur
+              */
+            virtual ~Server();
             /**
               * Initialise le serveur et commence l'écoute.
               */
