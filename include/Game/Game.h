@@ -16,6 +16,10 @@ namespace Game
               * Pointeur vers le monde
               */
             World::World *_world;
+            /**
+              * Indique si la partie à commencé
+              */
+            bool _hasBegun;
         public:
             /**
               * Constructeur
@@ -34,6 +38,10 @@ namespace Game
               * surchargé constant
               */
             const World::World* getWorld() const;
+            /**
+              * Renvoie si la partie a commencé
+              */
+            bool hasBegun() const;
     };
 }
 #endif //GAME_GAME_H

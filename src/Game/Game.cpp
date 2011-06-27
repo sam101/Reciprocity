@@ -5,7 +5,8 @@ namespace Game
       * Constructeur
       */
     Game::Game() :
-    _world(NULL)
+    _world(NULL),
+    _hasBegun(false)
     {
         //On alloue l'objet de monde
         _world = new World::World;
@@ -34,5 +35,12 @@ namespace Game
     const World::World* Game::getWorld() const
     {
         return _world;
+    }
+    /**
+      * Renvoie si la partie a commencé
+      */
+    bool Game::hasBegun() const
+    {
+        return _hasBegun;
     }
 }
