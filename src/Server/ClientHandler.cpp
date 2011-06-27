@@ -40,4 +40,19 @@ namespace Server
         //On envoie le signal pour dire qu'il y'a un nouveau client
         emit newClient(socket);
     }
+    /**
+      * Appelé quand un client se deconnecte du serveur.
+      * Envoit un signal pour annoncer que le client
+      * s'est déconnecté
+      */
+    void ClientHandler::handleDisconnection()
+    {
+        //On vérifie que c'est bien un QTcpSocket qui a envoyé le signal
+        QTcpSocket *socket = qobject_cast<QTcpSocket*>(sender());
+        if (socket == NULL)
+        {
+            return;
+        }
+        emit clientHasDisconnected(socket);
+    }
 }
