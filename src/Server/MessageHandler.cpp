@@ -26,5 +26,11 @@ namespace Server
             qDebug() << tr("Attention, messageRecevied appelé par autre chose qu'une socket.");
             return;
         }
+        //On vérifie qu'on a reçu la taille du message.
+        if (socket->bytesAvailable() < sizeof(quint16))
+        {
+            return;
+        }
+
     }
 }

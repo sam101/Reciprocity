@@ -2,6 +2,7 @@
 #define SERVER_MESSAGEHANDLER_H
 #include <QtCore/QObject>
 #include <Game/Game.h>
+#include <QtCore/QMap>
 namespace Server
 {
     /**
@@ -17,6 +18,10 @@ namespace Server
               * Pointeur vers l'objet de jeu
               */
             Game::Game *_game;
+            /**
+              * Stocke les tailles de message
+              */
+            QMap<QTcpSocket*,quint16> _sizes;
         public:
             /**
               * Constructeur
