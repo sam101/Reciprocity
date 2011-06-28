@@ -47,4 +47,5 @@ HEADERS += \
     include/Server/Server.h \
     include/Game/Game.h \
     include/Server/ClientHandler.h \
-    include/Server/MessageHandler.h
+    include/Server/MessageHandler.h \
+    include/Network/MessageType.h
