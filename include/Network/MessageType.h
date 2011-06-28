@@ -9,6 +9,8 @@ namespace Network
       */
     enum MessageType
     {
+        NONE = 0,
+        LOGIN = 1
 
     };
 }
