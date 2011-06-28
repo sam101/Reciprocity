@@ -1,5 +1,6 @@
 #include <Server/MessageHandler.h>
 #include <QtNetwork/QTcpSocket>
+#include <QtCore/QDataStream>
 #include <QtCore/QDebug>
 namespace Server
 {
@@ -26,11 +27,23 @@ namespace Server
             qDebug() << tr("Attention, messageRecevied appelé par autre chose qu'une socket.");
             return;
         }
-        //On vérifie qu'on a reçu la taille du message.
-        if (socket->bytesAvailable() < sizeof(quint16))
+        if (_sizes[socket] == 0)
+        {
+            //On vérifie qu'on a reçu la taille du message.
+            if (socket->bytesAvailable() < sizeof(quint16))
+            {
+                return;
+            }
+            //On vérifie qu'on à bien tout le message.
+            in >> _sizes[socket];
+        }
+        //Si on a pas tout le message, on abandonne.
+        if (socket->bytesAvailable() < _sizes[socket])
         {
             return;
         }
-
+        //On commence à lire les données
+        QDataStream in(socket);
+        //On recupère le type du message.
     }
 }
