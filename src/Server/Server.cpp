@@ -77,7 +77,9 @@ namespace Server
             qDebug() << "Server::newClient: Erreur: le client existe déjà !";
             return;
         }
-        //On crée l'objet socket
+        //On crée l'objet Client
         _clients[socket] = new Client(socket);
+        //On connecte le signal du socket au slot de MessageHandler
+        connect(socket,SIGNAL(readyRead()),_messageHandler,SLOT(messageRecevied()));
     }
 }
