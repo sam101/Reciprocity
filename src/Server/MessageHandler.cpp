@@ -1,4 +1,5 @@
 #include <Server/MessageHandler.h>
+#include <Network/AbstractMessage.h>
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
@@ -46,5 +47,14 @@ namespace Server
             return;
         }
         //On recupère le type du message.
+        qint32 type;
+        in >> type;
+        //On gère selon le type.
+        switch (type)
+        {
+            case Network::NONE:
+                //Si on a reçu un message de type vide.
+            break;
+        }
     }
 }
