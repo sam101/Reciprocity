@@ -50,10 +50,10 @@ namespace Game
     /**
       * Ajoute un joueur à la partie
       */
-    Player* Game::addPlayer(QString login)
+    Player* Game::addPlayer(QString login, QString hash)
     {
         //On ajoute l'objet "Player"
-        _players.append(new Player(_players.size(),login));
+        _players.append(new Player(_players.size(),login,hash));
         //On lui ajoute ses entités/ressources "de base".
 
         //TODO

@@ -22,6 +22,10 @@ namespace Game
               */
             QString _login;
             /**
+              * Hash du joueur
+              */
+            QString _hash;
+            /**
               * Indique si le joueur est actuellement connecté.
               */
             bool _isOnline;
@@ -33,7 +37,7 @@ namespace Game
             /**
               * Constructeur
               */
-            Player(qint32 id, QString login);
+            Player(qint32 id, QString login, QString hash);
             /**
               * Renvoie l'id du joueur
               */

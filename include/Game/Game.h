@@ -53,7 +53,12 @@ namespace Game
             /**
               * Ajoute un joueur à la partie
               */
-            Player* addPlayer(QString login);
+            Player* addPlayer(QString login, QString hash);
+            /**
+              * Re-loggue un joueur qui était déjà deconnecté.
+              * Renvoie vrai si l'opération à réussi.
+              */
+            bool playerBack(QString login, QString hash);
     };
 }
 #endif //GAME_GAME_H

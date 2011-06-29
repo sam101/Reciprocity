@@ -4,9 +4,10 @@ namespace Game
     /**
       * Constructeur
       */
-    Player::Player(qint32 id, QString login) :
+    Player::Player(qint32 id, QString login, QString hash) :
     _id(id),
     _login(login),
+    _hash(hash),
     _isOnline(true)
     {
 
