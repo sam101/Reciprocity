@@ -49,6 +49,11 @@ namespace Server
               * Initialise le serveur et commence l'écoute.
               */
             void init(qint32 port = Config::Config::SERVER_PORT);
+      public slots:
+            /**
+              * Ajoute un client à la liste des clients
+              */
+            void newClient(QTcpSocket *socket);
     };
 }
 #endif //SERVER_SERVER_H

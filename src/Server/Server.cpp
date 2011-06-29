@@ -56,5 +56,16 @@ namespace Server
         qDebug() << "Début de l'écoute du serveur";
         //On connecte les signaux au ClientHandler.
         connect(_socketServer,SIGNAL(newConnection()),_clientHandler,SLOT(handleIncomming()));
+        connect(_clientHandler,SIGNAL(newClient(QTcpSocket*)),this,SLOT(newClient(QTcpSocket*)));
+    }
+    /**
+      * Ajoute un client à la liste des clients
+      */
+    void Server::newClient(QTcpSocket *socket)
+    {
+        if (_clients.contains(socket))
+        {
+            qDebug() << "Server::newClient: Erreur: le client existe déjà !";
+        }
     }
 }
