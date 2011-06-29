@@ -34,6 +34,26 @@ namespace Game
               * Constructeur
               */
             Player(qint32 id, QString login);
+            /**
+              * Renvoie l'id du joueur
+              */
+            qint32 getId() const;
+            /**
+              * Renvoie le login du joueur
+              */
+            QString getLogin() const;
+            /**
+              * Renvoie si le joueur est connecté
+              */
+            bool isOnline() const;
+            /**
+              * Indique que le joueur est hors ligne
+              */
+            void setOffline();
+            /**
+              * Indique que le joueur est à nouveau en ligne
+              */
+            void setOnline();
 
     };
 }
