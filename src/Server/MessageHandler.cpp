@@ -27,6 +27,9 @@ namespace Server
             qDebug() << tr("Attention, messageRecevied appelé par autre chose qu'une socket.");
             return;
         }
+        //On déclare le datastream pour lire les données
+        QDataStream in(socket);
+        in.setVersion(QDataStream::Qt_4_5);
         if (_sizes[socket] == 0)
         {
             //On vérifie qu'on a reçu la taille du message.
@@ -42,8 +45,6 @@ namespace Server
         {
             return;
         }
-        //On commence à lire les données
-        QDataStream in(socket);
         //On recupère le type du message.
     }
 }

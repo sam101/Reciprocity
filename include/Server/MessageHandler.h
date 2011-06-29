@@ -1,5 +1,6 @@
 #ifndef SERVER_MESSAGEHANDLER_H
 #define SERVER_MESSAGEHANDLER_H
+#include <QtNetwork/QTcpSocket>
 #include <QtCore/QObject>
 #include <Game/Game.h>
 #include <QtCore/QMap>

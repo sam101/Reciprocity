@@ -33,10 +33,14 @@ namespace Server
         {
             return;
         }
+        //On indique qu'un client s'est connecté.
+        qDebug() << "Nouvelle connexion en provenance de " << socket->peerAddress();
         //Sinon, on procède à des vérifications
 
         //TODO
 
+        //On connecte le signal pour la deconnexion
+        connect(socket,SIGNAL(disconnected()),this,SLOT(handleDisconnection()));
         //On envoie le signal pour dire qu'il y'a un nouveau client
         emit newClient(socket);
     }
@@ -53,6 +57,9 @@ namespace Server
         {
             return;
         }
+        //On affiche un message
+        qDebug() << "Le client " << socket->peerAddress() << "s'est deconnecté";
+        //On emet le signal
         emit clientHasDisconnected(socket);
     }
 }
