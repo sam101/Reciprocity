@@ -60,6 +60,8 @@ namespace Server
         }
         //On affiche un message
         qDebug() << "Le client " << socket->peerAddress() << "s'est deconnecté";
+        //On indique que le client s'est déconnecté.
+        _clients[socket]->setOffline();
         //On emet le signal
         emit clientHasDisconnected(socket);
     }
