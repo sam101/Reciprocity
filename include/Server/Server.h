@@ -2,9 +2,11 @@
 #define SERVER_SERVER_H
 #include <Config/Config.h>
 #include <Game/Game.h>
+#include <Server/Client.h>
 #include <Server/ClientHandler.h>
 
 #include <QtCore/QObject>
+#include <QtNetwork/QTcpSocket>
 #include <QtNetwork/QTcpServer>
 namespace Server
 {
@@ -17,6 +19,10 @@ namespace Server
     {
         Q_OBJECT
         protected:
+            /**
+              * Map des clients présents sur le serveur
+              */
+            QMap<QTcpSocket*,Client*> _clients;
             /**
               * Pointeur vers la socket serveur
               */
