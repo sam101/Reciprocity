@@ -7,7 +7,8 @@ namespace Server
     /**
       * Constructeur
       */
-    ClientHandler::ClientHandler()
+    ClientHandler::ClientHandler(QMap<QTcpSocket*,Client*> &clients) :
+    _clients(clients)
     {
 
     }

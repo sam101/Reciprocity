@@ -5,6 +5,7 @@
 #include <Server/Client.h>
 #include <Server/ClientHandler.h>
 
+#include <QtCore/QMap>
 #include <QtCore/QObject>
 #include <QtNetwork/QTcpSocket>
 #include <QtNetwork/QTcpServer>
@@ -39,7 +40,7 @@ namespace Server
             /**
               * Constructeur
               */
-            Server(qint32 port = Config::Config::SERVER_PORT);
+            Server();
             /**
               * Destructeur
               */

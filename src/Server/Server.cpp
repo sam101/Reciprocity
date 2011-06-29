@@ -5,13 +5,13 @@ namespace Server
     /**
       * Constructeur
       */
-    Server::Server(qint32 port) :
+    Server::Server() :
     _socketServer(NULL),
     _clientHandler(NULL),
     _game(NULL)
     {
         //On initialise le ClientHandler.
-        _clientHandler = new ClientHandler;
+        _clientHandler = new ClientHandler(_clients);
     }
     /**
       * Destructeur

@@ -1,5 +1,6 @@
 #ifndef SERVER_CLIENTHANDLER_H
 #define SERVER_CLIENTHANDLER_H
+#include <Server/Client.h>
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QObject>
 namespace Server
@@ -13,11 +14,15 @@ namespace Server
     {
         Q_OBJECT
         protected:
+            /**
+              * Référence vers le Map des clients.
+              */
+        QMap<QTcpSocket*,Client*>& _clients;
         public:
             /**
               * Constructeur
               */
-            ClientHandler();
+            ClientHandler(QMap<QTcpSocket*,Client*>& clients);
 
         signals:
             /**
