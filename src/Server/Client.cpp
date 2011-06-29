@@ -5,7 +5,8 @@ namespace Server
       * Constructeur
       */
     Client::Client(QTcpSocket *socket)  :
-    _socket(socket)
+    _socket(socket),
+    _isOnline(true)
     {
 
     }
@@ -39,6 +40,13 @@ namespace Server
         return _hash;
     }
     /**
+      * Renvoie si le client est en ligne
+      */
+    bool Client::isOnline() const
+    {
+        return _isOnline;
+    }
+    /**
       * Change le login du client
       */
     void Client::setLogin(QString login)
@@ -51,5 +59,12 @@ namespace Server
     void Client::setHash(QString hash)
     {
         _hash = hash;
+    }
+    /**
+      * Indique que le client est offline
+      */
+    void Client::setOffline()
+    {
+        _isOnline = false;
     }
 }

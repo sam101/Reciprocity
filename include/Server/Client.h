@@ -25,6 +25,10 @@ namespace Server
               * (vide si non renseigné)
               */
             QString _hash;
+            /**
+              * Indique si le client est toujours connecté
+              */
+            bool _isOnline;
         public:
             /**
               * Constructeur
@@ -48,6 +52,10 @@ namespace Server
               */
             QString getHash() const;
             /**
+              * Renvoie si le client est en ligne
+              */
+            bool isOnline() const;
+            /**
               * Change le login du client
               */
             void setLogin(QString login);
@@ -55,6 +63,10 @@ namespace Server
               * Change le hash du client
               */
             void setHash(QString hash);
+            /**
+              * Indique que le client est offline
+              */
+            void setOffline();
     };
 }
 #endif //SERVER_CLIENT_H
