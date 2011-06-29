@@ -4,7 +4,7 @@ using namespace Tools;
 namespace Chunk
 {
     /**
-      * Genère une ile carré
+      * Genère une ile carrée
       */
     void ChunkGenerator::genSquareIsland(Chunk *chunk, int xStart, int xEnd, int yStart, int yEnd)
     {
