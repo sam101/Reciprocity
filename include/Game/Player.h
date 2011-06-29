@@ -26,6 +26,10 @@ namespace Game
               */
             QString _hash;
             /**
+              * Dernier temps à laquelle le Player a envoyé un message
+              */
+            qint64 _lastTime;
+            /**
               * Indique si le joueur est actuellement connecté.
               */
             bool _isOnline;
@@ -55,6 +59,10 @@ namespace Game
               */
             QString getHash() const;
             /**
+              * Renvoie la date a laquelle le joueur a envoyé un message
+              */
+            qint64 getLastTime() const;
+            /**
               * Renvoie si le joueur est connecté
               */
             bool isOnline() const;
@@ -74,6 +82,10 @@ namespace Game
               * Change les droits d'administration du joueur
               */
             void setAdmin(bool admin);
+            /**
+              * Met à jour le lastTime du Joueur.
+              */
+            void resetLastTime();
 
     };
 }

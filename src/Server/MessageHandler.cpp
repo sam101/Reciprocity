@@ -12,7 +12,6 @@ namespace Server
     _game(NULL),
     _clients(clients)
     {
-
     }
     /**
       * Appelé lors de la reception d'un message.

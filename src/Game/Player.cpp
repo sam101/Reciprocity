@@ -1,4 +1,5 @@
 #include <Game/Player.h>
+#include <QtCore/QDateTime>
 namespace Game
 {
     /**
@@ -11,7 +12,7 @@ namespace Game
     _isOnline(true),
     _admin(false)
     {
-
+        _lastTime = QDateTime::currentMSecsSinceEpoch();
     }
     /**
       * Renvoie l'id du joueur
@@ -34,6 +35,14 @@ namespace Game
     {
         return _hash;
     }
+    /**
+      * Renvoie la date a laquelle le joueur a envoyé un message
+      */
+    qint64 Player::getLastTime() const
+    {
+        return _lastTime;
+    }
+
     /**
       * Renvoie si le joueur est connecté
       */
@@ -68,5 +77,12 @@ namespace Game
     void Player::setAdmin(bool admin)
     {
         _admin = admin;
+    }
+    /**
+      * Met à jour le lastTime du Joueur.
+      */
+    void Player::resetLastTime()
+    {
+        _lastTime = QDateTime::currentMSecsSinceEpoch();
     }
 }
