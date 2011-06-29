@@ -42,7 +42,6 @@ namespace Game
     {
         return _lastTime;
     }
-
     /**
       * Renvoie si le joueur est connecté
       */
