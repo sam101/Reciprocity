@@ -30,6 +30,12 @@ namespace Server
         {
             delete _game;
         }
+        //On détruit tout les Client
+        QMutableMapIterator<QTcpSocket*,Client*> it(_clients);
+        while (it.hasNext())
+        {
+            delete it.next();
+        }
     }
 
     /**
