@@ -55,8 +55,12 @@ namespace Game
               */
             Player* addPlayer(QString login, QString hash);
             /**
+              * Cherche un joueur dans la liste des joueurs
+              */
+            Player* findPlayer(QString login);
+            /**
               * Re-loggue un joueur qui était déjà deconnecté.
-              * Renvoie vrai si l'opération à réussi.
+              * Renvoie true si l'opération à réussi.
               */
             bool playerBack(QString login, QString hash);
     };

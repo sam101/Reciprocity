@@ -47,6 +47,10 @@ namespace Game
               */
             QString getLogin() const;
             /**
+              * Renvoie le hash du joueur
+              */
+            QString getHash() const;
+            /**
               * Renvoie si le joueur est connecté
               */
             bool isOnline() const;

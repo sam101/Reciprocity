@@ -27,6 +27,13 @@ namespace Game
         return _login;
     }
     /**
+      * Renvoie le hash du joueur
+      */
+    QString Player::getHash() const
+    {
+        return _hash;
+    }
+    /**
       * Renvoie si le joueur est connecté
       */
     bool Player::isOnline() const

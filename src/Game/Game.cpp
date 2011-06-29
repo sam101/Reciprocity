@@ -61,4 +61,42 @@ namespace Game
         //On renvoie l'objet Player
         return _players.last();
     }
+    /**
+      * Cherche un joueur dans la liste des joueurs
+      */
+    Player* Game::findPlayer(QString login)
+    {
+        for (int i = 0; i < _players.size(); i++)
+        {
+            if (_players[i]->getLogin() == login)
+            {
+                return _players[i];
+            }
+        }
+        return NULL;
+    }
+
+    /**
+      * Re-loggue un joueur qui était déjà deconnecté.
+      * Renvoie vrai si l'opération à réussi.
+      */
+    bool Game::playerBack(QString login, QString hash)
+    {
+        //On recupère un pointeur vers le joueur
+        Player *player = findPlayer(login);
+        //Si le joueur n'existe pas
+        if (player == NULL)
+        {
+            return false;
+        }
+        //On vérifie que le hash est bon.
+        if (player->getHash() == hash)
+        {
+            //On indique que le joueur est en ligne
+            player->setOnline();
+            //On indique que l'opération s'est bien passée
+            return true;
+        }
+        return false;
+    }
 }
