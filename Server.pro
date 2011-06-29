@@ -29,7 +29,7 @@ SOURCES += \
     src/Server/MessageHandler.cpp \
     src/Network/AbstractMessage.cpp \
     src/Server/Client.cpp \
-    include/Game/Player.cpp
+    src/Game/Player.cpp
 
 HEADERS += \
     include/World/World.h \

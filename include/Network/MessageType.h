@@ -9,8 +9,11 @@ namespace Network
       */
     enum MessageType
     {
+        ERROR = -1,
         NONE = 0,
-        LOGIN = 1
+        LOGIN = 1,
+        LOGIN_FAILED = 2,
+        LOGIN_SUCCESS = 3
 
     };
 }
