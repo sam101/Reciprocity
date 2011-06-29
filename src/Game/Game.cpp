@@ -20,6 +20,10 @@ namespace Game
         {
             delete _world;
         }
+        for (int i = 0; i < _players.size(); i++)
+        {
+            delete _players[i];
+        }
     }
     /**
       * Renvoie le monde actuel
@@ -42,5 +46,19 @@ namespace Game
     bool Game::hasBegun() const
     {
         return _hasBegun;
+    }
+    /**
+      * Ajoute un joueur à la partie
+      */
+    Player* Game::addPlayer(QString login)
+    {
+        //On ajoute l'objet "Player"
+        _players.append(new Player(_players.size(),login));
+        //On lui ajoute ses entités/ressources "de base".
+
+        //TODO
+
+        //On renvoie l'objet Player
+        return _players.last();
     }
 }

@@ -1,6 +1,7 @@
 #ifndef GAME_GAME_H
 #define GAME_GAME_H
 #include <QtCore/QObject>
+#include <QtCore/QString>
 #include <Game/Player.h>
 #include <World/World.h>
 namespace Game
@@ -49,6 +50,10 @@ namespace Game
               * Renvoie si la partie a commencé
               */
             bool hasBegun() const;
+            /**
+              * Ajoute un joueur à la partie
+              */
+            Player* addPlayer(QString login);
     };
 }
 #endif //GAME_GAME_H
