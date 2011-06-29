@@ -15,6 +15,7 @@ namespace Network
         LOGIN_FAILED = 2,
         LOGIN_SUCCESS = 3
 
+
     };
 }
 #endif //NETWORK_MESSAGETYPE_H

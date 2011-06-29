@@ -30,6 +30,10 @@ namespace Game
               */
             bool _isOnline;
             /**
+              * Indique si le joueur est administrateur ou non
+              */
+            bool _admin;
+            /**
               * Entités possédées par le joueur
               */
             QList<qint32> _entities;
@@ -55,6 +59,10 @@ namespace Game
               */
             bool isOnline() const;
             /**
+              * Renvoie si le joueur est administrateur
+              */
+            bool isAdmin() const;
+            /**
               * Indique que le joueur est hors ligne
               */
             void setOffline();
@@ -62,6 +70,10 @@ namespace Game
               * Indique que le joueur est à nouveau en ligne
               */
             void setOnline();
+            /**
+              * Change les droits d'administration du joueur
+              */
+            void setAdmin(bool admin);
 
     };
 }

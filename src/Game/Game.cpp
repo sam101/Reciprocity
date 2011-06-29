@@ -54,6 +54,11 @@ namespace Game
     {
         //On ajoute l'objet "Player"
         _players.append(new Player(_players.size(),login,hash));
+        //Si il est le premier joueur, on lui donne les droits d'administrateur.
+        if (_players.size() == 1)
+        {
+            _players.last()->setAdmin(true);
+        }
         //On lui ajoute ses entités/ressources "de base".
 
         //TODO

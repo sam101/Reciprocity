@@ -8,7 +8,8 @@ namespace Game
     _id(id),
     _login(login),
     _hash(hash),
-    _isOnline(true)
+    _isOnline(true),
+    _admin(false)
     {
 
     }
@@ -41,6 +42,13 @@ namespace Game
         return _isOnline;
     }
     /**
+      * Renvoie si le joueur est administrateur
+      */
+    bool Player::isAdmin() const
+    {
+        return _admin;
+    }
+    /**
       * Indique que le joueur est hors ligne
       */
     void Player::setOffline()
@@ -53,5 +61,12 @@ namespace Game
     void Player::setOnline()
     {
         _isOnline = true;
+    }
+    /**
+      * Change les droits d'administration du joueur
+      */
+    void Player::setAdmin(bool admin)
+    {
+        _admin = admin;
     }
 }
