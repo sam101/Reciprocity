@@ -13,9 +13,13 @@ namespace Network
         NONE = 0,
         LOGIN = 1,
         LOGIN_FAILED = 2,
-        LOGIN_SUCCESS = 3
-
-
+        LOGIN_SUCCESS = 3,
+        KICK = 4,
+        CHUNKDATA = 5,
+        ENTITYDATA = 6,
+        MOVEUNIT = 7,
+        MOVEUNIT_ACCEPTED = 8,
+        MOVEUNIT_FAILED = 9
     };
 }
 #endif //NETWORK_MESSAGETYPE_H
