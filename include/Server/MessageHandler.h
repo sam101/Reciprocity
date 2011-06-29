@@ -22,7 +22,7 @@ namespace Server
             /**
               * Stocke les tailles de message
               */
-            QMap<QTcpSocket*,quint16> _sizes;
+            QMap<QTcpSocket*,qint32> _sizes;
         public:
             /**
               * Constructeur

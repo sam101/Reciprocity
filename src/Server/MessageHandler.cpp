@@ -34,7 +34,7 @@ namespace Server
         if (_sizes[socket] == 0)
         {
             //On vérifie qu'on a reçu la taille du message.
-            if (socket->bytesAvailable() < sizeof(quint16))
+            if (socket->bytesAvailable() < (qint32)sizeof(qint32) )
             {
                 return;
             }
