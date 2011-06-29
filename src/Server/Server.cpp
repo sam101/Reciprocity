@@ -12,6 +12,8 @@ namespace Server
     {
         //On initialise le ClientHandler.
         _clientHandler = new ClientHandler(_clients);
+        //On initialise le MessageHandler
+        _messageHandler = new MessageHandler(_clients);
     }
     /**
       * Destructeur
@@ -23,6 +25,7 @@ namespace Server
             delete _socketServer;
         }
         delete _clientHandler;
+        delete _messageHandler;
         if (_game != NULL)
         {
             delete _game;
@@ -66,6 +69,9 @@ namespace Server
         if (_clients.contains(socket))
         {
             qDebug() << "Server::newClient: Erreur: le client existe déjà !";
+            return;
         }
+        //On crée l'objet socket
+        _clients[socket] = new Client(socket);
     }
 }

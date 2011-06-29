@@ -4,6 +4,7 @@
 #include <Game/Game.h>
 #include <Server/Client.h>
 #include <Server/ClientHandler.h>
+#include <Server/MessageHandler.h>
 
 #include <QtCore/QMap>
 #include <QtCore/QObject>
@@ -32,6 +33,10 @@ namespace Server
               * Pointeur vers le ClientHandler
               */
             ClientHandler *_clientHandler;
+            /**
+              * Pointeur vers le MessageHandler
+              */
+            MessageHandler *_messageHandler;
             /**
               * Pointeur vers l'objet de jeu actuel
               */

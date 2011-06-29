@@ -33,7 +33,7 @@ namespace Server
             /**
               * Constructeur
               */
-            MessageHandler(Game::Game *game, QMap<QTcpSocket*,Client*> clients);
+            MessageHandler(QMap<QTcpSocket*,Client*> clients);
         public slots:
             /**
               * Appelé lors de la reception d'un message.
