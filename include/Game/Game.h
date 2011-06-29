@@ -1,5 +1,7 @@
 #ifndef GAME_GAME_H
 #define GAME_GAME_H
+#include <QtCore/QObject>
+#include <Game/Player.h>
 #include <World/World.h>
 namespace Game
 {
@@ -9,13 +11,18 @@ namespace Game
        * @brief Gère toutes les actions liées au jeu
        * @author Sam101
        */
-    class Game
+    class Game : public QObject
     {
+        Q_OBJECT
         protected:
             /**
               * Pointeur vers le monde
               */
             World::World *_world;
+            /**
+              * Tableau des joueurs
+              */
+            QList<Player*> _players;
             /**
               * Indique si la partie à commencé
               */
