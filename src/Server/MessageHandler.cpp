@@ -8,8 +8,9 @@ namespace Server
     /**
       * Constructeur
       */
-    MessageHandler::MessageHandler(Game::Game *game) :
-    _game(game)
+    MessageHandler::MessageHandler(Game::Game *game, QMap<QTcpSocket*, Client*> clients) :
+    _game(game),
+    _clients(clients)
     {
 
     }

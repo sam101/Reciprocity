@@ -2,6 +2,8 @@
 #define SERVER_MESSAGEHANDLER_H
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QObject>
+
+#include <Server/Client.h>
 #include <Game/Game.h>
 #include <QtCore/QMap>
 namespace Server
@@ -20,6 +22,10 @@ namespace Server
               */
             Game::Game *_game;
             /**
+              * Map des clients
+              */
+            QMap<QTcpSocket*, Client*> _clients;
+            /**
               * Stocke les tailles de message
               */
             QMap<QTcpSocket*,qint32> _sizes;
@@ -27,7 +33,7 @@ namespace Server
             /**
               * Constructeur
               */
-            MessageHandler(Game::Game *game);
+            MessageHandler(Game::Game *game, QMap<QTcpSocket*,Client*> clients);
         public slots:
             /**
               * Appelé lors de la reception d'un message.
