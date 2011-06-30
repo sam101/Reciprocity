@@ -54,4 +54,5 @@ HEADERS += \
     include/Network/MessageType.h \
     include/Network/AbstractMessage.h \
     include/Server/Client.h \
-    include/Game/Player.h
+    include/Game/Player.h \
+    include/Map/BuildingType.h
