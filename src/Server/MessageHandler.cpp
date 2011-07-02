@@ -58,8 +58,17 @@ namespace Server
             break;
             //Si on a reçu un message de type "Login"
             case Network::LOGIN:
-
+                handleLogin(socket,in);
             break;
         }
+    }
+    /**
+      * Gère le login d'un joueur
+      */
+    void MessageHandler::handleLogin(QTcpSocket *socket, QDataStream &in)
+    {
+        Q_UNUSED(socket)
+        Q_UNUSED(in)
+        //TODO
     }
 }

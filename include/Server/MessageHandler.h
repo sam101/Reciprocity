@@ -41,6 +41,10 @@ namespace Server
               * appelle la méthode correspondante au message reçu.
               */
             void messageRecevied();
+            /**
+              * Gère le login d'un joueur
+              */
+            void handleLogin(QTcpSocket *socket, QDataStream &in);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H
