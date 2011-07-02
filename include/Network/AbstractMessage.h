@@ -1,6 +1,6 @@
 #ifndef NETWORK_ABSTRACTMESSAGE_H
 #define NETWORK_ABSTRACTMESSAGE_H
-#include <QtCore/Qt>
+#include <QtCore/QDataStream>
 #include <Network/MessageType.h>
 namespace Network
 {

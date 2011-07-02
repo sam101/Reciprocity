@@ -29,7 +29,8 @@ SOURCES += \
     src/Server/MessageHandler.cpp \
     src/Network/AbstractMessage.cpp \
     src/Server/Client.cpp \
-    src/Game/Player.cpp
+    src/Game/Player.cpp \
+    src/Network/LoginMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -55,4 +56,5 @@ HEADERS += \
     include/Network/AbstractMessage.h \
     include/Server/Client.h \
     include/Game/Player.h \
-    include/Map/BuildingType.h
+    include/Map/BuildingType.h \
+    include/Network/LoginMessage.h
