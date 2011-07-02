@@ -50,6 +50,30 @@ namespace Map
               * Constructeur
               */
             Building(qint32 x, qint32 y, BuildingType type = NONE, qint32 level = 0, qint32 lifePoints = 0, qint32 maxLifePoints = 0);
+            /**
+              * Renvoie le type du batiment
+              */
+            BuildingType getType() const;
+            /**
+              * Renvoie le niveau du batiment
+              */
+            qint32 getLevel() const;
+            /**
+              * Renvoie les points de vie du batiment
+              */
+            qint32 getLifePoints() const;
+            /**
+              * Renvoie les points de vie maximums du batiment
+              */
+            qint32 getMaxLifePoints() const;
+            /**
+              * Renvoie la position X du batiment
+              */
+            qint32 getX() const;
+            /**
+              * Renvoie la position Y du batiment
+              */
+            qint32 getY() const;
     };
 }
 #endif //MAP_BUILDING_H
