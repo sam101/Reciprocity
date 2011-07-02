@@ -6,7 +6,8 @@ namespace Server
       */
     Client::Client(QTcpSocket *socket)  :
     _socket(socket),
-    _isOnline(true)
+    _isOnline(true),
+    _player(NULL)
     {
 
     }
@@ -40,6 +41,21 @@ namespace Server
         return _hash;
     }
     /**
+      * Renvoie le pointeur vers le joueur du client
+      */
+    Game::Player* Client::getPlayer()
+    {
+        return _player;
+    }
+    /**
+      * Renvoie le pointeur vers le joueur du client
+      * surchargé constant
+      */
+    const Game::Player* Client::getPlayer() const
+    {
+        return _player;
+    }
+    /**
       * Renvoie si le client est en ligne
       */
     bool Client::isOnline() const
@@ -66,5 +82,12 @@ namespace Server
     void Client::setOffline()
     {
         _isOnline = false;
+    }
+    /**
+      * Change le joueur utilisé par le client
+      */
+    void Client::setPlayer(Game::Player *player)
+    {
+        _player = player;
     }
 }

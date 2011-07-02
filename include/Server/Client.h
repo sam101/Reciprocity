@@ -1,5 +1,6 @@
 #ifndef SERVER_CLIENT_H
 #define SERVER_CLIENT_H
+#include <Game/Player.h>
 #include <QtNetwork/QTcpSocket>
 namespace Server
 {
@@ -29,6 +30,10 @@ namespace Server
               * Indique si le client est toujours connecté
               */
             bool _isOnline;
+            /**
+              * Pointeur vers le joueur du client
+              */
+            Game::Player *_player;
         public:
             /**
               * Constructeur
@@ -52,6 +57,15 @@ namespace Server
               */
             QString getHash() const;
             /**
+              * Renvoie le pointeur vers le joueur du client
+              */
+            Game::Player* getPlayer();
+            /**
+              * Renvoie le pointeur vers le joueur du client
+              * surchargé constant
+              */
+            const Game::Player* getPlayer() const;
+            /**
               * Renvoie si le client est en ligne
               */
             bool isOnline() const;
@@ -67,6 +81,10 @@ namespace Server
               * Indique que le client est offline
               */
             void setOffline();
+            /**
+              * Change le joueur utilisé par le client
+              */
+            void setPlayer(Game::Player *player);
     };
 }
 #endif //SERVER_CLIENT_H
