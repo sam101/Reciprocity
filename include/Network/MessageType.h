@@ -20,16 +20,18 @@ namespace Network
         KICK = 5,
         GET_SERVER_DATA = 6,
         SERVER_DATA = 7,
-        REQUEST_DATA = 8,
-        CHUNKDATA = 9,
-        ENTITYDATA = 10,
-        MOVEUNIT = 11,
-        MOVEUNIT_ACCEPTED = 12,
-        BUILD = 13,
-        BUILD_ACCEPTED = 14,
-        WORK = 15,
-        ENDTURN = 16,
-        NEWTURN = 17
+        MESSAGE_OUT = 8,
+        MESSAGE_IN = 9,
+        REQUEST_DATA = 10,
+        CHUNKDATA = 11,
+        ENTITYDATA = 12,
+        MOVEUNIT = 13,
+        MOVEUNIT_ACCEPTED = 14,
+        BUILD = 15,
+        BUILD_ACCEPTED = 16,
+        WORK = 17,
+        ENDTURN = 18,
+        NEWTURN = 19
     };
 }
 #endif //NETWORK_MESSAGETYPE_H
