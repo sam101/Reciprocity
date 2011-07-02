@@ -1,5 +1,6 @@
 #ifndef MAP_BUILDING_H
 #define MAP_BUILDING_H
+#include <QtCore/QDataStream>
 #include <QtCore/Qt>
 #include <Map/BuildingType.h>
 namespace Map
@@ -74,6 +75,14 @@ namespace Map
               * Renvoie la position Y du batiment
               */
             qint32 getY() const;
+            /**
+              * Envoie un batiment dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, Building &b);
+            /**
+              * Recupère un batiment d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, Building &b);
     };
 }
 #endif //MAP_BUILDING_H

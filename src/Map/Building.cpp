@@ -56,4 +56,42 @@ namespace Map
     {
         return _y;
     }
+    /**
+      * Envoie un batiment dans un QDataStream
+      */
+    QDataStream& operator<<(QDataStream &out, Building &b)
+    {
+        out << b.BUILDING_MAGICNUMBER;
+        out << b.BUILDING_VERSION;
+        out << (qint32)b._type;
+        out << b._level;
+        out << b._lifePoints;
+        out << b._maxLifePoints;
+        out << b._x;
+        out << b._y;
+
+        return out;
+    }
+    /**
+      * Recupère un batiment d'un QDataStream
+      */
+    QDataStream& operator>>(QDataStream &in, Building &b)
+    {
+        //On vérifie le magicNumber et la version
+        qint32 magicNumber;
+        in >> magicNumber;
+        Q_ASSERT(magicNumber == Building::BUILDING_MAGICNUMBER);
+        qint32 version;
+        in >> version;
+        Q_ASSERT(version == Building::BUILDING_VERSION);
+        //On recupère les données
+        in >> (qint32&)b._type;
+        in >> b._level;
+        in >> b._lifePoints;
+        in >> b._maxLifePoints;
+        in >> b._x;
+        in >> b._y;
+
+        return in;
+    }
 }
