@@ -1,8 +1,9 @@
 #include <GUI/StartWindow.h>
-#include <QtGui/QVBoxLayout>
 #include <Config/Config.h>
+#include <QtGui/QApplication>
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
+#include <QtGui/QVBoxLayout>
 namespace GUI
 {
     /**
@@ -41,5 +42,27 @@ namespace GUI
         //On construit le bouton "quitter le jeu"
         QPushButton *quitGame = new QPushButton(tr("Quitter le jeu"));
         layout->addWidget(quitGame);
+        connect(quitGame,SIGNAL(clicked()),qApp,SLOT(quit()));
+    }
+    /**
+      * Slot appelé lors du clic sur "nouvelle partie"
+      */
+    void StartWindow::newGame_clicked()
+    {
+        emit newGameRequested();
+    }
+    /**
+      * Slot appelé lors du clic sur "rejoindre partie"
+      */
+    void StartWindow::joinGame_clicked()
+    {
+        emit joinGameRequested();
+    }
+    /**
+      * Slot appelé lors du clic sur "jeu sur internet"
+      */
+    void StartWindow::internetPlay_clicked()
+    {
+        emit internetPlayRequested();
     }
 }

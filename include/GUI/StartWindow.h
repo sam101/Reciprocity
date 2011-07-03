@@ -22,6 +22,22 @@ namespace GUI
               */
             StartWindow(QWidget *parent = 0);
         public slots:
+            /**
+              * Slot appelé lors du clic sur "nouvelle partie"
+              */
+            void newGame_clicked();
+            /**
+              * Slot appelé lors du clic sur "rejoindre partie"
+              */
+            void joinGame_clicked();
+            /**
+              * Slot appelé lors du clic sur "jeu sur internet"
+              */
+            void internetPlay_clicked();
+        signals:
+            void newGameRequested();
+            void joinGameRequested();
+            void internetPlayRequested();
     };
 }
 #endif //GUI_STARTWINDOW_H
