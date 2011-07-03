@@ -17,7 +17,8 @@ HEADERS += \
     include/Network/MessageType.h \
     include/Network/LoginMessage.h \
     include/Network/AbstractMessage.h \
-    include/Tools/Random.h
+    include/Tools/Random.h \
+    include/GUI/StartWindow.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -28,4 +29,5 @@ SOURCES += \
     src/Network/LoginMessage.cpp \
     src/Network/AbstractMessage.cpp \
     src/Tools/Random.cpp \
-    src/Client/main.cpp
+    src/Client/main.cpp \
+    src/GUI/StartWindow.cpp
