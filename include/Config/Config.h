@@ -10,7 +10,7 @@ namespace Config
       */
     class Config
     {
-        public:
+        public:           
             /**
               * Port de base du serveur
               */

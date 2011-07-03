@@ -18,7 +18,9 @@ HEADERS += \
     include/Network/LoginMessage.h \
     include/Network/AbstractMessage.h \
     include/Tools/Random.h \
-    include/GUI/StartWindow.h
+    include/GUI/StartWindow.h \
+    include/Chunk/Chunk.h \
+    include/Chunk/ChunkType.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -30,4 +32,5 @@ SOURCES += \
     src/Network/AbstractMessage.cpp \
     src/Tools/Random.cpp \
     src/Client/main.cpp \
-    src/GUI/StartWindow.cpp
+    src/GUI/StartWindow.cpp \
+    src/Chunk/Chunk.cpp
