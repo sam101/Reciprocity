@@ -2,6 +2,15 @@
 namespace Network
 {
     /**
+      * Constructeur sans paramètres
+      */
+    LoginFailedMessage::LoginFailedMessage() :
+    AbstractMessage(LOGIN_FAILED),
+    _why(-1)
+    {
+
+    }
+    /**
       * Constructeur
       */
     LoginFailedMessage::LoginFailedMessage(qint32 why) :

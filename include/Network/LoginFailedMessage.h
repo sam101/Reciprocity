@@ -33,6 +33,10 @@ namespace Network
             qint32 _why;
        public:
             /**
+              * Constructeur sans paramètres
+              */
+            LoginFailedMessage();
+            /**
               * Constructeur
               */
             LoginFailedMessage(qint32 why = LOGIN_REJECTED);
