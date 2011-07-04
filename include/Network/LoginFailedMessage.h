@@ -40,6 +40,14 @@ namespace Network
               * Renvoie la raison pour laquelle le login a echoué
               */
             qint32 getWhy() const;
+            /**
+              * Envoie le message dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const LoginFailedMessage &l);
+            /**
+              * Recupère le message d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, LoginFailedMessage &l);
     };
 }
 #endif //NETWORK_LOGINFAILEDMESSAGE_H
