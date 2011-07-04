@@ -25,7 +25,7 @@ namespace Network
             /**
               * Constructeur
               */
-            LoginSuccessMessage(qint32 id);
+            LoginSuccessMessage(qint32 id = -1);
             /**
               * Renvoie l'id
               */
