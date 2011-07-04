@@ -11,6 +11,11 @@ namespace Network
       */
     class LoginSuccessMessage : public AbstractMessage
     {
+        public:
+            /**
+              * Magic number de LoginSuccessMessage
+              */
+            static const qint32 MAGICNUMBER_LOGINSUCCESSMESSAGE = 0x4203;
         protected:
             /**
               * Id du client après login.

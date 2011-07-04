@@ -12,6 +12,10 @@ namespace Network
     {
         public:
             /**
+              * Magic number de LoginFailedMessage
+              */
+            static const qint32 MAGICNUMBER_LOGINFAILEDMESSAGE = 0x4202;
+            /**
               * Contient les types de possibilités existantes
               * pour qu'un login échoue
               */
