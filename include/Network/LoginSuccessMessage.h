@@ -30,6 +30,14 @@ namespace Network
               * Renvoie l'id
               */
             qint32 getId() const;
+            /**
+              * Envoie le message dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const LoginSuccessMessage &l);
+            /**
+              * Recupère le message d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, LoginSuccessMessage &l);
     };
 }
 #endif //NETWORK_LOGINSUCCESSMESSAGE_H
