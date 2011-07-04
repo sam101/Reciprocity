@@ -31,7 +31,8 @@ SOURCES += \
     src/Server/Client.cpp \
     src/Game/Player.cpp \
     src/Network/LoginMessage.cpp \
-    src/Network/LoginFailedMessage.cpp
+    src/Network/LoginFailedMessage.cpp \
+    src/Network/LoginSuccessMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -59,4 +60,5 @@ HEADERS += \
     include/Game/Player.h \
     include/Map/BuildingType.h \
     include/Network/LoginMessage.h \
-    include/Network/LoginFailedMessage.h
+    include/Network/LoginFailedMessage.h \
+    include/Network/LoginSuccessMessage.h
