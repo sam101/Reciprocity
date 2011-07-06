@@ -45,6 +45,11 @@ namespace Server
               * Gère le login d'un joueur
               */
             void handleLogin(QTcpSocket *socket, QDataStream &in);
+        signals:
+            /**
+              * Renvoyé quand le login demmandé par le joueur existe déjà
+              */
+            void loginAlreadyExists(QTcpSocket*, QString);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

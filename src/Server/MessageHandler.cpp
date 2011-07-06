@@ -1,5 +1,6 @@
 #include <Server/MessageHandler.h>
 #include <Network/AbstractMessage.h>
+#include <Network/LoginMessage.h>
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
@@ -67,8 +68,19 @@ namespace Server
       */
     void MessageHandler::handleLogin(QTcpSocket *socket, QDataStream &in)
     {
-        Q_UNUSED(socket)
-        Q_UNUSED(in)
-        //TODO
+        //On recupère le message
+        Network::LoginMessage msg;
+        in >> msg;
+        /*
+         * On vérifie que le joueur n'est pas déjà connecté et que
+         * si c'est le cas son hash est bon.
+         */
+        if (_game->findPlayer(msg.getLogin()) && _game->findPlayer(msg.getLogin())->getHash() != msg.getHash())
+        {
+            //Si c'est le cas, on le signale et on termine
+            emit loginAlreadyExists(socket,msg.getLogin());
+            return;
+        }
+
     }
 }

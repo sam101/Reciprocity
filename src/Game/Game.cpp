@@ -67,9 +67,16 @@ namespace Game
         return _players.last();
     }
     /**
+      * Renvoie si le joueur existe
+      */
+    bool Game::playerExists(QString login) const
+    {
+        return findPlayer(login) != NULL;
+    }
+    /**
       * Cherche un joueur dans la liste des joueurs
       */
-    Player* Game::findPlayer(QString login)
+    Player* Game::findPlayer(QString login) const
     {
         for (int i = 0; i < _players.size(); i++)
         {
