@@ -11,6 +11,8 @@ namespace GUI
     JoinGameWindow::JoinGameWindow(QWidget *parent) :
     QWidget(parent)
     {
+        setWindowTitle(tr("Rejoindre une partie"));
+
         QVBoxLayout *layout = new QVBoxLayout;
         setLayout(layout);
         //On construit la form
