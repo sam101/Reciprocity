@@ -20,7 +20,8 @@ HEADERS += \
     include/Tools/Random.h \
     include/GUI/StartWindow.h \
     include/Chunk/Chunk.h \
-    include/Chunk/ChunkType.h
+    include/Chunk/ChunkType.h \
+    include/GUI/JoinGameWindow.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -33,4 +34,5 @@ SOURCES += \
     src/Tools/Random.cpp \
     src/Client/main.cpp \
     src/GUI/StartWindow.cpp \
-    src/Chunk/Chunk.cpp
+    src/Chunk/Chunk.cpp \
+    src/GUI/JoinGameWindow.cpp
