@@ -59,6 +59,7 @@ namespace GUI
       */
     void StartWindow::joinGame_clicked()
     {
+        lower();
         emit joinGameRequested();
     }
     /**
