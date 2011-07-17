@@ -1,10 +1,13 @@
 #include <QtGui/QApplication>
+#include <QtCore/QTextCodec>
 #include <GUI/JoinGameWindow.h>
 #include <GUI/StartWindow.h>
 int main(int argc, char *argv[])
 {
     QApplication a(argc,argv);
-
+    //On indique que l'application utilise UTF-8
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+    QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
     //On construit la fenêtre de départ
     GUI::StartWindow *window = new GUI::StartWindow;
     window->show();
