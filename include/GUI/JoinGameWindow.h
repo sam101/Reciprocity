@@ -35,6 +35,16 @@ namespace GUI
               * Constructeur
               */
             JoinGameWindow(QWidget *parent = 0);
+        signals:
+            /**
+              * Emit quand le bouton "Se connecter" est cliqué.
+              */
+            void wantToConnect(QString address, qint32 port, QString login, QString hash);
+        public slots:
+            /**
+              * Appelé au clic sur "Se connecter"
+              */
+            void connectButton_clicked();
     };
 }
 #endif //GUI_JOINGAMEWINDOW_H

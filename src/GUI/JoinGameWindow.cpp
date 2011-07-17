@@ -1,6 +1,7 @@
 #include <GUI/JoinGameWindow.h>
 #include <Config/Config.h>
 #include <QtGui/QFormLayout>
+#include <QtGui/QMessageBox>
 #include <QtGui/QPushButton>
 #include <QtGui/QVBoxLayout>
 namespace GUI
@@ -36,6 +37,17 @@ namespace GUI
         //On ajoute le bouton
         QPushButton *connectButton = new QPushButton(tr("Se connecter !"));
         layout->addWidget(connectButton);
+        connect(connectButton,SIGNAL(clicked()),this,SLOT(connectButton_clicked()));
 
+    }
+    /**
+      * Appelé au clic sur "Se connecter"
+      */
+    void JoinGameWindow::connectButton_clicked()
+    {
+        if (_login->text() == "")
+        {
+            QMessageBox::critical(this,tr("Le pseudo à utiliser doit être rempli"),tr("Le pseudo à utiliser doit être rempli."));
+        }
     }
 }
