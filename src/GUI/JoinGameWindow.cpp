@@ -1,6 +1,7 @@
 #include <GUI/JoinGameWindow.h>
 #include <Config/Config.h>
 #include <QtGui/QFormLayout>
+#include <QtGui/QPushButton>
 #include <QtGui/QVBoxLayout>
 namespace GUI
 {
@@ -30,6 +31,9 @@ namespace GUI
         _port->setMaximum(65535);
         _port->setValue(Config::Config::SERVER_PORT);
         form->addRow(tr("Port:"),_port);
+        //On ajoute le bouton
+        QPushButton *connectButton = new QPushButton(tr("Se connecter !"));
+        layout->addWidget(connectButton);
 
     }
 }
