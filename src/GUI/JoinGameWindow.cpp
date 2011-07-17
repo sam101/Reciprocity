@@ -25,8 +25,8 @@ namespace GUI
         //On ajoute le hash du joueur
         _hash = new QLineEdit;
         form->addRow(tr("Hash:"),_hash);
-        //On ajoute l'addresse du serveur
-        _address = new QLineEdit;
+            //On ajoute l'addresse du serveur
+            _address = new QLineEdit;
         form->addRow(tr("Adresse du serveur:"),_address);
         //On ajoute le port
         _port = new QSpinBox;
@@ -48,6 +48,19 @@ namespace GUI
         if (_login->text() == "")
         {
             QMessageBox::critical(this,tr("Le pseudo à utiliser doit être rempli"),tr("Le pseudo à utiliser doit être rempli."));
+        }
+        else if (_hash->text() == "")
+        {
+            QMessageBox::critical(this,tr("Le hash à utiliser doit être rempli"),tr("Le pseudo à utiliser doit être rempli."));
+
+        }
+        else if (_address->text() == "")
+        {
+            QMessageBox::critical(this,tr("L'ip du serveur à rejoindre doit être remplie"),tr("L'ip du serveur à rejoindre doit être remplie"));
+        }
+        else
+        {
+            emit wantToConnect(_address->text(),_port->value(),_login->text(),_hash->text());
         }
     }
 }
