@@ -33,12 +33,15 @@ namespace GUI
         layout->addSpacing(42);
         QPushButton *newGame = new QPushButton(tr("Nouvelle partie en local"));
         layout->addWidget(newGame);
+        connect(newGame,SIGNAL(clicked()),this,SLOT(newGame_clicked()));
         //On construit le "rejoindre partie"
         QPushButton *joinGame = new QPushButton(tr("Rejoindre une partie"));
         layout->addWidget(joinGame);
+        connect(joinGame,SIGNAL(clicked()),this,SLOT(joinGame_clicked()));
         //On construit le "jeu sur internet"
         QPushButton *internetPlay = new QPushButton(tr("Jeu sur internet"));
         layout->addWidget(internetPlay);
+        connect(internetPlay,SIGNAL(clicked()),this,SLOT(internetPlay_clicked()));
         //On construit le bouton "quitter le jeu"
         QPushButton *quitGame = new QPushButton(tr("Quitter le jeu"));
         layout->addWidget(quitGame);
