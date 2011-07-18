@@ -3,8 +3,8 @@
 namespace Client
 {
     /**
-      * Gère la connexion avec le serveur
-      * @brief Gère la connexion avec le serveu
+      * Gère la connexion et l'envoi de messages avec un serveur
+      * @brief Gère la connexion avec un serveur
       * @author Sam101
       */
     class Client
