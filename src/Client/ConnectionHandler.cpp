@@ -33,7 +33,8 @@ namespace Client
         _socket->connectToHost(address,port);
         //On connecte pour les erreurs
         connect(_socket,SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(handleError(QAbstractSocket::SocketError)));
-
+        //On connecte les signaux d'état
+        connect(_socket,SIGNAL(hostFound()),this,SLOT(hostFoundHandler()));
     }
     /**
       * Gère les erreurs.
@@ -53,5 +54,12 @@ namespace Client
             default:
                 emit unknownError();
         }
+    }
+    /**
+      * Envoyé quand le chemin à pu être resolu.
+      */
+    void ConnectionHandler::hostFoundHandler()
+    {
+        emit hostFound();
     }
 }

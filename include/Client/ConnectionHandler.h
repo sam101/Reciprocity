@@ -32,6 +32,10 @@ namespace Client
               * Gère les erreurs.
               */
             void handleError(QAbstractSocket::SocketError);
+            /**
+              * Envoyé quand le chemin à pu être resolu.
+              */
+            void hostFoundHandler();
         signals:
             /**
               * Envoyé quand le port est incorrect
@@ -49,6 +53,11 @@ namespace Client
               * Envoyé quand il y'a une erreur inconnue.
               */
             void unknownError();
+
+            /**
+              * Envoyé quand le nom d'hote a été trouvé
+              */
+            void hostFound();
     };
 }
 #endif //CLIENT_CONNECTIONHANDLER_H

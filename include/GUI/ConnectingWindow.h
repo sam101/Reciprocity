@@ -34,6 +34,12 @@ namespace GUI
               */
             void start(QString address, qint32 port, QString login, QString hash);
             /**
+              * Indique que le nom d'hote a été trouvé
+              */
+            void hostFoundMessage();
+
+
+            /**
               * Indique qu'une erreur inconnue s'est produite
               */
             void unknownErrorOccurred();

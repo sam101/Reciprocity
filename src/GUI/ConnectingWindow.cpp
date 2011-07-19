@@ -26,6 +26,15 @@ namespace GUI
         hide();
     }
     /**
+      * Indique que le nom d'hote a été trouvé
+      */
+    void ConnectingWindow::hostFoundMessage()
+    {
+        _label->setText(tr("Statut: Nom d'hote trouvé, connexion en cours..."));
+        _bar->setValue(10);
+    }
+
+    /**
       * Affiche la fenêtre et lance la connexion
       */
     void ConnectingWindow::start(QString address, qint32 port, QString login, QString hash)
