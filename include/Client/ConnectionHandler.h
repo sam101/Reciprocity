@@ -28,6 +28,10 @@ namespace Client
               * et une tentative d'authentification
               */
             void startConnection(QString address, qint32 port, QString login, QString path);
+            /**
+              * Gère les erreurs.
+              */
+            void handleError(QAbstractSocket::SocketError);
         signals:
             /**
               * Envoyé quand le port est incorrect
@@ -37,6 +41,10 @@ namespace Client
               * Envoyé quand le nom de domaine n'a pu être résolu
               */
             void hostnameNotFound();
+            /**
+              * Envoyé quand il y'a une erreur inconnue.
+              */
+            void unknownError();
     };
 }
 #endif //CLIENT_CONNECTIONHANDLER_H
