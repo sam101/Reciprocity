@@ -11,6 +11,17 @@ namespace Client
     class ConnectionHandler : public QObject
     {
         Q_OBJECT
+        public slots:
+            /**
+              * Méthode lançant une tentative de connexion à un serveur
+              * et une tentative d'authentification
+              */
+            void startConnection(QString address, qint32 port, QString login, QString path);
+        signals:
+            /**
+              * Envoyé quand le nom de domaine n'a pu être résolu
+              */
+            void hostnameNotFound();
     };
 }
 #endif //CLIENT_CONNECTIONHANDLER_H

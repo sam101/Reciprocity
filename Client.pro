@@ -23,7 +23,8 @@ HEADERS += \
     include/Chunk/ChunkType.h \
     include/GUI/JoinGameWindow.h \
     include/Client/Client.h \
-    include/Client/ConnectionHandler.h
+    include/Client/ConnectionHandler.h \
+    include/GUI/ConnectingWindow.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -39,4 +40,5 @@ SOURCES += \
     src/Chunk/Chunk.cpp \
     src/GUI/JoinGameWindow.cpp \
     src/Client/Client.cpp \
-    src/Client/ConnectionHandler.cpp
+    src/Client/ConnectionHandler.cpp \
+    src/GUI/ConnectingWindow.cpp
