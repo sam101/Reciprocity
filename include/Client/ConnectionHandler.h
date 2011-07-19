@@ -17,6 +17,14 @@ namespace Client
               * Pointeur vers le socket actuel
               */
             QTcpSocket *_socket;
+            /**
+              * Login à utiliser
+              */
+            QString _login;
+            /**
+              * Hash à utiliser
+              */
+            QString _hash;
         public:
             /**
               * Constructeur
@@ -27,7 +35,7 @@ namespace Client
               * Méthode lançant une tentative de connexion à un serveur
               * et une tentative d'authentification
               */
-            void startConnection(QString address, qint32 port, QString login, QString path);
+            void startConnection(QString address, qint32 port, QString login, QString hash);
             /**
               * Gère les erreurs.
               */

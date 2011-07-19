@@ -13,13 +13,14 @@ namespace Client
       * Méthode lançant une tentative de connexion à un serveur
       * et une tentative d'authentification
       */
-    void ConnectionHandler::startConnection(QString address, qint32 port, QString login, QString path)
+    void ConnectionHandler::startConnection(QString address, qint32 port, QString login, QString hash)
     {
         //On vérifie qu'il n'ya pas une connexion en cours
         if (_socket != NULL)
         {
             _socket->close();
             delete _socket;
+            _socket = NULL;
         }
         //On vérifie le port
         if (port < 0 || port > 65535)
@@ -27,6 +28,9 @@ namespace Client
             emit badPort();
             return;
         }
+        //On stocke les informations sur le login
+        _login = login;
+        _hash = hash;
         //On crée le socket.
         _socket = new QTcpSocket(this);
         //On tente la connexion.
