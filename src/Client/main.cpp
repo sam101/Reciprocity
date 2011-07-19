@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
     QObject::connect(joinGameWindow,SIGNAL(wantToConnect(QString,qint32,QString,QString)),connectionHandler,SLOT(startConnection(QString,qint32,QString,QString)));
     //On connecte les signaux d'état pour ConnectingWindow
     QObject::connect(connectionHandler,SIGNAL(hostFound()),connectingWindow,SLOT(hostFoundMessage()));
+    QObject::connect(connectionHandler,SIGNAL(connectedToServer()),connectingWindow,SLOT(connectedMessage()));
     //On connecte les signaux pour les erreurs.
     QObject::connect(connectionHandler,SIGNAL(hostnameNotFound()),connectingWindow,SLOT(hostNotFoundError()));
     QObject::connect(connectionHandler,SIGNAL(badPort()),connectingWindow,SLOT(unknownErrorOccurred()));

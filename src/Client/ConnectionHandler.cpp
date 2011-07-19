@@ -35,6 +35,7 @@ namespace Client
         connect(_socket,SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(handleError(QAbstractSocket::SocketError)));
         //On connecte les signaux d'état
         connect(_socket,SIGNAL(hostFound()),this,SLOT(hostFoundHandler()));
+        connect(_socket,SIGNAL(connected()),this,SLOT(connectedHandler()));
     }
     /**
       * Gère les erreurs.
@@ -61,5 +62,12 @@ namespace Client
     void ConnectionHandler::hostFoundHandler()
     {
         emit hostFound();
+    }
+    /**
+      * Appelé quand la connexion a été établie
+      */
+    void ConnectionHandler::connectedHandler()
+    {
+        emit connectedToServer();
     }
 }

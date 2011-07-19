@@ -33,6 +33,14 @@ namespace GUI
         _label->setText(tr("Statut: Nom d'hote trouvé, connexion en cours..."));
         _bar->setValue(10);
     }
+    /**
+      * Indique que la connexion au serveur a été réussie
+      */
+    void ConnectingWindow::connectedMessage()
+    {
+        _label->setText(tr("Statut: Connexion au serveur établie, envoi des informations d'authentification..."));
+        _bar->setValue(50);
+    }
 
     /**
       * Affiche la fenêtre et lance la connexion

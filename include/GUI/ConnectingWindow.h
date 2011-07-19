@@ -37,6 +37,10 @@ namespace GUI
               * Indique que le nom d'hote a été trouvé
               */
             void hostFoundMessage();
+            /**
+              * Indique que la connexion au serveur a été réussie
+              */
+            void connectedMessage();
 
 
             /**
