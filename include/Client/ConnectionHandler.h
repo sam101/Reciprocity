@@ -1,6 +1,7 @@
 #ifndef CLIENT_CONNECTIONHANDLER_H
 #define CLIENT_CONNECTIONHANDLER_H
 #include <QtCore/QObject>
+#include <QtNetwork/QTcpSocket>
 namespace Client
 {
     /**
@@ -11,6 +12,16 @@ namespace Client
     class ConnectionHandler : public QObject
     {
         Q_OBJECT
+        protected:
+            /**
+              * Pointeur vers le socket actuel
+              */
+            QTcpSocket *_socket;
+        public:
+            /**
+              * Constructeur
+              */
+            ConnectionHandler();
         public slots:
             /**
               * Méthode lançant une tentative de connexion à un serveur
@@ -18,6 +29,10 @@ namespace Client
               */
             void startConnection(QString address, qint32 port, QString login, QString path);
         signals:
+            /**
+              * Envoyé quand le port est incorrect
+              */
+            void badPort();
             /**
               * Envoyé quand le nom de domaine n'a pu être résolu
               */
