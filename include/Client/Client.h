@@ -34,6 +34,14 @@ namespace Client
               * Constructeur
               */
             Client(QTcpSocket *socket, QString login, QString hash);
+            /**
+              * Renvoie le login du client
+              */
+            QString getLogin() const;
+            /**
+              * Renvoie le hash du client
+              */
+            QString getHash() const;
     };
 }
 #endif //CLIENT_CLIENT_H

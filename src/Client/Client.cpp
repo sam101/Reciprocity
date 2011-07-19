@@ -12,4 +12,18 @@ namespace Client
     {
 
     }
+    /**
+      * Renvoie le login du client
+      */
+    QString Client::getLogin() const
+    {
+        return _login;
+    }
+    /**
+      * Renvoie le hash du client
+      */
+    QString Client::getHash() const
+    {
+        return _hash;
+    }
 }
