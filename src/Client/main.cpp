@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
     QObject::connect(connectionHandler,SIGNAL(hostnameNotFound()),connectingWindow,SLOT(hostNotFoundError()));
     QObject::connect(connectionHandler,SIGNAL(badPort()),connectingWindow,SLOT(unknownErrorOccurred()));
     QObject::connect(connectionHandler,SIGNAL(unknownError()),connectingWindow,SLOT(unknownErrorOccurred()));
+    QObject::connect(connectionHandler,SIGNAL(connectionRefused()),connectingWindow,SLOT(connectionRefusedError()));
 
     //On execute l'application
     return a.exec();

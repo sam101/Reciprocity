@@ -42,6 +42,14 @@ namespace GUI
         _label->setText(tr("Statut: Une erreur inconnue s'est produite"));
     }
     /**
+      * Envoyé quand la connexion a été refusée
+      */
+    void ConnectingWindow::connectionRefusedError()
+    {
+        _label->setText(tr("Statut: Erreur: La connexion a été refusée."));
+    }
+
+    /**
       * Indique que l'hote n'existe pas
       */
     void ConnectingWindow::hostNotFoundError()

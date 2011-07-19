@@ -43,6 +43,10 @@ namespace Client
         //On gère tout les cas possibles.
         switch(error)
         {
+           case QAbstractSocket::ConnectionRefusedError:
+                emit connectionRefused();
+           break;
+
             case QAbstractSocket::HostNotFoundError:
                 emit hostnameNotFound();
             break;

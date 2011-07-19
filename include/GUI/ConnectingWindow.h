@@ -38,6 +38,10 @@ namespace GUI
               */
             void unknownErrorOccurred();
             /**
+              * Envoyé quand la connexion a été refusée
+              */
+            void connectionRefusedError();
+            /**
               * Indique que l'hote n'existe pas
               */
             void hostNotFoundError();

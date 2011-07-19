@@ -38,6 +38,10 @@ namespace Client
               */
             void badPort();
             /**
+              * Envoyé quand la connexion a été refusée
+              */
+            void connectionRefused();
+            /**
               * Envoyé quand le nom de domaine n'a pu être résolu
               */
             void hostnameNotFound();
