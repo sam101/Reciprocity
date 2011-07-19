@@ -12,7 +12,7 @@ namespace GUI
     JoinGameWindow::JoinGameWindow(QWidget *parent) :
     QWidget(parent)
     {
-        setWindowTitle(tr("Rejoindre une partie"));
+        setWindowTitle(tr("Reciprocity - Rejoindre une partie"));
 
         QVBoxLayout *layout = new QVBoxLayout;
         setLayout(layout);

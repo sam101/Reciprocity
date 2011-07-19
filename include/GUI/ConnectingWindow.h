@@ -1,5 +1,6 @@
 #ifndef GUI_CONNECTINGWINDOW_H
 #define GUI_CONNECTINGWINDOW_H
+#include <QtGui/QLabel>
 #include <QtGui/QProgressBar>
 #include <QtGui/QWidget>
 namespace GUI
@@ -13,6 +14,15 @@ namespace GUI
     class ConnectingWindow : public QWidget
     {
         Q_OBJECT
+        protected:
+            /**
+              * Label d'informations
+              */
+            QLabel *_label;
+            /**
+              * Barre de progression
+              */
+            QProgressBar *_bar;
         public:
             /**
               * Constructeur
