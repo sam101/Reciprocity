@@ -33,6 +33,14 @@ namespace GUI
               * Affiche la fenêtre et lance la connexion
               */
             void start(QString address, qint32 port, QString login, QString hash);
+            /**
+              * Indique qu'une erreur inconnue s'est produite
+              */
+            void unknownErrorOccurred();
+            /**
+              * Indique que l'hote n'existe pas
+              */
+            void hostNotFoundError();
     };
 }
 #endif //GUI_CONNECTINGWINDOW_H

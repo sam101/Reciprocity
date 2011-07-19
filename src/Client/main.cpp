@@ -1,5 +1,7 @@
 #include <QtGui/QApplication>
 #include <QtCore/QTextCodec>
+
+#include <Client/ConnectionHandler.h>
 #include <GUI/ConnectingWindow.h>
 #include <GUI/JoinGameWindow.h>
 #include <GUI/StartWindow.h>
@@ -24,7 +26,14 @@ int main(int argc, char *argv[])
     //On connecte les signaux de joinGame à la fenêtre d'attente.
     QObject::connect(joinGameWindow,SIGNAL(wantToConnect(QString,qint32,QString,QString)),connectingWindow,SLOT(start(QString,qint32,QString,QString)));
 
-    //On crée le connectionHandler.
+    //On construit le ConnectionHandler.
+    Client::ConnectionHandler *connectionHandler = new Client::ConnectionHandler;
+    //On connecte le signal pour la connexion
+    QObject::connect(joinGameWindow,SIGNAL(wantToConnect(QString,qint32,QString,QString)),connectionHandler,SLOT(startConnection(QString,qint32,QString,QString)));
+    //On connecte les signaux pour les erreurs.
+    QObject::connect(connectionHandler,SIGNAL(hostnameNotFound()),connectingWindow,SLOT(hostNotFoundError()));
+    QObject::connect(connectionHandler,SIGNAL(badPort()),connectingWindow,SLOT(unknownErrorOccurred()));
+    QObject::connect(connectionHandler,SIGNAL(unknownError()),connectingWindow,SLOT(unknownErrorOccurred()));
 
     //On execute l'application
     return a.exec();

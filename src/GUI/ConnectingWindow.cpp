@@ -34,4 +34,18 @@ namespace GUI
         //On affiche la fenêtre.
         show();
     }
+    /**
+      * Indique qu'une erreur inconnue s'est produite
+      */
+    void ConnectingWindow::unknownErrorOccurred()
+    {
+        _label->setText(tr("Statut: Une erreur inconnue s'est produite"));
+    }
+    /**
+      * Indique que l'hote n'existe pas
+      */
+    void ConnectingWindow::hostNotFoundError()
+    {
+        _label->setText(tr("Statut: Erreur: Le nom d'hôte n'existe pas"));
+    }
 }
