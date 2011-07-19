@@ -18,10 +18,9 @@ int main(int argc, char *argv[])
     GUI::JoinGameWindow *joinGameWindow = new GUI::JoinGameWindow;
     //On la connecte à la fenêtre de départ.
     QObject::connect(window,SIGNAL(joinGameRequested()),joinGameWindow,SLOT(show()));
-
     //On construit la fenêtre d'attente à la connexion.
     GUI::ConnectingWindow *connectingWindow = new GUI::ConnectingWindow;
-    connectingWindow->show();
+    QObject::connect(joinGameWindow,SIGNAL(wantToConnect(QString,qint32,QString,QString)),connectingWindow,SLOT(start(QString,qint32,QString,QString)));
 
     //On execute l'application
     return a.exec();

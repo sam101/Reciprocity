@@ -60,6 +60,7 @@ namespace GUI
         }
         else
         {
+            hide();
             emit wantToConnect(_address->text(),_port->value(),_login->text(),_hash->text());
         }
     }

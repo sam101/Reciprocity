@@ -30,6 +30,7 @@ namespace GUI
       */
     void ConnectingWindow::start(QString address, qint32 port, QString login, QString hash)
     {
+        _label->setText(tr("Statut: Résolution de l'addresse du serveur en cours..."));
         //On affiche la fenêtre.
         show();
     }
