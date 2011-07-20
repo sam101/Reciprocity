@@ -50,6 +50,8 @@ namespace Client
         //On écrit la bonne taille
         in.device()->seek(0);
         in << (qint32)(b.size() - sizeof(qint32));
+        //On écrit le message
+        _socket->write(b);
     }
 
     /**
