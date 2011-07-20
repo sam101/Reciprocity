@@ -65,4 +65,16 @@ namespace Server
         //On emet le signal
         emit clientHasDisconnected(socket);
     }
+    /**
+      * Deconnecte un client (pour message incorrect)
+      */
+    void ClientHandler::kickIncorrectClient(QTcpSocket *socket)
+    {
+        //On ferme le socket.
+        socket->close();
+        //On envoie un message de debug
+        qDebug() << "Le client " << socket->peerAddress() << "est incorrect et a été déconnecté";
+        //On indique que le client s'est déconnecté
+        _clients[socket]->setOffline();
+    }
 }

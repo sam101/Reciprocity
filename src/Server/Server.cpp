@@ -66,6 +66,8 @@ namespace Server
         //On connecte les signaux au ClientHandler.
         connect(_socketServer,SIGNAL(newConnection()),_clientHandler,SLOT(handleIncomming()));
         connect(_clientHandler,SIGNAL(newClient(QTcpSocket*)),this,SLOT(newClient(QTcpSocket*)));
+        //On connecte le signal pour le kick.
+        connect(_messageHandler,SIGNAL(errorMessage(QTcpSocket*)),_clientHandler,SLOT(kickIncorrectClient(QTcpSocket*)));
     }
     /**
       * Ajoute un client à la liste des clients

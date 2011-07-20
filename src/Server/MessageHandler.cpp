@@ -4,6 +4,7 @@
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
+#include <QtNetwork/QHostAddress>
 namespace Server
 {
     /**
@@ -23,6 +24,8 @@ namespace Server
     {
         //On recupère la socket qui a envoyé le message
         QTcpSocket *socket = qobject_cast<QTcpSocket*>(sender());
+        qDebug() << "Un message a été reçu de " << socket->peerAddress();
+
         //On vérifie que la socket existe bien
         if (socket == 0)
         {
@@ -41,6 +44,17 @@ namespace Server
             }
             //On vérifie qu'on à bien tout le message.
             in >> _sizes[socket];
+            //On vérifie que la taille est correcte
+            if (_sizes[socket] < 0)
+            {
+                qDebug() << "Erreur: taille reçue incorrecte";
+                emit errorMessage(socket);
+                return;
+            }
+            else
+            {
+                qDebug() << "Taille du message:" << _sizes[socket];
+            }
         }
         //Si on a pas tout le message, on abandonne.
         if (socket->bytesAvailable() < _sizes[socket])

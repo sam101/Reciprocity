@@ -54,6 +54,10 @@ namespace Server
               * Emis quand le login à réussi.
               */
             void loginSuccess(QTcpSocket*,qint32);
+            /**
+              * Emis quand le client a émit un message incorrect
+              */
+            void errorMessage(QTcpSocket*);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

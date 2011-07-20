@@ -46,6 +46,10 @@ namespace Server
               * s'est déconnecté
               */
             void handleDisconnection();
+            /**
+              * Deconnecte un client (pour message incorrect)
+              */
+            void kickIncorrectClient(QTcpSocket*);
     };
 }
 #endif //SERVER_CLIENTHANDLER_H
