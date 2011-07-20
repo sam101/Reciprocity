@@ -1,4 +1,7 @@
 #include <Client/Client.h>
+#include <Config/Config.h>
+#include <Network/LoginMessage.h>
+#include <QtCore/QDataStream>
 namespace Client
 {
     /**
@@ -10,7 +13,8 @@ namespace Client
     _login(login),
     _hash(hash)
     {
-
+        //On connecte les signaux du socket
+        connect(_socket,SIGNAL(readyRead()),this,SLOT(messageRecevied()));
     }
     /**
       * Renvoie le login du client
@@ -25,5 +29,34 @@ namespace Client
     QString Client::getHash() const
     {
         return _hash;
+    }
+    /**
+      * Envoie un message de login
+      */
+    void Client::sendLoginMessage()
+    {
+        //On construit le message
+        Network::LoginMessage loginMessage(0,_login,_hash);
+
+        //On déclare le byteArray qui stockera les infos du message
+        QByteArray b;
+        //On déclare le flux dans lequel écrire.
+        QDataStream in(b);
+        in.setVersion(QDataStream::Qt_4_5);
+        //On écrit la taille vide
+        in << (qint32)0;
+        //On écrit le message
+        in << loginMessage;
+        //On écrit la bonne taille
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+    }
+
+    /**
+      * Appelé quand le client reçoit un message du socket
+      */
+    void Client::messageRecevied()
+    {
+
     }
 }

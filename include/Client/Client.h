@@ -42,6 +42,15 @@ namespace Client
               * Renvoie le hash du client
               */
             QString getHash() const;
+        public slots:
+            /**
+              * Envoie un message de login
+              */
+            void sendLoginMessage();
+            /**
+              * Appelé quand le client reçoit un message du socket
+              */
+            void messageRecevied();
     };
 }
 #endif //CLIENT_CLIENT_H
