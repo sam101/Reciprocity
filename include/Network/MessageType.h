@@ -22,16 +22,17 @@ namespace Network
         SERVER_DATA = 7,
         MESSAGE_OUT = 8,
         MESSAGE_IN = 9,
-        REQUEST_DATA = 10,
-        CHUNKDATA = 11,
-        ENTITYDATA = 12,
-        MOVEUNIT = 13,
-        MOVEUNIT_ACCEPTED = 14,
-        BUILD = 15,
-        BUILD_ACCEPTED = 16,
-        WORK = 17,
-        ENDTURN = 18,
-        NEWTURN = 19
+        GAME_HAS_BEGUN = 10,
+        REQUEST_DATA = 11,
+        CHUNKDATA = 12,
+        ENTITYDATA = 13,
+        MOVEUNIT = 14,
+        MOVEUNIT_ACCEPTED = 15,
+        BUILD = 16,
+        BUILD_ACCEPTED = 17,
+        WORK = 18,
+        ENDTURN = 19,
+        NEWTURN = 20
     };
 }
 #endif //NETWORK_MESSAGETYPE_H
