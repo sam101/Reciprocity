@@ -41,6 +41,15 @@ namespace GUI
         _label->setText(tr("Statut: Connexion au serveur établie, envoi des informations d'authentification..."));
         _bar->setValue(50);
     }
+    /**
+      * Indique que l'authentification auprès du serveur
+      * a reussi.
+      */
+    void ConnectingWindow::loginSuccessMessage()
+    {
+        _label->setText(tr("Statut: Authentification réussie !"));
+        _bar->setValue(100);
+    }
 
     /**
       * Affiche la fenêtre et lance la connexion
@@ -72,5 +81,12 @@ namespace GUI
     void ConnectingWindow::hostNotFoundError()
     {
         _label->setText(tr("Statut: Erreur: Le nom d'hôte n'existe pas"));
+    }
+    /**
+      * Indique que le login a échoué
+      */
+    void ConnectingWindow::loginFailedError()
+    {
+        _label->setText(tr("Statut: Erreur: L'authentification auprès du serveur a échoué"));
     }
 }

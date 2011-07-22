@@ -41,7 +41,11 @@ namespace GUI
               * Indique que la connexion au serveur a été réussie
               */
             void connectedMessage();
-
+            /**
+              * Indique que l'authentification auprès du serveur
+              * a reussi.
+              */
+            void loginSuccessMessage();
 
             /**
               * Indique qu'une erreur inconnue s'est produite
@@ -55,6 +59,10 @@ namespace GUI
               * Indique que l'hote n'existe pas
               */
             void hostNotFoundError();
+            /**
+              * Indique que le login a échoué
+              */
+            void loginFailedError();
     };
 }
 #endif //GUI_CONNECTINGWINDOW_H
