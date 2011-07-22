@@ -5,7 +5,8 @@ namespace Client
       * Constructeur
       */
     ConnectionHandler::ConnectionHandler() :
-    _socket(NULL)
+    _socket(NULL),
+    _client(NULL)
     {
 
     }
@@ -22,6 +23,8 @@ namespace Client
             delete _socket;
             _socket = NULL;
         }
+        //On remet à zéro le pointeur vers l'objet Client
+        _client = NULL;
         //On vérifie le port
         if (port < 0 || port > 65535)
         {
@@ -72,6 +75,11 @@ namespace Client
       */
     void ConnectionHandler::connectedHandler()
     {
+        //On envoie le signal comme quoi on est bien connecté.
         emit connectedToServer();
+        //On construit l'objet Client.
+        _client = new Client(_socket,_login,_hash);
+        //On envoie le message de login.
+        _client->sendLoginMessage();
     }
 }

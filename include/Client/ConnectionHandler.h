@@ -2,6 +2,7 @@
 #define CLIENT_CONNECTIONHANDLER_H
 #include <QtCore/QObject>
 #include <QtNetwork/QTcpSocket>
+#include <Client/Client.h>
 namespace Client
 {
     /**
@@ -17,6 +18,10 @@ namespace Client
               * Pointeur vers le socket actuel
               */
             QTcpSocket *_socket;
+            /**
+              * Pointeur vers l'objet Client.
+              */
+            Client *_client;
             /**
               * Login à utiliser
               */
