@@ -31,7 +31,7 @@ namespace Server
     {
         //On recupère la socket qui a envoyé le message
         QTcpSocket *socket = qobject_cast<QTcpSocket*>(sender());
-        qDebug() << "Un message a été reçu de " << socket->peerAddress();
+        qDebug() << "Un message a été reçu de " << socket->peerAddress().toString();
 
         //On vérifie que la socket existe bien
         if (socket == 0)
@@ -54,13 +54,11 @@ namespace Server
             //On vérifie que la taille est correcte
             if (_sizes[socket] < 0)
             {
-                qDebug() << "Erreur: taille reçue incorrecte";
                 emit errorMessage(socket);
                 return;
             }
             else
             {
-                qDebug() << "Taille du message:" << _sizes[socket];
             }
         }
         //Si on a pas tout le message, on abandonne.

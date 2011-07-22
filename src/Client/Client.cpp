@@ -63,6 +63,6 @@ namespace Client
       */
     void Client::messageRecevied()
     {
-
+        qDebug() << "Un message a été reçu.";
     }
 }
