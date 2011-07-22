@@ -1,6 +1,12 @@
 #ifndef GUI_WAITINGWINDOW_H
 #define GUI_WAITINGWINDOW_H
+#include <QtGui/QListView>
+#include <QtGui/QLineEdit>
+#include <QtGui/QListWidget>
+#include <QtGui/QStringListModel>
 #include <QtGui/QWidget>
+
+#include <Client/Client.h>
 namespace GUI
 {
     /**
@@ -12,6 +18,32 @@ namespace GUI
     class WaitingWindow : public QWidget
     {
         Q_OBJECT
+        protected:
+            /**
+              * Liste des messages
+              */
+            QListWidget *_messages;
+            /**
+              * Modèle de la liste des joueurs
+              */
+            QStringListModel *_playerList;
+            /**
+              * Ligne de texte à envoyer
+              */
+            QLineEdit *_text;
+            /**
+              * Vue de la liste des joueurs
+              */
+            QListView *_playerView;
+            /**
+              * Pointeur vers l'objet de Client
+              */
+            Client::Client *_client;
+        public:
+            /**
+              * Constructeur
+              */
+            WaitingWindow(QWidget *parent = 0);
     };
 }
 #endif //GUI_WAITINGWINDOW_H

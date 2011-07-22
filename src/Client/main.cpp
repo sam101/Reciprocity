@@ -5,6 +5,7 @@
 #include <GUI/ConnectingWindow.h>
 #include <GUI/JoinGameWindow.h>
 #include <GUI/StartWindow.h>
+#include <GUI/WaitingWindow.h>
 int main(int argc, char *argv[])
 {
     QApplication a(argc,argv);
@@ -40,6 +41,12 @@ int main(int argc, char *argv[])
     QObject::connect(connectionHandler,SIGNAL(unknownError()),connectingWindow,SLOT(unknownErrorOccurred()));
     QObject::connect(connectionHandler,SIGNAL(connectionRefused()),connectingWindow,SLOT(connectionRefusedError()));
     QObject::connect(connectionHandler,SIGNAL(loginFailedError()),connectingWindow,SLOT(loginFailedError()));
+
+    //On construit la WaitingWindow
+    GUI::WaitingWindow *waitingWindow = new GUI::WaitingWindow;
+    waitingWindow->show();
+
+
     //On execute l'application
     return a.exec();
 }
