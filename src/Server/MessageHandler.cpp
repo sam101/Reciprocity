@@ -108,7 +108,9 @@ namespace Server
           * Sinon, on ajoute le joueur à la partie
           */
        Game::Player *player = _game->addPlayer(msg.getLogin(),msg.getHash());
+       qDebug() << "Création player OK";
        _clients[socket]->setPlayer(player);
+       qDebug() << "SetPlayer OK";
        //On emet le signal
        emit loginSuccess(socket,player->getId());
 

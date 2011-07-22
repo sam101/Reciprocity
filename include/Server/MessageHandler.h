@@ -24,7 +24,7 @@ namespace Server
             /**
               * Map des clients
               */
-            QMap<QTcpSocket*, Client*> _clients;
+            QMap<QTcpSocket*, Client*> &_clients;
             /**
               * Stocke les tailles de message
               */
