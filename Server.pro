@@ -33,7 +33,8 @@ SOURCES += \
     src/Network/LoginMessage.cpp \
     src/Network/LoginFailedMessage.cpp \
     src/Network/LoginSuccessMessage.cpp \
-    src/Server/MessageSender.cpp
+    src/Server/MessageSender.cpp \
+    src/Network/MessageOutMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -63,4 +64,5 @@ HEADERS += \
     include/Network/LoginMessage.h \
     include/Network/LoginFailedMessage.h \
     include/Network/LoginSuccessMessage.h \
-    include/Server/MessageSender.h
+    include/Server/MessageSender.h \
+    include/Network/MessageOutMessage.h
