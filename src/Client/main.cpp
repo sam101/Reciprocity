@@ -33,12 +33,13 @@ int main(int argc, char *argv[])
     //On connecte les signaux d'état pour ConnectingWindow
     QObject::connect(connectionHandler,SIGNAL(hostFound()),connectingWindow,SLOT(hostFoundMessage()));
     QObject::connect(connectionHandler,SIGNAL(connectedToServer()),connectingWindow,SLOT(connectedMessage()));
+    QObject::connect(connectionHandler,SIGNAL(loginSuccess()),connectingWindow,SLOT(loginSuccessMessage()));
     //On connecte les signaux pour les erreurs.
     QObject::connect(connectionHandler,SIGNAL(hostnameNotFound()),connectingWindow,SLOT(hostNotFoundError()));
     QObject::connect(connectionHandler,SIGNAL(badPort()),connectingWindow,SLOT(unknownErrorOccurred()));
     QObject::connect(connectionHandler,SIGNAL(unknownError()),connectingWindow,SLOT(unknownErrorOccurred()));
     QObject::connect(connectionHandler,SIGNAL(connectionRefused()),connectingWindow,SLOT(connectionRefusedError()));
-
+    QObject::connect(connectionHandler,SIGNAL(loginFailedError()),connectingWindow,SLOT(loginFailedError()));
     //On execute l'application
     return a.exec();
 }

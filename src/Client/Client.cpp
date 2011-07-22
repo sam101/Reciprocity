@@ -64,7 +64,6 @@ namespace Client
       */
     void Client::messageRecevied()
     {     
-        qDebug() << "Un message a été reçu.";
         //On vérifie que c'est bien la socket qui a envoyé le message
         if (qobject_cast<QTcpSocket*>(sender()) != _socket)
         {
