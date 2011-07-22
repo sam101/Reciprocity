@@ -109,8 +109,8 @@ namespace Server
           */
        Game::Player *player = _game->addPlayer(msg.getLogin(),msg.getHash());
        _clients[socket]->setPlayer(player);
-       //On emet le signal
        qDebug() << "Login de" << socket->peerAddress().toString() << "En tant que" << msg.getLogin() << " réussi.";
+       //On emet le signal
        emit loginSuccess(socket,player->getId());
 
     }

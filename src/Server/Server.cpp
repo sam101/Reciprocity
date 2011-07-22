@@ -14,7 +14,12 @@ namespace Server
         _clientHandler = new ClientHandler(_clients);
         //On initialise le MessageHandler
         _messageHandler = new MessageHandler(_clients);
-    }
+        //On initialise le MessageSender
+        _messageSender = new MessageSender;
+
+        //On connecte entre eux le MessageHandler et le MessageSender
+        connect(_messageHandler,SIGNAL(loginSuccess(QTcpSocket*,qint32)),_messageSender,SLOT(sendLoginSuccess(QTcpSocket*,qint32)));
+        connect(_messageHandler,SIGNAL(loginAlreadyExists(QTcpSocket*,QString)),_messageSender,SLOT(sendLoginAlreadyExists(QTcpSocket*,QString)));    }
     /**
       * Destructeur
       */
