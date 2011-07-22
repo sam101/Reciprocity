@@ -25,7 +25,8 @@ HEADERS += \
     include/Client/Client.h \
     include/Client/ConnectionHandler.h \
     include/GUI/ConnectingWindow.h \
-    include/Network/MessageOutMessage.h
+    include/Network/MessageOutMessage.h \
+    include/Network/MessageInMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -43,4 +44,5 @@ SOURCES += \
     src/Client/Client.cpp \
     src/Client/ConnectionHandler.cpp \
     src/GUI/ConnectingWindow.cpp \
-    src/Network/MessageOutMessage.cpp
+    src/Network/MessageOutMessage.cpp \
+    src/Network/MessageInMessage.cpp
