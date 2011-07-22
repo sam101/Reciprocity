@@ -80,7 +80,25 @@ namespace Client
         emit connectedToServer();
         //On construit l'objet Client.
         _client = new Client(_socket,_login,_hash);
+        //On connecte les signaux pour le login
+        connect(_client,SIGNAL(loginFailed()),this,SLOT(loginFailedHandler()));
+        connect(_client,SIGNAL(loginSuccess()),this,SLOT(loginSuccessHandler()));
         //On envoie le message de login.
         _client->sendLoginMessage();
+
+    }
+    /**
+      * Appelé quand le login a réussi
+      */
+    void ConnectionHandler::loginSuccessHandler()
+    {
+        emit loginSuccess();
+    }
+    /**
+      * Appelé quand le login a échoué
+      */
+    void ConnectionHandler::loginFailedHandler()
+    {
+        emit loginFailedError();
     }
 }

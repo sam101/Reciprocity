@@ -53,6 +53,14 @@ namespace Client
               * Appelé quand la connexion a été établie
               */
             void connectedHandler();
+            /**
+              * Appelé quand le login a réussi
+              */
+            void loginSuccessHandler();
+            /**
+              * Appelé quand le login a échoué
+              */
+            void loginFailedHandler();
         signals:
             /**
               * Envoyé quand le port est incorrect
@@ -70,7 +78,10 @@ namespace Client
               * Envoyé quand il y'a une erreur inconnue.
               */
             void unknownError();
-
+            /**
+              * Envoyé quand le login a échoué
+              */
+            void loginFailedError();
             /**
               * Envoyé quand le nom d'hote a été trouvé
               */
@@ -79,6 +90,10 @@ namespace Client
               * Envoyé quand la connexion est établie
               */
             void connectedToServer();
+            /**
+              * Envoyé quand le login à réussi.
+              */
+            void loginSuccess();
     };
 }
 #endif //CLIENT_CONNECTIONHANDLER_H
