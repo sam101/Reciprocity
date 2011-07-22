@@ -12,7 +12,8 @@ namespace Client
     _socket(socket),
     _isLogged(false),
     _login(login),
-    _hash(hash)
+    _hash(hash),
+    _messageSize(0)
     {
         //On connecte les signaux du socket
         connect(_socket,SIGNAL(readyRead()),this,SLOT(messageRecevied()));
@@ -62,7 +63,54 @@ namespace Client
       * Appelé quand le client reçoit un message du socket
       */
     void Client::messageRecevied()
-    {
+    {     
         qDebug() << "Un message a été reçu.";
+        //On vérifie que c'est bien la socket qui a envoyé le message
+        if (qobject_cast<QTcpSocket*>(sender()) != _socket)
+        {
+            qDebug() << "Erreur: messageRecevied() appellé par autre chose que la socket";
+            return;
+        }
+        //On déclare un QDataStream pour lire les données
+        QDataStream in(_socket);
+        in.setVersion(QDataStream::Qt_4_5);
+        //On vérifie si on a pas déjà reçu la taille du message
+        if (_messageSize == 0)
+        {
+            //On vérifie qu'on à bien reçu la taille
+            if (_socket->bytesAvailable() < (qint32)sizeof(qint32) )
+            {
+                return;
+            }
+            //On recupère la taille
+            in >> _messageSize;
+            //On vérifie que la tailel est correcte
+            if (_messageSize < 0)
+            {
+                qDebug() << "Erreur: Message incorrect reçu";
+                _messageSize = 0;
+
+                emit incorrectMessage();
+
+                return;
+            }
+            //On recupère le type du message
+            qint32 type;
+            in >> type;
+            //On gère selon le type
+            switch (type)
+            {
+                case Network::NONE:
+                //On ne fait rien
+                break;
+                //Si le login est reussi...
+                case Network::LOGIN_SUCCESS:
+                    emit loginSuccess();
+                break;
+                case Network::LOGIN_FAILED:
+                    emit loginFailed();
+                break;
+            }
+        }
     }
 }

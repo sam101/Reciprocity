@@ -49,16 +49,14 @@ namespace Server
             {
                 return;
             }
-            //On vérifie qu'on à bien tout le message.
+            //On recupère la taille.
             in >> _sizes[socket];
             //On vérifie que la taille est correcte
             if (_sizes[socket] < 0)
             {
+                _sizes[socket] = 0;
                 emit errorMessage(socket);
                 return;
-            }
-            else
-            {
             }
         }
         //Si on a pas tout le message, on abandonne.

@@ -29,6 +29,10 @@ namespace Client
               * Hash du joueur
               */
             QString _hash;
+            /**
+              * Taille du message en cours de reception
+              */
+            qint32 _messageSize;
         public:
             /**
               * Constructeur
@@ -52,6 +56,18 @@ namespace Client
               */
             void messageRecevied();
         signals:
+            /**
+              * Emit quand un message incorrect a été reçu
+              */
+            void incorrectMessage();
+            /**
+              * Emit quand le login du client à réussi.
+              */
+            void loginSuccess();
+            /**
+              * Emit quand le login du client à échoué
+              */
+            void loginFailed();
 
     };
 }

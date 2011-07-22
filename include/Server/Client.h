@@ -34,6 +34,7 @@ namespace Server
               * Pointeur vers le joueur du client
               */
             Game::Player *_player;
+
         public:
             /**
               * Constructeur
