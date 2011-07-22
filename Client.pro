@@ -24,7 +24,8 @@ HEADERS += \
     include/GUI/JoinGameWindow.h \
     include/Client/Client.h \
     include/Client/ConnectionHandler.h \
-    include/GUI/ConnectingWindow.h
+    include/GUI/ConnectingWindow.h \
+    include/Network/MessageOutMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -41,4 +42,5 @@ SOURCES += \
     src/GUI/JoinGameWindow.cpp \
     src/Client/Client.cpp \
     src/Client/ConnectionHandler.cpp \
-    src/GUI/ConnectingWindow.cpp
+    src/GUI/ConnectingWindow.cpp \
+    src/Network/MessageOutMessage.cpp
