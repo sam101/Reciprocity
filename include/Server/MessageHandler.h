@@ -34,6 +34,10 @@ namespace Server
               * Constructeur
               */
             MessageHandler(QMap<QTcpSocket*,Client*> clients);
+            /**
+              * Définit l'objet de jeu actuel
+              */
+            void setGame(Game::Game *game);
         public slots:
             /**
               * Appelé lors de la reception d'un message.

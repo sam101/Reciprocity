@@ -49,6 +49,8 @@ namespace Server
             delete _game;
         }
         _game = new Game::Game;
+        //On indique que l'objet de jeu a changé.
+        _messageHandler->setGame(_game);
         //On détruit le socket précédent
         if (_socketServer != NULL)
         {

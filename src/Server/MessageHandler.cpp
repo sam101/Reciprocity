@@ -16,6 +16,13 @@ namespace Server
     {
     }
     /**
+      * Définit l'objet de jeu actuel
+      */
+    void MessageHandler::setGame(Game::Game *game)
+    {
+        _game = game;
+    }
+    /**
       * Appelé lors de la reception d'un message.
       * Detecte le type du message envoyé et
       * appelle la méthode correspondante au message reçu.
@@ -86,6 +93,7 @@ namespace Server
         //On recupère le message
         Network::LoginMessage msg;
         in >> msg;
+        qDebug() << socket->peerAddress().toString() << " veut se connecter en temps que " << msg.getLogin();
         /*
          * On vérifie que le joueur n'est pas déjà connecté et que
          * si c'est le cas son hash est bon.
