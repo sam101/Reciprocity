@@ -15,7 +15,7 @@ namespace Server
         Network::LoginFailedMessage m(Network::LoginFailedMessage::LOGIN_ALREADY_EXIST);
         //On construit le byteArray dans lequel le mettre
         QByteArray b;
-        QDataStream in(b);
+        QDataStream in(&b,QIODevice::WriteOnly);
         in << (qint32)0;
         in << (qint32)Network::LOGIN_FAILED;
         in << m;
@@ -33,7 +33,7 @@ namespace Server
         Network::LoginSuccessMessage m(id);
         //On construit le byteArray dans lequel le mettre
         QByteArray b;
-        QDataStream in(b);
+        QDataStream in(&b,QIODevice::WriteOnly);
         in << (qint32)0;
         in << (qint32)Network::LOGIN_SUCCESS;
         in << m;

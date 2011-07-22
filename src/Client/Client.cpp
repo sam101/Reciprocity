@@ -2,6 +2,7 @@
 #include <Config/Config.h>
 #include <Network/LoginMessage.h>
 #include <QtCore/QDataStream>
+#include <QtCore/QDebug>
 namespace Client
 {
     /**
@@ -35,13 +36,14 @@ namespace Client
       */
     void Client::sendLoginMessage()
     {
+        qDebug() << "Appel de Client::sendLoginMessage";
         //On construit le message
         Network::LoginMessage loginMessage(0,_login,_hash);
 
         //On déclare le byteArray qui stockera les infos du message
         QByteArray b;
         //On déclare le flux dans lequel écrire.
-        QDataStream in(b);
+        QDataStream in(&b,QIODevice::WriteOnly);
         in.setVersion(QDataStream::Qt_4_5);
         //On écrit la taille vide
         in << (qint32)0;

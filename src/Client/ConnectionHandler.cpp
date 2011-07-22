@@ -35,7 +35,7 @@ namespace Client
         _login = login;
         _hash = hash;
         //On crée le socket.
-        _socket = new QTcpSocket(this);
+        _socket = new QTcpSocket;
         //On tente la connexion.
         _socket->connectToHost(address,port);
         //On connecte pour les erreurs
@@ -75,6 +75,7 @@ namespace Client
       */
     void ConnectionHandler::connectedHandler()
     {
+        qDebug() << "Appel de ConectionHandler::connectedHandler";
         //On envoie le signal comme quoi on est bien connecté.
         emit connectedToServer();
         //On construit l'objet Client.
