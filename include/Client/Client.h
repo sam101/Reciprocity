@@ -51,6 +51,8 @@ namespace Client
               * Appelé quand le client reçoit un message du socket
               */
             void messageRecevied();
+        signals:
+
     };
 }
 #endif //CLIENT_CLIENT_H

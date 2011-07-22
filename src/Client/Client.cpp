@@ -45,6 +45,8 @@ namespace Client
         in.setVersion(QDataStream::Qt_4_5);
         //On écrit la taille vide
         in << (qint32)0;
+        //On écrit le type du message
+        in << (qint32)Network::LOGIN;
         //On écrit le message
         in << loginMessage;
         //On écrit la bonne taille

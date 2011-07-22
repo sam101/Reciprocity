@@ -17,6 +17,7 @@ namespace Server
         QByteArray b;
         QDataStream in(b);
         in << (qint32)0;
+        in << (qint32)Network::LOGIN_FAILED;
         in << m;
         in.device()->seek(0);
         in << (qint32)(b.size() - sizeof(qint32));
@@ -34,6 +35,7 @@ namespace Server
         QByteArray b;
         QDataStream in(b);
         in << (qint32)0;
+        in << (qint32)Network::LOGIN_SUCCESS;
         in << m;
         in.device()->seek(0);
         in << (qint32)(b.size() - sizeof(qint32));
