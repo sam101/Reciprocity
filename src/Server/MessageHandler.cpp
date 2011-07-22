@@ -82,6 +82,7 @@ namespace Server
       */
     void MessageHandler::handleLogin(QTcpSocket *socket, QDataStream &in)
     {
+        qDebug() << "Demande de login de la part de " << socket->peerAddress().toString();
         //On recupère le message
         Network::LoginMessage msg;
         in >> msg;

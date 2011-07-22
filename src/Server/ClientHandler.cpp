@@ -35,7 +35,7 @@ namespace Server
             return;
         }
         //On indique qu'un client s'est connecté.
-        qDebug() << "Nouvelle connexion en provenance de " << socket->peerAddress();
+        qDebug() << "Nouvelle connexion en provenance de " << socket->peerAddress().toString();
         //Sinon, on procède à des vérifications
 
         //TODO
@@ -59,7 +59,7 @@ namespace Server
             return;
         }
         //On affiche un message
-        qDebug() << "Le client " << socket->peerAddress() << "s'est deconnecté";
+        qDebug() << "Le client " << socket->peerAddress().toString() << "s'est deconnecté";
         //On indique que le client s'est déconnecté.
         _clients[socket]->setOffline();
         //On emet le signal
