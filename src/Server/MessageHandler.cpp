@@ -10,7 +10,7 @@ namespace Server
     /**
       * Constructeur
       */
-    MessageHandler::MessageHandler(QMap<QTcpSocket*, Client*> clients) :
+    MessageHandler::MessageHandler(QMap<QTcpSocket*, Client*>& clients) :
     _game(NULL),
     _clients(clients)
     {

@@ -33,7 +33,7 @@ namespace Server
             /**
               * Constructeur
               */
-            MessageHandler(QMap<QTcpSocket*,Client*> clients);
+            MessageHandler(QMap<QTcpSocket*,Client*> &clients);
             /**
               * Définit l'objet de jeu actuel
               */
