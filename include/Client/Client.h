@@ -68,6 +68,10 @@ namespace Client
               */
             void sendBeginGame();
             /**
+              * Envoie un message aux autres joueurs
+              */
+            void sendChatMessage(QString contents);
+            /**
               * Appelé quand le client reçoit un message du socket
               */
             void messageRecevied();
