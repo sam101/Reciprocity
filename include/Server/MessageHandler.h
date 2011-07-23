@@ -49,6 +49,10 @@ namespace Server
               * Gère le login d'un joueur
               */
             void handleLogin(QTcpSocket *socket, QDataStream &in);
+            /**
+              * Gère la reception d'un message par un joueur
+              */
+            void handleMessage(QTcpSocket *socket, QDataStream &in);
         signals:
             /**
               * Emis quand le login demmandé par le joueur existe déjà
@@ -62,6 +66,10 @@ namespace Server
               * Emis quand le client a émit un message incorrect
               */
             void errorMessage(QTcpSocket*);
+            /**
+              * Emit quand un message doit être envoyé
+              */
+            void sendMessage(QString dest, QString contents);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

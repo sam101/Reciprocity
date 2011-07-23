@@ -1,6 +1,7 @@
 #include <Server/MessageHandler.h>
 #include <Network/AbstractMessage.h>
 #include <Network/LoginMessage.h>
+#include <Network/MessageOutMessage.h>
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
@@ -78,6 +79,10 @@ namespace Server
             case Network::LOGIN:
                 handleLogin(socket,in);
             break;
+            //Si on a reçu un message de type "MessageOut"
+            case Network::MESSAGE_OUT:
+                handleMessage(socket,in);
+            break;
         }
     }
     /**
@@ -109,5 +114,19 @@ namespace Server
        //On emet le signal
        emit loginSuccess(socket,player->getId(),player->isAdmin());
 
+    }
+    /**
+      * Gère la reception d'un message par un joueur
+      */
+    void MessageHandler::handleMessage(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::MessageOutMessage msg;
+        in >> msg;
+
+        //TODO: Antiflood.
+
+        //On envoie le message à tout le monde
+        emit sendMessage(msg.getDest(),msg.getContents());
     }
 }
