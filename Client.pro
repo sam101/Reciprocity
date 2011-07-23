@@ -28,7 +28,9 @@ HEADERS += \
     include/Network/MessageOutMessage.h \
     include/Network/MessageInMessage.h \
     include/Network/GameHasBegunMessage.h \
-    include/GUI/WaitingWindow.h
+    include/GUI/WaitingWindow.h \
+    include/Network/LoginSuccessMessage.h \
+    include/Network/LoginFailedMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -49,4 +51,6 @@ SOURCES += \
     src/Network/MessageOutMessage.cpp \
     src/Network/MessageInMessage.cpp \
     src/Network/GameHasBegunMessage.cpp \
-    src/GUI/WaitingWindow.cpp
+    src/GUI/WaitingWindow.cpp \
+    src/Network/LoginSuccessMessage.cpp \
+    src/Network/LoginFailedMessage.cpp
