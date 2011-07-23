@@ -1,5 +1,6 @@
 #include <GUI/WaitingWindow.h>
 #include <QtCore/QDebug>
+#include <QtGui/QMessageBox>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QVBoxLayout>
 namespace GUI
@@ -106,6 +107,8 @@ namespace GUI
         _kick->setEnabled(_client->isAdmin());
         //On connecte le signal de Client avec addMessage
         connect(_client,SIGNAL(messageRecevied(QString,QString)),this,SLOT(addMessage(QString,QString)));
+        //On connecte le signal de deconnexion du serveur
+        connect(_client,SIGNAL(serverHasDisconnected()),this,SLOT(serverHasDisconnected()));
         //on affiche la fenêtre.
         QWidget::show();
     }
@@ -116,5 +119,16 @@ namespace GUI
     {
         _messages->addItem("<" + sender + "> " + contents);
     }
-
+    /**
+      * Appelé quand le serveur s'est déconnecté
+      * ferme la fenêtre
+      */
+    void WaitingWindow::serverHasDisconnected()
+    {
+        //On affiche une jolie fenêtre indiquant que le serveur s'est déconnecté
+        QMessageBox::critical(this,tr("Le serveur s'est déconnecté !"),tr("Le serveur s'est déconnecté !"));
+        //On quitte la fenêtre.
+        //TODO: Revenir à la première fenêtre.
+        hide();
+    }
 }

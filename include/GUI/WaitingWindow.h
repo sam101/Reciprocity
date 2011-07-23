@@ -79,6 +79,11 @@ namespace GUI
               * Ajoute un message dans le ListWidget
               */
             void addMessage(QString sender, QString contents);
+            /**
+              * Appelé quand le serveur s'est déconnecté
+              * ferme la fenêtre
+              */
+            void serverHasDisconnected();
         signals:
             /**
               * Indique que le joueur veut se deconnecter

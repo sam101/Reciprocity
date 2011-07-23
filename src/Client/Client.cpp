@@ -22,6 +22,7 @@ namespace Client
     {
         //On connecte les signaux du socket
         connect(_socket,SIGNAL(readyRead()),this,SLOT(messageRecevied()));
+        connect(_socket,SIGNAL(disconnected()),this,SLOT(hasDisconnected()));
     }
     /**
       * Renvoie le login du client
@@ -43,6 +44,13 @@ namespace Client
     bool Client::isAdmin() const
     {
         return _isAdmin;
+    }
+    /**
+      * Gère la deconnexion du serveur
+      */
+    void Client::hasDisconnected()
+    {
+        emit serverHasDisconnected();
     }
     /**
       * Envoie un message de login
@@ -165,6 +173,7 @@ namespace Client
             }
         }
     }
+
     /**
       * Gère le login du joueur
       */

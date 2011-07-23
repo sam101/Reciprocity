@@ -60,6 +60,10 @@ namespace Client
             bool isAdmin() const;
         public slots:
             /**
+              * Gère la deconnexion du serveur
+              */
+            void hasDisconnected();
+            /**
               * Envoie un message de login
               */
             void sendLoginMessage();
@@ -80,6 +84,7 @@ namespace Client
               */
             void logout();
         public:
+
             /**
               * Gère le login du joueur
               */
@@ -90,6 +95,10 @@ namespace Client
             void handleChatMessage(QDataStream &in);
 
         signals:
+            /**
+              * Emit quand le serveur s'est déconnecté
+              */
+            void serverHasDisconnected();
             /**
               * Emit quand un message incorrect a été reçu
               */
