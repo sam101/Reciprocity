@@ -136,6 +136,11 @@ namespace Client
 
                 return;
             }
+            if (_socket->bytesAvailable() < _messageSize)
+            {
+                return;
+            }
+            _messageSize = 0;
             qDebug() << "Message reçu du serveur";
             //On recupère le type du message
             qint32 type;
