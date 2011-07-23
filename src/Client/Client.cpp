@@ -58,6 +58,13 @@ namespace Client
         //On écrit le message
         _socket->write(b);
     }
+    /**
+      * Envoie un message de début de partie
+      */
+    void Client::sendBeginGame()
+    {
+        //TODO
+    }
 
     /**
       * Appelé quand le client reçoit un message du socket

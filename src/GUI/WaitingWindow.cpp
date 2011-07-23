@@ -50,6 +50,8 @@ namespace GUI
         QPushButton *kick = new QPushButton(tr("Kicker"));
         kick->setEnabled(false);
         h3->addWidget(kick);
+        //On rajoute le Layout
+        layout->addLayout(h3);
     }
     /**
       * Appelé au clic sur le bouton "quitter"

@@ -52,6 +52,10 @@ namespace Client
               */
             void sendLoginMessage();
             /**
+              * Envoie un message de début de partie
+              */
+            void sendBeginGame();
+            /**
               * Appelé quand le client reçoit un message du socket
               */
             void messageRecevied();
