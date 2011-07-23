@@ -15,7 +15,7 @@ namespace Server
         //On initialise le MessageHandler
         _messageHandler = new MessageHandler(_clients);
         //On initialise le MessageSender
-        _messageSender = new MessageSender;
+        _messageSender = new MessageSender(_clients);
 
         //On connecte entre eux le MessageHandler et le MessageSender
         connect(_messageHandler,SIGNAL(loginSuccess(QTcpSocket*,qint32,bool)),_messageSender,SLOT(sendLoginSuccess(QTcpSocket*,qint32,bool)));

@@ -6,6 +6,14 @@
 namespace Server
 {
     /**
+      * Constructeur
+      */
+    MessageSender::MessageSender(QMap<QTcpSocket *, Client *> &clients) :
+    _clients(clients)
+    {
+
+    }
+    /**
       * Envoie un message comme quoi le login demandé par le client
       * existe déjà
       */

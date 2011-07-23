@@ -1,8 +1,12 @@
 #ifndef SERVER_MESSAGESENDER_H
 #define SERVER_MESSAGESENDER_H
-#include <QtNetwork/QTcpSocket>
-#include <QtCore/QObject>
 #include <Network/AbstractMessage.h>
+#include <Server/Client.h>
+
+#include <QtNetwork/QTcpSocket>
+
+#include <QtCore/QMap>
+#include <QtCore/QObject>
 namespace Server
 {
     /**
@@ -14,7 +18,15 @@ namespace Server
     {
         Q_OBJECT
         protected:
-
+            /**
+              * Map des clients
+              */
+            QMap<QTcpSocket*, Client*> &_clients;
+        public:
+            /**
+              * Constructeur
+              */
+            MessageSender(QMap<QTcpSocket*,Client*> &clients);
         public slots:
             /**
               * Envoie un message comme quoi le login demandé par le client
