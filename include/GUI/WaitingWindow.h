@@ -44,6 +44,22 @@ namespace GUI
               * Constructeur
               */
             WaitingWindow(QWidget *parent = 0);
+        public slots:
+            /**
+              * Appelé au clic sur le bouton "quitter"
+              */
+            void quitHandler();
+            /**
+              * Indique que le joueur veut lancer la partie
+              */
+            void launchGameRequested();
+        signals:
+            /**
+              * Indique que le joueur veut se deconnecter
+              */
+            void logoutRequested();
+
+
     };
 }
 #endif //GUI_WAITINGWINDOW_H

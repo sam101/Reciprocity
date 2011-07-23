@@ -35,5 +35,34 @@ namespace GUI
         //On construit le bouton envoyer
         QPushButton *send = new QPushButton(tr("Envoyer !"));
         h2->addWidget(send,2);
+        //On construit les boutons d'actions
+        QHBoxLayout *h3 = new QHBoxLayout;
+        //Bouton pour quitter la partie
+        QPushButton *quit = new QPushButton(tr("Quitter"));
+        h3->addWidget(quit);
+        connect(quit,SIGNAL(clicked()),this,SLOT(quitHandler()));
+        //Bouton pour lancer la partie
+        //TODO: Ajouter le fait qu'il doit être admin pour lancer la partie
+        QPushButton *launch = new QPushButton(tr("Lancer la partie"));
+        connect(launch,SIGNAL(clicked()),this,SLOT(launchGameRequested()));
+        h3->addWidget(launch);
+        //Bouton pour kicker un joueur
+        QPushButton *kick = new QPushButton(tr("Kicker"));
+        kick->setEnabled(false);
+        h3->addWidget(kick);
+    }
+    /**
+      * Appelé au clic sur le bouton "quitter"
+      */
+    void WaitingWindow::quitHandler()
+    {
+        emit logoutRequested();
+    }
+    /**
+      * Indique que le joueur veut lancer la partie
+      */
+    void WaitingWindow::launchGameRequested()
+    {
+
     }
 }
