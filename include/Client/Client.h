@@ -54,6 +54,10 @@ namespace Client
               * Renvoie le hash du client
               */
             QString getHash() const;
+            /**
+              * Renvoie si le joueur est admin
+              */
+            bool isAdmin() const;
         public slots:
             /**
               * Envoie un message de login

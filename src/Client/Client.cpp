@@ -36,6 +36,13 @@ namespace Client
         return _hash;
     }
     /**
+      * Renvoie si le joueur est admin
+      */
+    bool Client::isAdmin() const
+    {
+        return _isAdmin;
+    }
+    /**
       * Envoie un message de login
       */
     void Client::sendLoginMessage()

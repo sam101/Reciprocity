@@ -1,6 +1,5 @@
 #include <GUI/WaitingWindow.h>
 #include <QtGui/QHBoxLayout>
-#include <QtGui/QPushButton>
 #include <QtGui/QVBoxLayout>
 namespace GUI
 {
@@ -43,13 +42,14 @@ namespace GUI
         connect(quit,SIGNAL(clicked()),this,SLOT(quitHandler()));
         //Bouton pour lancer la partie
         //TODO: Ajouter le fait qu'il doit être admin pour lancer la partie
-        QPushButton *launch = new QPushButton(tr("Lancer la partie"));
-        connect(launch,SIGNAL(clicked()),this,SLOT(launchGameRequested()));
-        h3->addWidget(launch);
+        QPushButton *_launch = new QPushButton(tr("Lancer la partie"));
+        _launch->setEnabled(false);
+        connect(_launch,SIGNAL(clicked()),this,SLOT(launchGameRequested()));
+        h3->addWidget(_launch);
         //Bouton pour kicker un joueur
-        QPushButton *kick = new QPushButton(tr("Kicker"));
-        kick->setEnabled(false);
-        h3->addWidget(kick);
+        _kick = new QPushButton(tr("Kicker"));
+        _kick->setEnabled(false);
+        h3->addWidget(_kick);
         //On rajoute le Layout
         layout->addLayout(h3);
     }
@@ -60,6 +60,9 @@ namespace GUI
     {
         //Hack du à un bug de la gestion des namespace dans Qt.
         _client = qobject_cast<Client::Client*>(client);
+        //On désactive les boutons en fonction de leur utilité.
+        _launch->setEnabled(_client->isAdmin());
+        _kick->setEnabled(_client->isAdmin());
     }
     /**
       * Appelé au clic sur le bouton "quitter"

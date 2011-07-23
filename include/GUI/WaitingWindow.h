@@ -3,6 +3,7 @@
 #include <QtGui/QListView>
 #include <QtGui/QLineEdit>
 #include <QtGui/QListWidget>
+#include <QtGui/QPushButton>
 #include <QtGui/QStringListModel>
 #include <QtGui/QWidget>
 
@@ -32,9 +33,18 @@ namespace GUI
               */
             QLineEdit *_text;
             /**
+              * Bouton "kicker" servant a ejecter un joueur
+              */
+            QPushButton *_kick;
+            /**
+              * Bouton pour lancer la partie
+              */
+            QPushButton *_launch;
+            /**
               * Vue de la liste des joueurs
               */
             QListView *_playerView;
+
             /**
               * Pointeur vers l'objet de Client
               */
