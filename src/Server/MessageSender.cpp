@@ -27,10 +27,10 @@ namespace Server
     /**
       * Envoie un message au client comme quoi un login à réussi
       */
-    void MessageSender::sendLoginSuccess(QTcpSocket *socket, qint32 id)
+    void MessageSender::sendLoginSuccess(QTcpSocket *socket, qint32 id, bool isAdmin)
     {
         //On construit le message
-        Network::LoginSuccessMessage m(id);
+        Network::LoginSuccessMessage m(id,isAdmin);
         //On construit le byteArray dans lequel le mettre
         QByteArray b;
         QDataStream in(&b,QIODevice::WriteOnly);

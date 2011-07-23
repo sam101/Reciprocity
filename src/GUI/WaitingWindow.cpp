@@ -56,9 +56,10 @@ namespace GUI
     /**
       * Change le client actuel
       */
-    void WaitingWindow::setClient(Client::Client *client)
+    void WaitingWindow::setClient(QObject *client)
     {
-        _client = client;
+        //Hack du à un bug de la gestion des namespace dans Qt.
+        _client = qobject_cast<Client::Client*>(client);
     }
     /**
       * Appelé au clic sur le bouton "quitter"

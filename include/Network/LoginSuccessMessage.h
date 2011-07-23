@@ -21,15 +21,23 @@ namespace Network
               * Id du client après login.
               */
             qint32 _id;
+            /**
+              * Indique si le client est admin
+              */
+            bool _isAdmin;
         public:
             /**
               * Constructeur
               */
-            LoginSuccessMessage(qint32 id = -1);
+            LoginSuccessMessage(qint32 id = -1, bool isAdmin = false);
             /**
               * Renvoie l'id
               */
             qint32 getId() const;
+            /**
+              * Renvoie si le client est admin
+              */
+            bool isAdmin() const;
             /**
               * Envoie le message dans un QDataStream
               */

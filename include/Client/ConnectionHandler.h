@@ -69,7 +69,7 @@ namespace Client
             /**
               * Envoyé quand l'objet client a changé
               */
-            void clientHasChanged(Client*);
+            void clientHasChanged(QObject*);
             /**
               * Envoyé quand le port est incorrect
               */

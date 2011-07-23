@@ -113,6 +113,7 @@ namespace Client
                 case Network::LOGIN_SUCCESS:
                     emit loginSuccess();
                 break;
+                //Si le login a échoué.
                 case Network::LOGIN_FAILED:
                     emit loginFailed();
                 break;

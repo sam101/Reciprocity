@@ -48,7 +48,7 @@ namespace GUI
             /**
               * Change le client actuel
               */
-            void setClient(Client::Client *client);
+            void setClient(QObject *client);
             /**
               * Appelé au clic sur le bouton "quitter"
               */

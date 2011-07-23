@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     //On construit la WaitingWindow
     GUI::WaitingWindow *waitingWindow = new GUI::WaitingWindow;
     //On connecte les signaux
-    QObject::connect(connectionHandler,SIGNAL(clientHasChanged(Client::Client*)),waitingWindow,SLOT(setClient(Client::Client*)));
+    QObject::connect(connectionHandler,SIGNAL(clientHasChanged(QObject*)),waitingWindow,SLOT(setClient(QObject*)));
 
 
     //On execute l'application

@@ -107,7 +107,7 @@ namespace Server
        _clients[socket]->setPlayer(player);
        qDebug() << "Login de" << socket->peerAddress().toString() << "En tant que" << msg.getLogin() << " réussi.";
        //On emet le signal
-       emit loginSuccess(socket,player->getId());
+       emit loginSuccess(socket,player->getId(),player->isAdmin());
 
     }
 }

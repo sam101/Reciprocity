@@ -4,9 +4,10 @@ namespace Network
     /**
       * Constructeur
       */
-    LoginSuccessMessage::LoginSuccessMessage(qint32 id) :
+    LoginSuccessMessage::LoginSuccessMessage(qint32 id, bool isAdmin) :
     AbstractMessage(LOGIN_SUCCESS),
-    _id(id)
+    _id(id),
+    _isAdmin(isAdmin)
     {
 
     }
@@ -26,6 +27,7 @@ namespace Network
         out << l.MAGICNUMBER_LOGINSUCCESSMESSAGE;
         //On stocke les informations.
         out << l._id;
+        out << l._isAdmin;
 
         return out;
     }
@@ -40,6 +42,7 @@ namespace Network
         if (magicNumber != l.MAGICNUMBER_LOGINSUCCESSMESSAGE) return in;
         //On recupère les données
         in >> l._id;
+        in >> l._isAdmin;
 
         return in;
     }
