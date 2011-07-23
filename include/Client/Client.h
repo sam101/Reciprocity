@@ -55,6 +55,10 @@ namespace Client
               * Appelé quand le client reçoit un message du socket
               */
             void messageRecevied();
+            /**
+              * Appelé quand le client doit se déconnecter
+              */
+            void logout();
         signals:
             /**
               * Emit quand un message incorrect a été reçu

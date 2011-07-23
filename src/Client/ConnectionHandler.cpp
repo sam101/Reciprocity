@@ -101,4 +101,13 @@ namespace Client
     {
         emit loginFailedError();
     }
+    /**
+      * Déconnecte le client actuel
+      */
+    void ConnectionHandler::logout()
+    {
+        _client->logout();
+        delete _client;
+        _client = NULL;
+    }
 }

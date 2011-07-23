@@ -61,6 +61,10 @@ namespace Client
               * Appelé quand le login a échoué
               */
             void loginFailedHandler();
+            /**
+              * Déconnecte le client actuel
+              */
+            void logout();
         signals:
             /**
               * Envoyé quand le port est incorrect

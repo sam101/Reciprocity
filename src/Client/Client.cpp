@@ -112,4 +112,12 @@ namespace Client
             }
         }
     }
+    /**
+      * Appelé quand le client doit se déconnecter
+      */
+    void Client::logout()
+    {
+        _isLogged = false;
+        _socket->close();
+    }
 }
