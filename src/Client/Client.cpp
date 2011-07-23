@@ -1,6 +1,7 @@
 #include <Client/Client.h>
 #include <Config/Config.h>
 #include <Network/LoginMessage.h>
+#include <Network/LoginSuccessMessage.h>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
 namespace Client
@@ -11,6 +12,8 @@ namespace Client
     Client::Client(QTcpSocket *socket, QString login, QString hash) :
     _socket(socket),
     _isLogged(false),
+    _isAdmin(false),
+     _id(-1),
     _login(login),
     _hash(hash),
     _messageSize(0)
@@ -111,7 +114,7 @@ namespace Client
                 break;
                 //Si le login est reussi...
                 case Network::LOGIN_SUCCESS:
-                    emit loginSuccess();
+                    handleLoginSuccess(in);
                 break;
                 //Si le login a échoué.
                 case Network::LOGIN_FAILED:
@@ -121,11 +124,27 @@ namespace Client
         }
     }
     /**
+      * Gère le login du joueur
+      */
+    void Client::handleLoginSuccess(QDataStream &in)
+    {
+        //On Recupère le message
+        Network::LoginSuccessMessage m;
+        in >> m;
+        //On met à jour les données
+        _isLogged = true;
+        _isAdmin = m.isAdmin();
+        _id = m.getId();
+        //On emet le signal
+        emit loginSuccess();
+    }
+    /**
       * Appelé quand le client doit se déconnecter
       */
     void Client::logout()
     {
         _isLogged = false;
+        _isAdmin = true;
         _socket->close();
     }
 }

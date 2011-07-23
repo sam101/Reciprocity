@@ -22,6 +22,14 @@ namespace Client
               */
             bool _isLogged;
             /**
+              * Indique si on est admin
+              */
+            bool _isAdmin;
+            /**
+              * Id du joueur si connecté
+              */
+            qint32 _id;
+            /**
               * Login du joueur
               */
             QString _login;
@@ -63,6 +71,12 @@ namespace Client
               * Appelé quand le client doit se déconnecter
               */
             void logout();
+        public:
+            /**
+              * Gère le login du joueur
+              */
+            void handleLoginSuccess(QDataStream &in);
+
         signals:
             /**
               * Emit quand un message incorrect a été reçu
