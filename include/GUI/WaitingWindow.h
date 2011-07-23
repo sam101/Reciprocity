@@ -75,6 +75,10 @@ namespace GUI
               * Affichage de la fenêtre
               */
             void show();
+            /**
+              * Ajoute un message dans le ListWidget
+              */
+            void addMessage(QString sender, QString contents);
         signals:
             /**
               * Indique que le joueur veut se deconnecter

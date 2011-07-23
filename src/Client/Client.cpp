@@ -49,7 +49,6 @@ namespace Client
       */
     void Client::sendLoginMessage()
     {
-        qDebug() << "Appel de Client::sendLoginMessage";
         //On construit le message
         Network::LoginMessage loginMessage(0,_login,_hash);
 
@@ -140,8 +139,8 @@ namespace Client
             {
                 return;
             }
+            //On remet à zéro la taille du message
             _messageSize = 0;
-            qDebug() << "Message reçu du serveur";
             //On recupère le type du message
             qint32 type;
             in >> type;
@@ -189,7 +188,6 @@ namespace Client
         //On recupère le message
         Network::MessageInMessage m;
         in >> m;
-        qDebug() << m.getSender() << ":" << m.getContents();
         //On emet le signal comme quoi on a reçu un message.
         emit messageRecevied(m.getSender(),m.getContents());
     }

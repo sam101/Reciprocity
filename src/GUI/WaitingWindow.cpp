@@ -104,7 +104,17 @@ namespace GUI
         //On désactive les boutons en fonction de leur utilité.
         _launch->setEnabled(_client->isAdmin());
         _kick->setEnabled(_client->isAdmin());
+        //On connecte le signal de Client avec addMessage
+        connect(_client,SIGNAL(messageRecevied(QString,QString)),this,SLOT(addMessage(QString,QString)));
         //on affiche la fenêtre.
         QWidget::show();
     }
+    /**
+      * Ajoute un message dans le ListWidget
+      */
+    void WaitingWindow::addMessage(QString sender, QString contents)
+    {
+        _messages->addItem("<" + sender + "> " + contents);
+    }
+
 }
