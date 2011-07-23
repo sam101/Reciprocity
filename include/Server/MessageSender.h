@@ -37,6 +37,10 @@ namespace Server
               * Envoie un message au client comme quoi un login à réussi
               */
             void sendLoginSuccess(QTcpSocket *socket, qint32 id, bool isAdmin);
+            /**
+              * Envoie un message aux clients
+              */
+            void sendChatMessage(QString dest, QString contents, QString sender);
     };
 }
 #endif //SERVER_MESSAGESENDER_H

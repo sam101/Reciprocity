@@ -69,7 +69,7 @@ namespace Server
             /**
               * Emit quand un message doit être envoyé
               */
-            void sendMessage(QString dest, QString contents);
+            void sendMessage(QString dest, QString contents, QString sender);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

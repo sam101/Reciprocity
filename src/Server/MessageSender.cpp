@@ -1,6 +1,7 @@
 #include <Server/MessageSender.h>
 #include <Network/LoginFailedMessage.h>
 #include <Network/LoginSuccessMessage.h>
+#include <Network/MessageInMessage.h>
 #include <QtCore/QByteArray>
 #include <QtCore/QDataStream>
 namespace Server
@@ -50,5 +51,46 @@ namespace Server
         //On l'envoie
         socket->write(b);
 
+    }
+    /**
+      * Envoie un message aux clients
+      */
+    void MessageSender::sendChatMessage(QString dest, QString contents, QString sender)
+    {
+        //On construit le message tout d'abord.
+        Network::MessageInMessage m(sender,contents);
+        //On construit le bytearray
+        QByteArray b;
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in << (qint32)0;
+        in << (qint32)Network::MESSAGE_IN;
+        in << m;
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On l'envoie aux clients visés.
+        if (dest == "")
+        {
+            //Si le destinataire est vide, on envoie à tout les clients.
+            QMutableMapIterator<QTcpSocket*, Client*> it(_clients);
+            while (it.hasNext())
+            {
+                Client *c = it.next().value();
+                c->getSocket()->write(b);
+            }
+        }
+        else
+        {
+            //Sinon, on l'envoie au client visé.
+            QMutableMapIterator<QTcpSocket*, Client*> it(_clients);
+            while (it.hasNext())
+            {
+                Client *c = it.next().value();
+                if (c->getLogin() == dest)
+                {
+                    c->getSocket()->write(b);
+                    return;
+                }
+            }
+        }
     }
 }

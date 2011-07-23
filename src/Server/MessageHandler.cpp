@@ -127,6 +127,6 @@ namespace Server
         //TODO: Antiflood.
 
         //On envoie le message à tout le monde
-        emit sendMessage(msg.getDest(),msg.getContents());
+        emit sendMessage(msg.getDest(),msg.getContents(),_clients[socket]->getLogin());
     }
 }
