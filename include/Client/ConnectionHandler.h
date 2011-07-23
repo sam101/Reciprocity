@@ -67,6 +67,10 @@ namespace Client
             void logout();
         signals:
             /**
+              * Envoyé quand l'objet client a changé
+              */
+            void clientHasChanged(Client*);
+            /**
               * Envoyé quand le port est incorrect
               */
             void badPort();

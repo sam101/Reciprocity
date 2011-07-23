@@ -85,7 +85,8 @@ namespace Client
         connect(_client,SIGNAL(loginSuccess()),this,SLOT(loginSuccessHandler()));
         //On envoie le message de login.
         _client->sendLoginMessage();
-
+        //On envoie le signal comme quoi le client a changé
+        emit clientHasChanged(_client);
     }
     /**
       * Appelé quand le login a réussi

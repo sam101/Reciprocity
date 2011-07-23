@@ -1,6 +1,7 @@
 #include <QtGui/QApplication>
 #include <QtCore/QTextCodec>
 
+#include <Client/Client.h>
 #include <Client/ConnectionHandler.h>
 #include <GUI/ConnectingWindow.h>
 #include <GUI/JoinGameWindow.h>
@@ -44,7 +45,8 @@ int main(int argc, char *argv[])
 
     //On construit la WaitingWindow
     GUI::WaitingWindow *waitingWindow = new GUI::WaitingWindow;
-    waitingWindow->show();
+    //On connecte les signaux
+    QObject::connect(connectionHandler,SIGNAL(clientHasChanged(Client::Client*)),waitingWindow,SLOT(setClient(Client::Client*)));
 
 
     //On execute l'application
