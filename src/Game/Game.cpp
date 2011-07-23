@@ -1,4 +1,5 @@
 #include <Game/Game.h>
+#include <QtCore/QDebug>
 namespace Game
 {
     /**
@@ -57,6 +58,7 @@ namespace Game
         //Si il est le premier joueur, on lui donne les droits d'administrateur.
         if (_players.size() == 1)
         {
+            qDebug() << "Le joueur" << login << "est administrateur";
             _players.last()->setAdmin(true);
         }
         //On lui ajoute ses entités/ressources "de base".

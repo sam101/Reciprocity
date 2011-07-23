@@ -49,8 +49,8 @@ namespace GUI
     {
         _label->setText(tr("Statut: Authentification réussie !"));
         _bar->setValue(100);
+        hide();
     }
-
     /**
       * Affiche la fenêtre et lance la connexion
       */

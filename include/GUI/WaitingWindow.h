@@ -67,6 +67,14 @@ namespace GUI
               * Indique que le joueur veut lancer la partie
               */
             void launchGameRequested();
+            /**
+              * Indique que le joueur veut envoyer un message
+              */
+            void sendMessageRequested();
+            /**
+              * Affichage de la fenêtre
+              */
+            void show();
         signals:
             /**
               * Indique que le joueur veut se deconnecter

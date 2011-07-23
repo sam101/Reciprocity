@@ -83,4 +83,22 @@ namespace GUI
         }
         _client->sendBeginGame();
     }
+    /**
+      * Indique que le joueur veut envoyer un message
+      */
+    void WaitingWindow::sendMessageRequested()
+    {
+
+    }
+    /**
+      * Affichage de la fenêtre
+      */
+    void WaitingWindow::show()
+    {
+        //On désactive les boutons en fonction de leur utilité.
+        _launch->setEnabled(_client->isAdmin());
+        _kick->setEnabled(_client->isAdmin());
+        //on affiche la fenêtre.
+        QWidget::show();
+    }
 }
