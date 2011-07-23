@@ -54,6 +54,13 @@ namespace GUI
         layout->addLayout(h3);
     }
     /**
+      * Change le client actuel
+      */
+    void WaitingWindow::setClient(Client::Client *client)
+    {
+        _client = client;
+    }
+    /**
       * Appelé au clic sur le bouton "quitter"
       */
     void WaitingWindow::quitHandler()
@@ -65,6 +72,10 @@ namespace GUI
       */
     void WaitingWindow::launchGameRequested()
     {
-
+        if (_client == NULL)
+        {
+            return;
+        }
+        _client->sendBeginGame();
     }
 }

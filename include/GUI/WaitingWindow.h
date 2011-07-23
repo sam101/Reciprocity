@@ -46,6 +46,10 @@ namespace GUI
             WaitingWindow(QWidget *parent = 0);
         public slots:
             /**
+              * Change le client actuel
+              */
+            void setClient(Client::Client *client);
+            /**
               * Appelé au clic sur le bouton "quitter"
               */
             void quitHandler();
