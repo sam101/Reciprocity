@@ -82,6 +82,10 @@ namespace Server
     void Client::setOffline()
     {
         _isOnline = false;
+        if (_player != NULL)
+        {
+            _player->setOffline();
+        }
     }
     /**
       * Change le joueur utilisé par le client

@@ -56,7 +56,7 @@ namespace Game
         //On ajoute l'objet "Player"
         _players.append(new Player(_players.size(),login,hash));
         //Si il est le premier joueur, on lui donne les droits d'administrateur.
-        if (_players.size() == 1)
+        if (canBeAdmin(login,hash))
         {
             qDebug() << "Le joueur" << login << "est administrateur";
             _players.last()->setAdmin(true);
@@ -112,5 +112,28 @@ namespace Game
             return true;
         }
         return false;
+    }
+    /**
+      * Renvoie si le joueur peut être administrateur
+      */
+    bool Game::canBeAdmin(QString login, QString hash)
+    {
+        //Si il y'a qu'un seul joueur, il est forcément administrateur
+        if (_players.size() == 1)
+        {
+            return true;
+        }
+        //Enfin, on vérifie si le joueur est seul dans la partie
+        int i = 0;
+        while (i < _players.size() - 1)
+        {
+            if (_players[i]->isOnline())
+            {
+                return false;
+            }
+            i++;
+        }
+        //Si on en a trouvé aucun, alors il est bien admin.
+        return true;
     }
 }

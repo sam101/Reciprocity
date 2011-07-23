@@ -67,6 +67,11 @@ namespace Game
               * Renvoie true si l'opération à réussi.
               */
             bool playerBack(QString login, QString hash);
+        protected:
+            /**
+              * Renvoie si le joueur peut être administrateur
+              */
+            bool canBeAdmin(QString login, QString hash);
     };
 }
 #endif //GAME_GAME_H
