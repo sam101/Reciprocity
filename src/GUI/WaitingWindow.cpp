@@ -1,4 +1,5 @@
 #include <GUI/WaitingWindow.h>
+#include <QtCore/QDebug>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QVBoxLayout>
 namespace GUI
@@ -42,7 +43,7 @@ namespace GUI
         connect(quit,SIGNAL(clicked()),this,SLOT(quitHandler()));
         //Bouton pour lancer la partie
         //TODO: Ajouter le fait qu'il doit être admin pour lancer la partie
-        QPushButton *_launch = new QPushButton(tr("Lancer la partie"));
+        _launch = new QPushButton(tr("Lancer la partie"));
         _launch->setEnabled(false);
         connect(_launch,SIGNAL(clicked()),this,SLOT(launchGameRequested()));
         h3->addWidget(_launch);
