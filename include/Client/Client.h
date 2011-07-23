@@ -84,6 +84,10 @@ namespace Client
               * Gère le login du joueur
               */
             void handleLoginSuccess(QDataStream &in);
+            /**
+              * Gère la reception d'un message
+              */
+            void handleChatMessage(QDataStream &in);
 
         signals:
             /**
@@ -98,6 +102,10 @@ namespace Client
               * Emit quand le login du client à échoué
               */
             void loginFailed();
+            /**
+              * Emit quand on a reçu un message de chat
+              */
+            void messageRecevied(QString sender, QString contents);
 
     };
 }

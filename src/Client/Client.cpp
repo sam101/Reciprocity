@@ -2,6 +2,7 @@
 #include <Config/Config.h>
 #include <Network/LoginMessage.h>
 #include <Network/LoginSuccessMessage.h>
+#include <Network/MessageInMessage.h>
 #include <Network/MessageOutMessage.h>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
@@ -105,7 +106,7 @@ namespace Client
       * Appelé quand le client reçoit un message du socket
       */
     void Client::messageRecevied()
-    {     
+    {
         //On vérifie que c'est bien la socket qui a envoyé le message
         if (qobject_cast<QTcpSocket*>(sender()) != _socket)
         {
@@ -135,6 +136,7 @@ namespace Client
 
                 return;
             }
+            qDebug() << "Message reçu du serveur";
             //On recupère le type du message
             qint32 type;
             in >> type;
@@ -151,6 +153,10 @@ namespace Client
                 //Si le login a échoué.
                 case Network::LOGIN_FAILED:
                     emit loginFailed();
+                break;
+                //Si on a reçu un message de chat
+                case Network::MESSAGE_IN:
+                    handleChatMessage(in);
                 break;
             }
         }
@@ -170,6 +176,19 @@ namespace Client
         //On emet le signal
         emit loginSuccess();
     }
+    /**
+      * Gère la reception d'un message
+      */
+    void Client::handleChatMessage(QDataStream &in)
+    {
+        //On recupère le message
+        Network::MessageInMessage m;
+        in >> m;
+        qDebug() << m.getSender() << ":" << m.getContents();
+        //On emet le signal comme quoi on a reçu un message.
+        emit messageRecevied(m.getSender(),m.getContents());
+    }
+
     /**
       * Appelé quand le client doit se déconnecter
       */

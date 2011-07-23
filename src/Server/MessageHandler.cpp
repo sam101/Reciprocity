@@ -65,6 +65,7 @@ namespace Server
         {
             return;
         }
+        _sizes[socket] = 0;
         //On recupère le type du message.
         qint32 type;
         in >> type;
@@ -83,6 +84,8 @@ namespace Server
             case Network::MESSAGE_OUT:
                 handleMessage(socket,in);
             break;
+            default:
+                qDebug() << "Le message reçu est de type inconnu.";
         }
     }
     /**
@@ -110,6 +113,8 @@ namespace Server
           */
        Game::Player *player = _game->addPlayer(msg.getLogin(),msg.getHash());
        _clients[socket]->setPlayer(player);
+       _clients[socket]->setLogin(msg.getLogin());
+       _clients[socket]->setHash(msg.getHash());
        qDebug() << "Login de" << socket->peerAddress().toString() << "En tant que" << msg.getLogin() << " réussi.";
        //On emet le signal
        emit loginSuccess(socket,player->getId(),player->isAdmin());
@@ -123,7 +128,8 @@ namespace Server
         //On recupère le message
         Network::MessageOutMessage msg;
         in >> msg;
-
+        //On affiche dans la console le contenu du message
+        qDebug() <<  _clients[socket]->getLogin() << ":" << msg.getContents();
         //TODO: Antiflood.
 
         //On envoie le message à tout le monde

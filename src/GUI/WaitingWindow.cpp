@@ -34,6 +34,7 @@ namespace GUI
         h2->addWidget(_text,8);
         //On construit le bouton envoyer
         QPushButton *send = new QPushButton(tr("Envoyer !"));
+        connect(send,SIGNAL(clicked()),this,SLOT(sendMessageRequested()));
         h2->addWidget(send,2);
         //On construit les boutons d'actions
         QHBoxLayout *h3 = new QHBoxLayout;
@@ -88,7 +89,12 @@ namespace GUI
       */
     void WaitingWindow::sendMessageRequested()
     {
-
+        if (_client == NULL)
+        {
+            return;
+        }
+        _client->sendChatMessage(_text->text());
+        _text->setText("");
     }
     /**
       * Affichage de la fenêtre

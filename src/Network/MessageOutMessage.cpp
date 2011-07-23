@@ -38,7 +38,7 @@ namespace Network
     QDataStream& operator<<(QDataStream &out, const MessageOutMessage &m)
     {
         //On stocke le MagicNumber
-        out << m.MAGICNUMBER_MESSAGEOUTMESSAGE;
+        out << (qint32)m.MAGICNUMBER_MESSAGEOUTMESSAGE;
         //On stocke les informations
         out << m._contents;
         out << m._dest;
