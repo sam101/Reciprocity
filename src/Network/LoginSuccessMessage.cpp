@@ -19,6 +19,13 @@ namespace Network
         return _id;
     }
     /**
+      * Renvoie si le joueur est admin
+      */
+    bool LoginSuccessMessage::isAdmin() const
+    {
+        return _isAdmin;
+    }
+    /**
       * Envoie le message dans un QDataStream
       */
     QDataStream& operator<<(QDataStream &out, const LoginSuccessMessage &l)
