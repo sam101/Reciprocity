@@ -93,6 +93,9 @@ namespace Client
       */
     void ConnectionHandler::loginSuccessHandler()
     {
+        //On demande les informations au serveur
+        _client->sendGetServerData();
+        //On emet le signal comme quoi le login a réussi
         emit loginSuccess();
     }
     /**
