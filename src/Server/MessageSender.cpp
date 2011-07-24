@@ -2,6 +2,7 @@
 #include <Network/LoginFailedMessage.h>
 #include <Network/LoginSuccessMessage.h>
 #include <Network/MessageInMessage.h>
+#include <Network/ServerDataMessage.h>
 #include <QtCore/QByteArray>
 #include <QtCore/QDataStream>
 namespace Server
@@ -102,4 +103,23 @@ namespace Server
             }
         }
     }
+    /**
+      * Envoie les informations du serveur à un client
+      */
+    void MessageSender::sendServerData(QTcpSocket *socket)
+    {
+        //On construit le message
+        //TODO: Ajouter nom serveur
+        Network::ServerDataMessage m("");
+        //On parcours la liste des clients
+        QMutableMapIterator it(_clients);
+        while (it.hasNext()
+        {
+            Client *c = it.next();
+            m.addClient(c->getLogin(),c->getPlayer()->isAdmin());
+        )
+        //TODO: Envoyer le message.
+
+    }
+
 }
