@@ -68,6 +68,10 @@ namespace Client
               */
             void sendLoginMessage();
             /**
+              * Envoie le message de demande des informations au serveur
+              */
+            void sendGetServerData();
+            /**
               * Envoie un message de début de partie
               */
             void sendBeginGame();

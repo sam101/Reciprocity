@@ -4,6 +4,7 @@
 #include <Network/LoginSuccessMessage.h>
 #include <Network/MessageInMessage.h>
 #include <Network/MessageOutMessage.h>
+#include <Network/GetServerDataMessage.h>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
 namespace Client
@@ -77,6 +78,31 @@ namespace Client
         //On écrit le message
         _socket->write(b);
     }
+    /**
+      * Envoie le message de demande des informations au serveur
+      */
+    void Client::sendGetServerData()
+    {
+        //On construit le message
+        Network::GetServerDataMessage m;
+        //On déclare le byteArray qui stockera les infos du message
+        QByteArray b;
+        //On déclare le flux dans lequel écrire.
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in.setVersion(QDataStream::Qt_4_5);
+        //On écrit la taille vide
+        in << (qint32)0;
+        //On écrit le type du message
+        in << (qint32)Network::GET_SERVER_DATA;
+        //On écrit le message
+        in << m;
+        //On écrit la bonne taille
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On écrit le message
+        _socket->write(b);
+    }
+
     /**
       * Envoie un message de début de partie
       */
