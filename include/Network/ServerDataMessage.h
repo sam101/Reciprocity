@@ -20,6 +20,10 @@ namespace Network
             static const qint32 MAGICNUMBER_SERVER_DATA = 0x4207;
         protected:
             /**
+              * Nom du serveur
+              */
+            QString _name;
+            /**
               * Liste des joueurs sur le serveur
               */
             QList<QPair<QString,bool> > _players;
@@ -27,11 +31,16 @@ namespace Network
             /**
               * Constructeur
               */
-            ServerDataMessage();
+            ServerDataMessage(QString name = "");
             /**
               * Ajoute un joueur à la liste des joueurs
               */
             void addPlayer(QString login, bool isAdmin);
+            /**
+              * Renvoie la liste des joueurs
+              */
+            const QList<QPair<QString,bool> >& getPlayers() const;
+
 
     };
 }

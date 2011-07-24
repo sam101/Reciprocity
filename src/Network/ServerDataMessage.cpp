@@ -4,8 +4,9 @@ namespace Network
     /**
       * Constructeur
       */
-    ServerDataMessage::ServerDataMessage() :
-    AbstractMessage(Network::SERVER_DATA)
+    ServerDataMessage::ServerDataMessage(QString name) :
+    AbstractMessage(Network::SERVER_DATA),
+    _name(name)
     {
 
     }
@@ -15,5 +16,12 @@ namespace Network
     void ServerDataMessage::addPlayer(QString login, bool isAdmin)
     {
         _players.append(QPair<QString,bool>(login,isAdmin));
+    }
+    /**
+      * Renvoie la liste des joueurs
+      */
+    const QList<QPair<QString,bool> >& ServerDataMessage::getPlayers() const
+    {
+        return _players;
     }
 }
