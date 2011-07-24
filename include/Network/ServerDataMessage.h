@@ -40,6 +40,14 @@ namespace Network
               * Renvoie la liste des joueurs
               */
             const QList<QPair<QString,bool> >& getPlayers() const;
+            /**
+              * Envoie le message dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const ServerDataMessage &m);
+            /**
+              * Recupère le message d'un QDatastream
+              */
+            friend QDataStream& operator>>(QDataStream &in, ServerDataMessage &m);
 
 
     };
