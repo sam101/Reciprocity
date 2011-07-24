@@ -36,7 +36,9 @@ SOURCES += \
     src/Server/MessageSender.cpp \
     src/Network/MessageOutMessage.cpp \
     src/Network/MessageInMessage.cpp \
-    src/Network/GameHasBegunMessage.cpp
+    src/Network/GameHasBegunMessage.cpp \
+    src/Network/ServerDataMessage.cpp \
+    src/Network/GetServerDataMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -69,4 +71,6 @@ HEADERS += \
     include/Server/MessageSender.h \
     include/Network/MessageOutMessage.h \
     include/Network/MessageInMessage.h \
-    include/Network/GameHasBegunMessage.h
+    include/Network/GameHasBegunMessage.h \
+    include/Network/ServerDataMessage.h \
+    include/Network/GetServerDataMessage.h
