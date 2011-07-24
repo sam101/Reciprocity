@@ -84,6 +84,10 @@ namespace Server
             case Network::MESSAGE_OUT:
                 handleMessage(socket,in);
             break;
+            //Si on a reçu une demande d'envoi des informations du serveur
+            case Network::GET_SERVER_DATA:
+                handleGetServerData(socket,in);
+            break;
             default:
                 qDebug() << "Le message reçu est de type inconnu.";
         }
@@ -134,5 +138,13 @@ namespace Server
 
         //On envoie le message à tout le monde
         emit sendMessage(msg.getDest(),msg.getContents(),_clients[socket]->getLogin());
+    }
+    /**
+      * Gère la reception de la demande d'envoi des informations
+      */
+    void MessageHandler::handleGetServerData(QTcpSocket *socket, QDataStream &in)
+    {
+        Q_UNUSED(in)
+        emit sendServerData(socket);
     }
 }
