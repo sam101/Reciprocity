@@ -10,9 +10,17 @@ namespace Server
       * Constructeur
       */
     MessageSender::MessageSender(QMap<QTcpSocket *, Client *> &clients) :
+    _game(NULL),
     _clients(clients)
     {
 
+    }
+    /**
+      * Change l'objet de jeu actuel
+      */
+    void MessageSender::setGame(Game::Game *game)
+    {
+        _game = game;
     }
     /**
       * Envoie un message comme quoi le login demandé par le client
