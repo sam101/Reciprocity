@@ -30,7 +30,8 @@ HEADERS += \
     include/Network/GameHasBegunMessage.h \
     include/GUI/WaitingWindow.h \
     include/Network/LoginSuccessMessage.h \
-    include/Network/LoginFailedMessage.h
+    include/Network/LoginFailedMessage.h \
+    include/Network/GetServerDataMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -53,4 +54,5 @@ SOURCES += \
     src/Network/GameHasBegunMessage.cpp \
     src/GUI/WaitingWindow.cpp \
     src/Network/LoginSuccessMessage.cpp \
-    src/Network/LoginFailedMessage.cpp
+    src/Network/LoginFailedMessage.cpp \
+    src/Network/GetServerDataMessage.cpp
