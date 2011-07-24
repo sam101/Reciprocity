@@ -28,6 +28,7 @@ namespace Server
       */
     void MessageSender::sendLoginAlreadyExists(QTcpSocket *socket, QString login)
     {
+        Q_UNUSED(login)
         //On construit le message
         Network::LoginFailedMessage m(Network::LoginFailedMessage::LOGIN_ALREADY_EXIST);
         //On construit le byteArray dans lequel le mettre

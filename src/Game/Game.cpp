@@ -118,6 +118,8 @@ namespace Game
       */
     bool Game::canBeAdmin(QString login, QString hash)
     {
+        Q_UNUSED(login)
+        Q_UNUSED(hash)
         //Si il y'a qu'un seul joueur, il est forcément administrateur
         if (_players.size() == 1)
         {
