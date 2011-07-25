@@ -76,6 +76,10 @@ namespace World
                   */
                 Map::Tile& getTile(int x, int y);
                 /**
+                  * Renvoie le chunk associé à la position
+                  */
+                Chunk::Chunk* getChunkByTile(int x, int y);
+                /**
                   * Ajoute une entité et renvoie son id.
                   */
                 qint32 addEntity(Map::Entity entity, qint32 x, qint32 y);

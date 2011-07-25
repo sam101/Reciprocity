@@ -119,6 +119,34 @@ namespace World
         }
     }
     /**
+      * Renvoie le chunk associé à la position
+      */
+    Chunk::Chunk* World::getChunkByTile(int x, int y)
+    {
+        if (x < 0)
+        {
+            if (y < 0)
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE - 1);
+            }
+            else
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE + 1);
+            }
+        }
+        else
+        {
+            if (y < 0)
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE - 1);
+            }
+            else
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE + 1);
+            }
+        }
+    }
+    /**
       * Ajoute une entité et renvoie son id.
       */
     qint32 World::addEntity(Map::Entity entity, qint32 x, qint32 y)
@@ -127,7 +155,7 @@ namespace World
         _entities.append(new Map::Entity(entity));
         _entities.last()->setXY(x,y);
         //On l'ajoute au bon chunk
-        //TODO
+
         //On renvoie son id
         return _entities.size() - 1;
     }

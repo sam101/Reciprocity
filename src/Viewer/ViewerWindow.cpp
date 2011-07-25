@@ -62,6 +62,6 @@ namespace Viewer
       */
     void ViewerWindow::about()
     {
-        QMessageBox::about(this,tr("A propos de"),tr("Visualiseur de monde pour Reciprocity \n. Par Sam101"));
+        QMessageBox::about(this,tr("A propos de"),tr("Visualiseur de monde pour Reciprocity. Par Sam101"));
     }
 }
