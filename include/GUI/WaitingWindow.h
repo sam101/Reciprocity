@@ -1,5 +1,8 @@
 #ifndef GUI_WAITINGWINDOW_H
 #define GUI_WAITINGWINDOW_H
+#include <QtCore/QList>
+#include <QtCore/QPair>
+
 #include <QtGui/QListView>
 #include <QtGui/QLineEdit>
 #include <QtGui/QListWidget>
@@ -84,6 +87,10 @@ namespace GUI
               * ferme la fenêtre
               */
             void serverHasDisconnected();
+            /**
+              * Met à jour la liste des joueurs
+              */
+            void updatePlayerList(QList<QPair<QString,bool> > &players);
         signals:
             /**
               * Indique que le joueur veut se deconnecter

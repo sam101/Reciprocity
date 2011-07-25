@@ -109,6 +109,8 @@ namespace GUI
         connect(_client,SIGNAL(messageRecevied(QString,QString)),this,SLOT(addMessage(QString,QString)));
         //On connecte le signal de deconnexion du serveur
         connect(_client,SIGNAL(serverHasDisconnected()),this,SLOT(serverHasDisconnected()));
+        //On connecte le signal de liste des joueurs
+        connect(_client,SIGNAL(playerListHasBeenUpdated(QList<QPair<QString,bool> >&)),this,SLOT(updatePlayerList(QList<QPair<QString,bool> >&)));
         //on affiche la fenêtre.
         QWidget::show();
     }
@@ -130,5 +132,19 @@ namespace GUI
         //On quitte la fenêtre.
         //TODO: Revenir à la première fenêtre.
         hide();
+    }
+    /**
+      * Met à jour la liste des joueurs
+      */
+    void WaitingWindow::updatePlayerList(QList<QPair<QString, bool> > &players)
+    {
+        //On déclare la QStringList
+        QStringList list;
+        for (int i = 0; i < players.size(); i++)
+        {
+            list << players[i].first;
+        }
+        //On l'ajoute au modele
+        _playerList->setStringList(list);
     }
 }
