@@ -13,6 +13,7 @@ namespace Viewer
       */
     ViewerWindow::ViewerWindow()
     {
+        setWindowTitle(tr("Reciprocity - Visualiseur de monde"));
         //On crée la vue et on la positionne comme widget principal
         _view = new ViewerView;
         _view->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers)));
