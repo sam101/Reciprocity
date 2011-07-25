@@ -90,7 +90,7 @@ namespace GUI
             /**
               * Met à jour la liste des joueurs
               */
-            void updatePlayerList(QList<QPair<QString,bool> > &players);
+            void updatePlayerList(QList<QPair<QString,bool> > players);
         signals:
             /**
               * Indique que le joueur veut se deconnecter

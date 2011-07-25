@@ -141,6 +141,7 @@ namespace Client
       */
     void Client::messageRecevied()
     {
+        qDebug() << "Message reçu du serveur";
         //On vérifie que c'est bien la socket qui a envoyé le message
         if (qobject_cast<QTcpSocket*>(sender()) != _socket)
         {
@@ -200,7 +201,7 @@ namespace Client
                //Si on a reçu les informations du serveur
                case Network::SERVER_DATA:
                     handleServerData(in);
-                break;
+               break;
             }
         }
     }
@@ -225,6 +226,7 @@ namespace Client
       */
     void Client::handleChatMessage(QDataStream &in)
     {
+        qDebug() << "Message de chat reçu";
         //On recupère le message
         Network::MessageInMessage m;
         in >> m;

@@ -1,4 +1,5 @@
 #include <Network/ServerDataMessage.h>
+#include <QtCore/QDebug>
 namespace Network
 {
     /**
@@ -45,7 +46,11 @@ namespace Network
         //On recupère le MagicNumber
         qint32 magicNumber;
         in >> magicNumber;
-        if (magicNumber != m.MAGICNUMBER_SERVER_DATA) return in;
+        if (magicNumber != m.MAGICNUMBER_SERVER_DATA)
+        {
+            qDebug() << "Attention: message incorrect";
+            return in;
+        }
         //on recupère les données
         in >> m._name;
         in >> m._players;

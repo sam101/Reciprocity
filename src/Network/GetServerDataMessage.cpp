@@ -14,7 +14,7 @@ namespace Network
       */
     QDataStream& operator<<(QDataStream &out, const GetServerDataMessage &m)
     {
-        out << m.MAGICNUMBER_GET_SERVER_DATA;
+        out << (qint32)m.MAGICNUMBER_GET_SERVER_DATA;
         return out;
     }
     /**

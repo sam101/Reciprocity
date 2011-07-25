@@ -1,5 +1,6 @@
 #include <Server/MessageHandler.h>
 #include <Network/AbstractMessage.h>
+#include <Network/GetServerDataMessage.h>
 #include <Network/LoginMessage.h>
 #include <Network/MessageOutMessage.h>
 #include <QtNetwork/QTcpSocket>
@@ -32,8 +33,6 @@ namespace Server
     {
         //On recupère la socket qui a envoyé le message
         QTcpSocket *socket = qobject_cast<QTcpSocket*>(sender());
-        qDebug() << "Un message a été reçu de " << socket->peerAddress().toString();
-
         //On vérifie que la socket existe bien
         if (socket == 0)
         {
@@ -55,6 +54,7 @@ namespace Server
             //On vérifie que la taille est correcte
             if (_sizes[socket] < 0)
             {
+                qDebug() << "Taille de message incorrecte envoyée par" << socket->peerAddress().toString() ;
                 _sizes[socket] = 0;
                 emit errorMessage(socket);
                 return;
@@ -63,12 +63,15 @@ namespace Server
         //Si on a pas tout le message, on abandonne.
         if (socket->bytesAvailable() < _sizes[socket])
         {
+            qDebug() << "Message complet non reçu:" << socket->bytesAvailable() << "/" << _sizes[socket];
             return;
         }
-        _sizes[socket] = 0;
         //On recupère le type du message.
         qint32 type;
         in >> type;
+        qDebug() << "Un message de taille" << _sizes[socket] << "a été reçu de " << socket->peerAddress().toString() << "de type" << type;
+        //On remet à zéro la taille du message
+        _sizes[socket] = 0;
         //On gère selon le type.
         switch (type)
         {
@@ -144,7 +147,10 @@ namespace Server
       */
     void MessageHandler::handleGetServerData(QTcpSocket *socket, QDataStream &in)
     {
-        Q_UNUSED(in)
+        //On recupère le message
+        Network::GetServerDataMessage m;
+        in >> m;
+        //On emet le signal
         emit sendServerData(socket);
     }
 }

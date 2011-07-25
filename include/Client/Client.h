@@ -136,7 +136,7 @@ namespace Client
             /**
               * Emit quand la liste des joueurs a été mise à jour
               */
-            void playerListHasBeenUpdated(QList<QPair<QString,bool> > &players);
+            void playerListHasBeenUpdated(QList<QPair<QString,bool> > players);
 
     };
 }
