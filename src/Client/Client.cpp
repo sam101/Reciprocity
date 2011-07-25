@@ -5,6 +5,7 @@
 #include <Network/MessageInMessage.h>
 #include <Network/MessageOutMessage.h>
 #include <Network/GetServerDataMessage.h>
+#include <Network/ServerDataMessage.h>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
 namespace Client
@@ -14,12 +15,12 @@ namespace Client
       */
     Client::Client(QTcpSocket *socket, QString login, QString hash) :
     _socket(socket),
+    _messageSize(0),
     _isLogged(false),
     _isAdmin(false),
      _id(-1),
     _login(login),
-    _hash(hash),
-    _messageSize(0)
+    _hash(hash)
     {
         //On connecte les signaux du socket
         connect(_socket,SIGNAL(readyRead()),this,SLOT(messageRecevied()));
@@ -196,6 +197,10 @@ namespace Client
                 case Network::MESSAGE_IN:
                     handleChatMessage(in);
                 break;
+               //Si on a reçu les informations du serveur
+               case Network::SERVER_DATA:
+                    handleServerData(in);
+                break;
             }
         }
     }
@@ -225,6 +230,20 @@ namespace Client
         in >> m;
         //On emet le signal comme quoi on a reçu un message.
         emit messageRecevied(m.getSender(),m.getContents());
+    }
+    /**
+      * Gère la reception des informations du serveur
+      */
+    void Client::handleServerData(QDataStream &in)
+    {
+        //On recupère le message
+        Network::ServerDataMessage m;
+        in >> m;
+        //On met à jour la liste des joueurs
+        _players = m.getPlayers();
+        //On emet le signal comme quoi la liste des joueurs a été mise à jour
+        emit playerListHasBeenUpdated(_players);
+
     }
 
     /**

@@ -1,7 +1,9 @@
 #ifndef CLIENT_CLIENT_H
 #define CLIENT_CLIENT_H
 #include <QtNetwork/QTcpSocket>
+#include <QtCore/QList>
 #include <QtCore/QObject>
+#include <QtCore/QPair>
 namespace Client
 {
     /**
@@ -18,6 +20,11 @@ namespace Client
                */
             QTcpSocket *_socket;
             /**
+              * Taille du message en cours de reception
+              */
+            qint32 _messageSize;
+
+            /**
               * Indique si on est actuellement authentifié
               */
             bool _isLogged;
@@ -25,6 +32,7 @@ namespace Client
               * Indique si on est admin
               */
             bool _isAdmin;
+
             /**
               * Id du joueur si connecté
               */
@@ -37,10 +45,12 @@ namespace Client
               * Hash du joueur
               */
             QString _hash;
+
             /**
-              * Taille du message en cours de reception
+              * Liste des joueurs présents
               */
-            qint32 _messageSize;
+            QList<QPair<QString,bool> > _players;
+
         public:
             /**
               * Constructeur
@@ -97,6 +107,10 @@ namespace Client
               * Gère la reception d'un message
               */
             void handleChatMessage(QDataStream &in);
+            /**
+              * Gère la reception des informations du serveur
+              */
+            void handleServerData(QDataStream &in);
 
         signals:
             /**
@@ -119,6 +133,10 @@ namespace Client
               * Emit quand on a reçu un message de chat
               */
             void messageRecevied(QString sender, QString contents);
+            /**
+              * Emit quand la liste des joueurs a été mise à jour
+              */
+            void playerListHasBeenUpdated(QList<QPair<QString,bool> > &players);
 
     };
 }
