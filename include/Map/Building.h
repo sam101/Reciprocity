@@ -50,7 +50,7 @@ namespace Map
             /**
               * Constructeur
               */
-            Building(qint32 x, qint32 y, BuildingType type = NONE, qint32 level = 0, qint32 lifePoints = 0, qint32 maxLifePoints = 0);
+            Building(qint32 x = 0, qint32  y = 0, BuildingType type = NONE, qint32 level = 0, qint32 lifePoints = 0, qint32 maxLifePoints = 0);
             /**
               * Renvoie le type du batiment
               */

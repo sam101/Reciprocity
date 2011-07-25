@@ -1,6 +1,7 @@
 #ifndef CHUNK_CHUNK_H
 #define CHUNK_CHUNK_H
 #include <Chunk/ChunkType.h>
+#include <Map/Building.h>
 #include <Map/Entity.h>
 #include <Map/Tile.h>
 #include <QtCore/QDataStream>
@@ -41,6 +42,10 @@ namespace Chunk
               * Tableau de tiles du chunk
               */
             QVector<QVector<Map::Tile> > _tiles;
+            /**
+              * Tableau des batiments du chunk
+              */
+            QVector<QVector<Map::Building> > _buildings;
             /**
               * Id des entitées présentes dans le chunk
               */
