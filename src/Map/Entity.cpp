@@ -5,6 +5,7 @@ namespace Map
       * Constructeur
       */
     Entity::Entity(qint32 x, qint32 y, qint32 owner, qint32 lifePoints, qint32 will, qint32 age) :
+    _id(-1),
     _x(x),
     _y(y),
     _lifePoints(lifePoints),
@@ -14,6 +15,13 @@ namespace Map
     _age(age)
     {
         _abilities.resize(Map::LAST);
+    }
+    /**
+      * Renvoie l'id de l'entité
+      */
+    qint32 Entity::getId() const
+    {
+        return _id;
     }
     /**
       * Renvoie la position X de l'entité
@@ -78,6 +86,14 @@ namespace Map
     {
         return _age;
     }
+    /**
+      * Change l'id de l'entité
+      */
+    void Entity::setId(qint32 id)
+    {
+        _id = id;
+    }
+
     /**
       * Change la position de l'entité
       */

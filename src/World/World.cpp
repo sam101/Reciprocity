@@ -154,10 +154,13 @@ namespace World
         //On l'ajoute au tableau d'entités.
         _entities.append(new Map::Entity(entity));
         _entities.last()->setXY(x,y);
+        //On recupère son id
+        qint32 id = _entities.size() - 1;
+        _entities.last()->setId(id);
         //On l'ajoute au bon chunk
-
+        getChunkByTile(x,y)->addEntity(id);
         //On renvoie son id
-        return _entities.size() - 1;
+        return id;
     }
     /**
       * Renvoie une entité en fonction de son id

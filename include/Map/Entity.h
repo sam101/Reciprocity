@@ -25,6 +25,10 @@ namespace Map
             static const qint32 ENTITY_VERSION = 1;
         protected:
             /**
+              * Id de l'entité
+              */
+            qint32 _id;
+            /**
               * Position X de l'entité
               */
             qint32 _x;
@@ -70,6 +74,10 @@ namespace Map
               */
             Entity(qint32 x = 0, qint32 y = 0, qint32 owner = -1, qint32 lifePoints = Config::Config::BASE_LIFE_POINTS, qint32 will = Config::Config::BASE_WILL, qint32 age = 0);
             /**
+              * Renvoie l'id de l'entité
+              */
+            qint32 getId() const;
+            /**
               * Renvoie la position X de l'entité
               */
             qint32 getX() const;
@@ -105,6 +113,10 @@ namespace Map
               * Renvoie l'age de l'entité
               */
             qint32 getAge() const;
+            /**
+              * Change l'id de l'entité
+              */
+            void setId(qint32 id);
             /**
               * Change la position de l'entité.
               */
