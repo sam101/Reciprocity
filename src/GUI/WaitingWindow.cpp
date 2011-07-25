@@ -94,7 +94,11 @@ namespace GUI
         {
             return;
         }
-        _client->sendChatMessage(_text->text());
+        //On vérifie que le texte n'est pas nul.
+        if (_text->text() != "")
+        {
+            _client->sendChatMessage(_text->text());
+        }
         _text->setText("");
     }
     /**
