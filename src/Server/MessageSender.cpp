@@ -116,7 +116,10 @@ namespace Server
         while (it.hasNext())
         {
             Client *c = it.next().value();
-            m.addPlayer(c->getLogin(),c->getPlayer()->isAdmin());
+            if (c->isOnline())
+            {
+                m.addPlayer(c->getLogin(),c->getPlayer()->isAdmin());
+            }
         }
         //On construit le byteArray
         QByteArray b;
