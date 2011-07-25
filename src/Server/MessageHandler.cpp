@@ -109,22 +109,45 @@ namespace Server
          * On vérifie que le joueur n'est pas déjà connecté et que
          * si c'est le cas son hash est bon.
          */
-        if (_game->findPlayer(msg.getLogin()) && _game->findPlayer(msg.getLogin())->getHash() != msg.getHash())
+        Game::Player *player = _game->findPlayer(msg.getLogin());
+        if (player != NULL && player->getHash() != msg.getHash())
         {
             //Si c'est le cas, on le signale et on termine
             emit loginAlreadyExists(socket,msg.getLogin());
             return;
         }
         /*
-          * Sinon, on ajoute le joueur à la partie
-          */
-       Game::Player *player = _game->addPlayer(msg.getLogin(),msg.getHash());
-       _clients[socket]->setPlayer(player);
-       _clients[socket]->setLogin(msg.getLogin());
-       _clients[socket]->setHash(msg.getHash());
-       qDebug() << "Login de" << socket->peerAddress().toString() << "En tant que" << msg.getLogin() << " réussi.";
-       //On emet le signal
-       emit loginSuccess(socket,player->getId(),player->isAdmin());
+         * Si il existe déjà, on ne l'ajoute pas à la partie
+         */
+        if (player)
+        {
+            //On indique que le joueur est de retour.
+            if (!_game->playerBack(msg.getLogin(),msg.getHash()))
+            {
+                qDebug() << "Erreur: Le joueur n'a pu être ramené à la vie";
+                return;
+            }
+            qDebug() << "Le joueur " << msg.getLogin() << "vient de se reconnecter";
+            //On met à jour les informations du client
+            _clients[socket]->setPlayer(player);
+            _clients[socket]->setLogin(msg.getLogin());
+            _clients[socket]->setHash(msg.getHash());
+            //On emet le signal
+            emit loginSuccess(socket,player->getId(),player->isAdmin());
+        }
+        else
+        {
+            /*
+              * Sinon, on ajoute le joueur à la partie
+              */
+           Game::Player *player = _game->addPlayer(msg.getLogin(),msg.getHash());
+           _clients[socket]->setPlayer(player);
+           _clients[socket]->setLogin(msg.getLogin());
+           _clients[socket]->setHash(msg.getHash());
+           qDebug() << "Login de" << socket->peerAddress().toString() << "En tant que" << msg.getLogin() << " réussi.";
+           //On emet le signal
+           emit loginSuccess(socket,player->getId(),player->isAdmin());
+        }
 
     }
     /**
