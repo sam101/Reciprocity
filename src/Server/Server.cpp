@@ -21,6 +21,7 @@ namespace Server
         connect(_messageHandler,SIGNAL(loginSuccess(QTcpSocket*,qint32,bool)),_messageSender,SLOT(sendLoginSuccess(QTcpSocket*,qint32,bool)));
         connect(_messageHandler,SIGNAL(loginAlreadyExists(QTcpSocket*,QString)),_messageSender,SLOT(sendLoginAlreadyExists(QTcpSocket*,QString)));
         connect(_messageHandler,SIGNAL(sendMessage(QString,QString,QString)),_messageSender,SLOT(sendChatMessage(QString,QString,QString)));
+        connect(_messageHandler,SIGNAL(sendServerData(QTcpSocket*)),_messageSender,SLOT(sendServerData(QTcpSocket*)));
     }
 
     /**
