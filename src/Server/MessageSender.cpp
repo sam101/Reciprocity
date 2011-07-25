@@ -112,13 +112,22 @@ namespace Server
         //TODO: Ajouter nom serveur
         Network::ServerDataMessage m("");
         //On parcours la liste des clients
-        QMutableMapIterator it(_clients);
-        while (it.hasNext()
+        QMutableMapIterator<QTcpSocket*, Server::Client*> it(_clients);
+        while (it.hasNext())
         {
-            Client *c = it.next();
-            m.addClient(c->getLogin(),c->getPlayer()->isAdmin());
-        )
-        //TODO: Envoyer le message.
+            Client *c = it.next().value();
+            m.addPlayer(c->getLogin(),c->getPlayer()->isAdmin());
+        }
+        //On construit le byteArray
+        QByteArray b;
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in << (qint32)0;
+        in << (qint32)Network::SERVER_DATA;
+        in << m;
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On envoie le message
+        socket->write(b);
 
     }
 

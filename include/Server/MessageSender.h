@@ -50,6 +50,10 @@ namespace Server
               * Envoie un message aux clients
               */
             void sendChatMessage(QString dest, QString contents, QString sender);
+            /**
+              * Envoie les informations du serveur à un client
+              */
+            void sendServerData(QTcpSocket *socket);
     };
 }
 #endif //SERVER_MESSAGESENDER_H
