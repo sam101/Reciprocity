@@ -163,6 +163,30 @@ namespace World
         return id;
     }
     /**
+      * Déplace une entité
+      */
+    void World::moveEntity(qint32 id, qint32 x, qint32 y)
+    {
+        //Verification de validité de l'entité
+        if (id < 0 || id >= _entities.size() )
+        {
+            return;
+        }
+        //On recupère le chunk où est actuellement l'entité.
+        Chunk::Chunk *current  = getChunkByTile(_entities[id]->getX(),_entities[id]->getY());
+        //On recupère le prochain Chunk ou sera l'entité
+        Chunk::Chunk *next = getChunkByTile(_entities[id]->getX() + x,_entities[id]->getY() + y);
+        //Si les chunk sont différants, on change l'entité de chunk
+        if (next != current)
+        {
+            current->delEntity(id);
+            next->addEntity(id);
+        }
+        //On change la position de l'entité
+        _entities[id]->move(x,y);
+    }
+
+    /**
       * Renvoie une entité en fonction de son id
       */
     Map::Entity* World::getEntity(qint32 id)
