@@ -78,7 +78,7 @@ namespace Map
             /**
               * Envoie un batiment dans un QDataStream
               */
-            friend QDataStream& operator<<(QDataStream &out, Building &b);
+            friend QDataStream& operator<<(QDataStream &out, const Building &b);
             /**
               * Recupère un batiment d'un QDataStream
               */

@@ -79,7 +79,7 @@ namespace Chunk
       */
     Map::Tile& Chunk::getTileAbs(qint32 x, qint32 y)
     {
-        return _tiles[x][y];
+        return _tiles[y][x];
     }
     /**
       * Renvoie une tile du chunk en position absolue
@@ -87,7 +87,37 @@ namespace Chunk
       */
     const Map::Tile& Chunk::getTileAbs(qint32 x, qint32 y) const
     {
-        return _tiles[x][y];
+        return _tiles[y][x];
+    }
+    /**
+      * Renvoie un batiment du chunk
+      */
+    Map::Building& Chunk::getBuilding(qint32 x, qint32 y)
+    {
+        return _buildings[y - _y][x - _x];
+    }
+    /**
+      * Renvoie un batiment du chunk.
+      * Surchargé constant
+      */
+    const Map::Building& Chunk::getBuilding(qint32 x, qint32 y) const
+    {
+        return _buildings[y - _y][x - _x];
+    }
+    /**
+      * Renvoie un batiment du chunk en position absolue
+      */
+    Map::Building& Chunk::getBuildingAbs(qint32 x, qint32 y)
+    {
+        return _buildings[y][x];
+    }
+    /**
+      * Renvoie un batiment du chunk en position absolue
+      * Surchargé constant
+      */
+    const Map::Building& Chunk::getBuildingAbs(qint32 x, qint32 y) const
+    {
+        return _buildings[y][x];
     }
     /**
       * Définit le type du chunk
@@ -134,6 +164,7 @@ namespace Chunk
         out << c._y;
         out << (qint32)c._type;
         out << c._tiles;
+        out << c._buildings;
         out << c._entities;
 
         return out;
@@ -156,6 +187,7 @@ namespace Chunk
         in >> c._y;
         in >> (qint32&)c._type;
         in >> c._tiles;
+        in >> c._buildings;
         in >> c._entities;
 
         return in;

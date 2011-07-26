@@ -59,7 +59,7 @@ namespace Map
     /**
       * Envoie un batiment dans un QDataStream
       */
-    QDataStream& operator<<(QDataStream &out, Building &b)
+    QDataStream& operator<<(QDataStream &out, const Building &b)
     {
         out << b.BUILDING_MAGICNUMBER;
         out << b.BUILDING_VERSION;

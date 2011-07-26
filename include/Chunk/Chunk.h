@@ -87,7 +87,24 @@ namespace Chunk
               * surchargé constant.
               */
             const Map::Tile& getTileAbs(qint32 x, qint32 y) const;
-
+            /**
+              * Renvoie un batiment du chunk
+              */
+            Map::Building& getBuilding(qint32 x, qint32 y);
+            /**
+              * Renvoie un batiment du chunk.
+              * Surchargé constant
+              */
+            const Map::Building& getBuilding(qint32 x, qint32 y) const;
+            /**
+              * Renvoie un batiment du chunk en position absolue
+              */
+            Map::Building& getBuildingAbs(qint32 x, qint32 y);
+            /**
+              * Renvoie un batiment du chunk en position absolue
+              * Surchargé constant
+              */
+            const Map::Building& getBuildingAbs(qint32 x, qint32 y) const;
             /**
               * Défini le type du chunk
               */
