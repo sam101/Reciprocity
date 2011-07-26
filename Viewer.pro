@@ -26,7 +26,8 @@ SOURCES += \
     src/Chunk/IslandChunkGenerator.cpp \
     src/Viewer/ViewerWindow.cpp \
     src/Viewer/ViewerZoomWidget.cpp \
-    src/Map/Building.cpp
+    src/Map/Building.cpp \
+    src/Graphics/BuildingChunkItem.cpp
 
 HEADERS += \
     include/Chunk/Chunk.h \
@@ -49,4 +50,5 @@ HEADERS += \
     include/Chunk/IslandChunkGenerator.h \
     include/Viewer/ViewerWindow.h \
     include/Viewer/ViewerZoomWidget.h \
-    include/Map/Building.h
+    include/Map/Building.h \
+    include/Graphics/BuildingChunkItem.h
