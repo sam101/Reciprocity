@@ -147,6 +147,36 @@ namespace World
         }
     }
     /**
+      * Renvoie un batiment du monde
+      * Possibilité de génération du monde, donc non const
+      */
+    Map::Building& World::getBuilding(int x, int y)
+    {
+        if (x < 0)
+        {
+            if (y < 0)
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE - 1)->getBuilding(x,y);
+            }
+            else
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE + 1)->getBuilding(x,y);
+            }
+        }
+        else
+        {
+            if (y < 0)
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE - 1)->getBuilding(x,y);
+            }
+            else
+            {
+                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE + 1)->getBuilding(x,y);
+            }
+        }
+    }
+
+    /**
       * Renvoie le chunk associé à la position
       */
     Chunk::Chunk* World::getChunkByTile(int x, int y)

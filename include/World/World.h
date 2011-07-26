@@ -76,6 +76,11 @@ namespace World
                   */
                 Map::Tile& getTile(int x, int y);
                 /**
+                  * Renvoie un batiment du monde
+                  * Possibilité de génération du monde, donc non const
+                  */
+                Map::Building& getBuilding(int x, int y);
+                /**
                   * Renvoie le chunk associé à la position
                   */
                 Chunk::Chunk* getChunkByTile(int x, int y);
