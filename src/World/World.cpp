@@ -30,8 +30,36 @@ namespace World
             delete _generator;
         }
         /*
-         * On détruit le tableau de chunk
+         * On détruit les tableau de chunk
          */
+        for (int i = 0; i < _chunkTL.size(); i++)
+        {
+            for (int j = 0; j < _chunkTL[i].size(); j++)
+            {
+                delete _chunkTL[i][j];
+            }
+        }
+        for (int i = 0; i < _chunkTR.size(); i++)
+        {
+            for (int j = 0; j < _chunkTR[i].size(); j++)
+            {
+                delete _chunkTR[i][j];
+            }
+        }
+        for (int i = 0; i < _chunkBL.size(); i++)
+        {
+            for (int j = 0; j < _chunkBL[i].size(); j++)
+            {
+                delete _chunkBL[i][j];
+            }
+        }
+        for (int i = 0; i < _chunkBR.size(); i++)
+        {
+            for (int j = 0; j < _chunkBR[i].size(); j++)
+            {
+                delete _chunkBR[i][j];
+            }
+        }
     }
     /**
       * Renvoie un chunk du monde. Les coordonnées
