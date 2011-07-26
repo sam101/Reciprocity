@@ -25,7 +25,18 @@ namespace Chunk
                 _tiles[i][j] = Map::Tile(signX * j  + _x,signY * i + _y,0,Map::NOTHING);
             }
         }
-
+        /*
+          * On construit le tableau de batiments
+          */
+        _buildings.resize(Config::Config::CHUNK_SIZE);
+        for (int i = 0; i < _tiles.size(); i++)
+        {
+            _buildings[i].resize(Config::Config::CHUNK_SIZE);
+            for (int j = 0; j < _buildings[i].size(); j++)
+            {
+                _buildings[i][j] = Map::Building(signX * j + _x,signY * i + _y);
+            }
+        }
     }
     /**
       * Renvoie le type du chunk
