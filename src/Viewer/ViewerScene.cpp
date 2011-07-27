@@ -40,8 +40,11 @@ namespace Viewer
         }
         //On ajoute le chunk à la QMap.
         _tileChunks[QPair<qint32,qint32>(xChunk,yChunk)] = new Graphics::TileChunkItem(_world->getChunk(xChunk,yChunk));
+        _buildingChunks[QPair<qint32,qint32>(xChunk,yChunk)] = new Graphics::BuildingChunkItem(_world->getChunk(xChunk,yChunk));
         //On ajoute le chunk à la scène
         addItem(_tileChunks[QPair<qint32,qint32>(xChunk,yChunk)]);
+        addItem(_buildingChunks[QPair<qint32,qint32>(xChunk,yChunk)]);
+
     }
     /**
       * Appelé à l'appui sur une touche.

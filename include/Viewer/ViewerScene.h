@@ -5,6 +5,7 @@
 #include <QtGui/QGraphicsPixmapItem>
 #include <QtGui/QGraphicsScene>
 
+#include <Graphics/BuildingChunkItem.h>
 #include <Graphics/TileChunkItem.h>
 #include <World/World.h>
 namespace Viewer
@@ -34,10 +35,15 @@ namespace Viewer
               */
             World::World *_world;
             /**
-              * Liste des chunk de la scène
+              * Liste des objets de chunk pour les tiles de la scène
               */
             QMap< QPair<qint32,qint32> ,Graphics::TileChunkItem* > _tileChunks;
-        public:
+            /**
+              * Liste des objets de chunk pour les batiments de la scène
+              */
+            QMap< QPair<qint32,qint32> ,Graphics::BuildingChunkItem* > _buildingChunks;
+
+    public:
             /**
               * Constructeur
               */
