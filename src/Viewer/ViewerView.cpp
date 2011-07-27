@@ -14,6 +14,8 @@ namespace Viewer
     {
         //On alloue l'objet de monde
         _world = new World::World;
+        //Vérifie que les batiments marche
+        _world->getBuilding(0,0).setType(Map::HOUSE);
         //On alloue la scène.
         _scene = new ViewerScene(_world);
         setScene(_scene);
