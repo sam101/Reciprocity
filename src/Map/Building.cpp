@@ -57,6 +57,14 @@ namespace Map
         return _y;
     }
     /**
+      * Change le type du batiment
+      */
+    void Building::setType(BuildingType type)
+    {
+        _type = type;
+    }
+
+    /**
       * Envoie un batiment dans un QDataStream
       */
     QDataStream& operator<<(QDataStream &out, const Building &b)

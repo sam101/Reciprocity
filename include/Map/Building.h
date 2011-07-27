@@ -76,6 +76,10 @@ namespace Map
               */
             qint32 getY() const;
             /**
+              * Change le type du batiment
+              */
+            void setType(BuildingType type);
+            /**
               * Envoie un batiment dans un QDataStream
               */
             friend QDataStream& operator<<(QDataStream &out, const Building &b);
