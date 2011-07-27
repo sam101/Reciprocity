@@ -34,14 +34,14 @@ namespace Viewer
             return;
         }
         //On vérifie que le chunk n'existe pas déjà.
-        if (_chunks.contains(QPair<qint32,qint32>(xChunk,yChunk)))
+        if (_tileChunks.contains(QPair<qint32,qint32>(xChunk,yChunk)))
         {
             return;
         }
         //On ajoute le chunk à la QMap.
-        _chunks[QPair<qint32,qint32>(xChunk,yChunk)] = new Graphics::TileChunkItem(_world->getChunk(xChunk,yChunk));
+        _tileChunks[QPair<qint32,qint32>(xChunk,yChunk)] = new Graphics::TileChunkItem(_world->getChunk(xChunk,yChunk));
         //On ajoute le chunk à la scène
-        addItem(_chunks[QPair<qint32,qint32>(xChunk,yChunk)]);
+        addItem(_tileChunks[QPair<qint32,qint32>(xChunk,yChunk)]);
     }
     /**
       * Appelé à l'appui sur une touche.

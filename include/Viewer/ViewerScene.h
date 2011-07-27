@@ -36,7 +36,7 @@ namespace Viewer
             /**
               * Liste des chunk de la scène
               */
-            QMap< QPair<qint32,qint32> ,Graphics::TileChunkItem* > _chunks;
+            QMap< QPair<qint32,qint32> ,Graphics::TileChunkItem* > _tileChunks;
         public:
             /**
               * Constructeur
