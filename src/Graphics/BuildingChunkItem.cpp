@@ -1,4 +1,6 @@
 #include <Graphics/BuildingChunkItem.h>
+#include <Graphics/Provider.h>
+#include <QtGui/QPainter>
 namespace Graphics
 {
     /**
@@ -10,8 +12,8 @@ namespace Graphics
         //On construit le boundingRect de l'objet
         _boundingRect = QRectF(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
         //On charge le tableau des batiments
-        //TODO
-        //On définit la position
+        _tiles.append(Provider::getBuilding("none").toImage());
+        _tiles.append(Provider::getBuilding("house").toImage());
         //On définit la position.
         int x,y;
         if (_chunk->getX() < 0)
@@ -44,6 +46,17 @@ namespace Graphics
       */
     void BuildingChunkItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
     {
+        Q_UNUSED(option)
+        Q_UNUSED(widget)
+        qint32 current;
 
+        for (int i = 0; i < Config::Config::TILE_SIZE; i++)
+        {
+            for (int j = 0; j < Config::Config::TILE_SIZE; j++)
+            {
+                current = _chunk->getBuildingAbs(j,i).getType();
+                painter->drawImage(QPoint( (j) * Config::Config::TILE_SIZE,(i) * Config::Config::TILE_SIZE),_tiles[current]);
+            }
+        }
     }
 }
