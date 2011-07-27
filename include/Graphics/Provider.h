@@ -21,7 +21,11 @@ namespace Graphics
               * Cache des tiles utilisées dans  le jeu
               */
             static QMap<QString,QPixmap> _tiles;
-        public:
+            /**
+              * Cache des batiments utilisés dans le jeu
+              */
+            static QMap<QString,QPixmap> _buildings;
+    public:
             /**
               * Initialise le chemin vers lequel on doit trouver les données
               */
@@ -30,6 +34,10 @@ namespace Graphics
               * Renvoie un Pixmap d'une tile
               */
             static QPixmap getTile(QString name);
+            /**
+              * Renvoie un Pixmap d'un batiment
+              */
+            static QPixmap getBuilding(QString name);
     };
 }
 #endif //GRAPHICS_PROVIDER_H

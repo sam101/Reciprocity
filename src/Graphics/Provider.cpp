@@ -6,6 +6,7 @@ namespace Graphics
 {
     QString Provider::_path = "";
     QMap<QString,QPixmap> Provider::_tiles;
+    QMap<QString,QPixmap> Provider::_buildings;
     /**
       * Initialise le chemin vers lequel on doit trouver les données
       */
@@ -30,6 +31,25 @@ namespace Graphics
             //On charge le pixmap.
             _tiles[name] = QPixmap(_path + "/Tiles/" + name + ".png");
             return _tiles.value(name);
+        }
+    }
+    /**
+      * Renvoie un Pixmap d'un batiment
+      */
+    QPixmap Provider::getBuilding(QString name)
+    {
+        /*
+         * Si on l'a déjà chargé, on la renvoie
+         */
+        if (_buildings.contains(name))
+        {
+            return _buildings.value(name);
+        }
+        else
+        {
+            //On charge le pixmap.
+            _buildings[name] = QPixmap(_path + "/Buildings/" + name + ".png");
+            return _buildings.value(name);
         }
     }
 }
