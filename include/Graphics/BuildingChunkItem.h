@@ -1,6 +1,10 @@
 #ifndef GRAPHICS_BUILDINGCHUNKITEM_H
 #define GRAPHICS_BUILDINGCHUNKITEM_H
+#include <Chunk/Chunk.h>
+
+#include <QtCore/QList>
 #include <QtGui/QGraphicsItem>
+#include <QtGui/QImage>
 namespace Graphics
 {
     /**
@@ -10,7 +14,40 @@ namespace Graphics
       */
     class BuildingChunkItem : public QGraphicsItem
     {
-
+        protected:
+            /**
+              * Position X du chunk
+              */
+            qint32 _xChunk;
+            /**
+              * Position Y du chunk
+              */
+            qint32 _yChunk;
+            /**
+              * Pointeur vers le Chunk
+              */
+            Chunk::Chunk *_chunk;
+            /**
+              * Tableau contenant les pixmap des batiments
+              */
+            QList<QImage> _tiles;
+            /**
+              * BoudingRect de l'objet
+              */
+            QRectF _boundingRect;
+        public:
+            /**
+              * Constructeur
+              */
+            BuildingChunkItem(Chunk::Chunk *chunk);
+            /**
+              * Renvoie le boundingRect de l'objet
+              */
+            QRectF boundingRect() const;
+            /**
+              * Repaint l'objet
+              */
+            void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     };
 }
 #endif //GRAPHICS_BUILDINGCHUNKITEM_H
