@@ -52,4 +52,5 @@ HEADERS += \
     include/Viewer/ViewerZoomWidget.h \
     include/Map/Building.h \
     include/Graphics/BuildingChunkItem.h \
-    include/Map/BuildingType.h
+    include/Map/BuildingType.h \
+    include/Map/ResourceType.h
