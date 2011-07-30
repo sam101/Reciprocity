@@ -5,6 +5,7 @@
 #include <QtCore/Qt>
 #include <QtCore/QVector>
 #include <Map/EntityAbilities.h>
+#include <Map/ResourceType.h>
 namespace Map
 {
     /**
@@ -68,6 +69,10 @@ namespace Map
               * Niveaux de l'entité
               */
             QVector<qreal> _abilities;
+            /**
+              * Ressources portées par l'entité
+              */
+            QVector<qint32> _resources;
         public:
             /**
               * Constructeur
@@ -113,6 +118,11 @@ namespace Map
               * Renvoie l'age de l'entité
               */
             qint32 getAge() const;
+            /**
+              * Renvoie une ressource portée par l'entité
+              */
+            qint32 getResource(qint32 id);
+
             /**
               * Change l'id de l'entité
               */

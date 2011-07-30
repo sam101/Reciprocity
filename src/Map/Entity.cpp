@@ -12,7 +12,8 @@ namespace Map
     _maxLifePoints(lifePoints),
     _owner(owner),
     _will(will),
-    _age(age)
+    _age(age),
+    _resources(Map::MAX,0)
     {
         _abilities.resize(Map::LAST);
     }
@@ -86,6 +87,14 @@ namespace Map
     {
         return _age;
     }
+    /**
+      * Renvoie une ressource portée par l'entité
+      */
+    qint32 Entity::getResource(qint32 id)
+    {
+        return _resources[id];
+    }
+
     /**
       * Change l'id de l'entité
       */
@@ -166,6 +175,7 @@ namespace Map
         out << e._dead;
         out << e._age;
         out << e._abilities;
+        out << e._resources;
 
         return out;
     }
@@ -192,6 +202,7 @@ namespace Map
         in >> e._dead;
         in >> e._age;
         in >> e._abilities;
+        in >> e._resources;
 
         return in;
     }
