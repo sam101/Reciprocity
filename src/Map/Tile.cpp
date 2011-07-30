@@ -35,6 +35,14 @@ namespace Map
     {
         return _output;
     }
+    /**
+      * Renvoie une ressource de la tile
+      */
+    qint32 Tile::getResource(qint32 id)
+    {
+        //TODO: Vérification.
+        return _resources[id];
+    }
 
     /**
       * Définit les paramètres de la tile
@@ -54,6 +62,29 @@ namespace Map
     {
         _output = output;
     }
+    /**
+      * Change la valeur d'une ressource
+      */
+    void Tile::setResource(qint32 id, qint32 value)
+    {
+        _resources[id] = value;
+    }
+    /**
+      * Ajoute une ressource à la tile
+      */
+    void Tile::addResource(qint32 id, qint32 value)
+    {
+        _resources[id] = value;
+    }
+    /**
+      * Enlève une ressource à la tile
+      */
+    void Tile::delResource(qint32 id, qint32 value)
+    {
+        _resources[id] = value;
+    }
+
+
     /**
       * Définit la tile comme étant une plaine
       */

@@ -75,6 +75,10 @@ namespace Map
             * Renvoie la productivité de la tile.
             */
           qint32 getOutput() const;
+          /**
+            * Renvoie une ressource de la tile
+            */
+          qint32 getResource(qint32 id);
 
           /**
             * Définit les paramètres de la tile
@@ -84,6 +88,18 @@ namespace Map
             * Définit le rendement de la tile.
             */
           void setOutput(qint32 output);
+          /**
+            * Change la valeur d'une ressource
+            */
+          void setResource(qint32 id, qint32 value);
+          /**
+            * Ajoute une ressource à la tile
+            */
+          void addResource(qint32 id, qint32 value);
+          /**
+            * Enlève une ressource à la tile
+            */
+          void delResource(qint32 id, qint32 value);
           /**
             * Définit la tile comme étant une plaine
             */
