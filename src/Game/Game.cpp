@@ -62,7 +62,7 @@ namespace Game
             _players.last()->setAdmin(true);
         }
         //On lui ajoute ses entités/ressources "de base".
-
+        addStartEntities(_players.last());
         //TODO
 
         //On renvoie l'objet Player
@@ -137,5 +137,12 @@ namespace Game
         }
         //Si on en a trouvé aucun, alors il est bien admin.
         return true;
+    }
+    /**
+      * Ajoute les entités de base à un joueur
+      */
+    void Game::addStartEntities(Player *player)
+    {
+
     }
 }

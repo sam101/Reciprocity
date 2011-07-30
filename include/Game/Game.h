@@ -72,6 +72,10 @@ namespace Game
               * Renvoie si le joueur peut être administrateur
               */
             bool canBeAdmin(QString login, QString hash);
+            /**
+              * Ajoute les entités de base à un joueur
+              */
+            void addStartEntities(Player *player);
     };
 }
 #endif //GAME_GAME_H
