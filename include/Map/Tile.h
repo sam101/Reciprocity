@@ -1,8 +1,10 @@
 #ifndef MAP_TILE_H
 #define MAP_TILE_H
+#include <Map/ResourceType.h>
 #include <Map/TileType.h>
 #include <QtCore/QDataStream>
 #include <QtCore/Qt>
+#include <QtCore/QVector>
 namespace Map
 {
     /**
@@ -52,7 +54,10 @@ namespace Map
             * Position Y de la tile
             */
           qint32 _y;
-
+         /**
+           * Ressources présentes sur la Tile
+           */
+          QVector<qint32> _resources;
       public:
           /**
             * Constructeur

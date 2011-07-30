@@ -8,7 +8,10 @@ namespace Map
       */
     enum RessourceType
     {
-
+        FOOD = 0,
+        WOOD = 1,
+        STONE = 2,
+        MAX = 3
     };
 }
 #endif //MAP_RESOURCETYPE_H

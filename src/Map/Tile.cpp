@@ -9,7 +9,8 @@ namespace Map
     _type(type),
     _output(output),
     _x(x),
-    _y(y)
+    _y(y),
+    _resources(Map::MAX,0)
     {
 
     }
@@ -114,6 +115,7 @@ namespace Map
         out << t._output;
         out << t._x;
         out << t._y;
+        out << t._resources;
 
         return out;
     }
@@ -136,7 +138,7 @@ namespace Map
         in >> t._output;
         in >> t._x;
         in >> t._y;
-
+        in >> t._resources;
         return in;
     }
 }
