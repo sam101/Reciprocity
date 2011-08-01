@@ -16,7 +16,7 @@ namespace Network
             /**
               * MagicNumber de GameHasBegunMessage
               */
-            static const qint32 MAGICNUMBER_GAMEHASBEGUN = 0x4210;
+            static const qint32 MAGICNUMBER_GAMEHASBEGUN = 0x4211;
             /**
               * Constructeur
               */
