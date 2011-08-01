@@ -1,5 +1,8 @@
 #include <Game/Game.h>
 #include <QtCore/QDebug>
+#include <Config/Config.h>
+#include <Tools/Random.h>
+using namespace Tools;
 namespace Game
 {
     /**
@@ -142,6 +145,24 @@ namespace Game
       */
     void Game::addStartEntities(Player *player)
     {
-
+        qint32 xBase, yBase;
+        //On trouve les coordonnées de départ.
+        //TODO: Vérifier qu'il y'a personne sur le chunk.
+        xBase = Random::next(-100,100);
+        yBase = Random::next(-100,100);
+        //On ajoute 8 entitées au joueur
+        for (int i = 0; i < Config::Config::NB_ENTITIES; i++)
+        {
+            //On définit la position de l'entité
+            qint32 xEntity = xBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE);
+            qint32 yEntity = yBase +Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE);
+            //On construit l'entité
+            Map::Entity entity(xEntity,yEntity,player->getId());
+            //On lui ajoute les ressources de base
+            entity.addResource(Map::FOOD,Config::Config::FOOD_ENTITY);
+            entity.addResource(Map::WOOD,Config::Config::WOOD_ENTITY);
+            //On l'ajoute au monde
+            _world->addEntity(entity);
+        }
     }
 }
