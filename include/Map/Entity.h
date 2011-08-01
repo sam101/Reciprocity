@@ -156,6 +156,14 @@ namespace Map
               */
             void age();
             /**
+              * Ajoute une ressource à l'entité
+              */
+            void addResource(qint32 id, qint32 value);
+            /**
+              * Enlève une ressource à l'entité
+              */
+            void delRessource(qint32 id, qint32 value);
+            /**
               * Stocke une entité dans un QDataStream
               */
             friend QDataStream& operator<<(QDataStream &out,const Entity &e);

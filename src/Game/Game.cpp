@@ -63,7 +63,6 @@ namespace Game
         }
         //On lui ajoute ses entités/ressources "de base".
         addStartEntities(_players.last());
-        //TODO
 
         //On renvoie l'objet Player
         return _players.last();
