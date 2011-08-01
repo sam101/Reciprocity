@@ -162,7 +162,7 @@ namespace Game
             entity.addResource(Map::FOOD,Config::Config::FOOD_ENTITY);
             entity.addResource(Map::WOOD,Config::Config::WOOD_ENTITY);
             //On l'ajoute au monde
-            _world->addEntity(entity);
+            _world->addEntity(entity,xEntity,yEntity);
         }
     }
 }
