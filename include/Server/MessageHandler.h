@@ -57,7 +57,15 @@ namespace Server
               * Gère la reception de la demande d'envoi des informations
               */
             void handleGetServerData(QTcpSocket *socket, QDataStream &in);
-        signals:
+            /**
+              * Gère la reception du message de demmande de début de partie
+              */
+            void handleBeginGame(QTcpSocket *socket, QDataStream &in);
+            signals:
+            /**
+              * Emis quand une erreur est survenue
+              */
+            void errorHappened(QTcpSocket*,QString);
             /**
               * Emis quand le login demmandé par le joueur existe déjà
               */
@@ -79,6 +87,14 @@ namespace Server
               * envoyées
               */
             void sendServerData(QTcpSocket *socket);
+            /**
+              * Emit quand la partie a déjà commencé, à un joueur seulement
+              */
+            void sendGameHasBegun(QTcpSocket *socket);
+            /**
+              * Emit quand la partie va commencer à tout les joueurs.
+              */
+            void sendGameHasBegunToAll();
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

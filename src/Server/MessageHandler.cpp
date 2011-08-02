@@ -1,4 +1,5 @@
 #include <Server/MessageHandler.h>
+#include <Network/BeginGameMessage.h>
 #include <Network/AbstractMessage.h>
 #include <Network/GetServerDataMessage.h>
 #include <Network/LoginMessage.h>
@@ -91,6 +92,10 @@ namespace Server
             case Network::GET_SERVER_DATA:
                 handleGetServerData(socket,in);
             break;
+            //Si on a reçu une demmande de début de partie
+            case Network::BEGIN_GAME:
+                handleBeginGame(socket,in);
+            break;
             default:
                 qDebug() << "Le message reçu est de type inconnu.";
         }
@@ -173,7 +178,35 @@ namespace Server
         //On recupère le message
         Network::GetServerDataMessage m;
         in >> m;
-        //On emet le signal
-        emit sendServerData(socket);
+        //On emet le signal si la partie n'a pas déjà commencé
+        if (_game->hasBegun())
+        {
+            emit errorHappened(socket,tr("La partie a déjà commencé"));
+            return;
+        }
+        if (_clients[socket]->getPlayer() == NULL)
+        {
+            return;
+        }
+        if (_clients[socket]->getPlayer()->isAdmin())
+        {
+            emit errorHappened(socket,tr("Accès refusé"));
+            return;
+        }
+        emit sendGameHasBegun(socket);
+    }
+    /**
+      * Gère la reception du message de demmande de début de partie
+      */
+
+    void MessageHandler::handleBeginGame(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::BeginGameMessage msg;
+        in >> msg;
+        //On affiche dans la console que le joueur à demandé le début de la partie
+        qDebug() << _clients[socket]->getLogin() << "a demandé le début de la partie";
+        //On emet le signal de début de partie
+        emit
     }
 }
