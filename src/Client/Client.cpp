@@ -287,6 +287,7 @@ namespace Client
       */
     void Client::handleGameHasBegun(QDataStream &in)
     {
+        qDebug() << "Le message de début de partie a été reçu";
         //On recupère le message
         Network::GameHasBegunMessage m;
         in >> m;

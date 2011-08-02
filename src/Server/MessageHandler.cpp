@@ -205,10 +205,12 @@ namespace Server
         }
         if (_clients[socket]->getPlayer() == NULL)
         {
+            qDebug() << "Le joueur qui a demandé le début de la partie n'a pas d'objet joueur. Abandon.";
             return;
         }
-        if (_clients[socket]->getPlayer()->isAdmin())
+        if (!_clients[socket]->getPlayer()->isAdmin())
         {
+            qDebug() << "Attention: non-administrateur demande le début de la partie";
             emit errorHappened(socket,tr("Accès refusé"));
             return;
         }
