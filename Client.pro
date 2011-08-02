@@ -34,7 +34,8 @@ HEADERS += \
     include/Network/GetServerDataMessage.h \
     include/Network/ServerDataMessage.h \
     include/Network/ErrorMessage.h \
-    include/Network/BeginGameMessage.h
+    include/Network/BeginGameMessage.h \
+    include/GUI/GameWindow.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -61,4 +62,5 @@ SOURCES += \
     src/Network/GetServerDataMessage.cpp \
     src/Network/ServerDataMessage.cpp \
     src/Network/ErrorMessage.cpp \
-    src/Network/BeginGameMessage.cpp
+    src/Network/BeginGameMessage.cpp \
+    src/GUI/GameWindow.cpp
