@@ -55,9 +55,13 @@ namespace Server
               */
             void sendServerData(QTcpSocket *socket);
             /**
-              * Envoie le message de début de parties à un client
+              * Envoie le message de début de partie à un client
               */
             void sendGameHasBegun(QTcpSocket *socket);
+            /**
+              * Envoie le message de début de partie à tout les clients
+              */
+            void sendGameHasBegunToAll();
     };
 }
 #endif //SERVER_MESSAGESENDER_H

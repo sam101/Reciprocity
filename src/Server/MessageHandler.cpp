@@ -193,7 +193,7 @@ namespace Server
             emit errorHappened(socket,tr("Accès refusé"));
             return;
         }
-        emit sendGameHasBegun(socket);
+        emit sendGameHasBegunToAll();
     }
     /**
       * Gère la reception du message de demmande de début de partie

@@ -152,4 +152,17 @@ namespace Server
         //On l'envoie
         socket->write(b);
     }
+    /**
+      * Envoie le message de début de partie à tout les clients
+      */
+    void MessageSender::sendGameHasBegunToAll()
+    {
+        //On itère sur tout les clients.
+        QMutableMapIterator<QTcpSocket*, Client*> it(_clients);
+        while (it.hasNext())
+        {
+            Client *c = it.next().value();
+            sendGameHasBegun(c->getSocket());
+        }
+    }
 }
