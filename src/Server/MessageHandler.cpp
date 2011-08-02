@@ -182,6 +182,21 @@ namespace Server
         //On recupère le message
         Network::GetServerDataMessage m;
         in >> m;
+
+        emit sendServerData(socket);
+    }
+    /**
+      * Gère la reception du message de demmande de début de partie
+      */
+
+    void MessageHandler::handleBeginGame(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::BeginGameMessage msg;
+        in >> msg;
+        //On affiche dans la console que le joueur à demandé le début de la partie
+        qDebug() << _clients[socket]->getLogin() << "a demandé le début de la partie";
+        //On emet le signal de début de partie
         //On emet le signal si la partie n'a pas déjà commencé
         if (_game->hasBegun())
         {
@@ -198,19 +213,5 @@ namespace Server
             return;
         }
         emit sendGameHasBegunToAll();
-    }
-    /**
-      * Gère la reception du message de demmande de début de partie
-      */
-
-    void MessageHandler::handleBeginGame(QTcpSocket *socket, QDataStream &in)
-    {
-        //On recupère le message
-        Network::BeginGameMessage msg;
-        in >> msg;
-        //On affiche dans la console que le joueur à demandé le début de la partie
-        qDebug() << _clients[socket]->getLogin() << "a demandé le début de la partie";
-        //On emet le signal de début de partie
-        emit
     }
 }
