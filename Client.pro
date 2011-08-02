@@ -36,7 +36,8 @@ HEADERS += \
     include/Network/ErrorMessage.h \
     include/Network/BeginGameMessage.h \
     include/GUI/GameWindow.h \
-    include/Graphics/BuildingChunkItem.h
+    include/Graphics/BuildingChunkItem.h \
+    include/Client/DataHandler.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -65,4 +66,5 @@ SOURCES += \
     src/Network/ErrorMessage.cpp \
     src/Network/BeginGameMessage.cpp \
     src/GUI/GameWindow.cpp \
-    src/Graphics/BuildingChunkItem.cpp
+    src/Graphics/BuildingChunkItem.cpp \
+    src/Client/DataHandler.cpp

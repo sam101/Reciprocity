@@ -4,6 +4,7 @@
 #include <Client/Client.h>
 #include <Client/ConnectionHandler.h>
 #include <GUI/ConnectingWindow.h>
+#include <GUI/GameWindow.h>
 #include <GUI/JoinGameWindow.h>
 #include <GUI/StartWindow.h>
 #include <GUI/WaitingWindow.h>
