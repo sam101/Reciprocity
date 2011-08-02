@@ -1,4 +1,5 @@
 #include <Server/MessageSender.h>
+#include <Network/GameHasBegunMessage.h>
 #include <Network/LoginFailedMessage.h>
 #include <Network/LoginSuccessMessage.h>
 #include <Network/MessageInMessage.h>
@@ -133,5 +134,22 @@ namespace Server
         socket->write(b);
 
     }
-
+    /**
+      * Envoie le message de début de parties à un client
+      */
+    void MessageSender::sendGameHasBegun(QTcpSocket *socket)
+    {
+        //On construit le message
+        Network::GameHasBegunMessage m;
+        //On construit le byteArray dans lequel le mettre
+        QByteArray b;
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in << (qint32)0;
+        in << (qint32)Network::GAME_HAS_BEGUN;
+        in << m;
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On l'envoie
+        socket->write(b);
+    }
 }

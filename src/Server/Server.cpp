@@ -22,6 +22,7 @@ namespace Server
         connect(_messageHandler,SIGNAL(loginAlreadyExists(QTcpSocket*,QString)),_messageSender,SLOT(sendLoginAlreadyExists(QTcpSocket*,QString)));
         connect(_messageHandler,SIGNAL(sendMessage(QString,QString,QString)),_messageSender,SLOT(sendChatMessage(QString,QString,QString)));
         connect(_messageHandler,SIGNAL(sendServerData(QTcpSocket*)),_messageSender,SLOT(sendServerData(QTcpSocket*)));
+        connect(_messageHandler,SIGNAL(sendGameHasBegun(QTcpSocket*)),_messageSender,SLOT(sendGameHasBegun(QTcpSocket*)));
     }
 
     /**
