@@ -23,7 +23,10 @@ namespace Client
               * Taille du message en cours de reception
               */
             qint32 _messageSize;
-
+            /**
+              * Indique si la partie à commencé
+              */
+            bool _gameHasBegun;
             /**
               * Indique si on est actuellement authentifié
               */
@@ -111,6 +114,10 @@ namespace Client
               * Gère la reception des informations du serveur
               */
             void handleServerData(QDataStream &in);
+            /**
+              * Gère la réception d'un message de début de partie
+              */
+            void handleGameHasBegun(QDataStream &in);
 
         signals:
             /**
@@ -137,7 +144,10 @@ namespace Client
               * Emit quand la liste des joueurs a été mise à jour
               */
             void playerListHasBeenUpdated(QList<QPair<QString,bool> > players);
-
+            /**
+              * Emit quand la partie à commencé
+              */
+            void gameHasBegun();
     };
 }
 #endif //CLIENT_CLIENT_H

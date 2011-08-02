@@ -1,6 +1,7 @@
 #include <Client/Client.h>
 #include <Config/Config.h>
 #include <Network/BeginGameMessage.h>
+#include <Network/GameHasBegunMessage.h>
 #include <Network/GetServerDataMessage.h>
 #include <Network/LoginMessage.h>
 #include <Network/LoginSuccessMessage.h>
@@ -17,6 +18,7 @@ namespace Client
     Client::Client(QTcpSocket *socket, QString login, QString hash) :
     _socket(socket),
     _messageSize(0),
+    _gameHasBegun(false),
     _isLogged(false),
     _isAdmin(false),
      _id(-1),
@@ -231,6 +233,10 @@ namespace Client
                case Network::SERVER_DATA:
                     handleServerData(in);
                break;
+               //Si on a reçu le message de début de partie
+               case Network::GAME_HAS_BEGUN:
+                    handleGameHasBegun(in);
+               break;
             }
         }
     }
@@ -276,7 +282,18 @@ namespace Client
         emit playerListHasBeenUpdated(_players);
 
     }
-
+    /**
+      * Gère la reception d'un message de début de partie
+      */
+    void Client::handleGameHasBegun(QDataStream &in)
+    {
+        //On recupère le message
+        Network::GameHasBegunMessage m;
+        in >> m;
+        //On envoie le signal comme quoi la partie à commencé
+        _gameHasBegun = true;
+        emit gameHasBegun();
+    }
     /**
       * Appelé quand le client doit se déconnecter
       */
