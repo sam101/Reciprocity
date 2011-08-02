@@ -237,6 +237,9 @@ namespace Client
                case Network::GAME_HAS_BEGUN:
                     handleGameHasBegun(in);
                break;
+               //Sinon, on lit juste les données pour les libérer
+               default:
+                    _socket->read(_messageSize);
             }
         }
     }

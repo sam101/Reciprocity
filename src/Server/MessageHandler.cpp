@@ -97,6 +97,8 @@ namespace Server
                 handleBeginGame(socket,in);
             break;
             default:
+                //On lit les données pour les effacer
+                socket->read(_sizes[socket]);
                 qDebug() << "Le message reçu est de type inconnu.";
         }
     }
