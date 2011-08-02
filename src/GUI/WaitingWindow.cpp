@@ -1,5 +1,6 @@
 #include <GUI/WaitingWindow.h>
 #include <QtCore/QDebug>
+#include <QtGui/QApplication>
 #include <QtGui/QMessageBox>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QVBoxLayout>
@@ -73,6 +74,7 @@ namespace GUI
     void WaitingWindow::quitHandler()
     {
         emit logoutRequested();
+        qApp->exit();
     }
     /**
       * Indique que le joueur veut lancer la partie
