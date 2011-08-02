@@ -153,6 +153,10 @@ namespace Server
            //On emet le signal
            emit loginSuccess(socket,player->getId(),player->isAdmin());
         }
+        if (_game->hasBegun())
+        {
+            emit sendGameHasBegun(socket);
+        }
 
     }
     /**
