@@ -1,10 +1,11 @@
 #include <Client/Client.h>
 #include <Config/Config.h>
+#include <Network/BeginGameMessage.h>
+#include <Network/GetServerDataMessage.h>
 #include <Network/LoginMessage.h>
 #include <Network/LoginSuccessMessage.h>
 #include <Network/MessageInMessage.h>
 #include <Network/MessageOutMessage.h>
-#include <Network/GetServerDataMessage.h>
 #include <Network/ServerDataMessage.h>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
@@ -109,7 +110,35 @@ namespace Client
       */
     void Client::sendBeginGame()
     {
-        //TODO
+        /*
+         * On vérifie que le joueur est administrateur
+         */
+        if (_isAdmin)
+        {
+            //On construit le message
+            Network::BeginGameMessage m;
+            //On déclare le byteArray qui stockera les infos du message
+            QByteArray b;
+            //On déclare le flux dans lequel écrire.
+            QDataStream in(&b,QIODevice::WriteOnly);
+            in.setVersion(QDataStream::Qt_4_5);
+            //On écrit la taille vide
+            in << (qint32)0;
+            //On écrit le type du message
+            in << (qint32)Network::BEGIN_GAME;
+            //On écrit le message
+            in << m;
+            //On écrit la bonne taille
+            in.device()->seek(0);
+            in << (qint32)(b.size() - sizeof(qint32));
+            //On écrit le message
+            _socket->write(b);
+        }
+        else
+        {
+            qDebug() << "Tentative d'envoi d'un message de commencement de partie sans être administrateur avortée.";
+        }
+
     }
     /**
       * Envoie un message aux autres joueurs
