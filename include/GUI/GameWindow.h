@@ -17,6 +17,17 @@ namespace GUI
               * Pointeur vers l'objet Client
               */
             Client::Client *_client;
+        public:
+            /**
+              * Constructeur
+              */
+            GameWindow();
+        public slots:
+            /**
+              * Change l'objet client actuel
+              * (QObject: hack pour contourner limitation de moc)
+              */
+            void setClient(QObject *client);
     };
 }
 #endif //GUI_GAMEWINDOW_H
