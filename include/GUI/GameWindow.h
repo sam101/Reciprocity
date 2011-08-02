@@ -12,6 +12,11 @@ namespace GUI
     class GameWindow : public QMainWindow
     {
         Q_OBJECT
+        protected:
+            /**
+              * Pointeur vers l'objet Client
+              */
+            Client::Client *_client;
     };
 }
 #endif //GUI_GAMEWINDOW_H
