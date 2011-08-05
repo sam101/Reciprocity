@@ -38,6 +38,13 @@ namespace Chunk
             genSquareIsland(chunk,xStart,xEnd,yStart,yEnd);
         }
         //On rajoute des marais au milieu.
-        //TODO
+        int nb = Random::next(0,10);
+        int x, y;
+        for (int i = 0; i < nb; i++)
+        {
+            x = Random::next(1,Config::Config::CHUNK_SIZE - 1);
+            y = Random::next(1,Config::Config::CHUNK_SIZE - 1);
+            chunk->getTileAbs(x,y).setAsSwamp();
+        }
     }
 }
