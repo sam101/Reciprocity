@@ -133,6 +133,22 @@ namespace Map
         _type = SEA;
         _flags = BOAT_PASSABLE;
     }
+    /**
+      * Définit la tile comme étant de la mer
+      */
+    void Tile::setAsBeach()
+    {
+        _type = BEACH;
+        _flags = PASSABLE;
+    }
+    /**
+      * Définit la tile comme étant un marais
+      */
+    void Tile::setAsSwamp()
+    {
+        _type = SWAMP;
+        _flags = PASSABLE;
+    }
 
     /**
       * Stocke une tile dans un QDataStream

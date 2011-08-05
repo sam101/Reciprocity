@@ -124,6 +124,14 @@ namespace Map
             * Définit la tile comme étant de la mer.
             */
           void setAsSea();
+          /**
+            * Définit la tile comme étant une plage
+            */
+          void setAsBeach();
+          /**
+            * Définit la tile comme étant un marais
+            */
+          void setAsSwamp();
 
           /**
             * Stocke une tile dans un QDataStream
