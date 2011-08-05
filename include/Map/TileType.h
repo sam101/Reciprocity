@@ -41,7 +41,11 @@ namespace Map
         /**
           * Plage
           */
-        BEACH = 7
+        BEACH = 7,
+        /**
+          * Marais
+          */
+        SWAMP = 8
     };
 }
 #endif
