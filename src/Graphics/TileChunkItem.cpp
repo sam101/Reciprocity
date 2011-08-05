@@ -25,7 +25,7 @@ namespace Graphics
         _tiles.append(Provider::getTile("mountain").toImage());
         _tiles.append(Provider::getTile("beach").toImage());
         _tiles.append(Provider::getTile("swamp").toImage());
-        //On définit la position.
+        //On définit la position
         int x,y;
         if (_chunk->getX() < 0)
         {
