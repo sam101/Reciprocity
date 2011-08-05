@@ -37,5 +37,7 @@ namespace Chunk
             yEnd = yEnd >= Config::Config::CHUNK_SIZE ? Config::Config::CHUNK_SIZE - 1 : yEnd;
             genSquareIsland(chunk,xStart,xEnd,yStart,yEnd);
         }
+        //On rajoute des marais au milieu.
+        //TODO
     }
 }
