@@ -15,6 +15,7 @@ namespace Graphics
         //On définit le boundingRect de l'Item
         _boundingRect = QRectF(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
         //On charge le tableau de tiles.
+        //TODO: Faire un truc mieux
         _tiles.append(Provider::getTile("nothing").toImage());
         _tiles.append(Provider::getTile("sea").toImage());
         _tiles.append(Provider::getTile("lowland").toImage());
@@ -22,6 +23,7 @@ namespace Graphics
         _tiles.append(Provider::getTile("lake").toImage());
         _tiles.append(Provider::getTile("river").toImage());
         _tiles.append(Provider::getTile("mountain").toImage());
+        _tiles.append(Provider::getTile("beach").toImage());
         //On définit la position.
         int x,y;
         if (_chunk->getX() < 0)
