@@ -27,7 +27,8 @@ SOURCES += \
     src/Viewer/ViewerWindow.cpp \
     src/Viewer/ViewerZoomWidget.cpp \
     src/Map/Building.cpp \
-    src/Graphics/BuildingChunkItem.cpp
+    src/Graphics/BuildingChunkItem.cpp \
+    src/Chunk/DesertLandChunkGenerator.cpp
 
 HEADERS += \
     include/Chunk/Chunk.h \
@@ -53,4 +54,5 @@ HEADERS += \
     include/Map/Building.h \
     include/Graphics/BuildingChunkItem.h \
     include/Map/BuildingType.h \
-    include/Map/ResourceType.h
+    include/Map/ResourceType.h \
+    include/Chunk/DesertLandChunkGenerator.h
