@@ -37,7 +37,11 @@ namespace Map
         /**
           * Montagnes
           */
-        MOUNTAIN = 6
+        MOUNTAIN = 6,
+        /**
+          * Plage
+          */
+        BEACH = 7
     };
 }
 #endif
