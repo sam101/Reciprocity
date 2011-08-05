@@ -20,9 +20,13 @@ namespace Chunk
           */
         ISLAND = 2,
         /**
+          * Chunk contenant sables/montagnes
+          */
+        DESERTLAND = 3,
+        /**
           * Nombre de types de chunk
           */
-        LAST = 3
+        LAST = 4
     };
 
 }

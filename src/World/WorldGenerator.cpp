@@ -2,6 +2,7 @@
 #include <World/World.h>
 
 #include <Config/Config.h>
+#include <Chunk/DesertLandChunkGenerator.h>
 #include <Chunk/IslandChunkGenerator.h>
 #include <Chunk/LandChunkGenerator.h>
 #include <Chunk/SeaChunkGenerator.h>
@@ -44,6 +45,8 @@ namespace World
         _generators.append(new Chunk::LandChunkGenerator);
         //Générateur de Chunk "Island"
         _generators.append(new Chunk::IslandChunkGenerator);
+        //Générateur de Chunk "DesertLand"
+        _generators.append(new Chunk::DesertLandChunkGenerator);
     }
     /**
       * Redimensionne la taille des tableaux de chunk.
