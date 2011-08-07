@@ -1,6 +1,10 @@
 #ifndef GUI_GAMEWINDOW_H
 #define GUI_GAMEWINDOW_H
+#include <QtGui/QGraphicsView>
 #include <QtGui/QMainWindow>
+
+#include <GUI/GameScene.h>
+
 #include <Client/Client.h>
 #include <Client/DataHandler.h>
 namespace GUI
@@ -22,6 +26,14 @@ namespace GUI
               * Pointeur vers le DataHandler
               */
             Client::DataHandler *_dataHandler;
+            /**
+              * Pointeur vers la GraphicsView de la Window
+              */
+            QGraphicsView *_view;
+            /**
+              * Pointeur vers la GraphicsScene
+              */
+            GameScene *_scene;
         public:
             /**
               * Constructeur
