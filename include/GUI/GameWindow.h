@@ -39,6 +39,10 @@ namespace GUI
               * Constructeur
               */
             GameWindow();
+            /**
+              * Destructeur
+              */
+            virtual ~GameWindow();
         public slots:
             /**
               * Change l'objet client actuel

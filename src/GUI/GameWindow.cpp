@@ -16,6 +16,15 @@ namespace GUI
         _scene = new GameScene;
     }
     /**
+      * Destructeur
+      */
+    GameWindow::~GameWindow()
+    {
+        delete _view;
+        delete _scene;
+    }
+
+    /**
       * Change l'objet client actuel
       */
     void GameWindow::setClient(QObject *client)
