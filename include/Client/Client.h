@@ -1,5 +1,7 @@
 #ifndef CLIENT_CLIENT_H
 #define CLIENT_CLIENT_H
+#include <Client/DataHandler.h>
+
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QList>
 #include <QtCore/QObject>
@@ -15,6 +17,11 @@ namespace Client
     {
         Q_OBJECT
         protected:
+            /**
+              * Pointeur vers le DataHandler
+              */
+            DataHandler *_dataHandler;
+
             /**
                * Pointeur vers le socket du client
                */
@@ -53,6 +60,7 @@ namespace Client
               * Liste des joueurs présents
               */
             QList<QPair<QString,bool> > _players;
+
 
         public:
             /**

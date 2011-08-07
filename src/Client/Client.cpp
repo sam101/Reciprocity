@@ -16,6 +16,7 @@ namespace Client
       * Constructeur
       */
     Client::Client(QTcpSocket *socket, QString login, QString hash) :
+    _dataHandler(NULL),
     _socket(socket),
     _messageSize(0),
     _gameHasBegun(false),
@@ -23,8 +24,10 @@ namespace Client
     _isAdmin(false),
      _id(-1),
     _login(login),
-    _hash(hash)
+    _hash(hash),
     {
+        //On construit le dataHandler
+        _dataHandler = new DataHandler;
         //On connecte les signaux du socket
         connect(_socket,SIGNAL(readyRead()),this,SLOT(messageRecevied()));
         connect(_socket,SIGNAL(disconnected()),this,SLOT(hasDisconnected()));
