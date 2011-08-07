@@ -96,6 +96,10 @@ namespace GUI
               * Indique que le joueur veut se deconnecter
               */
             void logoutRequested();
+            /**
+              * Indique que la partie a commencé
+              */
+            void gameHasBegun();
 
 
     };

@@ -27,4 +27,11 @@ namespace GUI
             _dataHandler = _client->getDataHandler();
         }
     }
+    /**
+      * Commence la partie
+      */
+    void GameWindow::beginGame()
+    {
+        show();
+    }
 }

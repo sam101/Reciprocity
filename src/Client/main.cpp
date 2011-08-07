@@ -50,6 +50,11 @@ int main(int argc, char *argv[])
     QObject::connect(connectionHandler,SIGNAL(clientHasChanged(QObject*)),waitingWindow,SLOT(setClient(QObject*)));
     QObject::connect(connectionHandler,SIGNAL(loginSuccess()),waitingWindow,SLOT(show()));
 
+    //On construit la fenêtre de jeu
+    GUI::GameWindow *gameWindow = new GUI::GameWindow;
+    //On connecte les signaux
+    QObject::connect(connectionHandler,SIGNAL(clientHasChanged(QObject*)),gameWindow,SLOT(setClient(QObject*)));
+    QObject::connect(waitingWindow,SIGNAL(gameHasBegun()),gameWindow,SLOT(beginGame()));
     //On execute l'application
     return a.exec();
 }

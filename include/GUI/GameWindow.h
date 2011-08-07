@@ -45,6 +45,10 @@ namespace GUI
               * (QObject: hack pour contourner limitation de moc)
               */
             void setClient(QObject *client);
+            /**
+              * Commence la partie
+              */
+            void beginGame();
     };
 }
 #endif //GUI_GAMEWINDOW_H
