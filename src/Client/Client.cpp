@@ -24,7 +24,7 @@ namespace Client
     _isAdmin(false),
      _id(-1),
     _login(login),
-    _hash(hash),
+    _hash(hash)
     {
         //On construit le dataHandler
         _dataHandler = new DataHandler;
@@ -283,9 +283,9 @@ namespace Client
         Network::ServerDataMessage m;
         in >> m;
         //On met à jour la liste des joueurs
-        _players = m.getPlayers();
+        _dataHandler->getPlayers() = m.getPlayers();
         //On emet le signal comme quoi la liste des joueurs a été mise à jour
-        emit playerListHasBeenUpdated(_players);
+        emit playerListHasBeenUpdated(_dataHandler->getPlayers());
 
     }
     /**

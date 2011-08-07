@@ -58,4 +58,19 @@ namespace Client
         }
         return _entities[id];
     }
+    /**
+      * Renvoie la liste des joueurs présents
+      */
+    QList<QPair<QString,bool> >& DataHandler::getPlayers()
+    {
+        return _players;
+    }
+    /**
+      * Renvoie la liste des joueurs présents
+      * Surchargé constant
+      */
+    const QList<QPair<QString,bool> >& DataHandler::getPlayers() const
+    {
+        return _players;
+    }
 }

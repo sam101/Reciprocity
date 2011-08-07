@@ -55,13 +55,6 @@ namespace Client
               * Hash du joueur
               */
             QString _hash;
-
-            /**
-              * Liste des joueurs présents
-              */
-            QList<QPair<QString,bool> > _players;
-
-
         public:
             /**
               * Constructeur

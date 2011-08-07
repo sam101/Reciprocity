@@ -16,7 +16,7 @@ namespace Client
     class DataHandler : public QObject
     {
         Q_OBJECT
-    public:
+        public:
             /**
               * Typedef
               */
@@ -30,7 +30,11 @@ namespace Client
               * Entitées visibles par le joueur
               */
             QMap<qint32,Map::Entity*> _entities;
-       public:
+            /**
+              * Liste des joueurs présents
+              */
+            QList<QPair<QString,bool> > _players;
+        public:
             /**
               * Constructeur
               */
@@ -57,6 +61,15 @@ namespace Client
               * Renvoie un chunk
               */
             Chunk::Chunk* getChunk(qint32 x, qint32 y);
+            /**
+              * Renvoie la liste des joueurs présents
+              */
+            QList<QPair<QString,bool> >& getPlayers();
+            /**
+              * Renvoie la liste des joueurs présents
+              * Surchargé constant
+              */
+            const QList<QPair<QString,bool> >& getPlayers() const;
 
     };
 }
