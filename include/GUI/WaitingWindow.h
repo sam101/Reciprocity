@@ -91,6 +91,10 @@ namespace GUI
               * Met à jour la liste des joueurs
               */
             void updatePlayerList(QList<QPair<QString,bool> > players);
+            /**
+              * Gère le début de partie
+              */
+            void handleGameHasBegun();
         signals:
             /**
               * Indique que le joueur veut se deconnecter

@@ -117,6 +117,8 @@ namespace GUI
         connect(_client,SIGNAL(serverHasDisconnected()),this,SLOT(serverHasDisconnected()));
         //On connecte le signal de liste des joueurs
         connect(_client,SIGNAL(playerListHasBeenUpdated(QList<QPair<QString,bool> >)),this,SLOT(updatePlayerList(QList<QPair<QString,bool> >)));
+        //On connecte le signal pour le début de partie
+        connect(_client,SIGNAL(gameHasBegun()),this,SLOT(handleGameHasBegun()));
         //on affiche la fenêtre.
         QWidget::show();
     }
@@ -152,5 +154,13 @@ namespace GUI
         }
         //On l'ajoute au modele
         _playerList->setStringList(list);
+    }
+    /**
+      * Gère le début de partie
+      */
+    void WaitingWindow::handleGameHasBegun()
+    {
+        hide();
+        emit gameHasBegun();
     }
 }
