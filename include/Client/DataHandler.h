@@ -51,6 +51,10 @@ namespace Client
               * Ajoute/met à jour une entité
               */
             void addEntity(Map::Entity *entity);
+            /**
+              * Renvoie une entité
+              */
+            Map::Entity* getEntity(qint32 id);
 
     };
 }

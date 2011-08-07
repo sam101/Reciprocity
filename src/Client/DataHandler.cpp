@@ -43,8 +43,19 @@ namespace Client
     {
         if (_entities.contains(entity->getId()))
         {
-            delete _entities[id];
+            delete _entities[entity->getId()];
         }
-        _entities[id] = entity;
+        _entities[entity->getId()] = entity;
+    }
+    /**
+      * Renvoie une entité
+      */
+    Map::Entity* DataHandler::getEntity(qint32 id)
+    {
+        if (!_entities.contains(id))
+        {
+            return NULL;
+        }
+        return _entities[id];
     }
 }
