@@ -36,4 +36,15 @@ namespace Client
     {
         return _chunks[Coordinate(x,y)];
     }
+    /**
+      * Ajoute/met à jour une entité
+      */
+    void DataHandler::addEntity(Map::Entity *entity)
+    {
+        if (_entities.contains(entity->getId()))
+        {
+            delete _entities[id];
+        }
+        _entities[id] = entity;
+    }
 }

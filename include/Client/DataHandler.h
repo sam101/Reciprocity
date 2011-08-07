@@ -47,6 +47,10 @@ namespace Client
               * Renvoie un chunk
               */
             Chunk::Chunk* getChunk(qint32 x, qint32 y);
+            /**
+              * Ajoute/met à jour une entité
+              */
+            void addEntity(Map::Entity *entity);
 
     };
 }
