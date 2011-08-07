@@ -2,6 +2,7 @@
 #define GUI_GAMEWINDOW_H
 #include <QtGui/QMainWindow>
 #include <Client/Client.h>
+#include <Client/DataHandler.h>
 namespace GUI
 {
     /**
@@ -17,6 +18,10 @@ namespace GUI
               * Pointeur vers l'objet Client
               */
             Client::Client *_client;
+            /**
+              * Pointeur vers le DataHandler
+              */
+            Client::DataHandler *_dataHandler;
         public:
             /**
               * Constructeur
