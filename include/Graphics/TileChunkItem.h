@@ -44,6 +44,11 @@ namespace Graphics
               */
             QRectF boundingRect() const;
             /**
+              * Change le chunk de l'objet.
+              * Part du principe qu'il est à la même position
+              */
+            void setChunk(Chunk::Chunk *chunk);
+            /**
               * Repaint l'objet
               */
             void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);

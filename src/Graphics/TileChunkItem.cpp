@@ -53,6 +53,16 @@ namespace Graphics
         return _boundingRect;
     }
     /**
+      * Change le chunk de l'objet.
+      * Part du principe qu'il est à la même position
+      */
+    void TileChunkItem::setChunk(Chunk::Chunk *chunk)
+    {
+        _chunk = chunk;
+        update();
+    }
+
+    /**
       * Repaint l'objet
       */
     void TileChunkItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
