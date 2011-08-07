@@ -5,7 +5,8 @@ namespace GUI
       * Constructeur
       */
     GameWindow::GameWindow() :
-    _client(NULL)
+    _client(NULL),
+    _dataHandler(NULL)
     {
 
     }
@@ -18,6 +19,7 @@ namespace GUI
         if (c != NULL)
         {
             _client = c;
+            _dataHandler = _client->getDataHandler();
         }
     }
 }

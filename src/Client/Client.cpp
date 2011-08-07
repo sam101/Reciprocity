@@ -33,6 +33,21 @@ namespace Client
         connect(_socket,SIGNAL(disconnected()),this,SLOT(hasDisconnected()));
     }
     /**
+      * Renvoie le DataHandler
+      */
+    DataHandler* Client::getDataHandler()
+    {
+        return _dataHandler;
+    }
+    /**
+      * Renvoie le DataHandler
+      * surchargé constant
+      */
+    const DataHandler* Client::getDataHandler() const
+    {
+        return _dataHandler;
+    }
+    /**
       * Renvoie le login du client
       */
     QString Client::getLogin() const

@@ -8,6 +8,7 @@
 #include <QtCore/QPair>
 namespace Client
 {
+    //TODO:A refactoriser.
     /**
       * Gère la connexion et l'envoi de messages avec un serveur
       * @brief Gère la connexion avec un serveur
@@ -60,6 +61,15 @@ namespace Client
               * Constructeur
               */
             Client(QTcpSocket *socket, QString login, QString hash);
+            /**
+              * Renvoie le DataHandler
+              */
+            DataHandler* getDataHandler();
+            /**
+              * Renvoie le DataHandler
+              * surchargé constant
+              */
+            const DataHandler* getDataHandler() const;
             /**
               * Renvoie le login du client
               */
