@@ -43,6 +43,7 @@ HEADERS += \
     include/Network/ChunkDataMessage.h \
     include/Network/EntityDataMessage.h \
     include/Network/MoveUnitMessage.h \
+    include/Network/MoveUnitAcceptedMessage.h \
     include/Network/MoveUnitAcceptedMessage.h
 
 SOURCES += \
