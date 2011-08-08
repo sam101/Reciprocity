@@ -47,7 +47,8 @@ SOURCES += \
     src/Network/EntityDataMessage.cpp \
     src/Network/MoveUnitMessage.cpp \
     src/Network/MoveUnitAcceptedMessage.cpp \
-    src/Network/KickPlayerMessage.cpp
+    src/Network/KickPlayerMessage.cpp \
+    src/Network/KickMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -92,4 +93,5 @@ HEADERS += \
     include/Network/MoveUnitMessage.h \
     include/Network/MoveUnitAcceptedMessage.h \
     include/Network/MoveUnitAcceptedMessage.h \
-    include/Network/KickPlayerMessage.h
+    include/Network/KickPlayerMessage.h \
+    include/Network/KickMessage.h
