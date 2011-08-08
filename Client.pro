@@ -42,7 +42,8 @@ HEADERS += \
     include/Network/RequestDataMessage.h \
     include/Network/ChunkDataMessage.h \
     include/Network/EntityDataMessage.h \
-    include/Network/MoveUnitMessage.h
+    include/Network/MoveUnitMessage.h \
+    include/Network/MoveUnitAcceptedMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -77,4 +78,5 @@ SOURCES += \
     src/Network/RequestDataMessage.cpp \
     src/Network/ChunkDataMessage.cpp \
     src/Network/EntityDataMessage.cpp \
-    src/Network/MoveUnitMessage.cpp
+    src/Network/MoveUnitMessage.cpp \
+    src/Network/MoveUnitAcceptedMessage.cpp

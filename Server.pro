@@ -87,4 +87,5 @@ HEADERS += \
     include/Network/RequestDataMessage.h \
     include/Network/ChunkDataMessage.h \
     include/Network/EntityDataMessage.h \
-    include/Network/MoveUnitMessage.h
+    include/Network/MoveUnitMessage.h \
+    include/Network/MoveUnitAcceptedMessage.h
