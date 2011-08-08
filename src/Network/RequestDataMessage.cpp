@@ -22,6 +22,7 @@ namespace Network
       */
     QDataStream& operator>>(QDataStream &in, RequestDataMessage &m)
     {
+        Q_UNUSED(m)
         qint32 magicNumber;
         in >> magicNumber;
         //TODO: Verification

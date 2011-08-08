@@ -25,11 +25,11 @@ namespace Network
             /**
               * Envoie le message dans un QDataStream
               */
-            QDataStream& operator<<(QDataStream &out, const RequestDataMessage &m);
+            friend QDataStream& operator<<(QDataStream &out, const RequestDataMessage &m);
             /**
               * Recupère le message d'un QDataStream
               */
-            QDataStream& operator>>(QDataStream &in, RequestDataMessage &m);
+            friend QDataStream& operator>>(QDataStream &in, RequestDataMessage &m);
     };
 }
 #endif //NETWORK_REQUESTDATAMESSAGE_H
