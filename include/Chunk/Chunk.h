@@ -55,7 +55,7 @@ namespace Chunk
             /**
               * Constructeur
               */
-            Chunk(qint32 x, qint32 y, ChunkType type = SEA);
+            Chunk(qint32 x = 0, qint32 y = 0, ChunkType type = SEA);
             /**
               * Renvoie la position x du chunk
               */
