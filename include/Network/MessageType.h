@@ -32,8 +32,9 @@ namespace Network
         BUILD = 17,
         BUILD_ACCEPTED = 18,
         WORK = 19,
-        ENDTURN = 20,
-        NEWTURN = 21
+        WORK_ACCEPTED = 20,
+        ENDTURN = 21,
+        NEWTURN = 22
     };
 }
 #endif //NETWORK_MESSAGETYPE_H
