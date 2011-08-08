@@ -3,6 +3,12 @@
 #include <Network/AbstractMessage.h>
 namespace Network
 {
+    /**
+      * Message envoyé du serveur au client signalant que le déplacement
+      * d'une entité à réussi
+      * @brief Signale qu'un déplacement à réussi
+      * @author Sam101
+      */
     class MoveUnitAcceptedMessage : public AbstractMessage
     {
         public:
