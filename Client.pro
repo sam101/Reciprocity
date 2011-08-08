@@ -40,7 +40,8 @@ HEADERS += \
     include/Client/DataHandler.h \
     include/GUI/GameScene.h \
     include/Network/RequestDataMessage.h \
-    include/Network/ChunkDataMessage.h
+    include/Network/ChunkDataMessage.h \
+    include/Network/EntityDataMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -73,4 +74,5 @@ SOURCES += \
     src/Client/DataHandler.cpp \
     src/GUI/GameScene.cpp \
     src/Network/RequestDataMessage.cpp \
-    src/Network/ChunkDataMessage.cpp
+    src/Network/ChunkDataMessage.cpp \
+    src/Network/EntityDataMessage.cpp
