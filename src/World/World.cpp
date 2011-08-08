@@ -262,6 +262,21 @@ namespace World
         return _entities.at(id);
     }
     /**
+      * Passe au tour suivant:
+      *  - Remet le compteur de déplacement des entités à zéro
+      *  - Termine les actions des entités
+      */
+    void World::newTurn()
+    {
+        //On remet à zéro le compteur de déplacement
+        for (int i = 0; i < _entities.size(); i++)
+        {
+            _entities[i]->resetMove
+        }
+        //TODO
+    }
+
+    /**
       * Stocke un monde dans un QDataStream
       */
     QDataStream& operator<<(QDataStream &out, const World &w)

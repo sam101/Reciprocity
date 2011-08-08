@@ -102,6 +102,12 @@ namespace World
                   */
                 const Map::Entity* getEntity(qint32 id) const;
                 /**
+                  * Passe au tour suivant:
+                  *  - Remet le compteur de déplacement des entités à zéro
+                  *  - Termine les actions des entités
+                  */
+                void newTurn();
+                /**
                   * Stocke un monde dans un QDataStream
                   */
                 friend QDataStream& operator<<(QDataStream &out, const World &w);
