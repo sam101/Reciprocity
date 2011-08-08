@@ -41,7 +41,8 @@ SOURCES += \
     src/Network/GetServerDataMessage.cpp \
     src/Network/ErrorMessage.cpp \
     src/Network/BeginGameMessage.cpp \
-    src/Chunk/DesertLandChunkGenerator.cpp
+    src/Chunk/DesertLandChunkGenerator.cpp \
+    src/Network/RequestDataMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -79,4 +80,5 @@ HEADERS += \
     include/Network/GetServerDataMessage.h \
     include/Network/ErrorMessage.h \
     include/Network/BeginGameMessage.h \
-    include/Chunk/DesertLandChunkGenerator.h
+    include/Chunk/DesertLandChunkGenerator.h \
+    include/Network/RequestDataMessage.h
