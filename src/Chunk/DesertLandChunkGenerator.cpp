@@ -22,16 +22,59 @@ namespace Chunk
         /*
           * On genère une plage géante
           */
-        int xDeb, yDeb, xFin, yFin;
-        xDeb = Random::next(0,2);
-        yDeb = Random::next(0,2);
-        xFin = Random::next(Config::Config::CHUNK_SIZE - 2,Config::Config::CHUNK_SIZE);
-        yFin = Random::next(Config::Config::CHUNK_SIZE - 2,Config::Config::CHUNK_SIZE);
-        for (int i = xDeb; i <= xFin; i++)
+        int xStart, yStart, xEnd, yEnd;
+        xStart = Random::next(0,Config::Config::CHUNK_SIZE / 2);
+        yStart = Random::next(0,Config::Config::CHUNK_SIZE / 2);
+        xEnd = Random::next(Config::Config::CHUNK_SIZE - 2,Config::Config::CHUNK_SIZE);
+        yEnd = Random::next(Config::Config::CHUNK_SIZE - 2,Config::Config::CHUNK_SIZE);
+        for (int i = xStart; i <= xEnd; i++)
         {
-            for (int j = yDeb; j <= yFin; j++)
+            for (int j = yStart; j <= yEnd; j++)
             {
                 chunk->getTileAbs(i,j).setAsBeach();
+            }
+        }
+        //On creuse des trous dans la cote.
+        //Cote nord/sud
+        int yTopCoast = yStart;
+        int yBottomCoast = yEnd;
+        int n;
+        for (int i = xStart; i <= xEnd; i++)
+        {
+            yTopCoast += Random::next(-2,2);
+            if (yTopCoast < 0) yTopCoast = 0;
+            if (yTopCoast >= Config::Config::CHUNK_SIZE) yTopCoast = Config::Config::CHUNK_SIZE - 1;
+            yBottomCoast += Random::next(-2,2);
+            if (yBottomCoast < 0) yBottomCoast = 0;
+            if (yBottomCoast >= Config::Config::CHUNK_SIZE) yBottomCoast = Config::Config::CHUNK_SIZE - 1;
+
+            for (int j = yBottomCoast; j < Config::Config::CHUNK_SIZE; j++)
+            {
+                chunk->getTileAbs(i,j).setAsSea();
+            }
+            for (int j = 0; j <= yTopCoast; j++)
+            {
+                chunk->getTileAbs(i,j).setAsSea();
+            }
+        }
+        //Cote ouest/est
+        int xLeftCoast = xStart;
+        int xRightCoast = yEnd;
+        for (int i = yStart; i <= yEnd; i++)
+        {
+            xLeftCoast += Random::next(-2,2);
+            xRightCoast += Random::next(-2,2);
+            if (xLeftCoast <= 0) xLeftCoast = 0;
+            else if (xLeftCoast >= Config::Config::CHUNK_SIZE) xLeftCoast = Config::Config::CHUNK_SIZE - 1;
+            if (xRightCoast <= 0) xRightCoast = 0;
+            else if (xRightCoast >= Config::Config::CHUNK_SIZE) xRightCoast = Config::Config::CHUNK_SIZE - 1;
+            for (int j = xRightCoast; j < Config::Config::CHUNK_SIZE; j++)
+            {
+                chunk->getTileAbs(j,i).setAsSea();
+            }
+            for (int j = 0; j <= xLeftCoast; j++)
+            {
+                chunk->getTileAbs(j,i).setAsSea();
             }
         }
     }

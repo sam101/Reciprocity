@@ -116,6 +116,15 @@ namespace Game
         return false;
     }
     /**
+      * Commence un nouveau tour
+      */
+    void Game::newTurn()
+    {
+        //On propage la demande de nouveau tour dans le monde.
+        _world->newTurn();
+    }
+
+    /**
       * Renvoie si le joueur peut être administrateur
       */
     bool Game::canBeAdmin(QString login, QString hash)
