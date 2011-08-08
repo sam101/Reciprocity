@@ -32,6 +32,14 @@ namespace Network
               */
             ChunkDataMessage(const Chunk::Chunk &chunk);
             /**
+              * Renvoie le chunk
+              */
+            Chunk::Chunk& getChunk();
+            /**
+              * Renvoie le chunk, surchargé constant
+              */
+            const Chunk::Chunk& getChunk() const;
+            /**
               * Envoie le message dans un QDataStream
               */
             friend QDataStream& operator<<(QDataStream &out, const ChunkDataMessage &m);

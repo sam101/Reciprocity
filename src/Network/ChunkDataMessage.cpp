@@ -19,6 +19,20 @@ namespace Network
 
     }
     /**
+      * Renvoie le chunk
+      */
+    Chunk::Chunk& ChunkDataMessage::getChunk()
+    {
+        return _chunk;
+    }
+    /**
+      * Renvoie le chunk, surchargé constant
+      */
+    const Chunk::Chunk& ChunkDataMessage::getChunk() const
+    {
+        return _chunk;
+    }
+    /**
       * Envoie le message dans un QDataStream
       */
     QDataStream& operator<<(QDataStream &out, const ChunkDataMessage &m)
