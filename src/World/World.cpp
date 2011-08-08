@@ -271,7 +271,7 @@ namespace World
         //On remet à zéro le compteur de déplacement
         for (int i = 0; i < _entities.size(); i++)
         {
-            _entities[i]->resetMove
+            _entities[i]->resetMove();
         }
         //TODO
     }
