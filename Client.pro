@@ -39,7 +39,8 @@ HEADERS += \
     include/Graphics/BuildingChunkItem.h \
     include/Client/DataHandler.h \
     include/GUI/GameScene.h \
-    include/Network/RequestDataMessage.h
+    include/Network/RequestDataMessage.h \
+    include/Network/ChunkDataMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -71,4 +72,5 @@ SOURCES += \
     src/Graphics/BuildingChunkItem.cpp \
     src/Client/DataHandler.cpp \
     src/GUI/GameScene.cpp \
-    src/Network/RequestDataMessage.cpp
+    src/Network/RequestDataMessage.cpp \
+    src/Network/ChunkDataMessage.cpp
