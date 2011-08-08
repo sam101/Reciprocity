@@ -38,7 +38,15 @@ HEADERS += \
     include/GUI/GameWindow.h \
     include/Graphics/BuildingChunkItem.h \
     include/Client/DataHandler.h \
-    include/GUI/GameScene.h
+    include/GUI/GameScene.h \
+    include/Network/RequestDataMessage.h \
+    include/Network/ChunkDataMessage.h \
+    include/Network/EntityDataMessage.h \
+    include/Network/MoveUnitMessage.h \
+    include/Network/MoveUnitAcceptedMessage.h \
+    include/Network/MoveUnitAcceptedMessage.h \
+    include/Network/KickPlayerMessage.h \
+    include/Network/KickMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -69,4 +77,11 @@ SOURCES += \
     src/GUI/GameWindow.cpp \
     src/Graphics/BuildingChunkItem.cpp \
     src/Client/DataHandler.cpp \
-    src/GUI/GameScene.cpp
+    src/GUI/GameScene.cpp \
+    src/Network/RequestDataMessage.cpp \
+    src/Network/ChunkDataMessage.cpp \
+    src/Network/EntityDataMessage.cpp \
+    src/Network/MoveUnitMessage.cpp \
+    src/Network/MoveUnitAcceptedMessage.cpp \
+    src/Network/KickPlayerMessage.cpp \
+    src/Network/KickMessage.cpp

@@ -41,7 +41,14 @@ SOURCES += \
     src/Network/GetServerDataMessage.cpp \
     src/Network/ErrorMessage.cpp \
     src/Network/BeginGameMessage.cpp \
-    src/Chunk/DesertLandChunkGenerator.cpp
+    src/Chunk/DesertLandChunkGenerator.cpp \
+    src/Network/RequestDataMessage.cpp \
+    src/Network/ChunkDataMessage.cpp \
+    src/Network/EntityDataMessage.cpp \
+    src/Network/MoveUnitMessage.cpp \
+    src/Network/MoveUnitAcceptedMessage.cpp \
+    src/Network/KickPlayerMessage.cpp \
+    src/Network/KickMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -79,4 +86,12 @@ HEADERS += \
     include/Network/GetServerDataMessage.h \
     include/Network/ErrorMessage.h \
     include/Network/BeginGameMessage.h \
-    include/Chunk/DesertLandChunkGenerator.h
+    include/Chunk/DesertLandChunkGenerator.h \
+    include/Network/RequestDataMessage.h \
+    include/Network/ChunkDataMessage.h \
+    include/Network/EntityDataMessage.h \
+    include/Network/MoveUnitMessage.h \
+    include/Network/MoveUnitAcceptedMessage.h \
+    include/Network/MoveUnitAcceptedMessage.h \
+    include/Network/KickPlayerMessage.h \
+    include/Network/KickMessage.h

@@ -1,4 +1,4 @@
-#ifndef GAME_GAME_H
+    #ifndef GAME_GAME_H
 #define GAME_GAME_H
 #include <QtCore/QObject>
 #include <QtCore/QString>
@@ -72,6 +72,10 @@ namespace Game
               * @return Vrai si réussi, faux si raté.
               */
             bool moveEntity(qint32 id, qint32 x, qint32 y, qint32 applicant);
+            /**
+              * Commence un nouveau tour
+              */
+            void newTurn();
         protected:
             /**
               * Renvoie si le joueur peut être administrateur

@@ -119,9 +119,18 @@ namespace Game
       * Déplace une entité.
       * @return Vrai si réussi, faux si raté.
       */
-    void Game::moveEntity(qint32 id, qint32 x, qint32 y, qint32 applicant)
+    bool Game::moveEntity(qint32 id, qint32 x, qint32 y, qint32 applicant)
     {
         //TODO
+        return false;
+    }
+    /**
+      * Commence un nouveau tour
+      */
+    void Game::newTurn()
+    {
+        //On propage la demande de nouveau tour dans le monde.
+        _world->newTurn();
     }
 
     /**
