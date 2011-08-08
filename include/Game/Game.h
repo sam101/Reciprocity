@@ -67,6 +67,11 @@ namespace Game
               * Renvoie true si l'opération à réussi.
               */
             bool playerBack(QString login, QString hash);
+            /**
+              * Déplace une entité.
+              * @return Vrai si réussi, faux si raté.
+              */
+            bool moveEntity(qint32 id, qint32 x, qint32 y, qint32 applicant);
         protected:
             /**
               * Renvoie si le joueur peut être administrateur

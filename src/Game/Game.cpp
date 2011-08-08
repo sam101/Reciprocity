@@ -116,6 +116,15 @@ namespace Game
         return false;
     }
     /**
+      * Déplace une entité.
+      * @return Vrai si réussi, faux si raté.
+      */
+    void Game::moveEntity(qint32 id, qint32 x, qint32 y, qint32 applicant)
+    {
+        //TODO
+    }
+
+    /**
       * Renvoie si le joueur peut être administrateur
       */
     bool Game::canBeAdmin(QString login, QString hash)
