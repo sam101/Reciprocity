@@ -251,6 +251,10 @@ namespace World
       */
     Map::Entity* World::getEntity(qint32 id)
     {
+        if (id < 0 || id >= _entities.size())
+        {
+            return NULL;
+        }
         return _entities[id];
     }
     /**
@@ -259,6 +263,10 @@ namespace World
       */
     const Map::Entity* World::getEntity(qint32 id) const
     {
+        if (id < 0 || id >= _entities.size())
+        {
+            return NULL;
+        }
         return _entities.at(id);
     }
     /**

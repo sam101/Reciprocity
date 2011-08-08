@@ -121,8 +121,25 @@ namespace Game
       */
     bool Game::moveEntity(qint32 id, qint32 x, qint32 y, qint32 applicant)
     {
-        //TODO
-        return false;
+        //TODO: Vérifier qu'on finit pas dans un obstacle
+        //On vérifie que l'entité existe
+        if (_world->getEntity(id) == NULL)
+        {
+            return false;
+        }
+        //On vérifie que le joueur n'a pas demandé trop de déplacement
+        if ((x + y) > Config::Config::ENTITY_MOVE)
+        {
+            return false;
+        }
+        //On vérifie le propriétaire
+        if (applicant != _world->getEntity(id)->getOwner())
+        {
+            return false;
+        }
+        //On déplace l'entité.
+        _world->moveEntity(id,x,y);
+        return true;
     }
     /**
       * Commence un nouveau tour
