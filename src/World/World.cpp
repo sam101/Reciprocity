@@ -242,6 +242,8 @@ namespace World
         }
         //On change la position de l'entité
         _entities[id]->move(x,y);
+        //On indique que l'entité s'est déplacée.
+        _entities[id]->setHasMoved();
     }
 
     /**
