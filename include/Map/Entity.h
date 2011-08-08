@@ -156,6 +156,14 @@ namespace Map
               */
             void age();
             /**
+              * Indique que l'unité a été déplacée
+              */
+            void setHasMoved(bool hasMoved = true);
+            /**
+              * Remet à zéro le fait que l'unité a été déplacée
+              */
+            void resetMove();
+            /**
               * Ajoute une ressource à l'entité
               */
             void addResource(qint32 id, qint32 value);

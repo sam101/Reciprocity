@@ -159,6 +159,20 @@ namespace Map
         _age++;
     }
     /**
+      * Indique que l'unité a été déplacée
+      */
+    void Entity::setHasMoved(bool hasMoved)
+    {
+        _hasMoved = hasMoved;
+    }
+    /**
+      * Remet à zéro le fait que l'unité a été déplacée
+      */
+    void Entity::resetMove()
+    {
+        _hasMoved =  false;
+    }
+    /**
       * Ajoute une ressource à l'entité
       */
     void Entity::addResource(qint32 id, qint32 value)
