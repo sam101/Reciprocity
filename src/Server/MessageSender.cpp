@@ -219,5 +219,10 @@ namespace Server
             sendChunkData(socket,it.next());
         }
         //On envoie toutes les entités.
+        QList<Map::Entity*> e = _game->getPlayerEntities(_clients[socket]->getPlayer());
+        for (int i = 0; i < e.size(); i++)
+        {
+            sendEntityData(socket,e[i]);
+        }
     }
 }

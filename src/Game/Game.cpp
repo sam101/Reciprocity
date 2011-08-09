@@ -149,7 +149,7 @@ namespace Game
     /**
       * Renvoie les entités d'un joueur
       */
-    QList<Map::Entity*> Game::getEntities(Player *player)
+    QList<Map::Entity*> Game::getPlayerEntities(Player *player)
     {
         //TODO: Ajouter un cache
         QList<Map::Entity*> l;

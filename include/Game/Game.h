@@ -78,7 +78,7 @@ namespace Game
             /**
               * Renvoie les entités d'un joueur
               */
-            QList<Map::Entity*> getEntities(Player *player);
+            QList<Map::Entity*> getPlayerEntities(Player *player);
             /**
               * Déplace une entité.
               * @return Vrai si réussi, faux si raté.
