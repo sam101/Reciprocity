@@ -104,6 +104,10 @@ namespace Client
               */
             void sendChatMessage(QString contents);
             /**
+              * Envoie une demande de données au serveur
+              */
+            void sendRequestData();
+            /**
               * Appelé quand le client reçoit un message du socket
               */
             void messageRecevied();
