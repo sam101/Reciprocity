@@ -27,7 +27,7 @@ namespace Client
             _chunks.remove(Coordinate(chunk->getX(),chunk->getY()));
         }
         //On ajoute le chunk.
-        _chunks[Coordinate(chunk->getX(),chunk->getY())] = chunk;
+        _chunks[Coordinate(chunk->getX(),chunk->getY())] = new Chunk::Chunk(*chunk);
     }
     /**
       * Renvoie un chunk
@@ -45,7 +45,7 @@ namespace Client
         {
             delete _entities[entity->getId()];
         }
-        _entities[entity->getId()] = entity;
+        _entities[entity->getId()] = new Map::Entity(*entity);
     }
     /**
       * Renvoie une entité
