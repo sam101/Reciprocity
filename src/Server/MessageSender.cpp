@@ -209,7 +209,8 @@ namespace Server
       */
     void MessageSender::sendPlayerData(QTcpSocket *socket)
     {
-        //On recupère la liste des
+        //On recupère la liste des chunk sur lesquels le joueur à des entités.
+        QSet<Chunk::Chunk*> chunks = _game->getPlayerChunks(_clients[socket]->getPlayer());
         //TODO
     }
 }

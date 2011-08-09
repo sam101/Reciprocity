@@ -68,6 +68,10 @@ namespace Game
               */
             bool playerBack(QString login, QString hash);
             /**
+              * Renvoie les chunks sur lequel le joueur est présent
+              */
+            QSet<Chunk::Chunk*> getPlayerChunks(Player *player);
+            /**
               * Déplace une entité.
               * @return Vrai si réussi, faux si raté.
               */

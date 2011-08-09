@@ -116,6 +116,19 @@ namespace Game
         return false;
     }
     /**
+      * Renvoie les chunks sur lequel le joueur est présent
+      */
+    QSet<Chunk::Chunk*> Game::getPlayerChunks(Player *player)
+    {
+        QSet<Chunk::Chunk*> c;
+        //TODO: Faire un cache.
+
+        //TODO
+
+        return c;
+    }
+
+    /**
       * Déplace une entité.
       * @return Vrai si réussi, faux si raté.
       */

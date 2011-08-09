@@ -87,6 +87,7 @@ namespace Game
               */
             void resetLastTime();
 
+
     };
 }
 #endif //GAME_PLAYER_H
