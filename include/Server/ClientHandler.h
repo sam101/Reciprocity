@@ -50,6 +50,11 @@ namespace Server
               * Deconnecte un client (pour message incorrect)
               */
             void kickIncorrectClient(QTcpSocket*);
+            /**
+              * Deconnecte un client kické
+              */
+            void kickPlayer(QString login);
+
     };
 }
 #endif //SERVER_CLIENTHANDLER_H

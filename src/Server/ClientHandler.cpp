@@ -77,4 +77,22 @@ namespace Server
         //On indique que le client s'est déconnecté
         _clients[socket]->setOffline();
     }
+    /**
+      * Deconnecte un client kické
+      */
+    void ClientHandler::kickPlayer(QString login)
+    {
+        //On itère dans la liste des clients
+        QMapIterator<QTcpSocket*, Client*> it(_clients);
+        while (it.hasNext())
+        {
+            Client *c = it.next().value();
+            if (c->getLogin() == login)
+            {
+                c->setOffline();
+                c->getSocket()->close();
+                return;
+            }
+        }
+    }
 }

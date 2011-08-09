@@ -26,6 +26,7 @@ namespace Server
         connect(_messageHandler,SIGNAL(sendGameHasBegunToAll()),_messageSender,SLOT(sendGameHasBegunToAll()));
         connect(_messageHandler,SIGNAL(sendServerData(QTcpSocket*)),_messageSender,SLOT(sendPlayerData(QTcpSocket*)));
         connect(_messageHandler,SIGNAL(sendKickMessage(QString)),_messageSender,SLOT(sendKickMessage(QString)));
+        connect(_messageHandler,SIGNAL(kickPlayer(QString)),_clientHandler,SLOT(kickPlayer(QString)));
     }
 
     /**
