@@ -2,6 +2,7 @@
 #include <Network/BeginGameMessage.h>
 #include <Network/AbstractMessage.h>
 #include <Network/GetServerDataMessage.h>
+#include <Network/KickPlayerMessage.h>
 #include <Network/LoginMessage.h>
 #include <Network/MessageOutMessage.h>
 #include <Network/RequestDataMessage.h>
@@ -99,7 +100,11 @@ namespace Server
             break;
             //Demande d'envoi de données
             case Network::REQUEST_DATA:
-
+                handleRequestData(socket,in);
+            break;
+            //Kick d'un joueur.
+            case Network::KICK_PLAYER:
+                handleKickPlayer(socket,in);
             break;
             default:
                 //On lit les données pour les effacer
@@ -233,5 +238,31 @@ namespace Server
         in >> m;
         //On envoie le signal comme quoi le joueur a demandé les données auqueles il a accès.
         emit sendPlayerData(socket);
+    }
+    /**
+      * Gère la reception d'une demande de kick de joueur
+      */
+    void MessageHandler::handleKickPlayer(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::KickPlayerMessage m;
+        in >> m;
+        //On vérifie que le demandeur est bien administrateur
+        if (_clients[socket]->getPlayer() == NULL)
+        {
+            return;
+        }
+        if (!_clients[socket]->getPlayer()->isAdmin())
+        {
+            emit errorHappened(socket,tr("Demande refusée"));
+        }
+        //On vérifie que le joueur existe
+        if (_game->findPlayer(m.getLogin()) == NULL)
+        {
+            emit errorHappened(socket,tr("Joueur introuvable"));
+            return;
+        }
+        //On envoie le signal comme quoi le joueur a été kické
+        emit sendKickMessage(m.getLogin());
     }
 }

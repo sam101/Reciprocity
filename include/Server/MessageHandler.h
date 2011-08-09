@@ -65,6 +65,10 @@ namespace Server
               * Gère la reception d'une demande d'envoi de données
               */
             void handleRequestData(QTcpSocket *socket, QDataStream &in);
+            /**
+              * Gère la reception d'une demande de kick de joueur
+              */
+            void handleKickPlayer(QTcpSocket *socket, QDataStream &in);
         signals:
             /**
               * Emis quand une erreur est survenue
@@ -103,6 +107,10 @@ namespace Server
               * Emit quand le joueur a demandé ses données
               */
             void sendPlayerData(QTcpSocket *socket);
+            /**
+              * Emit quand un joueur a été kické
+              */
+            void sendKickMessage(QString login);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H
