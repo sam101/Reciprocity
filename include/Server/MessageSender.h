@@ -75,6 +75,10 @@ namespace Server
               * voir ainsi que sur ses entités
               */
             void sendPlayerData(QTcpSocket *socket);
+            /**
+              * Envoie une information comme quoi un joueur a été kické
+              */
+            void sendKickMessage(QString login);
     };
 }
 #endif //SERVER_MESSAGESENDER_H

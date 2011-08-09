@@ -225,4 +225,11 @@ namespace Server
             sendEntityData(socket,e[i]);
         }
     }
+    /**
+      * Envoie une information comme quoi un joueur a été kické
+      */
+    void MessageSender::sendKickMessage(QString login)
+    {
+        //TODO
+    }
 }

@@ -263,6 +263,7 @@ namespace Server
             return;
         }
         //On envoie le signal comme quoi le joueur a été kické
+        emit kickPlayer(m.getLogin());
         emit sendKickMessage(m.getLogin());
     }
 }

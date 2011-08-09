@@ -108,6 +108,11 @@ namespace Server
               */
             void sendPlayerData(QTcpSocket *socket);
             /**
+              * Emit quand un joueur a été kické.
+              * Utilisé par ClientHandler
+              */
+            void kickPlayer(QString login);
+            /**
               * Emit quand un joueur a été kické
               */
             void sendKickMessage(QString login);
