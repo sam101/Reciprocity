@@ -76,6 +76,10 @@ namespace Game
               */
             QSet<Chunk::Chunk*> getPlayerChunks(Player *player);
             /**
+              * Renvoie les entités d'un joueur
+              */
+            QList<Map::Entity*> getEntities(Player *player);
+            /**
               * Déplace une entité.
               * @return Vrai si réussi, faux si raté.
               */

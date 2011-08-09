@@ -144,8 +144,20 @@ namespace Game
             entity = _world->getEntity(player->getEntities()[i]);
             c << _world->getChunk(entity->getX(),entity->getY());
         }
-
         return c;
+    }
+    /**
+      * Renvoie les entités d'un joueur
+      */
+    QList<Map::Entity*> Game::getEntities(Player *player)
+    {
+        //TODO: Ajouter un cache
+        QList<Map::Entity*> l;
+        for (qint32 i = 0; i < player->getEntities().size(); i++)
+        {
+            l << _world->getEntity(player->getEntities()[i]);
+        }
+        return l;
     }
 
     /**

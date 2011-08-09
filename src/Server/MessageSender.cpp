@@ -211,6 +211,13 @@ namespace Server
     {
         //On recupère la liste des chunk sur lesquels le joueur à des entités.
         QSet<Chunk::Chunk*> chunks = _game->getPlayerChunks(_clients[socket]->getPlayer());
-        //TODO
+        //On itère pour recupérer tout les chunks.
+        QSetIterator<Chunk::Chunk*> it(chunks);
+
+        while (it.hasNext())
+        {
+            sendChunkData(socket,it.next());
+        }
+        //On envoie toutes les entités.
     }
 }
