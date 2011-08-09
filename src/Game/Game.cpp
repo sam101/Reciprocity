@@ -138,10 +138,11 @@ namespace Game
     {
         QSet<Chunk::Chunk*> c;
         //TODO: Faire un cache.
-
+        Map::Entity *entity;
         for (int i = 0; i < player->getEntities().size(); i++)
         {
-
+            entity = _world->getEntity(player->getEntities()[i]);
+            c << _world->getChunk(entity->getX(),entity->getY());
         }
 
         return c;
