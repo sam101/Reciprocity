@@ -1,4 +1,5 @@
 #include <Server/MessageSender.h>
+#include <Network/ChunkDataMessage.h>
 #include <Network/GameHasBegunMessage.h>
 #include <Network/LoginFailedMessage.h>
 #include <Network/LoginSuccessMessage.h>
@@ -164,5 +165,23 @@ namespace Server
             Client *c = it.next().value();
             sendGameHasBegun(c->getSocket());
         }
+    }
+    /**
+      * Envoie les informations sur un chunk
+      */
+    void MessageSender::sendChunkData(QTcpSocket *socket, Chunk::Chunk *chunk)
+    {
+        //On construit le message
+        Network::ChunkDataMessage m(*chunk);
+        //On construit le byteArray dans lequel le mettre
+        QByteArray b;
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in << (qint32)0;
+        in << (qint32)Network::CHUNKDATA;
+        in << m;
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On l'envoie
+        socket->write(b);
     }
 }

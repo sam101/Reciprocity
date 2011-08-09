@@ -62,6 +62,10 @@ namespace Server
               * Envoie le message de début de partie à tout les clients
               */
             void sendGameHasBegunToAll();
+            /**
+              * Envoie les informations sur un chunk
+              */
+            void sendChunkData(QTcpSocket *socket, Chunk::Chunk *chunk);
     };
 }
 #endif //SERVER_MESSAGESENDER_H
