@@ -203,4 +203,13 @@ namespace Server
         //On l'envoie
         socket->write(b);
     }
+    /**
+      * Envoie les informations à un joueur sur les chunk qu'il peut
+      * voir ainsi que sur ses entités
+      */
+    void MessageSender::sendPlayerData(QTcpSocket *socket)
+    {
+        //On recupère la liste des
+        //TODO
+    }
 }
