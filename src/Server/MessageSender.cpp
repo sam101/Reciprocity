@@ -2,6 +2,7 @@
 #include <Network/ChunkDataMessage.h>
 #include <Network/EntityDataMessage.h>
 #include <Network/GameHasBegunMessage.h>
+#include <Network/KickMessage.h>
 #include <Network/LoginFailedMessage.h>
 #include <Network/LoginSuccessMessage.h>
 #include <Network/MessageInMessage.h>
@@ -230,6 +231,26 @@ namespace Server
       */
     void MessageSender::sendKickMessage(QString login)
     {
-        //TODO
+        //On construit le message
+        Network::KickMessage m(login);
+        //On construit le byteArray dans lequel le mettre
+        QByteArray b;
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in << (qint32)0;
+        in << (qint32)Network::KICK;
+        in << m;
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On l'envoie à tout les clients
+        QMutableMapIterator<QTcpSocket*, Client*> it(_clients);
+        while (it.hasNext())
+        {
+            Client *c = it.next().value();
+            if (c->isOnline())
+            {
+                c->getSocket()->write(b);
+            }
+        }
+
     }
 }
