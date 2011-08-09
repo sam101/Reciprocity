@@ -87,7 +87,7 @@ namespace World
                 /**
                   * Ajoute une entité et renvoie son id.
                   */
-                qint32 addEntity(Map::Entity entity, qint32 x, qint32 y);
+                qint32 addEntity(const Map::Entity &entity, qint32 x, qint32 y);
                 /**
                   * Déplace une entité
                   */

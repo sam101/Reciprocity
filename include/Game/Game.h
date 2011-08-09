@@ -51,6 +51,10 @@ namespace Game
               */
             bool hasBegun() const;
             /**
+              * Ajoute une entité à la partie
+              */
+            void addEntity(const Map::Entity &entity, qint32 x, qint32 y);
+            /**
               * Ajoute un joueur à la partie
               */
             Player* addPlayer(QString login, QString hash);

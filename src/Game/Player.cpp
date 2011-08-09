@@ -84,4 +84,15 @@ namespace Game
     {
         _lastTime = QDateTime::currentMSecsSinceEpoch();
     }
+    /**
+      * Ajoute une entité au joueur
+      */
+    void Player::addEntity(const Map::Entity &entity)
+    {
+        if (!_entities.contains(entity.getId()))
+        {
+            _entities.append(entity.getId());
+        }
+    }
+
 }

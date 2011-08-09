@@ -52,6 +52,22 @@ namespace Game
         return _hasBegun;
     }
     /**
+      * Ajoute une entité à la partie
+      */
+    void Game::addEntity(const Map::Entity &entity, qint32 x, qint32 y)
+    {
+        //On l'ajoute au monde
+        _world->addEntity(entity,x,y);
+        //On l'ajoute au joueur
+        if (entity.getOwner() < 0 || entity.getOwner() >= _players.size() )
+        {
+            return;
+        }
+        _players[entity.getOwner()]->addEntity(entity);
+
+    }
+
+    /**
       * Ajoute un joueur à la partie
       */
     Player* Game::addPlayer(QString login, QString hash)
@@ -210,7 +226,7 @@ namespace Game
             entity.addResource(Map::FOOD,Config::Config::FOOD_ENTITY);
             entity.addResource(Map::WOOD,Config::Config::WOOD_ENTITY);
             //On l'ajoute au monde
-            _world->addEntity(entity,xEntity,yEntity);
+            addEntity(entity,xEntity,yEntity);
         }
     }
 }

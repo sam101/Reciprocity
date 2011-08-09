@@ -86,6 +86,10 @@ namespace Game
               * Met à jour le lastTime du Joueur.
               */
             void resetLastTime();
+            /**
+              * Ajoute une entité au joueur
+              */
+            void addEntity(const Map::Entity &entity);
 
 
     };
