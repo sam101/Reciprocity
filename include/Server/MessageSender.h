@@ -66,6 +66,10 @@ namespace Server
               * Envoie les informations sur un chunk
               */
             void sendChunkData(QTcpSocket *socket, Chunk::Chunk *chunk);
+            /**
+              * Envoie les informations sur une entité
+              */
+            void sendEntityData(QTcpSocket *socket, Map::Entity *entity);
     };
 }
 #endif //SERVER_MESSAGESENDER_H

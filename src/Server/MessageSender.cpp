@@ -1,5 +1,6 @@
 #include <Server/MessageSender.h>
 #include <Network/ChunkDataMessage.h>
+#include <Network/EntityDataMessage.h>
 #include <Network/GameHasBegunMessage.h>
 #include <Network/LoginFailedMessage.h>
 #include <Network/LoginSuccessMessage.h>
@@ -178,6 +179,24 @@ namespace Server
         QDataStream in(&b,QIODevice::WriteOnly);
         in << (qint32)0;
         in << (qint32)Network::CHUNKDATA;
+        in << m;
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On l'envoie
+        socket->write(b);
+    }
+    /**
+      * Envoie les informations sur une entité
+      */
+    void MessageSender::sendEntityData(QTcpSocket *socket, Map::Entity *entity)
+    {
+        //On construit le message
+        Network::EntityDataMessage m(*entity);
+        //On construit le byteArray dans lequel le mettre
+        QByteArray b;
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in << (qint32)0;
+        in << (qint32)Network::ENTITYDATA;
         in << m;
         in.device()->seek(0);
         in << (qint32)(b.size() - sizeof(qint32));
