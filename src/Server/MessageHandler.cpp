@@ -4,6 +4,7 @@
 #include <Network/GetServerDataMessage.h>
 #include <Network/LoginMessage.h>
 #include <Network/MessageOutMessage.h>
+#include <Network/RequestDataMessage.h>
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
@@ -95,6 +96,10 @@ namespace Server
             //Si on a reçu une demmande de début de partie
             case Network::BEGIN_GAME:
                 handleBeginGame(socket,in);
+            break;
+            //Demande d'envoi de données
+            case Network::REQUEST_DATA:
+
             break;
             default:
                 //On lit les données pour les effacer
@@ -217,5 +222,16 @@ namespace Server
             return;
         }
         emit sendGameHasBegunToAll();
+    }
+    /**
+      * Gère la reception d'une demande d'envoi de données
+      */
+    void MessageHandler::handleRequestData(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::RequestDataMessage m;
+        in >> m;
+        //On envoie le signal comme quoi le joueur a demandé les données auqueles il a accès.
+        emit sendPlayerData(socket);
     }
 }

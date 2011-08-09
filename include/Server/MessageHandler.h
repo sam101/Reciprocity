@@ -61,7 +61,11 @@ namespace Server
               * Gère la reception du message de demmande de début de partie
               */
             void handleBeginGame(QTcpSocket *socket, QDataStream &in);
-            signals:
+            /**
+              * Gère la reception d'une demande d'envoi de données
+              */
+            void handleRequestData(QTcpSocket *socket, QDataStream &in);
+        signals:
             /**
               * Emis quand une erreur est survenue
               */
@@ -95,6 +99,10 @@ namespace Server
               * Emit quand la partie va commencer à tout les joueurs.
               */
             void sendGameHasBegunToAll();
+            /**
+              * Emit quand le joueur a demandé ses données
+              */
+            void sendPlayerData(QTcpSocket *socket);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H
