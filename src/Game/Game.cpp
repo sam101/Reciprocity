@@ -139,7 +139,10 @@ namespace Game
         QSet<Chunk::Chunk*> c;
         //TODO: Faire un cache.
 
-        //TODO
+        for (int i = 0; i < player->getEntities().size(); i++)
+        {
+
+        }
 
         return c;
     }

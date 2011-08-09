@@ -43,6 +43,21 @@ namespace Game
         return _lastTime;
     }
     /**
+      * Renvoie les entités du joueur
+      */
+    QList<qint32>& Player::getEntities()
+    {
+        return _entities;
+    }
+    /**
+      * Renvoie les entités du joueur.
+      * Surchargé constant
+      */
+    const QList<qint32>& Player::getEntities() const
+    {
+        return _entities;
+    }
+    /**
       * Renvoie si le joueur est connecté
       */
     bool Player::isOnline() const

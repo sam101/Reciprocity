@@ -63,6 +63,15 @@ namespace Game
               */
             qint64 getLastTime() const;
             /**
+              * Renvoie les entités du joueur
+              */
+            QList<qint32>& getEntities();
+            /**
+              * Renvoie les entités du joueur.
+              * Surchargé constant
+              */
+            const QList<qint32>& getEntities() const;
+            /**
               * Renvoie si le joueur est connecté
               */
             bool isOnline() const;
