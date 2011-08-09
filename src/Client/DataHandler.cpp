@@ -13,7 +13,18 @@ namespace Client
       */
     DataHandler::~DataHandler()
     {
-        //TODO: Detruire tout les chunk et toutes les entités.
+        //On détruit tout les chunks
+        QMapIterator<Coordinate, Chunk::Chunk*> it(_chunks);
+        while (it.hasNext())
+        {
+            delete it.next().value();
+        }
+        //On détruit toutes les entités
+        QMapIterator<qint32, Map::Entity*> itE(_entities);
+        while (itE.hasNext())
+        {
+            delete itE.next().value();
+        }
     }
     /**
       * Ajoute/Met à jour un chunk
