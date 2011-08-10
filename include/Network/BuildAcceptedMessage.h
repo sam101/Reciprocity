@@ -1,5 +1,6 @@
 #ifndef NETWORK_BUILDACCEPTEDMESSAGE_H
 #define NETWORK_BUILDACCEPTEDMESSAGE_H
+#include <Network/AbstractMessage.h>
 namespace Network
 {
     /**
