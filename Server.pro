@@ -48,7 +48,8 @@ SOURCES += \
     src/Network/MoveUnitMessage.cpp \
     src/Network/MoveUnitAcceptedMessage.cpp \
     src/Network/KickPlayerMessage.cpp \
-    src/Network/KickMessage.cpp
+    src/Network/KickMessage.cpp \
+    src/Network/BuildMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -94,4 +95,5 @@ HEADERS += \
     include/Network/MoveUnitAcceptedMessage.h \
     include/Network/MoveUnitAcceptedMessage.h \
     include/Network/KickPlayerMessage.h \
-    include/Network/KickMessage.h
+    include/Network/KickMessage.h \
+    include/Network/BuildMessage.h
