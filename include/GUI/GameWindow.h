@@ -3,6 +3,7 @@
 #include <QtGui/QGraphicsView>
 #include <QtGui/QMainWindow>
 
+#include <GUI/ChatDockWidget.h>
 #include <GUI/GameScene.h>
 
 #include <Client/Client.h>
@@ -35,9 +36,9 @@ namespace GUI
               */
             GameScene *_scene;
             /**
-              * Indique si la caméra a déjà été mise à jour
+              * Pointeur vers le ChatDock
               */
-            bool _camera;
+            ChatDockWidget *_chatDock;
         public:
             /**
               * Constructeur

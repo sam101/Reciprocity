@@ -49,7 +49,7 @@ namespace GUI
             QListView *_playerView;
 
             /**
-              * Pointeur vers l'objet de Client
+              * Pointeur vers l'objet Client
               */
             Client::Client *_client;
         public:

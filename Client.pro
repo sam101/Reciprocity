@@ -48,7 +48,8 @@ HEADERS += \
     include/Network/KickPlayerMessage.h \
     include/Network/KickMessage.h \
     include/Network/BuildMessage.h \
-    include/Network/BuildAcceptedMessage.h
+    include/Network/BuildAcceptedMessage.h \
+    include/GUI/ChatDockWidget.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -88,4 +89,5 @@ SOURCES += \
     src/Network/KickPlayerMessage.cpp \
     src/Network/KickMessage.cpp \
     src/Network/BuildMessage.cpp \
-    src/Network/BuildAcceptedMessage.cpp
+    src/Network/BuildAcceptedMessage.cpp \
+    src/GUI/ChatDockWidget.cpp
