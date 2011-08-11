@@ -158,7 +158,7 @@ namespace Map
         out << Tile::TILE_MAGICNUMBER;
         out << Tile::TILE_VERSION;
         out << t._flags;
-        out << t._type;
+        out << (qint32)t._type;
         out << t._output;
         out << t._x;
         out << t._y;
@@ -182,7 +182,7 @@ namespace Map
         Q_ASSERT(version == Tile::TILE_VERSION);
         //On recupère les données
         in >> t._flags;
-        in >> t._type;
+        in >> (qint32&)t._type;
         in >> t._output;
         in >> t._x;
         in >> t._y;
