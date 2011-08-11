@@ -188,7 +188,9 @@ namespace Server
         in.device()->seek(0);
         in << (qint32)(b.size() - sizeof(qint32));
         //On l'envoie
+        qDebug() << "Taille du message:" << b.size() - sizeof(qint32);
         socket->write(b);
+        socket->flush();
     }
     /**
       * Envoie les informations sur une entité

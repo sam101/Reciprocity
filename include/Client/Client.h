@@ -133,7 +133,10 @@ namespace Client
               * Gère la réception d'un message de début de partie
               */
             void handleGameHasBegun(QDataStream &in);
-
+            /**
+              * Gère la reception de données de chunk
+              */
+            void handleChunkData(QDataStream &in);
         signals:
             /**
               * Emit quand le serveur s'est déconnecté

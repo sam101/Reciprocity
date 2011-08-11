@@ -1,6 +1,7 @@
 #include <Client/Client.h>
 #include <Config/Config.h>
 #include <Network/BeginGameMessage.h>
+#include <Network/ChunkDataMessage.h>
 #include <Network/GameHasBegunMessage.h>
 #include <Network/GetServerDataMessage.h>
 #include <Network/LoginMessage.h>
@@ -282,10 +283,15 @@ namespace Client
            case Network::GAME_HAS_BEGUN:
                 handleGameHasBegun(in);
            break;
+           case Network::CHUNKDATA:
+
+                handleChunkData(in);
+           break;
            //Sinon, on lit juste les données pour les libérer
            default:
                 _socket->read(_messageSize);
         }
+        qDebug() << "Message à lire:" << _socket->bytesAvailable();
 
     }
 
@@ -343,6 +349,19 @@ namespace Client
         _gameHasBegun = true;
         emit gameHasBegun();
     }
+    /**
+      * Gère la reception de données de chunk
+      */
+    void Client::handleChunkData(QDataStream &in)
+    {
+        qDebug() << "Reception d'une information de chunk";
+        //On recupère les données
+        Network::ChunkDataMessage m;
+        in >> m;
+        //On traite les données
+
+    }
+
     /**
       * Appelé quand le client doit se déconnecter
       */
