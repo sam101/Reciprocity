@@ -45,72 +45,76 @@ namespace Server
         //On déclare le datastream pour lire les données
         QDataStream in(socket);
         in.setVersion(QDataStream::Qt_4_5);
-        if (_sizes[socket] == 0)
+        while (_sizes[socket] < socket->bytesAvailable())
         {
-            //On vérifie qu'on a reçu la taille du message.
-            if (socket->bytesAvailable() < (qint32)sizeof(qint32) )
+            if (_sizes[socket] == 0)
             {
+                //On vérifie qu'on a reçu la taille du message.
+                if (socket->bytesAvailable() < (qint32)sizeof(qint32) )
+                {
+                    return;
+                }
+                //On recupère la taille.
+                in >> _sizes[socket];
+                //On vérifie que la taille est correcte
+                if (_sizes[socket] < 0)
+                {
+                    qDebug() << "Taille de message incorrecte envoyée par" << socket->peerAddress().toString() ;
+                    _sizes[socket] = 0;
+                    emit errorMessage(socket);
+                    return;
+                }
+            }
+            //Si on a pas tout le message, on abandonne.
+            if (socket->bytesAvailable() < _sizes[socket])
+            {
+                qDebug() << "Message complet non reçu:" << socket->bytesAvailable() << "/" << _sizes[socket];
                 return;
             }
-            //On recupère la taille.
-            in >> _sizes[socket];
-            //On vérifie que la taille est correcte
-            if (_sizes[socket] < 0)
+            //On recupère le type du message.
+            qint32 type;
+            in >> type;
+            qDebug() << "Un message de taille" << _sizes[socket] << "a été reçu de " << socket->peerAddress().toString() << "de type" << type;
+            //On remet à zéro la taille du message
+            _sizes[socket] = 0;
+            //On gère selon le type.
+            switch (type)
             {
-                qDebug() << "Taille de message incorrecte envoyée par" << socket->peerAddress().toString() ;
-                _sizes[socket] = 0;
-                emit errorMessage(socket);
-                return;
+                //Si on a reçu un message de type vide
+                case Network::NONE:
+                    //On ne fait rien.
+                break;
+                //Si on a reçu un message de type "Login"
+                case Network::LOGIN:
+                    handleLogin(socket,in);
+                break;
+                //Si on a reçu un message de type "MessageOut"
+                case Network::MESSAGE_OUT:
+                    handleMessage(socket,in);
+                break;
+                //Si on a reçu une demande d'envoi des informations du serveur
+                case Network::GET_SERVER_DATA:
+                    handleGetServerData(socket,in);
+                break;
+                //Si on a reçu une demmande de début de partie
+                case Network::BEGIN_GAME:
+                    handleBeginGame(socket,in);
+                break;
+                //Demande d'envoi de données
+                case Network::REQUEST_DATA:
+                    handleRequestData(socket,in);
+                break;
+                //Kick d'un joueur.
+                case Network::KICK_PLAYER:
+                    handleKickPlayer(socket,in);
+                break;
+                default:
+                    //On lit les données pour les effacer
+                    socket->read(_sizes[socket]);
+                    qDebug() << "Le message reçu est de type inconnu.";
             }
         }
-        //Si on a pas tout le message, on abandonne.
-        if (socket->bytesAvailable() < _sizes[socket])
-        {
-            qDebug() << "Message complet non reçu:" << socket->bytesAvailable() << "/" << _sizes[socket];
-            return;
-        }
-        //On recupère le type du message.
-        qint32 type;
-        in >> type;
-        qDebug() << "Un message de taille" << _sizes[socket] << "a été reçu de " << socket->peerAddress().toString() << "de type" << type;
-        //On remet à zéro la taille du message
-        _sizes[socket] = 0;
-        //On gère selon le type.
-        switch (type)
-        {
-            //Si on a reçu un message de type vide
-            case Network::NONE:
-                //On ne fait rien.
-            break;
-            //Si on a reçu un message de type "Login"
-            case Network::LOGIN:
-                handleLogin(socket,in);
-            break;
-            //Si on a reçu un message de type "MessageOut"
-            case Network::MESSAGE_OUT:
-                handleMessage(socket,in);
-            break;
-            //Si on a reçu une demande d'envoi des informations du serveur
-            case Network::GET_SERVER_DATA:
-                handleGetServerData(socket,in);
-            break;
-            //Si on a reçu une demmande de début de partie
-            case Network::BEGIN_GAME:
-                handleBeginGame(socket,in);
-            break;
-            //Demande d'envoi de données
-            case Network::REQUEST_DATA:
-                handleRequestData(socket,in);
-            break;
-            //Kick d'un joueur.
-            case Network::KICK_PLAYER:
-                handleKickPlayer(socket,in);
-            break;
-            default:
-                //On lit les données pour les effacer
-                socket->read(_sizes[socket]);
-                qDebug() << "Le message reçu est de type inconnu.";
-        }
+
     }
     /**
       * Gère le login d'un joueur
