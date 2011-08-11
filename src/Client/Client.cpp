@@ -226,73 +226,75 @@ namespace Client
         //On déclare un QDataStream pour lire les données
         QDataStream in(_socket);
         in.setVersion(QDataStream::Qt_4_5);
-        //On vérifie si on a pas déjà reçu la taille du message
-        if (_messageSize == 0)
+        while (_socket->bytesAvailable() >= _messageSize)
         {
-            //On vérifie qu'on à bien reçu la taille
-            if (_socket->bytesAvailable() < (qint32)sizeof(qint32) )
+            //On vérifie si on a pas déjà reçu la taille du message
+            if (_messageSize == 0)
+            {
+                //On vérifie qu'on à bien reçu la taille
+                if (_socket->bytesAvailable() < (qint32)sizeof(qint32) )
+                {
+                    return;
+                }
+                //On recupère la taille
+                in >> _messageSize;
+                //On vérifie que la taille est correcte
+                if (_messageSize < 0)
+                {
+                    qDebug() << "Erreur: Message incorrect reçu";
+                    _messageSize = 0;
+
+                    emit incorrectMessage();
+
+                    return;
+                }
+            }
+            if (_socket->bytesAvailable() < _messageSize)
             {
                 return;
             }
-            //On recupère la taille
-            in >> _messageSize;
-            //On vérifie que la taille est correcte
-            if (_messageSize < 0)
+            //On recupère le type du message
+            qint32 type;
+            in >> type;
+            qDebug() << "Message reçu du serveur de type " << type << "et de taille" << _messageSize ;
+            //On remet à zéro la taille du message
+            _messageSize = 0;
+            //On gère selon le type
+            switch (type)
             {
-                qDebug() << "Erreur: Message incorrect reçu";
-                _messageSize = 0;
+                case Network::NONE:
+                //On ne fait rien
+                break;
+                //Si le login est reussi...
+                case Network::LOGIN_SUCCESS:
+                    handleLoginSuccess(in);
+                break;
+                //Si le login a échoué.
+                case Network::LOGIN_FAILED:
+                    emit loginFailed();
+                break;
+                //Si on a reçu un message de chat
+                case Network::MESSAGE_IN:
+                    handleChatMessage(in);
+                break;
+               //Si on a reçu les informations du serveur
+               case Network::SERVER_DATA:
+                    handleServerData(in);
+               break;
+               //Si on a reçu le message de début de partie
+               case Network::GAME_HAS_BEGUN:
+                    handleGameHasBegun(in);
+               break;
+               case Network::CHUNKDATA:
 
-                emit incorrectMessage();
-
-                return;
+                    handleChunkData(in);
+               break;
+               //Sinon, on lit juste les données pour les libérer
+               default:
+                    _socket->read(_messageSize);
             }
+            qDebug() << "Message à lire:" << _socket->bytesAvailable();
         }
-        if (_socket->bytesAvailable() < _messageSize)
-        {
-            return;
-        }
-        //On recupère le type du message
-        qint32 type;
-        in >> type;
-        qDebug() << "Message reçu du serveur de type " << type << "et de taille" << _messageSize ;
-        //On remet à zéro la taille du message
-        _messageSize = 0;
-        //On gère selon le type
-        switch (type)
-        {
-            case Network::NONE:
-            //On ne fait rien
-            break;
-            //Si le login est reussi...
-            case Network::LOGIN_SUCCESS:
-                handleLoginSuccess(in);
-            break;
-            //Si le login a échoué.
-            case Network::LOGIN_FAILED:
-                emit loginFailed();
-            break;
-            //Si on a reçu un message de chat
-            case Network::MESSAGE_IN:
-                handleChatMessage(in);
-            break;
-           //Si on a reçu les informations du serveur
-           case Network::SERVER_DATA:
-                handleServerData(in);
-           break;
-           //Si on a reçu le message de début de partie
-           case Network::GAME_HAS_BEGUN:
-                handleGameHasBegun(in);
-           break;
-           case Network::CHUNKDATA:
-
-                handleChunkData(in);
-           break;
-           //Sinon, on lit juste les données pour les libérer
-           default:
-                _socket->read(_messageSize);
-        }
-        qDebug() << "Message à lire:" << _socket->bytesAvailable();
-
     }
 
     /**
