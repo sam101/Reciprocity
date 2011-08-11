@@ -14,6 +14,7 @@ namespace GUI
         _view = new QGraphicsView;
        //On initialise la scène.
         _scene = new GameScene;
+        _view->setScene(_scene);
     }
     /**
       * Destructeur
@@ -45,5 +46,6 @@ namespace GUI
         show();
         //On demande les informations de jeu
         _client->sendRequestData();
+        //On connecte les signaux du dataHandler
     }
 }

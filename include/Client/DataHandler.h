@@ -70,7 +70,24 @@ namespace Client
               * Surchargé constant
               */
             const QList<QPair<QString,bool> >& getPlayers() const;
-
+       signals:
+            /**
+              * Envoyé quand un chunk a été mis à jour
+              */
+            void chunkUpdated(Chunk::Chunk *chunk);
+            /**
+              * Envoyé quand un chunk a été ajouté
+              */
+            void chunkAdded(Chunk::Chunk *chunk);
+            /**
+              * Envoyé quand une enttié a été ajoutée
+              */
+            void entityAdded(Map::Entity *entity);
+            /**
+              * Envoyé quand une entité a été mise à jour
+              */
+            void entityUpdated(Map::Entity *entity);
     };
 }
+
 #endif //CLIENT_DATAHANDLER_H
