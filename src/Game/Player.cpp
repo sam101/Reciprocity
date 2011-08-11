@@ -102,11 +102,11 @@ namespace Game
     /**
       * Ajoute une entité au joueur
       */
-    void Player::addEntity(const Map::Entity &entity)
+    void Player::addEntity(qint32 id)
     {
-        if (!_entities.contains(entity.getId()))
+        if (!_entities.contains(id))
         {
-            _entities.append(entity.getId());
+            _entities.append(id);
         }
     }
 

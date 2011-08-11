@@ -216,7 +216,6 @@ namespace Client
       */
     void Client::messageRecevied()
     {
-        qDebug() << "Message reçu du serveur";
         //On vérifie que c'est bien la socket qui a envoyé le message
         if (qobject_cast<QTcpSocket*>(sender()) != _socket)
         {
@@ -250,11 +249,12 @@ namespace Client
             {
                 return;
             }
-            //On remet à zéro la taille du message
-            _messageSize = 0;
             //On recupère le type du message
             qint32 type;
             in >> type;
+            qDebug() << "Message reçu du serveur de type " << type << "et de taille" << _messageSize ;
+            //On remet à zéro la taille du message
+            _messageSize = 0;
             //On gère selon le type
             switch (type)
             {

@@ -98,7 +98,7 @@ namespace Game
             /**
               * Ajoute une entité au joueur
               */
-            void addEntity(const Map::Entity &entity);
+            void addEntity(qint32 id);
 
 
     };

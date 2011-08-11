@@ -41,6 +41,9 @@ namespace GUI
       */
     void GameWindow::beginGame()
     {
+        //On affiche la fenêtre
         show();
+        //On demande les informations de jeu
+        _client->sendRequestData();
     }
 }

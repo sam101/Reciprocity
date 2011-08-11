@@ -57,13 +57,13 @@ namespace Game
     void Game::addEntity(const Map::Entity &entity, qint32 x, qint32 y)
     {
         //On l'ajoute au monde
-        _world->addEntity(entity,x,y);
+        qint32 id = _world->addEntity(entity,x,y);
         //On l'ajoute au joueur
         if (entity.getOwner() < 0 || entity.getOwner() >= _players.size() )
         {
             return;
         }
-        _players[entity.getOwner()]->addEntity(entity);
+        _players[entity.getOwner()]->addEntity(id);
 
     }
 
