@@ -47,5 +47,22 @@ namespace GUI
         //On demande les informations de jeu
         _client->sendRequestData();
         //On connecte les signaux du dataHandler
+        connect(_dataHandler,SIGNAL(chunkAdded(Chunk::Chunk*)),this,SLOT(addChunk(Chunk::Chunk*)));
+        connect(_dataHandler,SIGNAL(chunkUpdated(Chunk::Chunk*)),this,SLOT(updateChunk(Chunk::Chunk*)));
+    }
+    /**
+      * Ajoute un chunk
+      */
+    void GameWindow::addChunk(Chunk::Chunk *chunk)
+    {
+        _scene->addChunk(chunk);
+    }
+    /**
+      * Met à jour un chunk
+      */
+    void GameWindow::updateChunk(Chunk::Chunk *chunk)
+    {
+        //TODO: Separer les deux
+        _scene->addChunk(chunk);
     }
 }

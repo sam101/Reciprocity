@@ -53,6 +53,14 @@ namespace GUI
               * Commence la partie
               */
             void beginGame();
+            /**
+              * Ajoute un chunk
+              */
+            void addChunk(Chunk::Chunk *chunk);
+            /**
+              * Met à jour un chunk
+              */
+            void updateChunk(Chunk::Chunk *chunk);
     };
 }
 #endif //GUI_GAMEWINDOW_H
