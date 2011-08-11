@@ -27,6 +27,7 @@ namespace GUI
         form->addRow(tr("Hash:"),_hash);
             //On ajoute l'addresse du serveur
             _address = new QLineEdit;
+            _address->setText("localhost");
         form->addRow(tr("Adresse du serveur:"),_address);
         //On ajoute le port
         _port = new QSpinBox;
