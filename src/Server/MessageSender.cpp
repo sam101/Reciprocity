@@ -176,7 +176,6 @@ namespace Server
       */
     void MessageSender::sendChunkData(QTcpSocket *socket, Chunk::Chunk *chunk)
     {
-        qDebug() << "Envoi d'information de chunk a " << socket->peerAddress().toString();
         //On construit le message
         Network::ChunkDataMessage m(*chunk);
         //On construit le byteArray dans lequel le mettre
@@ -188,7 +187,6 @@ namespace Server
         in.device()->seek(0);
         in << (qint32)(b.size() - sizeof(qint32));
         //On l'envoie
-        qDebug() << "Taille du message:" << b.size() - sizeof(qint32);
         socket->write(b);
         socket->flush();
     }

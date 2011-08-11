@@ -142,7 +142,7 @@ namespace Game
         for (int i = 0; i < player->getEntities().size(); i++)
         {
             entity = _world->getEntity(player->getEntities()[i]);
-            c << _world->getChunk(entity->getX(),entity->getY());
+            c << _world->getChunkByTile(entity->getX(),entity->getY());
         }
         return c;
     }
@@ -241,7 +241,7 @@ namespace Game
         {
             //On définit la position de l'entité
             qint32 xEntity = xBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE);
-            qint32 yEntity = yBase +Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE);
+            qint32 yEntity = yBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE);
             //On construit l'entité
             Map::Entity entity(xEntity,yEntity,player->getId());
             //On lui ajoute les ressources de base
