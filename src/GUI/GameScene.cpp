@@ -12,6 +12,7 @@ namespace GUI
     _xCamera(0),
     _yCamera(0)
     {
+        setBackgroundBrush(Qt::black);
         //On gère la caméra
         setSceneRect(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
     }
@@ -34,7 +35,7 @@ namespace GUI
         _buildings[Coordinate(chunk->getX(),chunk->getY())] = b;
         addItem(b);
         //On change la caméra
-        _xCamera = chunk->getX();
+        _xCamera = chunk->getX() - Config::Config::TILE_SIZE;
         _yCamera = chunk->getY();
         setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
 
