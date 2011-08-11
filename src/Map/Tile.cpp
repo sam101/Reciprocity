@@ -156,7 +156,6 @@ namespace Map
     QDataStream& operator<<(QDataStream &out, const Tile &t)
     {
         out << Tile::TILE_MAGICNUMBER;
-        out << Tile::TILE_VERSION;
         out << t._flags;
         out << (qint32)t._type;
         out << t._output;
@@ -175,11 +174,6 @@ namespace Map
         qint32 magicNumber;
         in >> magicNumber;
         Q_ASSERT(magicNumber == Tile::TILE_MAGICNUMBER);
-        //On vérifie la version
-        //TODO: Gérer toutes les versions de Tile après la 0.1
-        qint32 version;
-        in >> version;
-        Q_ASSERT(version == Tile::TILE_VERSION);
         //On recupère les données
         in >> t._flags;
         in >> (qint32&)t._type;

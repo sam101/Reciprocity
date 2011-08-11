@@ -70,7 +70,6 @@ namespace Map
     QDataStream& operator<<(QDataStream &out, const Building &b)
     {
         out << b.BUILDING_MAGICNUMBER;
-        out << b.BUILDING_VERSION;
         out << (qint32)b._type;
         out << b._level;
         out << b._lifePoints;
@@ -89,9 +88,6 @@ namespace Map
         qint32 magicNumber;
         in >> magicNumber;
         Q_ASSERT(magicNumber == Building::BUILDING_MAGICNUMBER);
-        qint32 version;
-        in >> version;
-        Q_ASSERT(version == Building::BUILDING_VERSION);
         //On recupère les données
         in >> (qint32&)b._type;
         in >> b._level;
