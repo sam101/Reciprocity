@@ -298,7 +298,6 @@ namespace Client
                default:
                     _socket->read(_messageSize);
             }
-            qDebug() << "Message à lire:" << _socket->bytesAvailable();
         }
     }
 
@@ -322,7 +321,6 @@ namespace Client
       */
     void Client::handleChatMessage(QDataStream &in)
     {
-        qDebug() << "Message de chat reçu";
         //On recupère le message
         Network::MessageInMessage m;
         in >> m;
@@ -361,7 +359,6 @@ namespace Client
       */
     void Client::handleChunkData(QDataStream &in)
     {
-        qDebug() << "Reception d'une information de chunk";
         //On recupère les données
         Network::ChunkDataMessage m;
         in >> m;
@@ -373,7 +370,6 @@ namespace Client
       */
     void Client::handleEntityData(QDataStream &in)
     {
-        qDebug() << "Reception d'informations sur une entité";
         //On recupère les données
         Network::EntityDataMessage m;
         in >> m;
