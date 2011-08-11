@@ -235,7 +235,7 @@ namespace Client
             }
             //On recupère la taille
             in >> _messageSize;
-            //On vérifie que la tailel est correcte
+            //On vérifie que la taille est correcte
             if (_messageSize < 0)
             {
                 qDebug() << "Erreur: Message incorrect reçu";
@@ -245,47 +245,48 @@ namespace Client
 
                 return;
             }
-            if (_socket->bytesAvailable() < _messageSize)
-            {
-                return;
-            }
-            //On recupère le type du message
-            qint32 type;
-            in >> type;
-            qDebug() << "Message reçu du serveur de type " << type << "et de taille" << _messageSize ;
-            //On remet à zéro la taille du message
-            _messageSize = 0;
-            //On gère selon le type
-            switch (type)
-            {
-                case Network::NONE:
-                //On ne fait rien
-                break;
-                //Si le login est reussi...
-                case Network::LOGIN_SUCCESS:
-                    handleLoginSuccess(in);
-                break;
-                //Si le login a échoué.
-                case Network::LOGIN_FAILED:
-                    emit loginFailed();
-                break;
-                //Si on a reçu un message de chat
-                case Network::MESSAGE_IN:
-                    handleChatMessage(in);
-                break;
-               //Si on a reçu les informations du serveur
-               case Network::SERVER_DATA:
-                    handleServerData(in);
-               break;
-               //Si on a reçu le message de début de partie
-               case Network::GAME_HAS_BEGUN:
-                    handleGameHasBegun(in);
-               break;
-               //Sinon, on lit juste les données pour les libérer
-               default:
-                    _socket->read(_messageSize);
-            }
         }
+        if (_socket->bytesAvailable() < _messageSize)
+        {
+            return;
+        }
+        //On recupère le type du message
+        qint32 type;
+        in >> type;
+        qDebug() << "Message reçu du serveur de type " << type << "et de taille" << _messageSize ;
+        //On remet à zéro la taille du message
+        _messageSize = 0;
+        //On gère selon le type
+        switch (type)
+        {
+            case Network::NONE:
+            //On ne fait rien
+            break;
+            //Si le login est reussi...
+            case Network::LOGIN_SUCCESS:
+                handleLoginSuccess(in);
+            break;
+            //Si le login a échoué.
+            case Network::LOGIN_FAILED:
+                emit loginFailed();
+            break;
+            //Si on a reçu un message de chat
+            case Network::MESSAGE_IN:
+                handleChatMessage(in);
+            break;
+           //Si on a reçu les informations du serveur
+           case Network::SERVER_DATA:
+                handleServerData(in);
+           break;
+           //Si on a reçu le message de début de partie
+           case Network::GAME_HAS_BEGUN:
+                handleGameHasBegun(in);
+           break;
+           //Sinon, on lit juste les données pour les libérer
+           default:
+                _socket->read(_messageSize);
+        }
+
     }
 
     /**
