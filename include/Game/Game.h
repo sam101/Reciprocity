@@ -80,6 +80,10 @@ namespace Game
               */
             QList<Map::Entity*> getPlayerEntities(Player *player);
             /**
+              * Commence la partie
+              */
+            void beginGame();
+            /**
               * Déplace une entité.
               * @return Vrai si réussi, faux si raté.
               */

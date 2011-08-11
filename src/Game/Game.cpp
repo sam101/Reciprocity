@@ -159,7 +159,13 @@ namespace Game
         }
         return l;
     }
-
+    /**
+      * Commence la partie
+      */
+    void Game::beginGame()
+    {
+        _hasBegun = true;
+    }
     /**
       * Déplace une entité.
       * @return Vrai si réussi, faux si raté.

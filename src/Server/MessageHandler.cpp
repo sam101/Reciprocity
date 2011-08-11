@@ -165,6 +165,7 @@ namespace Server
            //On emet le signal
            emit loginSuccess(socket,player->getId(),player->isAdmin());
         }
+        //Si la partie a commencé, on envoie le signal
         if (_game->hasBegun())
         {
             emit sendGameHasBegun(socket);
@@ -226,6 +227,9 @@ namespace Server
             emit errorHappened(socket,tr("Accès refusé"));
             return;
         }
+        //On met à jour l'objet Game
+        _game->beginGame();
+        //On envoie le signal
         emit sendGameHasBegunToAll();
     }
     /**
