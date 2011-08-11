@@ -43,6 +43,12 @@ namespace GUI
               * Ajoute un message
               */
             void messageRecevied(QString sender, QString contents);
+        protected:
+            /**
+              * Appelé lors de l'appui sur une touche.
+              * Gère l'envoi du message
+              */
+            void keyPressEvent(QKeyEvent *event);
 
     };
 }

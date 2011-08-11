@@ -1,5 +1,6 @@
 #include <GUI/ChatDockWidget.h>
 #include <QtGui/QHBoxLayout>
+#include <QtGui/QKeyEvent>
 #include <QtGui/QPushButton>
 #include <QtGui/QVBoxLayout>
 namespace GUI
@@ -46,5 +47,23 @@ namespace GUI
     {
         _messages->addItem("<" + sender + ">" + contents);
     }
-
+    /**
+      * Appelé lors de l'appui sur une touche.
+      * Gère l'envoi du message
+      */
+    void ChatDockWidget::keyPressEvent(QKeyEvent *event)
+    {
+        //Si le joueur a appuyé sur entrée
+        if (event->key() == Qt::Key_Return)
+        {
+            //On envoie le texte
+            _client->sendChatMessage(_text->text());
+            //On remet le texte à zéro
+            _text->setText("");
+            //On accepte l'evenement
+            event->accept();
+            return;
+        }
+        event->ignore();
+    }
 }

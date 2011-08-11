@@ -40,6 +40,7 @@ namespace GUI
         if (c != NULL)
         {
             _client = c;
+            _chatDock->setClient(c);
             _dataHandler = _client->getDataHandler();
         }
     }
