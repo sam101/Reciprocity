@@ -182,6 +182,7 @@ namespace Map
         Q_ASSERT(version == Tile::TILE_VERSION);
         //On recupère les données
         in >> t._flags;
+        in >> t._type;
         in >> t._output;
         in >> t._x;
         in >> t._y;
