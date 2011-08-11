@@ -366,7 +366,7 @@ namespace Client
         Network::ChunkDataMessage m;
         in >> m;
         //On traite les données
-        //TODO
+        _dataHandler->addChunk(m.getChunk());
     }
     /**
       * Gère la reception de données sur des entités
@@ -378,7 +378,7 @@ namespace Client
         Network::EntityDataMessage m;
         in >> m;
         //On traite les données
-        //TODO
+        _dataHandler->addEntity(m.getEntity());
     }
     /**
       * Appelé quand le client doit se déconnecter

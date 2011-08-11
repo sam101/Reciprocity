@@ -29,16 +29,16 @@ namespace Client
     /**
       * Ajoute/Met à jour un chunk
       */
-    void DataHandler::addChunk(Chunk::Chunk *chunk)
+    void DataHandler::addChunk(const Chunk::Chunk &chunk)
     {
         //On supprime le chunk si il existait déjà
-        if (_chunks.contains(Coordinate(chunk->getX(),chunk->getY())))
+        if (_chunks.contains(Coordinate(chunk.getX(),chunk.getY())))
         {
-            delete _chunks[Coordinate(chunk->getX(),chunk->getY())];
-            _chunks.remove(Coordinate(chunk->getX(),chunk->getY()));
+            delete _chunks[Coordinate(chunk.getX(),chunk.getY())];
+            _chunks.remove(Coordinate(chunk.getX(),chunk.getY()));
         }
         //On ajoute le chunk.
-        _chunks[Coordinate(chunk->getX(),chunk->getY())] = new Chunk::Chunk(*chunk);
+        _chunks[Coordinate(chunk.getX(),chunk.getY())] = new Chunk::Chunk(chunk);
     }
     /**
       * Renvoie un chunk
@@ -50,13 +50,13 @@ namespace Client
     /**
       * Ajoute/met à jour une entité
       */
-    void DataHandler::addEntity(Map::Entity *entity)
+    void DataHandler::addEntity(const Map::Entity &entity)
     {
-        if (_entities.contains(entity->getId()))
+        if (_entities.contains(entity.getId()))
         {
-            delete _entities[entity->getId()];
+            delete _entities[entity.getId()];
         }
-        _entities[entity->getId()] = new Map::Entity(*entity);
+        _entities[entity.getId()] = new Map::Entity(entity);
     }
     /**
       * Renvoie une entité

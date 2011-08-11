@@ -47,11 +47,11 @@ namespace Client
             /**
               * Ajoute/Met à jour un chunk
               */
-            void addChunk(Chunk::Chunk *chunk);
+            void addChunk(const Chunk::Chunk &chunk);
             /**
               * Ajoute/met à jour une entité
               */
-            void addEntity(Map::Entity *entity);
+            void addEntity(const Map::Entity &entity);
         public:
             /**
               * Renvoie une entité
