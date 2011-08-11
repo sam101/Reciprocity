@@ -137,6 +137,10 @@ namespace Client
               * Gère la reception de données de chunk
               */
             void handleChunkData(QDataStream &in);
+            /**
+              * Gère la reception de données sur des entités
+              */
+            void handleEntityData(QDataStream &in);
         signals:
             /**
               * Emit quand le serveur s'est déconnecté

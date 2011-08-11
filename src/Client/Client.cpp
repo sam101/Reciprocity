@@ -2,6 +2,7 @@
 #include <Config/Config.h>
 #include <Network/BeginGameMessage.h>
 #include <Network/ChunkDataMessage.h>
+#include <Network/EntityDataMessage.h>
 #include <Network/GameHasBegunMessage.h>
 #include <Network/GetServerDataMessage.h>
 #include <Network/LoginMessage.h>
@@ -285,9 +286,13 @@ namespace Client
                case Network::GAME_HAS_BEGUN:
                     handleGameHasBegun(in);
                break;
+               //Si on a reçu des informations de chunk
                case Network::CHUNKDATA:
-
                     handleChunkData(in);
+               break;
+               //Si on a reçu des informations sur des entités
+               case Network::ENTITYDATA:
+                    handleEntityData(in);
                break;
                //Sinon, on lit juste les données pour les libérer
                default:
@@ -361,9 +366,20 @@ namespace Client
         Network::ChunkDataMessage m;
         in >> m;
         //On traite les données
-
+        //TODO
     }
-
+    /**
+      * Gère la reception de données sur des entités
+      */
+    void Client::handleEntityData(QDataStream &in)
+    {
+        qDebug() << "Reception d'informations sur une entité";
+        //On recupère les données
+        Network::EntityDataMessage m;
+        in >> m;
+        //On traite les données
+        //TODO
+    }
     /**
       * Appelé quand le client doit se déconnecter
       */
