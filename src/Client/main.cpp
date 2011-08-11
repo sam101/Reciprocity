@@ -3,6 +3,7 @@
 
 #include <Client/Client.h>
 #include <Client/ConnectionHandler.h>
+#include <Graphics/Provider.h>
 #include <GUI/ConnectingWindow.h>
 #include <GUI/GameWindow.h>
 #include <GUI/JoinGameWindow.h>
@@ -14,6 +15,9 @@ int main(int argc, char *argv[])
     //On indique que l'application utilise UTF-8
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
+
+    //On initialise Provider
+    Graphics::Provider::init("../Reciprocity/data");
 
     //On construit la fenêtre de départ
     GUI::StartWindow *window = new GUI::StartWindow;

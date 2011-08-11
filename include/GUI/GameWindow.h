@@ -34,6 +34,10 @@ namespace GUI
               * Pointeur vers la GraphicsScene
               */
             GameScene *_scene;
+            /**
+              * Indique si la caméra a déjà été mise à jour
+              */
+            bool _camera;
         public:
             /**
               * Constructeur

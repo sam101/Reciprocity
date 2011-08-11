@@ -33,6 +33,19 @@ namespace GUI
               * Liste des batiment dans des chunks affichés
               */
             QMap<Coordinate, BuildingChunkItem* > _buildings;
+            /**
+              * Position X de la caméra
+              */
+            qint32 _xCamera;
+            /**
+              * Position Y de la caméra
+              */
+            qint32 _yCamera;
+            /**
+              * Appelé à l'appui sur une touche.
+              * Bouge la caméra.
+              */
+            void keyPressEvent(QKeyEvent *event);
         public:
             /**
               * Constructeur

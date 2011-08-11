@@ -37,12 +37,12 @@ namespace Client
             delete _chunks[Coordinate(chunk.getX(),chunk.getY())];
             _chunks.remove(Coordinate(chunk.getX(),chunk.getY()));
             _chunks[Coordinate(chunk.getX(),chunk.getY())] = new Chunk::Chunk(chunk);
-            emit chunkUpdated(&chunk);
+            emit chunkUpdated(_chunks[Coordinate(chunk.getX(),chunk.getY())]);
             return;
         }
         //On ajoute le chunk.
         _chunks[Coordinate(chunk.getX(),chunk.getY())] = new Chunk::Chunk(chunk);
-        emit chunkAdded(&chunk);
+        emit chunkAdded(_chunks[Coordinate(chunk.getX(),chunk.getY())]);
     }
     /**
       * Renvoie un chunk
@@ -60,11 +60,11 @@ namespace Client
         {
             delete _entities[entity.getId()];
             _entities[entity.getId()] = new Map::Entity(entity);
-            emit entityUpdated(&entity);
+            emit entityUpdated(_entities[entity.getId()]);
             return;
         }
         _entities[entity.getId()] = new Map::Entity(entity);
-        emit entityAdded(&entity);
+        emit entityAdded(_entities[entity.getId()]);
     }
     /**
       * Renvoie une entité

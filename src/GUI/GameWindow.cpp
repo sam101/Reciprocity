@@ -8,10 +8,12 @@ namespace GUI
     _client(NULL),
     _dataHandler(NULL),
     _view(NULL),
-    _scene(NULL)
+    _scene(NULL),
+    _camera(false)
     {
        //On initialise la vue
         _view = new QGraphicsView;
+        setCentralWidget(_view);
        //On initialise la scène.
         _scene = new GameScene;
         _view->setScene(_scene);
@@ -55,6 +57,13 @@ namespace GUI
       */
     void GameWindow::addChunk(Chunk::Chunk *chunk)
     {
+        qDebug() << "Ajout du chunk" << chunk->getX() << chunk->getY();
+        //TODO: Gerer mieux la caméra.
+        if (!_camera)
+        {
+            _camera = true;
+            _scene->setSceneRect(chunk->getX() * Config::Config::TILE_SIZE,chunk->getY() * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
+        }
         _scene->addChunk(chunk);
     }
     /**
