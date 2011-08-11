@@ -33,7 +33,16 @@ namespace GUI
               * Constructeur
               */
             ChatDockWidget();
+            /**
+              * Change l'objet client actuel
+              */
+            void setClient(Client::Client *client);
         public slots:
+            /**
+              * Appelé à la reception d'un message
+              * Ajoute un message
+              */
+            void messageRecevied(QString sender, QString contents);
 
     };
 }

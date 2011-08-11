@@ -7,7 +7,8 @@ namespace GUI
     /**
       * Constructeur
       */
-    ChatDockWidget::ChatDockWidget()
+    ChatDockWidget::ChatDockWidget() :
+    _client(NULL)
     {
         //On indique ce que peux faire le ChatDockWidget
         setFeatures(QDockWidget::DockWidgetVerticalTitleBar);
@@ -27,6 +28,23 @@ namespace GUI
         h->addWidget(_text);
         //On redimensionne
         setWidget(widget);
+    }
+    /**
+      * Change l'objet client actuel
+      */
+    void ChatDockWidget::setClient(Client::Client *client)
+    {
+        _client = client;
+        connect(_client,SIGNAL(messageRecevied(QString,QString)),this,SLOT(messageRecevied(QString,QString)));
 
     }
+    /**
+      * Appelé à la reception d'un message
+      * Ajoute un message
+      */
+    void ChatDockWidget::messageRecevied(QString sender, QString contents)
+    {
+        _messages->addItem("<" + sender + ">" + contents);
+    }
+
 }
