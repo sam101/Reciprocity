@@ -233,6 +233,7 @@ namespace Server
       */
     void MessageHandler::handleRequestData(QTcpSocket *socket, QDataStream &in)
     {
+        qDebug() << "Demande d'informations reçue";
         //On recupère le message
         Network::RequestDataMessage m;
         in >> m;

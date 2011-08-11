@@ -9,6 +9,7 @@
 #include <Network/ServerDataMessage.h>
 #include <QtCore/QByteArray>
 #include <QtCore/QDataStream>
+#include <QtNetwork/QHostAddress>
 namespace Server
 {
     /**
@@ -112,6 +113,7 @@ namespace Server
       */
     void MessageSender::sendServerData(QTcpSocket *socket)
     {
+        qDebug() << "Envoi des informations sur le serveur à " << socket->peerAddress().toString();
         //On construit le message
         //TODO: Ajouter nom serveur
         Network::ServerDataMessage m("");
@@ -142,6 +144,7 @@ namespace Server
       */
     void MessageSender::sendGameHasBegun(QTcpSocket *socket)
     {
+        qDebug() << "Envoi de GameBasBegun a " << socket->peerAddress().toString();
         //On construit le message
         Network::GameHasBegunMessage m;
         //On construit le byteArray dans lequel le mettre
@@ -173,6 +176,7 @@ namespace Server
       */
     void MessageSender::sendChunkData(QTcpSocket *socket, Chunk::Chunk *chunk)
     {
+        qDebug() << "Envoi d'information de chunk a " << socket->peerAddress().toString();
         //On construit le message
         Network::ChunkDataMessage m(*chunk);
         //On construit le byteArray dans lequel le mettre
@@ -210,6 +214,7 @@ namespace Server
       */
     void MessageSender::sendPlayerData(QTcpSocket *socket)
     {
+        qDebug() << "Envoi des informations de joueur a " << socket->peerAddress().toString();
         //On recupère la liste des chunk sur lesquels le joueur à des entités.
         QSet<Chunk::Chunk*> chunks = _game->getPlayerChunks(_clients[socket]->getPlayer());
         //On itère pour recupérer tout les chunks.

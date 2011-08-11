@@ -1,4 +1,5 @@
 #include <Network/ChunkDataMessage.h>
+#include <QtCore/QDebug>
 namespace Network
 {
     /**
@@ -54,6 +55,7 @@ namespace Network
         in >> magicNumber;
         if (magicNumber != m.MAGICNUMBER_CHUNKDATA)
         {
+            qDebug() << "Message ChunkData incorrect reçu";
             return in;
         }
         //On recupère les données
