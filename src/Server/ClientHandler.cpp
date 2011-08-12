@@ -38,7 +38,7 @@ namespace Server
         qDebug() << "Nouvelle connexion en provenance de " << socket->peerAddress().toString();
         //Sinon, on procède à des vérifications
 
-        //TODO
+        //TODO: Programmer la véfification du client.
 
         //On connecte le signal pour la deconnexion
         connect(socket,SIGNAL(disconnected()),this,SLOT(handleDisconnection()));

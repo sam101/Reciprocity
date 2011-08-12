@@ -24,7 +24,7 @@ namespace Network
     QDataStream& operator>>(QDataStream &in, BeginGameMessage &m)
     {
         Q_UNUSED(m)
-        //TODO
+        //TODO: Faire quelque chose si mauvais;
         qint32 magicNumber;
         in >> magicNumber;
         return in;
