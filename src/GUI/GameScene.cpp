@@ -104,7 +104,6 @@ namespace GUI
         //Sinon, on change les coordonées et on envoie le signal
         _tileX = x;
         _tileY = y;
-        qDebug() << x << y;
         emit tileSelected(x,y);
 
         event->accept();

@@ -56,6 +56,24 @@ namespace GUI
             case Map::LOWLAND:
                 text = tr("Plaines");
             break;
+            case Map::FOREST:
+                text = tr("Foret");
+            break;
+            case Map::LAKE:
+                text = tr("Lac");
+            break;
+            case Map::RIVER:
+                text = tr("Rivière");
+            break;
+            case Map::MOUNTAIN:
+                text = tr("Montagne");
+            break;
+            case Map::BEACH:
+                text = tr("Plage");
+            break;
+            case Map::SWAMP:
+                text = tr("Marais");
+            break;
             default:
                 text = tr("Inconnu");
         }

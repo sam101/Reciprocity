@@ -79,7 +79,6 @@ namespace Client
       */
     Chunk::Chunk* DataHandler::getChunk(qint32 x, qint32 y)
     {
-        qDebug() << "chunk:" << x << y;
         return _chunks[Coordinate(x,y)];
     }
     /**
