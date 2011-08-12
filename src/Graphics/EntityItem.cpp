@@ -1,6 +1,7 @@
 #include <Graphics/EntityItem.h>
 #include <Graphics/Provider.h>
 #include <QtGui/QPainter>
+#include <QtCore/QDebug>
 namespace Graphics
 {
     /**
@@ -9,6 +10,7 @@ namespace Graphics
     EntityItem::EntityItem(Map::Entity *entity) :
     _entity(entity)
     {
+        setZValue(42);
         //On recupère le QImage
         _image = Provider::getEntityI("entity");
         //On construit le boundingRect
@@ -16,6 +18,8 @@ namespace Graphics
         //On met à jour les coordonnées
         _x = entity->getX() * Config::Config::TILE_SIZE;
         _y = entity->getY() * Config::Config::TILE_SIZE;
+        setPos(_x,_y);
+        qDebug() << _x << _y;
     }
     /**
       * Renvoie le boundingRect
@@ -32,6 +36,7 @@ namespace Graphics
         _entity = entity;
         _x = entity->getX() * Config::Config::TILE_SIZE;
         _y = entity->getY() * Config::Config::TILE_SIZE;
+        setPos(_x,_y);
     }
 
     /**
@@ -41,6 +46,6 @@ namespace Graphics
     {
         Q_UNUSED(widget)
         Q_UNUSED(option)
-        painter->drawImage(_x,_y,_image);
+        painter->drawImage(0,0,_image);
     }
 }

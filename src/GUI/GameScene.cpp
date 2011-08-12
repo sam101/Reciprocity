@@ -51,7 +51,13 @@ namespace GUI
         }
         //On ajoute le EntityItem
         EntityItem *e = new EntityItem(entity);
+        _entities[entity->getId()] = e;
         addItem(e);
+        //On change la caméra
+        _xCamera = entity->getX();
+        _yCamera = entity->getY();
+        setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
+
     }
 
     /**
