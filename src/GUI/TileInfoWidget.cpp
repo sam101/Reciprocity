@@ -41,7 +41,6 @@ namespace GUI
         _tile = tile;
         if (tile == NULL)
         {
-            qDebug() << "Tile nulle !";
             return;
         }
         //On affiche l'image.
