@@ -145,53 +145,6 @@ namespace Game
             entity = _world->getEntity(player->getEntities()[i]);
             chunk = _world->getChunkByTile(entity->getX(),entity->getY());
             c << chunk;
-            if (chunk->getX() - 1 == 0)
-            {
-                c << _world->getChunk(chunk->getX() - 2, chunk->getY());
-                if (chunk->getY() + 1 == 0)
-                {
-                    c << _world->getChunk(chunk->getX() - 2, chunk->getY() + 2);
-                }
-                else
-                {
-                    c << _world->getChunk(chunk->getX() - 2, chunk->getY() + 1);
-                }
-            }
-            else
-            {
-                if (chunk->getY() + 1 == 0)
-                {
-                    c << _world->getChunk(chunk->getX() - 1, chunk->getY() + 2);
-                }
-                else
-                {
-                    c << _world->getChunk(chunk->getX() - 1, chunk->getY() + 1);
-                }
-            }
-            if (chunk->getX() + 1 == 0)
-            {
-                c << _world->getChunk(chunk->getX() + 2, chunk->getY());
-                if (chunk->getY() + 1 == 0)
-                {
-                    c << _world->getChunk(chunk->getX() + 2, chunk->getY() + 2);
-                }
-                else
-                {
-                    c << _world->getChunk(chunk->getX() + 2, chunk->getY() + 1);
-                }
-            }
-            else
-            {
-                if (chunk->getY() + 1 == 0)
-                {
-                    c << _world->getChunk(chunk->getX() + 1, chunk->getY() + 2);
-                }
-                else
-                {
-                    c << _world->getChunk(chunk->getX() + 1, chunk->getY() + 1);
-                }
-            }
-
         }
         return c;
     }
