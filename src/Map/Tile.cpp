@@ -15,6 +15,20 @@ namespace Map
 
     }
     /**
+      * Renvoie la position X de la tile
+      */
+    qint32 Tile::getX() const
+    {
+        return _x;
+    }
+    /**
+      * Renvoie la position Y de la tile
+      */
+    qint32 Tile::getY() const
+    {
+        return _y;
+    }
+    /**
       * Renvoie les capacités de la tile
       */
     qint32 Tile::getFlags() const

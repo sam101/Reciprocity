@@ -13,6 +13,7 @@ namespace GUI
     _view(NULL),
     _scene(NULL)
     {
+        //On connecte les signaux
         connect(qApp,SIGNAL(aboutToQuit()),this,SLOT(saveWindowState()));
         //On restaure l'état de la fenêtre
         restoreState(ClientSettings::getValue("GameWindowState",QVariant()).toByteArray());
@@ -22,13 +23,14 @@ namespace GUI
         setCentralWidget(_view);
         //On initialise la scène.
         _scene = new GameScene;
+        connect(_scene,SIGNAL(tileSelected(qint32,qint32)),this,SLOT(tileSelected(qint32,qint32)));
         _view->setScene(_scene);
         //On initialise le chatDockWidget
         _chatDock = new ChatDockWidget;
         addDockWidget(Qt::BottomDockWidgetArea,_chatDock);
         //On initialise le ActionsDock
-        _actionsDock = new ActionToolBar;
-        addToolBar(Qt::TopToolBarArea,_actionsDock);
+        _actionToolBar = new ActionToolBar;
+        addToolBar(Qt::TopToolBarArea,_actionToolBar);
         //On redimensione la fenêtre
         resize(Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
     }
@@ -98,5 +100,14 @@ namespace GUI
     void GameWindow::addEntity(Map::Entity *entity)
     {
         _scene->addEntity(entity);
+    }
+    /**
+      * Appelé quand une tile a été selectionnée.
+      * Transmet l'information à ActionBar pour
+      * changer l'indic.
+      */
+    void GameWindow::tileSelected(qint32 x, qint32 y)
+    {
+        _actionToolBar->displayTile(_dataHandler->getTile(x,y));
     }
 }

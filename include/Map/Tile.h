@@ -64,6 +64,14 @@ namespace Map
             */
           Tile(qint32 x = 0, qint32 y = 0,qint32 flags = PASSABLE, TileType type = NOTHING  , qint32 output = 0);
           /**
+            * Renvoie la position X de la tile
+            */
+          qint32 getX() const;
+          /**
+            * Renvoie la position Y de la tile
+            */
+          qint32 getY() const;
+          /**
             * Renvoie les capacités de la tile
             */
           qint32 getFlags() const;

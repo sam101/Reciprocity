@@ -1,4 +1,5 @@
 #include <Client/DataHandler.h>
+#include <QtCore/QDebug>
 namespace Client
 {
     /**
@@ -27,28 +28,58 @@ namespace Client
         }
     }
     /**
+      * Renvoie les coordonnées X d'un chunk en fonction d'une tile
+      */
+    qint32 DataHandler::getXChunk(qint32 x) const
+    {
+        if (x < 0)
+        {
+            return x / Config::Config::CHUNK_SIZE - 1;
+        }
+        else
+        {
+            return x / Config::Config::CHUNK_SIZE + 1;
+        }
+    }
+    /**
+      * Renvoie les coordonnées Y d'un chunk en fonction d'une tile
+      */
+    qint32 DataHandler::getYChunk(qint32 y) const
+    {
+        if (y < 0)
+        {
+            return y / Config::Config::CHUNK_SIZE - 1;
+        }
+        else
+        {
+            return y / Config::Config::CHUNK_SIZE + 1;
+        }
+    }
+
+    /**
       * Ajoute/Met à jour un chunk
       */
     void DataHandler::addChunk(const Chunk::Chunk &chunk)
     {
         //On supprime le chunk si il existait déjà
-        if (_chunks.contains(Coordinate(chunk.getX(),chunk.getY())))
+        if (_chunks.contains(Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))))
         {
-            delete _chunks[Coordinate(chunk.getX(),chunk.getY())];
-            _chunks.remove(Coordinate(chunk.getX(),chunk.getY()));
-            _chunks[Coordinate(chunk.getX(),chunk.getY())] = new Chunk::Chunk(chunk);
-            emit chunkUpdated(_chunks[Coordinate(chunk.getX(),chunk.getY())]);
+            delete _chunks[Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))];
+            _chunks.remove(Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()) ));
+            _chunks[Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))] = new Chunk::Chunk(chunk);
+            emit chunkUpdated(_chunks[Coordinate(getXChunk(chunk.getX()) ,getYChunk(chunk.getY()))]);
             return;
         }
         //On ajoute le chunk.
-        _chunks[Coordinate(chunk.getX(),chunk.getY())] = new Chunk::Chunk(chunk);
-        emit chunkAdded(_chunks[Coordinate(chunk.getX(),chunk.getY())]);
+        _chunks[Coordinate(getXChunk(chunk.getX()) ,getYChunk(chunk.getY()))] = new Chunk::Chunk(chunk);
+        emit chunkAdded(_chunks[Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))]);
     }
     /**
       * Renvoie un chunk
       */
     Chunk::Chunk* DataHandler::getChunk(qint32 x, qint32 y)
     {
+        qDebug() << "chunk:" << x << y;
         return _chunks[Coordinate(x,y)];
     }
     /**
@@ -91,5 +122,42 @@ namespace Client
     const QList<QPair<QString,bool> >& DataHandler::getPlayers() const
     {
         return _players;
+    }
+    /**
+      * Renvoie une tile en fonction du chunk, ou NULL
+      * si elle n'est pas présente
+      */
+    Map::Tile* DataHandler::getTile(qint32 x, qint32 y)
+    {
+        Chunk::Chunk *c;
+        if (x < 0)
+        {
+            if (y < 0)
+            {
+                c = getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE - 1);
+            }
+            else
+            {
+                c = getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE + 1);
+            }
+        }
+        else
+        {
+            if (y < 0)
+            {
+                c = getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE - 1);
+            }
+            else
+            {
+                c = getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE + 1);
+            }
+        }
+        //Si le chunk existe pas, on renvoie NULL
+        if (c == NULL)
+        {
+            return NULL;
+        }
+        //Sinon, on renvoie la tile
+        return &c->getTile(x,y);
     }
 }

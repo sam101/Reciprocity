@@ -94,8 +94,8 @@ namespace GUI
       */
     void GameScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     {
-        qint32 x = event->pos().x();
-        qint32 y = event->pos().y();
+        qint32 x = event->scenePos().x() / Config::Config::TILE_SIZE;
+        qint32 y = event->scenePos().y() / Config::Config::TILE_SIZE;
         //On envoie pas le signal si la tile n'a pas changé.
         if (x == _tileX && y == _tileY)
         {
@@ -104,6 +104,9 @@ namespace GUI
         //Sinon, on change les coordonées et on envoie le signal
         _tileX = x;
         _tileY = y;
+        qDebug() << x << y;
         emit tileSelected(x,y);
+
+        event->accept();
     }
 }

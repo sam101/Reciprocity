@@ -1,5 +1,6 @@
 #include <GUI/TileInfoWidget.h>
 #include <QtGui/QHBoxLayout>
+#include <QtCore/QDebug>
 #include <Graphics/Provider.h>
 using namespace Graphics;
 namespace GUI
@@ -38,8 +39,26 @@ namespace GUI
     {
         //On change l'objet actuel
         _tile = tile;
+        if (tile == NULL)
+        {
+            qDebug() << "Tile nulle !";
+            return;
+        }
         //On affiche l'image.
         _imageLabel->setPixmap(_tiles[tile->getType()]);
-
+        //On affiche le texte
+        QString text;
+        switch (tile->getType())
+        {
+            case Map::SEA:
+                text = tr("Mer");
+            break;
+            case Map::LOWLAND:
+                text = tr("Plaines");
+            break;
+            default:
+                text = tr("Inconnu");
+        }
+        _infoLabel->setText(text + " (" + QString::number((tile->getX())) + "," + QString::number(tile->getY()) + ")");
     }
 }

@@ -43,7 +43,15 @@ namespace Client
               * Destructeur
               */
             virtual ~DataHandler();
-       public slots:
+            /**
+              * Renvoie les coordonnées X d'un chunk en fonction d'une tile
+              */
+            qint32 getXChunk(qint32 x) const;
+            /**
+              * Renvoie les coordonnées Y d'un chunk en fonction d'une tile
+              */
+            qint32 getYChunk(qint32 y) const;
+    public slots:
             /**
               * Ajoute/Met à jour un chunk
               */
@@ -70,7 +78,12 @@ namespace Client
               * Surchargé constant
               */
             const QList<QPair<QString,bool> >& getPlayers() const;
-       signals:
+            /**
+              * Renvoie une tile en fonction du chunk, ou NULL
+              * si elle n'est pas présente
+              */
+            Map::Tile* getTile(qint32 x, qint32 y);
+        signals:
             /**
               * Envoyé quand un chunk a été mis à jour
               */

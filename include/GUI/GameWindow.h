@@ -43,7 +43,7 @@ namespace GUI
             /**
               * Pointeur vers le ActionsDock
               */
-            ActionToolBar *_actionsDock;
+            ActionToolBar *_actionToolBar;
         public:
             /**
               * Constructeur
@@ -79,6 +79,12 @@ namespace GUI
               * Ajoute une entité
               */
             void addEntity(Map::Entity *entity);
+            /**
+              * Appelé quand une tile a été selectionnée.
+              * Transmet l'information à ActionBar pour
+              * changer l'indic.
+              */
+            void tileSelected(qint32 x, qint32 y);
     };
 }
 #endif //GUI_GAMEWINDOW_H
