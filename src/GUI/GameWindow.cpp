@@ -75,6 +75,7 @@ namespace GUI
         //On connecte les signaux du dataHandler
         connect(_dataHandler,SIGNAL(chunkAdded(Chunk::Chunk*)),this,SLOT(addChunk(Chunk::Chunk*)));
         connect(_dataHandler,SIGNAL(chunkUpdated(Chunk::Chunk*)),this,SLOT(updateChunk(Chunk::Chunk*)));
+        connect(_dataHandler,SIGNAL(entityAdded(Map::Entity*)),this,SLOT(addEntity(Map::Entity*)));
     }
     /**
       * Ajoute un chunk
@@ -90,5 +91,12 @@ namespace GUI
     {
         //TODO: Separer les deux
         _scene->addChunk(chunk);
+    }
+    /**
+      * Ajoute une entité
+      */
+    void GameWindow::addEntity(Map::Entity *entity)
+    {
+        _scene->addEntity(entity);
     }
 }

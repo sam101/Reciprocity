@@ -41,6 +41,20 @@ namespace GUI
 
     }
     /**
+      * Ajoute une entité
+      */
+    void GameScene::addEntity(Map::Entity *entity)
+    {
+        if (_entities.contains(entity->getId()))
+        {
+            return;
+        }
+        //On ajoute le EntityItem
+        EntityItem *e = new EntityItem(entity);
+        addItem(e);
+    }
+
+    /**
       * Appelé à l'appui sur une touche.
       * Bouge la caméra.
       */

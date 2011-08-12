@@ -2,6 +2,7 @@
 #define GUI_GAMESCENE_H
 #include <Client/DataHandler.h>
 #include <Graphics/BuildingChunkItem.h>
+#include <Graphics/EntityItem.h>
 #include <Graphics/TileChunkItem.h>
 
 #include <QtCore/QMap>
@@ -34,6 +35,10 @@ namespace GUI
               */
             QMap<Coordinate, BuildingChunkItem* > _buildings;
             /**
+              * Liste des entités affichées
+              */
+            QMap<qint32,EntityItem*> _entities;
+            /**
               * Position X de la caméra
               */
             qint32 _xCamera;
@@ -56,6 +61,10 @@ namespace GUI
               * Ajoute/met à jour un chunk
               */
             void addChunk(Chunk::Chunk *chunk);
+            /**
+              * Ajoute une entité
+              */
+            void addEntity(Map::Entity *entity);
     };
 }
 #endif //GUI_GAMESCENE_H

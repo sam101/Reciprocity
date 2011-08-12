@@ -75,6 +75,10 @@ namespace GUI
               * Met à jour un chunk
               */
             void updateChunk(Chunk::Chunk *chunk);
+            /**
+              * Ajoute une entité
+              */
+            void addEntity(Map::Entity *entity);
     };
 }
 #endif //GUI_GAMEWINDOW_H

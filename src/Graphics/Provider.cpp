@@ -68,7 +68,7 @@ namespace Graphics
         else
         {
             //On charge l'image.
-            _entities[name] = QImage(_path + "/Buildings/" + name + ".png");
+            _entities[name] = QImage(_path + "/Entities/" + name + ".png");
             return _entities.value(name);
         }
 
