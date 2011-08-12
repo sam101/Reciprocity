@@ -217,7 +217,6 @@ namespace World
         _entities.last()->setId(id);
         //On l'ajoute au bon chunk
         getChunkByTile(x,y)->addEntity(id);
-        qDebug() << "XY:" << getChunkByTile(x,y)->getX() << getChunkByTile(x,y)->getY();
         //On renvoie son id
         return id;
     }
