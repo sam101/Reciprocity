@@ -40,13 +40,13 @@ namespace World
     void WorldGenerator::_initChunkGenerator()
     {
         //Générateur de Chunk Mer.
-        _generators.append(new Chunk::LandChunkGenerator);
+        _generators.append(new Chunk::SeaChunkGenerator);
         //Générateur de Chunk "Land".
         _generators.append(new Chunk::LandChunkGenerator);
         //Générateur de Chunk "Island"
-        _generators.append(new Chunk::LandChunkGenerator);
+        _generators.append(new Chunk::IslandChunkGenerator);
         //Générateur de Chunk "DesertLand"
-        _generators.append(new Chunk::LandChunkGenerator);
+        _generators.append(new Chunk::DesertLandChunkGenerator);
     }
     /**
       * Redimensionne la taille des tableaux de chunk.
