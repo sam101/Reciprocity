@@ -50,7 +50,7 @@ HEADERS += \
     include/Network/BuildMessage.h \
     include/Network/BuildAcceptedMessage.h \
     include/GUI/ChatDockWidget.h \
-    include/GUI/ActionsDockWidget.h
+    include/GUI/ActionToolBar.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -92,4 +92,4 @@ SOURCES += \
     src/Network/BuildMessage.cpp \
     src/Network/BuildAcceptedMessage.cpp \
     src/GUI/ChatDockWidget.cpp \
-    src/GUI/ActionsDockWidget.cpp
+    src/GUI/ActionToolBar.cpp

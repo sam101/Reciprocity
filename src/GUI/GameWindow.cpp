@@ -19,6 +19,9 @@ namespace GUI
         //On initialise le chatDockWidget
         _chatDock = new ChatDockWidget;
         addDockWidget(Qt::BottomDockWidgetArea,_chatDock);
+        //On initialise le ActionsDock
+        _actionsDock = new ActionToolBar;
+        addToolBar(Qt::RightToolBarArea,_actionsDock);
         //On redimensione la fenêtre
         resize(Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
     }

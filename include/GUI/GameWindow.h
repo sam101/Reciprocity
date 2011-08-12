@@ -3,6 +3,7 @@
 #include <QtGui/QGraphicsView>
 #include <QtGui/QMainWindow>
 
+#include <GUI/ActionToolBar.h>
 #include <GUI/ChatDockWidget.h>
 #include <GUI/GameScene.h>
 
@@ -39,6 +40,10 @@ namespace GUI
               * Pointeur vers le ChatDock
               */
             ChatDockWidget *_chatDock;
+            /**
+              * Pointeur vers le ActionsDock
+              */
+            ActionToolBar *_actionsDock;
         public:
             /**
               * Constructeur
