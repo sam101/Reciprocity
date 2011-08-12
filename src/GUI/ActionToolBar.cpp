@@ -23,6 +23,15 @@ namespace GUI
         QPushButton *build = new QPushButton(tr("Construire"));
         addWidget(build);
         addSeparator();
-
+        //On ajoute le TileInfo
+        _tileInfo = new TileInfoWidget;
+        addWidget(_tileInfo);
+    }
+    /**
+      * Affiche une tile dans le TileInfo
+      */
+    void ActionToolBar::displayTile(Map::Tile *tile)
+    {
+        _tileInfo->displayTile(tile);
     }
 }

@@ -16,7 +16,7 @@ namespace GUI
         //On construit les deux labels
         _imageLabel = new QLabel;
         layout->addWidget(_imageLabel);
-        _infoLabel = new QLabel;
+        _infoLabel = new QLabel(tr("Pas de selection"));
         layout->addWidget(_infoLabel);
         //On construit le tableau des tiles
         //TODO: Faire un truc mieux
