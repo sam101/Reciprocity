@@ -23,7 +23,6 @@ namespace Tools
       */
     void ClientSettings::setValue(QString key, QVariant value)
     {
-        qDebug() << key << value;
         _settings->setValue(key,value);
     }
 }
