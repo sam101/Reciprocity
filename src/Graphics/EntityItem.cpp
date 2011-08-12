@@ -19,7 +19,6 @@ namespace Graphics
         _x = entity->getX() * Config::Config::TILE_SIZE;
         _y = entity->getY() * Config::Config::TILE_SIZE;
         setPos(_x,_y);
-        qDebug() << _x << _y;
     }
     /**
       * Renvoie le boundingRect

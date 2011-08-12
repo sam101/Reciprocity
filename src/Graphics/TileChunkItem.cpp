@@ -12,7 +12,6 @@ namespace Graphics
     TileChunkItem::TileChunkItem(Chunk::Chunk *chunk) :
     _chunk(chunk)
     {
-        qDebug() << "Chunk:" << _chunk->getX() << _chunk->getY();
         //On définit le boundingRect de l'Item
         _boundingRect = QRectF(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
         //On charge le tableau de tiles.
@@ -48,7 +47,6 @@ namespace Graphics
             _yChunk = _chunk->getY();
             y = (_chunk->getY() + 1) *  Config::Config::TILE_SIZE;
         }
-        qDebug() << "Pos:" << x << y;
         setPos(x,y);
     }
     /**
