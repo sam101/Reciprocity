@@ -38,7 +38,6 @@ namespace Chunk
         //Cote nord/sud
         int yTopCoast = yStart;
         int yBottomCoast = yEnd;
-        int n;
         for (int i = xStart; i <= xEnd; i++)
         {
             yTopCoast += Random::next(-2,2);

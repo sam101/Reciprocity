@@ -196,6 +196,7 @@ namespace Map
         out << Entity::ENTITY_VERSION;
         out << e._x;
         out << e._y;
+        out << e._id;
         out << e._lifePoints;
         out << e._maxLifePoints;
         out << e._owner;
@@ -223,6 +224,7 @@ namespace Map
         //On recupère les données
         in >> e._x;
         in >> e._y;
+        in >> e._id;
         in >> e._lifePoints;
         in >> e._maxLifePoints;
         in >> e._owner;
