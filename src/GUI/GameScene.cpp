@@ -2,6 +2,7 @@
 #include <Config/Config.h>
 #include <QtCore/QDebug>
 #include <QtGui/QKeyEvent>
+#include <QtGui/QGraphicsSceneMouseEvent>
 namespace GUI
 {
     /**
@@ -10,7 +11,9 @@ namespace GUI
     GameScene::GameScene() :
     _dataHandler(NULL),
     _xCamera(0),
-    _yCamera(0)
+    _yCamera(0),
+    _tileX(0),
+    _tileY(0)
     {
         setBackgroundBrush(Qt::black);
         //On gère la caméra
@@ -86,5 +89,21 @@ namespace GUI
         //On change la caméra.
         setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
     }
-
+    /**
+      * Appelé au déplacement de la souris
+      */
+    void GameScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+    {
+        qint32 x = event->pos().x();
+        qint32 y = event->pos().y();
+        //On envoie pas le signal si la tile n'a pas changé.
+        if (x == _tileX && y == _tileY)
+        {
+            return;
+        }
+        //Sinon, on change les coordonées et on envoie le signal
+        _tileX = x;
+        _tileY = y;
+        emit tileSelected(x,y);
+    }
 }

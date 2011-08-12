@@ -47,10 +47,22 @@ namespace GUI
               */
             qint32 _yCamera;
             /**
+              * Position X de la tile selectionnée
+              */
+            qint32 _tileX;
+            /**
+              * Position Y de la tile selectionnée
+              */
+            qint32 _tileY;
+            /**
               * Appelé à l'appui sur une touche.
               * Bouge la caméra.
               */
             void keyPressEvent(QKeyEvent *event);
+            /**
+              * Appelé au déplacement de la souris
+              */
+            void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
         public:
             /**
               * Constructeur
@@ -65,6 +77,11 @@ namespace GUI
               * Ajoute une entité
               */
             void addEntity(Map::Entity *entity);
+        signals:
+            /**
+              * Envoyé quand une tile est selectionnée
+              */
+            void tileSelected(qint32 x, qint32 y);
     };
 }
 #endif //GUI_GAMESCENE_H
