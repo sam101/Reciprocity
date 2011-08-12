@@ -139,10 +139,59 @@ namespace Game
         QSet<Chunk::Chunk*> c;
         //TODO: Faire un cache.
         Map::Entity *entity;
+        Chunk::Chunk *chunk;
         for (int i = 0; i < player->getEntities().size(); i++)
         {
             entity = _world->getEntity(player->getEntities()[i]);
-            c << _world->getChunkByTile(entity->getX(),entity->getY());
+            chunk = _world->getChunkByTile(entity->getX(),entity->getY());
+            c << chunk;
+            if (chunk->getX() - 1 == 0)
+            {
+                c << _world->getChunk(chunk->getX() - 2, chunk->getY());
+                if (chunk->getY() + 1 == 0)
+                {
+                    c << _world->getChunk(chunk->getX() - 2, chunk->getY() + 2);
+                }
+                else
+                {
+                    c << _world->getChunk(chunk->getX() - 2, chunk->getY() + 1);
+                }
+            }
+            else
+            {
+                if (chunk->getY() + 1 == 0)
+                {
+                    c << _world->getChunk(chunk->getX() - 1, chunk->getY() + 2);
+                }
+                else
+                {
+                    c << _world->getChunk(chunk->getX() - 1, chunk->getY() + 1);
+                }
+            }
+            if (chunk->getX() + 1 == 0)
+            {
+                c << _world->getChunk(chunk->getX() + 2, chunk->getY());
+                if (chunk->getY() + 1 == 0)
+                {
+                    c << _world->getChunk(chunk->getX() + 2, chunk->getY() + 2);
+                }
+                else
+                {
+                    c << _world->getChunk(chunk->getX() + 2, chunk->getY() + 1);
+                }
+            }
+            else
+            {
+                if (chunk->getY() + 1 == 0)
+                {
+                    c << _world->getChunk(chunk->getX() + 1, chunk->getY() + 2);
+                }
+                else
+                {
+                    c << _world->getChunk(chunk->getX() + 1, chunk->getY() + 1);
+                }
+            }
+
         }
         return c;
     }
