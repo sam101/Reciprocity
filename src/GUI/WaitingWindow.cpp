@@ -138,8 +138,8 @@ namespace GUI
         //On affiche une jolie fenêtre indiquant que le serveur s'est déconnecté
         QMessageBox::critical(this,tr("Le serveur s'est déconnecté !"),tr("Le serveur s'est déconnecté !"));
         //On quitte la fenêtre.
-        //TODO: Revenir à la première fenêtre.
-        hide();
+        //TODO: Revenir au début.
+        qApp->exit();
     }
     /**
       * Met à jour la liste des joueurs
