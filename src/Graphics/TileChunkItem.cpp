@@ -30,18 +30,22 @@ namespace Graphics
         int x,y;
         if (_chunk->getX() < 0)
         {
+            _xChunk = (_chunk->getX() - Config::Config::CHUNK_SIZE + 1);
             x = (_chunk->getX() - Config::Config::CHUNK_SIZE + 1) * Config::Config::TILE_SIZE;
         }
         else
         {
+            _xChunk = _chunk->getX();
             x = _chunk->getX() * Config::Config::TILE_SIZE;
         }
         if (_chunk->getY() < 0)
         {
+            _yChunk = _chunk->getY() - Config::Config::CHUNK_SIZE + 1;
             y = (_chunk->getY() - Config::Config::CHUNK_SIZE + 2) * Config::Config::TILE_SIZE;
         }
         else
         {
+            _yChunk = _chunk->getY();
             y = (_chunk->getY() + 1) *  Config::Config::TILE_SIZE;
         }
         qDebug() << "Pos:" << x << y;
@@ -72,12 +76,12 @@ namespace Graphics
         Q_UNUSED(option)
         Q_UNUSED(widget)
         qint32 current;
-        for (int i = 0; i < Config::Config::TILE_SIZE; i++)
+        for (int i = _xChunk; i < _xChunk + Config::Config::TILE_SIZE; i++)
         {
-            for (int j = 0; j < Config::Config::TILE_SIZE; j++)
+            for (int j = _yChunk; j < _yChunk + Config::Config::TILE_SIZE; j++)
             {
-                current = _chunk->getTileAbs(i,j).getType();
-                painter->drawImage(QPoint( (i) * Config::Config::TILE_SIZE,(j) * Config::Config::TILE_SIZE),_tiles[current]);
+                current = _chunk->getTile(i,j).getType();
+                painter->drawImage(QPoint( (i - _xChunk) * Config::Config::TILE_SIZE,(j - _yChunk) * Config::Config::TILE_SIZE),_tiles[current]);
             }
         }
     }
