@@ -51,7 +51,8 @@ HEADERS += \
     include/Network/BuildAcceptedMessage.h \
     include/GUI/ChatDockWidget.h \
     include/GUI/ActionToolBar.h \
-    include/Tools/ClientSettings.h
+    include/Tools/ClientSettings.h \
+    include/Graphics/EntityItem.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -94,4 +95,5 @@ SOURCES += \
     src/Network/BuildAcceptedMessage.cpp \
     src/GUI/ChatDockWidget.cpp \
     src/GUI/ActionToolBar.cpp \
-    src/Tools/ClientSettings.cpp
+    src/Tools/ClientSettings.cpp \
+    src/Graphics/EntityItem.cpp
