@@ -41,6 +41,7 @@ namespace GUI
         _tile = tile;
         if (tile == NULL)
         {
+            _infoLabel->setText("Hors terrain");
             return;
         }
         //On affiche l'image.

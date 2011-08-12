@@ -237,8 +237,8 @@ namespace Game
         //On trouve les coordonnées de départ.
         //TODO: Vérifier qu'il y'a personne sur le chunk.
         //TODO: Vérifier que les entités ne finissent pas dans l'eau
-        xBase = Random::next(-100,100);
-        yBase = Random::next(-100,100);
+        xBase = 0;//Random::next(-100,100);
+        yBase = 0; Random::next(-100,100);
         //On ajoute 8 entitées au joueur
         for (int i = 0; i < Config::Config::NB_ENTITIES; i++)
         {

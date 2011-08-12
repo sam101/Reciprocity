@@ -104,7 +104,7 @@ namespace GUI
         //Sinon, on change les coordonées et on envoie le signal
         _tileX = x;
         _tileY = y;
-        emit tileSelected(x,y);
+        emit tileSelected(x,y - 1);
 
         event->accept();
     }

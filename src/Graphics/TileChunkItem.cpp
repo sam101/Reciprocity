@@ -12,6 +12,7 @@ namespace Graphics
     TileChunkItem::TileChunkItem(Chunk::Chunk *chunk) :
     _chunk(chunk)
     {
+        qDebug() << "Chunk:" << _chunk->getX() << _chunk->getY();
         //On définit le boundingRect de l'Item
         _boundingRect = QRectF(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
         //On charge le tableau de tiles.
@@ -37,12 +38,13 @@ namespace Graphics
         }
         if (_chunk->getY() < 0)
         {
-            y = (_chunk->getY() - Config::Config::CHUNK_SIZE + 1) * Config::Config::TILE_SIZE;
+            y = (_chunk->getY() - Config::Config::CHUNK_SIZE + 2) * Config::Config::TILE_SIZE;
         }
         else
         {
-            y = _chunk->getY() *  Config::Config::TILE_SIZE;
+            y = (_chunk->getY() + 1) *  Config::Config::TILE_SIZE;
         }
+        qDebug() << "Pos:" << x << y;
         setPos(x,y);
     }
     /**
@@ -70,13 +72,12 @@ namespace Graphics
         Q_UNUSED(option)
         Q_UNUSED(widget)
         qint32 current;
-
         for (int i = 0; i < Config::Config::TILE_SIZE; i++)
         {
             for (int j = 0; j < Config::Config::TILE_SIZE; j++)
             {
-                current = _chunk->getTileAbs(j,i).getType();
-                painter->drawImage(QPoint( (j) * Config::Config::TILE_SIZE,(i) * Config::Config::TILE_SIZE),_tiles[current]);
+                current = _chunk->getTileAbs(i,j).getType();
+                painter->drawImage(QPoint( (i) * Config::Config::TILE_SIZE,(j) * Config::Config::TILE_SIZE),_tiles[current]);
             }
         }
     }
