@@ -236,6 +236,7 @@ namespace Game
         qint32 xBase, yBase;
         //On trouve les coordonnées de départ.
         //TODO: Vérifier qu'il y'a personne sur le chunk.
+        //TODO: Vérifier que les entités ne finissent pas dans l'eau
         xBase = Random::next(-100,100);
         yBase = Random::next(-100,100);
         //On ajoute 8 entitées au joueur
