@@ -2,6 +2,7 @@
 #define GRAPHICS_ENTITYITEM_H
 #include <Map/Entity.h>
 #include <QtGui/QGraphicsItem>
+#include <QtGui/QImage>
 namespace Graphics
 {
     /**
@@ -11,7 +12,44 @@ namespace Graphics
       */
     class EntityItem : public QGraphicsItem
     {
-
+        protected:
+            /**
+              * Pointeur vers l'Entité
+              */
+            Map::Entity *_entity;
+            /**
+              * BoundingRect de l'EntityItem
+              */
+            QRectF _boundingRect;
+            /**
+              * Pixmap de l'EntityItem
+              */
+            QImage _image;
+            /**
+              * Position X de l'entité
+              */
+            qint32 _x;
+            /**
+              * Position Y de l'entité
+              */
+            qint32 _y;
+        public:
+            /**
+              * Constructeur
+              */
+            EntityItem(Map::Entity *entity);
+            /**
+              * Renvoie le boundingRect
+              */
+            QRectF boundingRect() const;
+            /**
+              * Met à jour l'entité
+              */
+            void updateEntity(Map::Entity *entity);
+            /**
+              * Ré-affiche l'entité
+              */
+            void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     };
 }
 #endif //GRAPHICS_ENTITYITEM_H

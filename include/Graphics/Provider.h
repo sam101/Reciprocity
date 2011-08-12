@@ -2,6 +2,7 @@
 #define GRAPHICS_PROVIDER_H
 #include <QtCore/QMap>
 #include <QtCore/QString>
+#include <QtGui/QImage>
 #include <QtGui/QPixmap>
 namespace Graphics
 {
@@ -25,6 +26,10 @@ namespace Graphics
               * Cache des batiments utilisés dans le jeu
               */
             static QMap<QString,QPixmap> _buildings;
+            /**
+              * Cache des entités utilisés dans le jeu
+              */
+            static QMap<QString,QImage> _entities;
     public:
             /**
               * Initialise le chemin vers lequel on doit trouver les données
@@ -38,6 +43,10 @@ namespace Graphics
               * Renvoie un Pixmap d'un batiment
               */
             static QPixmap getBuilding(QString name);
+            /**
+              * Renvoie un QImage d'une entité
+              */
+            static QImage getEntityI(QString name);
     };
 }
 #endif //GRAPHICS_PROVIDER_H
