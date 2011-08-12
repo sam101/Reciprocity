@@ -52,7 +52,8 @@ HEADERS += \
     include/GUI/ChatDockWidget.h \
     include/GUI/ActionToolBar.h \
     include/Tools/ClientSettings.h \
-    include/Graphics/EntityItem.h
+    include/Graphics/EntityItem.h \
+    include/GUI/TileInfoWidget.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -96,4 +97,5 @@ SOURCES += \
     src/GUI/ChatDockWidget.cpp \
     src/GUI/ActionToolBar.cpp \
     src/Tools/ClientSettings.cpp \
-    src/Graphics/EntityItem.cpp
+    src/Graphics/EntityItem.cpp \
+    src/GUI/TileInfoWidget.cpp
