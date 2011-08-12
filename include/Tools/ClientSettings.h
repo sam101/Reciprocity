@@ -15,11 +15,27 @@ namespace Tools
               * Objet des paramètres
               */
             static QSettings *_settings;
+            /**
+              * Constructeur
+              */
+            ClientSettings()
+            {
+
+            }
+
         public:
             /**
               * Initialise l'objet de préférences
               */
             void init();
+            /**
+              * Renvoie une valeur de la configuration
+              */
+            static QVariant getValue(QString key, QVariant defaultValue);
+            /**
+              * Ecrit une valeur dans la configuration
+              */
+            static void setValue(QString key, QVariant value);
     };
 }
 #endif //TOOLS_CLIENTSETTINGS_H
