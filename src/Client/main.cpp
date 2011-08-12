@@ -1,5 +1,6 @@
 #include <QtGui/QApplication>
 #include <QtCore/QTextCodec>
+#include <ctime>
 
 #include <Client/Client.h>
 #include <Client/ConnectionHandler.h>
@@ -9,6 +10,8 @@
 #include <GUI/JoinGameWindow.h>
 #include <GUI/StartWindow.h>
 #include <GUI/WaitingWindow.h>
+#include <Tools/ClientSettings.h>
+#include <Tools/Random.h>
 int main(int argc, char *argv[])
 {
     QApplication a(argc,argv);
@@ -18,7 +21,10 @@ int main(int argc, char *argv[])
 
     //On initialise Provider
     Graphics::Provider::init("../Reciprocity/data");
-
+    //On initialise l'objet de paramètres
+    Tools::ClientSettings::init();
+    //On initialise le générateur de nombres pseudo-aléatoires
+    Tools::Random::init(time(NULL));
     //On construit la fenêtre de départ
     GUI::StartWindow *window = new GUI::StartWindow;
     window->show();

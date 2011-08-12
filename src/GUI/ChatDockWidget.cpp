@@ -11,6 +11,7 @@ namespace GUI
     ChatDockWidget::ChatDockWidget() :
     _client(NULL)
     {
+        setObjectName("ChatDockWidget");
         //On indique ce que peux faire le ChatDockWidget
         setFeatures(QDockWidget::DockWidgetVerticalTitleBar);
         //On construit le widget

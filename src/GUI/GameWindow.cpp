@@ -1,4 +1,7 @@
 #include <GUI/GameWindow.h>
+#include <QtGui/QApplication>
+#include <Tools/ClientSettings.h>
+using namespace Tools;
 namespace GUI
 {
     /**
@@ -10,6 +13,10 @@ namespace GUI
     _view(NULL),
     _scene(NULL)
     {
+        connect(qApp,SIGNAL(aboutToQuit()),this,SLOT(saveWindowState()));
+        //On restaure l'état de la fenêtre
+        restoreState(ClientSettings::getValue("GameWindowState",QVariant()).toByteArray());
+        restoreGeometry(ClientSettings::getValue("GameWindowGeometry").toByteArray());
         //On initialise la vue
         _view = new QGraphicsView;
         setCentralWidget(_view);
@@ -47,6 +54,15 @@ namespace GUI
             _dataHandler = _client->getDataHandler();
         }
     }
+    /**
+      * Sauvegarde l'état de la fenêtre
+      */
+    void GameWindow::saveWindowState()
+    {
+        ClientSettings::setValue("GameWindowGeometry",saveGeometry());
+        ClientSettings::setValue("GameWindowState",saveState());
+    }
+
     /**
       * Commence la partie
       */

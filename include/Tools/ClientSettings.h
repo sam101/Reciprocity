@@ -27,11 +27,11 @@ namespace Tools
             /**
               * Initialise l'objet de préférences
               */
-            void init();
+            static void init();
             /**
               * Renvoie une valeur de la configuration
               */
-            static QVariant getValue(QString key, QVariant defaultValue);
+            static QVariant getValue(QString key, QVariant defaultValue = QVariant());
             /**
               * Ecrit une valeur dans la configuration
               */

@@ -8,6 +8,7 @@ namespace GUI
       */
     ActionToolBar::ActionToolBar()
     {
+        setObjectName("ActionToolBar");
         setWindowTitle(tr("Barre d'actions"));
         setFloatable(false);
         //On construit le bouton de fin de tour

@@ -60,6 +60,10 @@ namespace GUI
               */
             void setClient(QObject *client);
             /**
+              * Sauvegarde l'état de la fenêtre
+              */
+            void saveWindowState();
+            /**
               * Commence la partie
               */
             void beginGame();

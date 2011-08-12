@@ -1,4 +1,6 @@
 #include <Tools/ClientSettings.h>
+#include <QtGui/QDesktopServices>
+#include <QtCore/QDebug>
 namespace Tools
 {
     QSettings* ClientSettings::_settings;
@@ -7,7 +9,7 @@ namespace Tools
       */
     void ClientSettings::init()
     {
-        _settings = new QSettings("Reciprocity","Reciprocity");
+        _settings = new QSettings(QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.reciprocity/settings.ini",QSettings::IniFormat);
     }
     /**
       * Renvoie une valeur de la configuration
@@ -21,6 +23,7 @@ namespace Tools
       */
     void ClientSettings::setValue(QString key, QVariant value)
     {
+        qDebug() << key << value;
         _settings->setValue(key,value);
     }
 }
