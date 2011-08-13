@@ -55,6 +55,10 @@ namespace GUI
               */
             qint32 _tileY;
             /**
+              * Indique si une entité est actuellement selectionnée
+              */
+            bool _entitySelected;
+            /**
               * Appelé à l'appui sur une touche.
               * Bouge la caméra.
               */
@@ -68,6 +72,10 @@ namespace GUI
               * Constructeur
               */
             GameScene();
+            /**
+              * Change l'état si une entité est selectionnée ou non
+              */
+            void setEntitySelected(bool entitySelected);
         public slots:
             /**
               * Ajoute/met à jour un chunk

@@ -119,6 +119,15 @@ namespace GUI
     void GameWindow::tileSelected(qint32 x, qint32 y)
     {
         _actionToolBar->displayTile(_dataHandler->getTile(x,y));
-        _actionToolBar->displayEntity(_dataHandler->getEntityByCoordinates(x,y));
+         Map::Entity *e = _dataHandler->getEntityByCoordinates(x,y);
+         if (e == NULL)
+         {
+             _scene->setEntitySelected(false);
+         }
+         else
+         {
+             _scene->setEntitySelected(true);
+         }
+         _actionToolBar->displayEntity(e);
     }
 }

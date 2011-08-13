@@ -13,11 +13,19 @@ namespace GUI
     _xCamera(0),
     _yCamera(0),
     _tileX(0),
-    _tileY(0)
+    _tileY(0),
+    _entitySelected(false)
     {
         setBackgroundBrush(Qt::black);
         //On gère la caméra
         setSceneRect(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
+    }
+    /**
+      * Change l'état si une entité est selectionnée ou non
+      */
+    void GameScene::setEntitySelected(bool entitySelected)
+    {
+        _entitySelected = entitySelected;
     }
     /**
       * Ajoute/met à jour un chunk

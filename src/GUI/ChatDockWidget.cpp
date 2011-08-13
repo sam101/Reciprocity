@@ -31,7 +31,7 @@ namespace GUI
         //On redimensionne
         setWidget(widget);
         //On met le premier message
-        _messages->addItem(tr("Vous avez rejoins la partie"));
+        _messages->addItem(tr("Vous avez rejoint la partie"));
     }
     /**
       * Change l'objet client actuel
