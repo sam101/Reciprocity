@@ -51,6 +51,10 @@ namespace Game
               */
             bool hasBegun() const;
             /**
+              * Renvoie une entité
+              */
+            Map::Entity* getEntity(qint32 id);
+            /**
               * Ajoute une entité à la partie
               */
             void addEntity(const Map::Entity &entity, qint32 x, qint32 y);

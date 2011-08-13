@@ -52,6 +52,13 @@ namespace Game
         return _hasBegun;
     }
     /**
+      * Renvoie une entité
+      */
+    Map::Entity* Game::getEntity(qint32 id)
+    {
+        return _world->getEntity(id);
+    }
+    /**
       * Ajoute une entité à la partie
       */
     void Game::addEntity(const Map::Entity &entity, qint32 x, qint32 y)

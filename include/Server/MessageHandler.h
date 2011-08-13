@@ -69,6 +69,9 @@ namespace Server
               * Gère la reception d'une demande de kick de joueur
               */
             void handleKickPlayer(QTcpSocket *socket, QDataStream &in);
+            /**
+              * Gère la reception d'une demande de déplacement
+              */
         signals:
             /**
               * Emis quand une erreur est survenue

@@ -5,6 +5,7 @@
 #include <Network/KickPlayerMessage.h>
 #include <Network/LoginMessage.h>
 #include <Network/MessageOutMessage.h>
+#include <Network/MoveUnitMessage.h>
 #include <Network/RequestDataMessage.h>
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QDataStream>
@@ -19,6 +20,7 @@ namespace Server
     _game(NULL),
     _clients(clients)
     {
+
     }
     /**
       * Définit l'objet de jeu actuel
@@ -274,5 +276,36 @@ namespace Server
         //On envoie le signal comme quoi le joueur a été kické
         emit kickPlayer(m.getLogin());
         emit sendKickMessage(m.getLogin());
+    }
+    /**
+      * Gère la reception d'une demande de déplacement
+      */
+    void MessageHandler::handleMoveUnit(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::MoveUnitMessage m;
+        in >> m;
+        //On vérifie que l'envoyeur est bien loggué
+        if (_clients[socket]->getPlayer() == NULL)
+        {
+            return;
+        }
+        Game::Player *player = _clients[socket]->getPlayer();
+        //On vérifie que l'entité existe
+        if (!player->getEntities().contains(m.getId()))
+        {
+            return;
+        }
+        //On vérifie que l'entité existe bien
+        if (_game->getEntity(id) == NULL)
+        {
+            return;
+        }
+        //On vérifie que l'entité est pas déjà déplacée
+        if (_game->getEntity(id)->hasMoved())
+        {
+            return;
+        }
+        //On déplace l'entité
     }
 }
