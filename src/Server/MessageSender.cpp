@@ -258,4 +258,11 @@ namespace Server
         }
 
     }
+    /**
+      * Envoie l'information comme quoi une entité à bougé
+      */
+    void MessageSender::sendEntityHasMoved(QTcpSocket *socket, qint32 id)
+    {
+        //TODO
+    }
 }
