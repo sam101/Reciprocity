@@ -28,7 +28,9 @@ namespace GUI
         //On vérifie qu'il y'a bien une entité
         if (entity == NULL)
         {
+            _imageLabel->setPixmap(QPixmap());
             _infoLabel->setText(tr("Pas de selection"));
+            return;
         }
         //On change les informations
         _imageLabel->setPixmap(QPixmap::fromImage(Provider::getEntityI("entity")));
