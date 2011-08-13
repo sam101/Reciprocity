@@ -110,6 +110,10 @@ namespace Server
                 case Network::KICK_PLAYER:
                     handleKickPlayer(socket,in);
                 break;
+                //Déplacement d'une entité
+                case Network::MOVEUNIT:
+                    handleMoveUnit(socket,in);
+                break;
                 default:
                     //On lit les données pour les effacer
                     socket->read(_sizes[socket]);
@@ -297,15 +301,18 @@ namespace Server
             return;
         }
         //On vérifie que l'entité existe bien
-        if (_game->getEntity(id) == NULL)
+        if (_game->getEntity(m.getId()) == NULL)
         {
             return;
         }
         //On vérifie que l'entité est pas déjà déplacée
-        if (_game->getEntity(id)->hasMoved())
+        if (_game->getEntity(m.getId())->hasMoved())
         {
             return;
         }
         //On déplace l'entité
+        _game->moveEntity(m.getId(),m.getX(),m.getY(),_clients[socket]->getPlayer()->getId());
+        //On indique que l'entité a bougé
+        emit entityMoved(socket,m.getId());
     }
 }

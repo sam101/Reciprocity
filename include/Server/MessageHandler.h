@@ -72,6 +72,7 @@ namespace Server
             /**
               * Gère la reception d'une demande de déplacement
               */
+            void handleMoveUnit(QTcpSocket *socket, QDataStream &in);
         signals:
             /**
               * Emis quand une erreur est survenue
@@ -119,6 +120,10 @@ namespace Server
               * Emit quand un joueur a été kické
               */
             void sendKickMessage(QString login);
+            /**
+              * Emit quand une entité a bougé
+              */
+            void entityMoved(QTcpSocket *socket, qint32 id);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H
