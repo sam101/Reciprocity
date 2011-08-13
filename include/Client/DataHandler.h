@@ -87,6 +87,7 @@ namespace Client
               * si elle n'est pas présente
               */
             Map::Tile* getTile(qint32 x, qint32 y);
+
         signals:
             /**
               * Envoyé quand un chunk a été mis à jour

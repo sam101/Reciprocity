@@ -20,6 +20,13 @@ namespace GUI
         layout->addWidget(_infoLabel);
     }
     /**
+      * Change le dataHandler actuel
+      */
+    void EntityInfoWidget::setDataHandler(Client::DataHandler *dataHandler)
+    {
+        _dataHandler = dataHandler;
+    }
+    /**
       * Affiche une entité
       */
     void EntityInfoWidget::displayEntity(Map::Entity *entity)

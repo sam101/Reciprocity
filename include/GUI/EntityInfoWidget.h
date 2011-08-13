@@ -2,6 +2,7 @@
 #define GUI_ENTITYINFOWIDGET_H
 #include <QtGui/QLabel>
 #include <QtGui/QWidget>
+#include <Client/DataHandler.h>
 #include <Map/Entity.h>
 namespace GUI
 {
@@ -26,11 +27,19 @@ namespace GUI
               * Label contenant le texte de l'entité
               */
             QLabel *_infoLabel;
+            /**
+              * Pointeur vers le DataHandler
+              */
+            Client::DataHandler *_dataHandler;
        public:
             /**
               * Constructeur
               */
             EntityInfoWidget();
+            /**
+              * Change le dataHandler actuel
+              */
+            void setDataHandler(Client::DataHandler *dataHandler);
             /**
               * Affiche une entité
               */

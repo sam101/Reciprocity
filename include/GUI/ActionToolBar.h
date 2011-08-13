@@ -1,6 +1,8 @@
 #ifndef GUI_ACTIONTOOLBAR_H
 #define GUI_ACTIONTOOLBAR_H
+#include <QtGui/QPushButton>
 #include <QtGui/QToolBar>
+#include <Client/DataHandler.h>
 #include <GUI/EntityInfoWidget.h>
 #include <GUI/TileInfoWidget.h>
 namespace GUI
@@ -15,6 +17,19 @@ namespace GUI
         Q_OBJECT
         protected:
             /**
+              * Bouton pour la fin du tour
+              */
+            QPushButton *_endTurn;
+            /**
+              * Bouton utilisé pour déplacer une entité
+              */
+            QPushButton *_move;
+            /**
+              * Bouton utilisé pour construire
+              */
+            QPushButton *_build;
+
+            /**
               * Pointeur vers le TileInfoWidget
               */
             TileInfoWidget *_tileInfo;
@@ -22,12 +37,20 @@ namespace GUI
               * Poniteur vers le TileInfoWidget
               */
             EntityInfoWidget *_entityInfo;
-        public:
+            /**
+              * Pointeur vers le DataHandler
+              */
+            Client::DataHandler *_dataHandler;
+    public:
             /**
               * Constructeur
               */
             ActionToolBar();
         public slots:
+            /**
+              * Change le DataHandler actuel
+              */
+            void setDataHandler(Client::DataHandler *dataHandler);
             /**
               * Affiche une tile dans le TileInfo
               */
