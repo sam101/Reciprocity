@@ -80,6 +80,10 @@ namespace GUI
               */
             void addEntity(Map::Entity *entity);
             /**
+              * Met à jour une entité
+              */
+            void updateEntity(Map::Entity *entity);
+            /**
               * Appelé quand une tile a été selectionnée.
               * Transmet l'information à ActionBar pour
               * changer l'indic.

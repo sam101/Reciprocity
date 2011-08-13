@@ -78,6 +78,7 @@ namespace GUI
         connect(_dataHandler,SIGNAL(chunkAdded(Chunk::Chunk*)),this,SLOT(addChunk(Chunk::Chunk*)));
         connect(_dataHandler,SIGNAL(chunkUpdated(Chunk::Chunk*)),this,SLOT(updateChunk(Chunk::Chunk*)));
         connect(_dataHandler,SIGNAL(entityAdded(Map::Entity*)),this,SLOT(addEntity(Map::Entity*)));
+        connect(_dataHandler,SIGNAL(entityUpdated(Map::Entity*)),this,SLOT(updateEntity(Map::Entity*)));
     }
     /**
       * Ajoute un chunk
@@ -101,6 +102,14 @@ namespace GUI
     {
         _scene->addEntity(entity);
     }
+    /**
+      * Met à jour une entité
+      */
+    void GameWindow::updateEntity(Map::Entity *entity)
+    {
+        _scene->updateEntity(entity);
+    }
+
     /**
       * Appelé quand une tile a été selectionnée.
       * Transmet l'information à ActionBar pour

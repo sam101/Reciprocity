@@ -62,6 +62,16 @@ namespace GUI
         setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
 
     }
+    /**
+      * Met à jour une entité
+      */
+    void GameScene::updateEntity(Map::Entity *entity)
+    {
+        if (_entities.contains(entity->getId()))
+        {
+            _entities[entity->getId()]->updateEntity(entity);
+        }
+    }
 
     /**
       * Appelé à l'appui sur une touche.

@@ -77,6 +77,10 @@ namespace GUI
               * Ajoute une entité
               */
             void addEntity(Map::Entity *entity);
+            /**
+              * Met à jour une entité
+              */
+            void updateEntity(Map::Entity *entity);
         signals:
             /**
               * Envoyé quand une tile est selectionnée
