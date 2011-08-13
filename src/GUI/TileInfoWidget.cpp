@@ -41,6 +41,7 @@ namespace GUI
         _tile = tile;
         if (tile == NULL)
         {
+            _imageLabel->setPixmap(_tiles[0]);
             _infoLabel->setText(tr("Hors terrain"));
             return;
         }
