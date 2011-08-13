@@ -54,6 +54,7 @@ namespace GUI
             _client = c;
             _chatDock->setClient(c);
             _dataHandler = _client->getDataHandler();
+            _actionToolBar->setDataHandler(_dataHandler);
         }
     }
     /**
