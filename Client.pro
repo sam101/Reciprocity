@@ -53,7 +53,8 @@ HEADERS += \
     include/GUI/ActionToolBar.h \
     include/Tools/ClientSettings.h \
     include/Graphics/EntityItem.h \
-    include/GUI/TileInfoWidget.h
+    include/GUI/TileInfoWidget.h \
+    include/GUI/EntityInfoWidget.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -98,4 +99,5 @@ SOURCES += \
     src/GUI/ActionToolBar.cpp \
     src/Tools/ClientSettings.cpp \
     src/Graphics/EntityItem.cpp \
-    src/GUI/TileInfoWidget.cpp
+    src/GUI/TileInfoWidget.cpp \
+    src/GUI/EntityInfoWidget.cpp
