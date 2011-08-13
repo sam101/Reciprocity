@@ -66,6 +66,10 @@ namespace Client
               */
             Map::Entity* getEntity(qint32 id);
             /**
+              * Renvoie une entité en fonction de la position
+              */
+            Map::Entity* getEntityByCoordinates(qint32 x, qint32 y);
+            /**
               * Renvoie un chunk
               */
             Chunk::Chunk* getChunk(qint32 x, qint32 y);

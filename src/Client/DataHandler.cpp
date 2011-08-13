@@ -108,6 +108,25 @@ namespace Client
         return _entities[id];
     }
     /**
+      * Renvoie une entité en fonction de la position
+      */
+    Map::Entity* DataHandler::getEntityByCoordinates(qint32 x, qint32 y)
+    {
+        //TODO: Faire un truc plus optimisé
+        QMapIterator<qint32,Map::Entity*> it(_entities);
+        Map::Entity *e;
+        while (it.hasNext())
+        {
+            e = it.next().value();
+            if (e->getX() == x && e->getY() == y)
+            {
+                return e;
+            }
+        }
+        return NULL;
+    }
+
+    /**
       * Renvoie la liste des joueurs présents
       */
     QList<QPair<QString,bool> >& DataHandler::getPlayers()

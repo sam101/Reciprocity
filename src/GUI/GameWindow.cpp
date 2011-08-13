@@ -109,5 +109,6 @@ namespace GUI
     void GameWindow::tileSelected(qint32 x, qint32 y)
     {
         _actionToolBar->displayTile(_dataHandler->getTile(x,y));
+        _actionToolBar->displayEntity(_dataHandler->getEntityByCoordinates(x,y));
     }
 }
