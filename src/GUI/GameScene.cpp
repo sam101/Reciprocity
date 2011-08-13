@@ -95,9 +95,9 @@ namespace GUI
     void GameScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     {
         qint32 x = event->scenePos().x() / Config::Config::TILE_SIZE;
-        if (x < 0) x--;
+        if (x <= 0) x--;
         qint32 y = event->scenePos().y() / Config::Config::TILE_SIZE;
-        if (y < 0) y--;
+        if (y <= 0) y--;
         //On envoie pas le signal si la tile n'a pas changé.
         if (x == _tileX && y == _tileY)
         {

@@ -30,7 +30,7 @@ namespace Graphics
         if (_chunk->getX() < 0)
         {
             _xChunk = (_chunk->getX() - Config::Config::CHUNK_SIZE + 1);
-            x = (_chunk->getX() - Config::Config::CHUNK_SIZE + 1) * Config::Config::TILE_SIZE;
+            x = _xChunk * Config::Config::TILE_SIZE;
         }
         else
         {
@@ -40,12 +40,12 @@ namespace Graphics
         if (_chunk->getY() < 0)
         {
             _yChunk = _chunk->getY() - Config::Config::CHUNK_SIZE + 1;
-            y = (_chunk->getY() - Config::Config::CHUNK_SIZE + 2) * Config::Config::TILE_SIZE;
+            y = (_yChunk + 1) * Config::Config::TILE_SIZE;
         }
         else
         {
             _yChunk = _chunk->getY();
-            y = (_chunk->getY() + 1) *  Config::Config::TILE_SIZE;
+            y = (_yChunk + 1) *  Config::Config::TILE_SIZE;
         }
         setPos(x,y);
     }

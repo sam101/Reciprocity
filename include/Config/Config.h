@@ -48,7 +48,7 @@ namespace Config
             /**
               * Zone dans laquelle les entités sont dispersées en début de partie
               */
-            static const qint32 ENTITY_ZONE = 3;
+            static const qint32 ENTITY_ZONE = 8;
             /**
               * Nombre de déplacements qu'une entité peut faire par tour
               */

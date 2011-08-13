@@ -17,7 +17,7 @@ namespace Graphics
         _boundingRect = QRectF(0,0,Config::Config::TILE_SIZE,Config::Config::TILE_SIZE);
         //On met à jour les coordonnées
         _x = entity->getX() * Config::Config::TILE_SIZE;
-        _y = entity->getY() * Config::Config::TILE_SIZE;
+        _y = (entity->getY() + 1) * Config::Config::TILE_SIZE;
         setPos(_x,_y);
     }
     /**
@@ -34,7 +34,7 @@ namespace Graphics
     {
         _entity = entity;
         _x = entity->getX() * Config::Config::TILE_SIZE;
-        _y = entity->getY() * Config::Config::TILE_SIZE;
+        _y = (entity->getY() + 1) * Config::Config::TILE_SIZE;
         setPos(_x,_y);
     }
 
