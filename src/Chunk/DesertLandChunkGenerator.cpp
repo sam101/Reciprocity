@@ -31,7 +31,14 @@ namespace Chunk
         {
             for (int j = yStart; j <= yEnd; j++)
             {
-                chunk->getTileAbs(i,j).setAsBeach();
+                if (Random::next(0,5) == 0)
+                {
+                    chunk->getTileAbs(i,j).setAsLowLand();
+                }
+                else
+                {
+                    chunk->getTileAbs(i,j).setAsBeach();
+                }
             }
         }
         //On creuse des trous dans la cote.
@@ -75,6 +82,13 @@ namespace Chunk
             {
                 chunk->getTileAbs(j,i).setAsSea();
             }
+        }
+        //On ajoute des plaines au milieu
+        int nbLowLand = Random::next(0,Config::Config::CHUNK_SIZE * 4);
+        int x, y;
+        for (int i = 0; i < nbLowLand; i++)
+        {
+            chunk->getTileAbs(x,y).setAsLowLand();
         }
     }
 

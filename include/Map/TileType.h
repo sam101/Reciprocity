@@ -45,7 +45,19 @@ namespace Map
         /**
           * Marais
           */
-        SWAMP = 8
+        SWAMP = 8,
+        /**
+          * Oasis
+          */
+        OASIS = 9,
+        /**
+          * Iceberg
+          */
+        ICEBERG = 10,
+        /**
+          * Volcan
+          */
+        VOLCANO = 11
     };
 }
 #endif
