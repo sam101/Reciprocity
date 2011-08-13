@@ -39,8 +39,9 @@ namespace GUI
             _infoLabel->setText(tr("Pas de selection"));
             return;
         }
+        QString author = _dataHandler->getPlayers()[entity->getOwner()].first;
         //On change les informations
         _imageLabel->setPixmap(QPixmap::fromImage(Provider::getEntityI("entity")));
-        _infoLabel->setText("(" + QString::number(entity->getX()) + "," + QString::number(entity->getY()) + ")");
+        _infoLabel->setText("(" + QString::number(entity->getX()) + "," + QString::number(entity->getY()) + ") : " + author);
     }
 }
