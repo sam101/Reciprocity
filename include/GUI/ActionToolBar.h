@@ -1,6 +1,7 @@
 #ifndef GUI_ACTIONTOOLBAR_H
 #define GUI_ACTIONTOOLBAR_H
 #include <QtGui/QToolBar>
+#include <GUI/EntityInfoWidget.h>
 #include <GUI/TileInfoWidget.h>
 namespace GUI
 {
@@ -17,6 +18,10 @@ namespace GUI
               * Pointeur vers le TileInfoWidget
               */
             TileInfoWidget *_tileInfo;
+            /**
+              * Poniteur vers le EntityInfoWidget
+              */
+            EntityInfoWidget *_entityInfo;
         public:
             /**
               * Constructeur
