@@ -19,7 +19,7 @@ namespace GUI
               */
             TileInfoWidget *_tileInfo;
             /**
-              * Poniteur vers le EntityInfoWidget
+              * Poniteur vers le TileInfoWidget
               */
             EntityInfoWidget *_entityInfo;
         public:
@@ -32,6 +32,10 @@ namespace GUI
               * Affiche une tile dans le TileInfo
               */
             void displayTile(Map::Tile *tile);
+            /**
+              * Affiche une entité dans le EntityInfoWidget
+              */
+            void displayEntity(Map::Entity *entity);
     };
 }
 #endif //GUI_ACTIONTOOLBAR_H

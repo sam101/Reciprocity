@@ -38,4 +38,11 @@ namespace GUI
     {
         _tileInfo->displayTile(tile);
     }
+    /**
+      * Affiche une entité dans le EntityInfoWidget
+      */
+    void ActionToolBar::displayEntity(Map::Entity *entity)
+    {
+        _entityInfo->displayEntity(entity);
+    }
 }

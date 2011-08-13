@@ -31,6 +31,10 @@ namespace GUI
               * Constructeur
               */
             EntityInfoWidget();
+            /**
+              * Affiche une entité
+              */
+            void displayEntity(Map::Entity *entity);
 
     };
 }
