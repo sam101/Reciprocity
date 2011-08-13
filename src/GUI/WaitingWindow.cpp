@@ -163,4 +163,21 @@ namespace GUI
         hide();
         emit gameHasBegun();
     }
+    /**
+      * Appelé lors de l'appui sur une touche.
+      * Gère l'envoi du message si on a appuyé sur "Entrée"
+      */
+    void WaitingWindow::keyPressEvent(QKeyEvent *event)
+    {
+        switch (event->key())
+        {
+            //Si on appuie sur Entrée, on envoie le message
+            case Qt::Key_Enter:
+                sendMessageRequested();
+                event->accept();
+                return ;
+            break;
+        }
+        event->ignore();
+    }
 }

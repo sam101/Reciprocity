@@ -3,6 +3,7 @@
 #include <QtCore/QList>
 #include <QtCore/QPair>
 
+#include <QtGui/QKeyEvent>
 #include <QtGui/QListView>
 #include <QtGui/QLineEdit>
 #include <QtGui/QListWidget>
@@ -95,6 +96,12 @@ namespace GUI
               * Gère le début de partie
               */
             void handleGameHasBegun();
+        protected:
+            /**
+              * Appelé lors de l'appui sur une touche.
+              * Gère l'envoi du message si on a appuyé sur "Entrée"
+              */
+            void keyPressEvent(QKeyEvent *);
         signals:
             /**
               * Indique que le joueur veut se deconnecter
