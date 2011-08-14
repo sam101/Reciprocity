@@ -6,6 +6,7 @@
 #include <Network/LoginFailedMessage.h>
 #include <Network/LoginSuccessMessage.h>
 #include <Network/MessageInMessage.h>
+#include <Network/MoveUnitAcceptedMessage.h>
 #include <Network/ServerDataMessage.h>
 #include <QtCore/QByteArray>
 #include <QtCore/QDataStream>
@@ -261,8 +262,21 @@ namespace Server
     /**
       * Envoie l'information comme quoi une entité à bougé
       */
-    void MessageSender::sendEntityHasMoved(QTcpSocket *socket, qint32 id)
+    void MessageSender::sendEntityHasMoved(QTcpSocket *socket, Map::Entity *entity)
     {
-        //TODO
+        //On construit le message
+        Network::MoveUnitAcceptedMessage m(entity->getId(),entity->getX(),entity->getY());
+        //On construit le byteArray dans lequel le mettre
+        QByteArray b;
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in << (qint32)0;
+        in << (qint32)Network::KICK;
+        in << m;
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On envoie le message
+        socket->write(b);
+        //On envoie les informations de l'entité.
+        sendEntityData(socket,entity);
     }
 }

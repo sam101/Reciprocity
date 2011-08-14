@@ -313,6 +313,6 @@ namespace Server
         //On déplace l'entité
         _game->moveEntity(m.getId(),m.getX(),m.getY(),_clients[socket]->getPlayer()->getId());
         //On indique que l'entité a bougé
-        emit entityMoved(socket,m.getId());
+        emit entityMoved(socket,_game->getEntity(m.getId()));
     }
 }

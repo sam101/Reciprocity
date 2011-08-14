@@ -82,7 +82,7 @@ namespace Server
             /**
               * Envoie l'information comme quoi une entité à bougé
               */
-            void sendEntityHasMoved(QTcpSocket *socket, qint32 id);
+            void sendEntityHasMoved(QTcpSocket *socket, Map::Entity *entity);
     };
 }
 #endif //SERVER_MESSAGESENDER_H

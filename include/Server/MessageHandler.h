@@ -123,7 +123,7 @@ namespace Server
             /**
               * Emit quand une entité a bougé
               */
-            void entityMoved(QTcpSocket *socket, qint32 id);
+            void entityMoved(QTcpSocket *socket, Map::Entity *entity);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H
