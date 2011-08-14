@@ -163,6 +163,14 @@ namespace Map
         _type = SWAMP;
         _flags = PASSABLE;
     }
+    /**
+      * Définit la tile comme étant un volcan
+      */
+    void Tile::setAsVolcano()
+    {
+        _type = VOLCANO;
+        _flags = 0;
+    }
 
     /**
       * Stocke une tile dans un QDataStream

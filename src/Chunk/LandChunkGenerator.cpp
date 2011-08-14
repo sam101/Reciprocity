@@ -46,5 +46,13 @@ namespace Chunk
             y = Random::next(1,Config::Config::CHUNK_SIZE - 1);
             chunk->getTileAbs(x,y).setAsSwamp();
         }
+        //On ajoute un volcan
+        if (Random::next(0,5) != 42)
+        {
+            int x = Random::next(10,Config::Config::CHUNK_SIZE - 10);
+            int y = Random::next(10,Config::Config::CHUNK_SIZE - 10);
+            chunk->getTileAbs(x,y).setAsVolcano();
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-#ifndef MAP_TILETYPE_H
+    #ifndef MAP_TILETYPE_H
 #define MAP_TILETYPE_H
 namespace Map
 {

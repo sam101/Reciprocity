@@ -83,13 +83,6 @@ namespace Chunk
                 chunk->getTileAbs(j,i).setAsSea();
             }
         }
-        //On ajoute des plaines au milieu
-        int nbLowLand = Random::next(0,Config::Config::CHUNK_SIZE * 4);
-        int x, y;
-        for (int i = 0; i < nbLowLand; i++)
-        {
-            chunk->getTileAbs(x,y).setAsLowLand();
-        }
     }
 
 }

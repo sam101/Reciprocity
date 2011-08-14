@@ -140,7 +140,10 @@ namespace Map
             * Définit la tile comme étant un marais
             */
           void setAsSwamp();
-
+          /**
+            * Définit la tile comme étant un volcan
+            */
+          void setAsVolcano();
           /**
             * Stocke une tile dans un QDataStream
             */
