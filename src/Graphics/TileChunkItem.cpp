@@ -25,6 +25,10 @@ namespace Graphics
         _tiles.append(Provider::getTile("mountain").toImage());
         _tiles.append(Provider::getTile("beach").toImage());
         _tiles.append(Provider::getTile("swamp").toImage());
+        _tiles.append(Provider::getTile("oasis").toImage());
+        _tiles.append(Provider::getTile("iceberg").toImage());
+        _tiles.append(Provider::getTile("volcano").toImage());
+
         //On définit la position
         int x,y;
         if (_chunk->getX() < 0)

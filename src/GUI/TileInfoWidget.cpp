@@ -21,15 +21,18 @@ namespace GUI
         layout->addWidget(_infoLabel);
         //On construit le tableau des tiles
         //TODO: Faire un truc mieux
-        _tiles.append(Provider::getTile("nothing"));
-        _tiles.append(Provider::getTile("sea"));
-        _tiles.append(Provider::getTile("lowland"));
-        _tiles.append(Provider::getTile("forest"));
-        _tiles.append(Provider::getTile("lake"));
-        _tiles.append(Provider::getTile("river"));
-        _tiles.append(Provider::getTile("mountain"));
-        _tiles.append(Provider::getTile("beach"));
-        _tiles.append(Provider::getTile("swamp"));
+        _tiles.append(Provider::getTile("nothing").toImage());
+        _tiles.append(Provider::getTile("sea").toImage());
+        _tiles.append(Provider::getTile("lowland").toImage());
+        _tiles.append(Provider::getTile("forest").toImage());
+        _tiles.append(Provider::getTile("lake").toImage());
+        _tiles.append(Provider::getTile("river").toImage());
+        _tiles.append(Provider::getTile("mountain").toImage());
+        _tiles.append(Provider::getTile("beach").toImage());
+        _tiles.append(Provider::getTile("swamp").toImage());
+        _tiles.append(Provider::getTile("oasis").toImage());
+        _tiles.append(Provider::getTile("iceberg").toImage());
+        _tiles.append(Provider::getTile("volcano").toImage());
 
     }
     /**
