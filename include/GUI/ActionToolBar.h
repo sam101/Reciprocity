@@ -52,6 +52,16 @@ namespace GUI
             ActionToolBar();
         public slots:
             /**
+              * Appelé à l'appui sur Selectionner. Gère
+              * l'envoi des signaux correspondant
+              */
+            void selectButtonSelected();
+            /**
+              * Appelé à l'appui sur le bouton déplacement,
+              * gère l'envoi des signaux correspondant
+              */
+            void moveButtonSelected();
+            /**
               * Change le DataHandler actuel
               */
             void setDataHandler(Client::DataHandler *dataHandler);

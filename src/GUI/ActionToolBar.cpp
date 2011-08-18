@@ -16,10 +16,12 @@ namespace GUI
         addSeparator();
         //On construit le bouton de selection
         _select = new QPushButton(tr("Selectionner"));
+        connect(_select,SIGNAL(clicked()),this,SLOT(selectButtonSelected()));
         addWidget(_select);
         addSeparator();
         //On construit le bouton de déplacement
         _move = new QPushButton(tr("Déplacement"));
+        connect(_move,SIGNAL(clicked()),this,SLOT(moveButtonSelected()));
         _move->setEnabled(false);
         addWidget(_move);
         addSeparator();
@@ -36,6 +38,23 @@ namespace GUI
         _entityInfo = new EntityInfoWidget;
         addWidget(_entityInfo);
     }
+    /**
+      * Appelé à l'appui sur Selectionner. Gère
+      * l'envoi des signaux correspondant
+      */
+    void ActionToolBar::selectButtonSelected()
+    {
+        emit selectSelected();
+    }
+    /**
+      * Appelé à l'appui sur le bouton déplacement,
+      * gère l'envoi des signaux correspondant
+      */
+    void ActionToolBar::moveButtonSelected()
+    {
+        emit moveSelected();
+    }
+
     /**
       * Change le DataHandler actuel
       */
