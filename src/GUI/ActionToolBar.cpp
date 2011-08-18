@@ -14,6 +14,10 @@ namespace GUI
         _endTurn = new QPushButton(tr("Fin du tour"));
         addWidget(_endTurn);
         addSeparator();
+        //On construit le bouton de selection
+        _select = new QPushButton(tr("Selectionner"));
+        addWidget(_select);
+        addSeparator();
         //On construit le bouton de déplacement
         _move = new QPushButton(tr("Déplacement"));
         _move->setEnabled(false);

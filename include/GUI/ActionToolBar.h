@@ -21,6 +21,10 @@ namespace GUI
               */
             QPushButton *_endTurn;
             /**
+              * Bouton de selection
+              */
+            QPushButton *_select;
+            /**
               * Bouton utilisé pour déplacer une entité
               */
             QPushButton *_move;

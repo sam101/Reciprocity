@@ -9,7 +9,8 @@ namespace GUI
       */
     enum ActionType
     {
-
+        SELECT = 0,
+        MOVE = 1
     };
 }
 #endif //GUI_ACTIONTYPE_H
