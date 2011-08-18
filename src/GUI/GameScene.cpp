@@ -14,7 +14,8 @@ namespace GUI
     _yCamera(0),
     _tileX(0),
     _tileY(0),
-    _entitySelected(false)
+    _entitySelected(false),
+    _actionType(SELECT)
     {
         setBackgroundBrush(Qt::black);
         //On gère la caméra
@@ -131,7 +132,18 @@ namespace GUI
         }
         else
         {
-            emit tileSelected(x,y - 1);
+            switch(_actionType)
+            {
+                //On gère le déplacement
+                case SELECT:
+                    emit tileSelected(x,y - 1);
+                break;
+                case MOVE:
+                    emit moveRequested(x,y - 1);
+                default:
+                    emit tileSelected(x,y - 1);
+            }
+
         }
         event->accept();
     }

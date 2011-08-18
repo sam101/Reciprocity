@@ -45,7 +45,7 @@ namespace GUI
               * Pointeur vers le DataHandler
               */
             Client::DataHandler *_dataHandler;
-    public:
+        public:
             /**
               * Constructeur
               */
@@ -63,6 +63,16 @@ namespace GUI
               * Affiche une entité dans le EntityInfoWidget
               */
             void displayEntity(Map::Entity *entity);
+       signals:
+            /**
+              * Emit à l'appui sur "Selectionner"
+              */
+            void selectSelected();
+            /**
+              * Emit à l'appui sur "Se déplacer"
+              */
+            void moveSelected();
+
     };
 }
 #endif //GUI_ACTIONTOOLBAR_H

@@ -4,6 +4,7 @@
 #include <Graphics/BuildingChunkItem.h>
 #include <Graphics/EntityItem.h>
 #include <Graphics/TileChunkItem.h>
+#include <GUI/ActionType.h>
 
 #include <QtCore/QMap>
 #include <QtGui/QGraphicsScene>
@@ -58,6 +59,10 @@ namespace GUI
               * Indique si une entité est actuellement selectionnée
               */
             bool _entitySelected;
+            /**
+              * Indique le type de selection actuel
+              */
+            ActionType _actionType;
             /**
               * Appelé à l'appui sur une touche.
               * Bouge la caméra.
