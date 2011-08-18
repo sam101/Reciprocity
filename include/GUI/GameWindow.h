@@ -89,6 +89,14 @@ namespace GUI
               * changer l'indic.
               */
             void tileSelected(qint32 x, qint32 y);
+            /**
+              * Change le type actuel de selection pour "Selectionner"
+              */
+            void setSelect();
+            /**
+              * Change le type actuel de selection pour "Se déplacer"
+              */
+            void setMove();
     };
 }
 #endif //GUI_GAMEWINDOW_H

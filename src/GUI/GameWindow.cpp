@@ -130,4 +130,18 @@ namespace GUI
          }
          _actionToolBar->displayEntity(e);
     }
+    /**
+      * Change le type actuel de selection pour "Selectionner"
+      */
+    void GameWindow::setSelect()
+    {
+        _scene->setActionType(SELECT);
+    }
+    /**
+      * Change le type actuel de selection pour "Se déplacer"
+      */
+    void GameWindow::setMove()
+    {
+        _scene->setActionType(MOVE);
+    }
 }
