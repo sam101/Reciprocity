@@ -81,6 +81,10 @@ namespace GUI
               * Change l'état si une entité est selectionnée ou non
               */
             void setEntitySelected(bool entitySelected);
+            /**
+              * Change l'ActionType actuel
+              */
+            void setActionType(ActionType type);
         public slots:
             /**
               * Ajoute/met à jour un chunk

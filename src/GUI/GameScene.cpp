@@ -29,6 +29,14 @@ namespace GUI
         _entitySelected = entitySelected;
     }
     /**
+      * Change l'ActionType actuel
+      */
+    void GameScene::setActionType(ActionType type)
+    {
+        _actionType = type;
+    }
+
+    /**
       * Ajoute/met à jour un chunk
       */
     void GameScene::addChunk(Chunk::Chunk *chunk)
