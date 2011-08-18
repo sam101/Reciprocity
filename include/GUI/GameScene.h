@@ -94,6 +94,10 @@ namespace GUI
               * Envoyé quand une tile est selectionnée
               */
             void tileSelected(qint32 x, qint32 y);
+            /**
+              * Envoyé quand une demande de déplacement a été envoyée
+              */
+            void moveRequested(qint32 x, qint32 y);
     };
 }
 #endif //GUI_GAMESCENE_H

@@ -124,8 +124,15 @@ namespace GUI
         //Sinon, on change les coordonées et on envoie le signal
         _tileX = x;
         _tileY = y;
-        emit tileSelected(x,y - 1);
-
+        //Si le joueur a fait un clic droit, on le compte comme une demande de déplacement
+        if (event->button() == Qt::RightButton)
+        {
+            emit moveRequested(x,y - 1);
+        }
+        else
+        {
+            emit tileSelected(x,y - 1);
+        }
         event->accept();
     }
 }

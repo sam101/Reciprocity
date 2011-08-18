@@ -54,7 +54,8 @@ HEADERS += \
     include/Tools/ClientSettings.h \
     include/Graphics/EntityItem.h \
     include/GUI/TileInfoWidget.h \
-    include/GUI/EntityInfoWidget.h
+    include/GUI/EntityInfoWidget.h \
+    include/GUI/ActionType.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
