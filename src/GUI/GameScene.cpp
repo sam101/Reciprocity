@@ -160,6 +160,7 @@ namespace GUI
                     emit tileSelected(x,y - 1);
                 break;
                 case MOVE:
+                    _actionType = SELECT;
                     emit moveRequested(x,y - 1);
                 default:
                     //On change les coordonnées actuelles
