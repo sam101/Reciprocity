@@ -88,6 +88,10 @@ namespace GUI
         {
             _entities[entity->getId()]->updateEntity(entity);
         }
+        else
+        {
+            qDebug() << "Warning: L'entité a mettre à jour n'existe pas";
+        }
     }
 
     /**
