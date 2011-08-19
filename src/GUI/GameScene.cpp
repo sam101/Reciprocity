@@ -19,7 +19,7 @@ namespace GUI
     {
         setBackgroundBrush(Qt::black);
         //On gère la caméra
-        setSceneRect(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
+        updateSceneRect();
     }
     /**
       * Change l'état si une entité est selectionnée ou non
@@ -57,7 +57,7 @@ namespace GUI
         //On change la caméra
         _xCamera = chunk->getX();
         _yCamera = chunk->getY();
-        setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
+        updateSceneRect();
 
     }
     /**
@@ -76,7 +76,7 @@ namespace GUI
         //On change la caméra
         _xCamera = entity->getX();
         _yCamera = entity->getY();
-        setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
+        updateSceneRect();
 
     }
     /**
@@ -114,7 +114,7 @@ namespace GUI
 
         }
         //On change la caméra.
-        setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
+        updateSceneRect();
     }
     /**
       * Appelé au déplacement de la souris
@@ -154,5 +154,12 @@ namespace GUI
 
         }
         event->accept();
+    }
+    /**
+      * Remet à jour les coordonnées du sceneRect
+      */
+    void GameScene::updateSceneRect()
+    {
+        setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
     }
 }

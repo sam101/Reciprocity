@@ -72,6 +72,10 @@ namespace GUI
               * Appelé au déplacement de la souris
               */
             void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+            /**
+              * Remet à jour les coordonnées du sceneRect
+              */
+            void updateSceneRect();
         public:
             /**
               * Constructeur
