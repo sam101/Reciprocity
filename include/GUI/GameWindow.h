@@ -44,6 +44,10 @@ namespace GUI
               * Pointeur vers le ActionsDock
               */
             ActionToolBar *_actionToolBar;
+            /**
+              * Id de l'entité actuellement sélectionnée
+              */
+            qint32 _currentEntity;
         public:
             /**
               * Constructeur
@@ -89,6 +93,10 @@ namespace GUI
               * changer l'indic.
               */
             void tileSelected(qint32 x, qint32 y);
+            /**
+              * Appelé quand une demande de mouvement d'unité a été envoyée
+              */
+            void moveSelected(qint32 x, qint32 y);
             /**
               * Change le type actuel de selection pour "Selectionner"
               */

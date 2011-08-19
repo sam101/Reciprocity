@@ -11,7 +11,8 @@ namespace GUI
     _client(NULL),
     _dataHandler(NULL),
     _view(NULL),
-    _scene(NULL)
+    _scene(NULL),
+    _currentEntity(-1)
     {
         //On connecte les signaux
         connect(qApp,SIGNAL(aboutToQuit()),this,SLOT(saveWindowState()));
@@ -23,6 +24,7 @@ namespace GUI
         setCentralWidget(_view);
         //On initialise la scène.
         _scene = new GameScene;
+        connect(_scene,SIGNAL(moveRequested(qint32,qint32)),this,SLOT(moveSelected(qint32,qint32)));
         connect(_scene,SIGNAL(tileSelected(qint32,qint32)),this,SLOT(tileSelected(qint32,qint32)));
         _view->setScene(_scene);
         //On initialise le chatDockWidget
@@ -124,19 +126,44 @@ namespace GUI
          Map::Entity *e = _dataHandler->getEntityByCoordinates(x,y);
          if (e == NULL)
          {
+             //On désactive les actions sur entité
+             _currentEntity = -1;
              _scene->setEntitySelected(false);
          }
          else
          {
+             //On met à jour l'entité selectionnée sinon
+             _currentEntity = e->getId();
              _scene->setEntitySelected(true);
          }
          _actionToolBar->displayEntity(e);
     }
     /**
+      * Appelé quand une demande de mouvement d'unité a été envoyée
+      */
+    void GameWindow::moveSelected(qint32 x, qint32 y)
+    {
+        qDebug() << "Demande de déplacement de l'entité" << _currentEntity << "en" << x << y;
+        //On vérifie qu'on a bien selectionné une entité
+        if (_currentEntity < 0)
+        {
+            return;
+        }
+        //On vérifie que l'entité existe
+        if (_client->getDataHandler()->getEntity(_currentEntity) == NULL)
+        {
+            return;
+        }
+        //On fait bouger l'entité par le client
+        _client->sendMoveUnit(_currentEntity,x,y);
+    }
+
+    /**
       * Change le type actuel de selection pour "Selectionner"
       */
     void GameWindow::setSelect()
     {
+        _currentEntity = -1;
         _scene->setActionType(SELECT);
     }
     /**

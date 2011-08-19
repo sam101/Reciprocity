@@ -218,6 +218,10 @@ namespace Client
       */
     void Client::sendMoveUnit(qint32 id, qint32 x, qint32 y)
     {
+        /*
+         * TODO: Ajouter que le voyage DOIT être possible:
+         * Tant qu'a faire, autant pas ennuyer le serveur
+         */
         //On construit le message
         Network::MoveUnitMessage m(id,x,y);
         //on construit le byteArray
