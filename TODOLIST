@@ -1,0 +1,17 @@
+TODOLIST:
+
+Par ordre de priorité (plus ou moins):
+
+-Gestion des tours, de la fin du tours
+-Gestion de la construction des batiments
+-Amélioration de l'affichage dans EntityInfoWidget
+-Ajouter un panel de préférences, pour OpenGL notamment
+-Empécher les entités de spawner dans l'eau ou dans autre chose qu'un LandChunk.
+-Ajouter les 8 chunk adjacents à la liste des chunks envoyés
+-Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs, 	
+-Amélioration de l'affichage des infos sur une tile 
+-Ajouter la gestion des ressources dans les unités
+-Ajouter un panel de récapitulatif de ce que possède le joueur
+-Ajouter des commandes à la console de chat
+-Ajouter la gestion de la vie et du moral.
+-Ajouter la gestion de la collecte de ressources
