@@ -5,9 +5,10 @@ namespace Network
     /**
       * Constructeur
       */
-    ServerDataMessage::ServerDataMessage(QString name) :
+    ServerDataMessage::ServerDataMessage(QString name, qint32 turn) :
     AbstractMessage(Network::SERVER_DATA),
-    _name(name)
+    _name(name),
+    _turn(turn)
     {
 
     }
@@ -26,6 +27,13 @@ namespace Network
         return _players;
     }
     /**
+      * Renvoie le numéro de tour du serveur
+      */
+    qint32 ServerDataMessage::getTurn() const
+    {
+        return _turn;
+    }
+    /**
       * Envoie le message dans un QDataStream
       */
     QDataStream& operator<<(QDataStream &out, const ServerDataMessage &m)
@@ -35,6 +43,7 @@ namespace Network
         //On écrit les données
         out << m._name;
         out << m._players;
+        out << m._turn;
 
         return out;
     }
@@ -54,6 +63,7 @@ namespace Network
         //on recupère les données
         in >> m._name;
         in >> m._players;
+        in >> m._turn;
 
         return in;
     }

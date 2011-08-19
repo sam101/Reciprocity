@@ -27,11 +27,15 @@ namespace Network
               * Liste des joueurs sur le serveur
               */
             QList<QPair<QString,bool> > _players;
+            /**
+              * Numéro de tour du serveur
+              */
+            qint32 _turn;
         public:
             /**
               * Constructeur
               */
-            ServerDataMessage(QString name = "");
+            ServerDataMessage(QString name = "", qint32 turn = 1);
             /**
               * Ajoute un joueur à la liste des joueurs
               */
@@ -40,6 +44,10 @@ namespace Network
               * Renvoie la liste des joueurs
               */
             const QList<QPair<QString,bool> >& getPlayers() const;
+            /**
+              * Renvoie le numéro de tour du serveur
+              */
+            qint32 getTurn() const;
             /**
               * Envoie le message dans un QDataStream
               */
