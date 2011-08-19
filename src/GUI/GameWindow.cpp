@@ -150,12 +150,13 @@ namespace GUI
             return;
         }
         //On vérifie que l'entité existe
-        if (_client->getDataHandler()->getEntity(_currentEntity) == NULL)
+        Map::Entity *e = _client->getDataHandler()->getEntity(_currentEntity);
+        if (e == NULL)
         {
             return;
         }
         //On fait bouger l'entité par le client
-        _client->sendMoveUnit(_currentEntity,x,y);
+        _client->sendMoveUnit(_currentEntity,x - e->getX() ,y - e->getY());
         //On enlève la selection actuelle
         _currentEntity = -1;
     }

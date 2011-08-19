@@ -46,7 +46,7 @@ namespace Graphics
     {
         Q_UNUSED(widget)
         Q_UNUSED(option)
-        if (_entity->hasMoved())
+        if (_entity && _entity->hasMoved())
         {
             painter->drawImage(0,0,_imageMoved);
         }
