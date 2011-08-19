@@ -13,6 +13,7 @@ namespace Graphics
         setZValue(42);
         //On recupère le QImage
         _image = Provider::getEntityI("entity");
+        _imageMoved = Provider::getEntityI("entityMoved");
         //On construit le boundingRect
         _boundingRect = QRectF(0,0,Config::Config::TILE_SIZE,Config::Config::TILE_SIZE);
         //On met à jour les coordonnées
@@ -45,6 +46,14 @@ namespace Graphics
     {
         Q_UNUSED(widget)
         Q_UNUSED(option)
-        painter->drawImage(0,0,_image);
+        if (_entity->hasMoved())
+        {
+            painter->drawImage(0,0,_imageMoved);
+        }
+        else
+        {
+            painter->drawImage(0,0,_image);
+        }
     }
+
 }

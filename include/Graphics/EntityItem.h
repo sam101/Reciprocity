@@ -26,6 +26,10 @@ namespace Graphics
               */
             QImage _image;
             /**
+              * Pixmap de l'EntityItem déplacé
+              */
+            QImage _imageMoved;
+            /**
               * Position X de l'entité
               */
             qint32 _x;
