@@ -286,6 +286,7 @@ namespace Server
       */
     void MessageHandler::handleMoveUnit(QTcpSocket *socket, QDataStream &in)
     {
+        qDebug() << "Demande de déplacement reçue de" << socket->peerAddress().toString();
         //On recupère le message
         Network::MoveUnitMessage m;
         in >> m;
@@ -308,6 +309,7 @@ namespace Server
         //On vérifie que l'entité est pas déjà déplacée
         if (_game->getEntity(m.getId())->hasMoved())
         {
+            qDebug() << "Refusée: l'entité a déjà bougé";
             return;
         }
         //On déplace l'entité

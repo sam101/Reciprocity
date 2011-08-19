@@ -270,7 +270,7 @@ namespace Server
         QByteArray b;
         QDataStream in(&b,QIODevice::WriteOnly);
         in << (qint32)0;
-        in << (qint32)Network::KICK;
+        in << (qint32)Network::MOVEUNIT_ACCEPTED;
         in << m;
         in.device()->seek(0);
         in << (qint32)(b.size() - sizeof(qint32));
