@@ -64,6 +64,10 @@ namespace GUI
               */
             void setClient(QObject *client);
             /**
+              * Change le numéro de tour actuel
+              */
+            void setTurn(qint32 turn);
+            /**
               * Sauvegarde l'état de la fenêtre
               */
             void saveWindowState();

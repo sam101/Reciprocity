@@ -28,6 +28,7 @@ namespace Client
     _isLogged(false),
     _isAdmin(false),
      _id(-1),
+    _turn(0),
     _login(login),
     _hash(hash)
     {
@@ -370,9 +371,11 @@ namespace Client
         in >> m;
         //On met à jour la liste des joueurs
         _dataHandler->getPlayers() = m.getPlayers();
+        //On met à jour le numéro du tour
+        _turn = m.getTurn();
         //On emet le signal comme quoi la liste des joueurs a été mise à jour
         emit playerListHasBeenUpdated(_dataHandler->getPlayers());
-
+        emit turnNumberHasChanged(_turn);
     }
     /**
       * Gère la reception d'un message de début de partie

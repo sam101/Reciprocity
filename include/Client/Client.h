@@ -49,6 +49,10 @@ namespace Client
               */
             qint32 _id;
             /**
+              * Numéro du tour actuel
+              */
+            qint32 _turn;
+            /**
               * Login du joueur
               */
             QString _login;
@@ -178,6 +182,10 @@ namespace Client
               * Emit quand la partie à commencé
               */
             void gameHasBegun();
+            /**
+              * Emit quand le numéro de tour à changé
+              */
+            void turnNumberHasChanged(qint32 turn);
     };
 }
 #endif //CLIENT_CLIENT_H

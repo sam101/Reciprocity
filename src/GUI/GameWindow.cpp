@@ -62,6 +62,14 @@ namespace GUI
         }
     }
     /**
+      * Change le numéro de tour actuel
+      */
+    void GameWindow::setTurn(qint32 turn)
+    {
+        setWindowTitle(tr("Reciprocity - Tour ") + QString::number(turn) + tr("."));
+    }
+
+    /**
       * Sauvegarde l'état de la fenêtre
       */
     void GameWindow::saveWindowState()
@@ -84,6 +92,7 @@ namespace GUI
         connect(_dataHandler,SIGNAL(chunkUpdated(Chunk::Chunk*)),this,SLOT(updateChunk(Chunk::Chunk*)));
         connect(_dataHandler,SIGNAL(entityAdded(Map::Entity*)),this,SLOT(addEntity(Map::Entity*)));
         connect(_dataHandler,SIGNAL(entityUpdated(Map::Entity*)),this,SLOT(updateEntity(Map::Entity*)));
+        connect(_client,SIGNAL(turnNumberHasChanged(qint32)),this,SLOT(setTurn(qint32)));
     }
     /**
       * Ajoute un chunk
