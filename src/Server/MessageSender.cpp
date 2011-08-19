@@ -117,7 +117,7 @@ namespace Server
         qDebug() << "Envoi des informations sur le serveur à " << socket->peerAddress().toString();
         //On construit le message
         //TODO: Ajouter nom serveur
-        Network::ServerDataMessage m("");
+        Network::ServerDataMessage m("",_game->getTurn());
         //On parcours la liste des clients
         QMutableMapIterator<QTcpSocket*, Server::Client*> it(_clients);
         while (it.hasNext())
