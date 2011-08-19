@@ -30,6 +30,8 @@ namespace GUI
         addDockWidget(Qt::BottomDockWidgetArea,_chatDock);
         //On initialise le ActionsDock
         _actionToolBar = new ActionToolBar;
+        connect(_actionToolBar,SIGNAL(moveSelected()),this,SLOT(setMove()));
+        connect(_actionToolBar,SIGNAL(selectSelected()),this,SLOT(setSelect()));
         addToolBar(Qt::TopToolBarArea,_actionToolBar);
         //On redimensione la fenêtre
         resize(Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
