@@ -117,6 +117,14 @@ namespace GUI
         updateSceneRect();
     }
     /**
+      * Appelé au clic de la souris
+      */
+    void GameScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
+    {
+        mouseMoveEvent(event);
+    }
+
+    /**
       * Appelé au déplacement de la souris
       */
     void GameScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
@@ -130,11 +138,9 @@ namespace GUI
         {
             return;
         }
-        //Sinon, on change les coordonées et on envoie le signal
-        _tileX = x;
-        _tileY = y;
+
         //Si le joueur a fait un clic droit, on le compte comme une demande de déplacement
-        if (event->button() == Qt::RightButton)
+        if (event->buttons() == Qt::RightButton || event->button() == Qt::RightButton)
         {
             emit moveRequested(x,y - 1);
         }
@@ -144,11 +150,17 @@ namespace GUI
             {
                 //On gère le déplacement
                 case SELECT:
+                    //On change les coordonnées actuelles
+                    _tileX = x;
+                    _tileY = y;
                     emit tileSelected(x,y - 1);
                 break;
                 case MOVE:
                     emit moveRequested(x,y - 1);
                 default:
+                    //On change les coordonnées actuelles
+                    _tileX = x;
+                    _tileY = y;
                     emit tileSelected(x,y - 1);
             }
 

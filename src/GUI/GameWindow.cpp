@@ -156,6 +156,8 @@ namespace GUI
         }
         //On fait bouger l'entité par le client
         _client->sendMoveUnit(_currentEntity,x,y);
+        //On enlève la selection actuelle
+        _currentEntity = -1;
     }
 
     /**

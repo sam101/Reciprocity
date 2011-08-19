@@ -69,6 +69,10 @@ namespace GUI
               */
             void keyPressEvent(QKeyEvent *event);
             /**
+              * Appelé au clic de la souris
+              */
+            void mousePressEvent(QGraphicsSceneMouseEvent *event);
+            /**
               * Appelé au déplacement de la souris
               */
             void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
