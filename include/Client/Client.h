@@ -108,6 +108,10 @@ namespace Client
               */
             void sendRequestData();
             /**
+              * Envoie une demande de déplacement
+              */
+            void sendMoveUnit(qint32 id, qint32 x, qint32 y);
+            /**
               * Appelé quand le client reçoit un message du socket
               */
             void messageRecevied();
