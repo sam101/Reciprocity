@@ -41,7 +41,14 @@ namespace GUI
         }
         QString author = _dataHandler->getPlayers()[entity->getOwner()].first;
         //On change les informations
-        _imageLabel->setPixmap(QPixmap::fromImage(Provider::getEntityI("entity")));
+        if (entity->hasMoved())
+        {
+            _imageLabel->setPixmap(QPixmap::fromImage(Provider::getEntityI("entityMoved")));
+        }
+        else
+        {
+            _imageLabel->setPixmap(QPixmap::fromImage(Provider::getEntityI("entity")));
+        }
         _infoLabel->setText("(" + QString::number(entity->getX()) + "," + QString::number(entity->getY()) + ") : " + author);
     }
 }
