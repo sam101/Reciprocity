@@ -145,6 +145,10 @@ namespace Client
               * Gère la reception de données sur des entités
               */
             void handleEntityData(QDataStream &in);
+            /**
+              * Gère la réception d'une acceptation d'entité déplacée
+              */
+            void handleMoveUnitAccepted(QDataStream &in);
         signals:
             /**
               * Emit quand le serveur s'est déconnecté

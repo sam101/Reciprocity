@@ -10,6 +10,7 @@
 #include <Network/MessageInMessage.h>
 #include <Network/MessageOutMessage.h>
 #include <Network/MoveUnitMessage.h>
+#include <Network/MoveUnitAcceptedMessage.h>
 #include <Network/RequestDataMessage.h>
 #include <Network/ServerDataMessage.h>
 #include <QtCore/QDataStream>
@@ -323,6 +324,9 @@ namespace Client
                case Network::ENTITYDATA:
                     handleEntityData(in);
                break;
+               case Network::MOVEUNIT_ACCEPTED:
+                    handleMoveUnitAccepted(in);
+                break;
                //Sinon, on lit juste les données pour les libérer
                default:
                     _socket->read(_messageSize);
@@ -405,6 +409,17 @@ namespace Client
         //On traite les données
         _dataHandler->addEntity(m.getEntity());
     }
+    /**
+      * Gère la réception d'une acceptation d'entité déplacée
+      */
+    void Client::handleMoveUnitAccepted(QDataStream &in)
+    {
+        //On recupère le message
+        Network::MoveUnitAcceptedMessage m;
+        in >> m;
+        //On ne fait rien pour l'instant.
+    }
+
     /**
       * Appelé quand le client doit se déconnecter
       */
