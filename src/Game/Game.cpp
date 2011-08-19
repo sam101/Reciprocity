@@ -10,6 +10,7 @@ namespace Game
       */
     Game::Game() :
     _world(NULL),
+    _turn(0),
     _hasBegun(false)
     {
         //On alloue l'objet de monde
@@ -50,6 +51,13 @@ namespace Game
     bool Game::hasBegun() const
     {
         return _hasBegun;
+    }
+    /**
+      * Renvoie le tour actuel
+      */
+    qint32 Game::getTurn() const
+    {
+        return _turn;
     }
     /**
       * Renvoie une entité
@@ -173,6 +181,7 @@ namespace Game
       */
     void Game::beginGame()
     {
+        _turn = 1;
         _hasBegun = true;
     }
     /**
@@ -206,6 +215,8 @@ namespace Game
       */
     void Game::newTurn()
     {
+        //On incrémente le compteur de tours
+        _turn++;
         //On propage la demande de nouveau tour dans le monde.
         _world->newTurn();
     }

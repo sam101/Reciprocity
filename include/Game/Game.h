@@ -25,6 +25,10 @@ namespace Game
               */
             QList<Player*> _players;
             /**
+              * Numéro du tour actuel
+              */
+            qint32 _turn;
+            /**
               * Indique si la partie à commencé
               */
             bool _hasBegun;
@@ -50,6 +54,10 @@ namespace Game
               * Renvoie si la partie a commencé
               */
             bool hasBegun() const;
+            /**
+              * Renvoie le tour actuel
+              */
+            qint32 getTurn() const;
             /**
               * Renvoie une entité
               */
