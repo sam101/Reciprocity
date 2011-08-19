@@ -50,7 +50,8 @@ SOURCES += \
     src/Network/KickPlayerMessage.cpp \
     src/Network/KickMessage.cpp \
     src/Network/BuildMessage.cpp \
-    src/Network/EndTurnMessage.cpp
+    src/Network/EndTurnMessage.cpp \
+    src/Network/NewTurnMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -98,4 +99,5 @@ HEADERS += \
     include/Network/KickPlayerMessage.h \
     include/Network/KickMessage.h \
     include/Network/BuildMessage.h \
-    include/Network/EndTurnMessage.h
+    include/Network/EndTurnMessage.h \
+    include/Network/NewTurnMessage.h

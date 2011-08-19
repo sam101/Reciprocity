@@ -56,7 +56,8 @@ HEADERS += \
     include/GUI/TileInfoWidget.h \
     include/GUI/EntityInfoWidget.h \
     include/GUI/ActionType.h \
-    include/Network/EndTurnMessage.h
+    include/Network/EndTurnMessage.h \
+    include/Network/NewTurnMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -103,4 +104,5 @@ SOURCES += \
     src/Graphics/EntityItem.cpp \
     src/GUI/TileInfoWidget.cpp \
     src/GUI/EntityInfoWidget.cpp \
-    src/Network/EndTurnMessage.cpp
+    src/Network/EndTurnMessage.cpp \
+    src/Network/NewTurnMessage.cpp
