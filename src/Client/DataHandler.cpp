@@ -64,9 +64,7 @@ namespace Client
         //On supprime le chunk si il existait déjà
         if (_chunks.contains(Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))))
         {
-            delete _chunks[Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))];
-            _chunks.remove(Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()) ));
-            _chunks[Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))] = new Chunk::Chunk(chunk);
+            _chunks[Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))]->update(chunk);
             emit chunkUpdated(_chunks[Coordinate(getXChunk(chunk.getX()) ,getYChunk(chunk.getY()))]);
             return;
         }

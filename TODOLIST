@@ -2,6 +2,7 @@ TODOLIST:
 
 Par ordre de priorité (plus ou moins):
 
+-Ajouter le support d'OpenGL.
 -Gestion de la construction des batiments
 -Amélioration de l'affichage dans EntityInfoWidget
 -Ajouter un panel de préférences, pour OpenGL notamment

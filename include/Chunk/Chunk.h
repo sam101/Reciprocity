@@ -57,6 +57,10 @@ namespace Chunk
               */
             Chunk(qint32 x = 0, qint32 y = 0, ChunkType type = SEA);
             /**
+              * Met à jour un chunk
+              */
+            void update(const Chunk &chunk);
+            /**
               * Renvoie la position x du chunk
               */
             qint32 getX() const;

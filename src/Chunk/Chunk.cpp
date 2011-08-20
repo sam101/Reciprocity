@@ -39,6 +39,14 @@ namespace Chunk
         }
     }
     /**
+      * Met à jour un chunk
+      */
+    void Chunk::update(const Chunk &chunk)
+    {
+        *this = chunk;
+    }
+
+    /**
       * Renvoie le type du chunk
       */
     ChunkType Chunk::getType() const
