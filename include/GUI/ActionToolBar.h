@@ -50,7 +50,17 @@ namespace GUI
               * Constructeur
               */
             ActionToolBar();
+            /**
+              * Ré-active le bouton de fin du tour
+              */
+            void enableEndTurn();
         public slots:
+            /**
+              * Appelé à l'appui sur "Fin du tour"
+              * Emet le signal indiquant qu'on veut une fin
+              * du tour
+              */
+            void endTurnButtonSelected();
             /**
               * Appelé à l'appui sur Selectionner. Gère
               * l'envoi des signaux correspondant
@@ -74,6 +84,10 @@ namespace GUI
               */
             void displayEntity(Map::Entity *entity);
        signals:
+            /**
+              * Emit à l'apui sur "Fin du tour"
+              */
+            void endTurnSelected();
             /**
               * Emit à l'appui sur "Selectionner"
               */

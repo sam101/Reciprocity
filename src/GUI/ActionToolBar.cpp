@@ -39,6 +39,25 @@ namespace GUI
         addWidget(_entityInfo);
     }
     /**
+      * Ré-active le bouton de fin du tour
+      */
+    void ActionToolBar::enableEndTurn()
+    {
+        _endTurn->setEnabled(true);
+    }
+
+    /**
+      * Appelé à l'appui sur "Fin du tour"
+      * Emet le signal indiquant qu'on veut une fin
+      * du tour
+      */
+    void ActionToolBar::endTurnButtonSelected()
+    {
+        _endTurn->setEnabled(false);
+        emit endTurnSelected();
+    }
+
+    /**
       * Appelé à l'appui sur Selectionner. Gère
       * l'envoi des signaux correspondant
       */
