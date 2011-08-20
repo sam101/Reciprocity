@@ -12,6 +12,7 @@ namespace GUI
         setFloatable(false);
         //On construit le bouton de fin de tour
         _endTurn = new QPushButton(tr("Fin du tour"));
+        connect(_endTurn,SIGNAL(clicked()),this,SLOT(endTurnButtonSelected()));
         addWidget(_endTurn);
         addSeparator();
         //On construit le bouton de selection
