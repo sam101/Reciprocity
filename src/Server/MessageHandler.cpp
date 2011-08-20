@@ -1,6 +1,7 @@
 #include <Server/MessageHandler.h>
-#include <Network/BeginGameMessage.h>
 #include <Network/AbstractMessage.h>
+#include <Network/BeginGameMessage.h>
+#include <Network/EndTurnMessage.h>
 #include <Network/GetServerDataMessage.h>
 #include <Network/KickPlayerMessage.h>
 #include <Network/LoginMessage.h>
@@ -113,6 +114,10 @@ namespace Server
                 //Déplacement d'une entité
                 case Network::MOVEUNIT:
                     handleMoveUnit(socket,in);
+                break;
+                //Fin de tour
+                case Network::ENDTURN:
+                    handleEndTurn(socket,in);
                 break;
                 default:
                     //On lit les données pour les effacer
@@ -316,5 +321,38 @@ namespace Server
         _game->moveEntity(m.getId(),m.getX(),m.getY(),_clients[socket]->getPlayer()->getId());
         //On indique que l'entité a bougé
         emit entityMoved(socket,_game->getEntity(m.getId()));
+    }
+    /**
+      * Gère la reception d'un message de fin de tour
+      */
+    void MessageHandler::handleEndTurn(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::EndTurnMessage m;
+        in >> m;
+        //On vérifie si le client est loggué
+        if (_clients[socket]->getPlayer() == NULL)
+        {
+            return;
+        }
+        //On vérifie si tout les joueurs ont envoyé la fin du tour.
+        QMapIterator<QTcpSocket*,Client*> it(_clients);
+        bool everybodyEnd = true;
+        while (it.hasNext())
+        {
+            Client *c = it.next().value();
+            if (c->getPlayer() == NULL)
+            {
+
+            }
+            else if (!c->getPlayer()->isOnline())
+            {
+
+            }
+            else if (!c->getPlayer()->hasEndTurn())
+            {
+                everybodyEnd = false;
+            }
+        }
     }
 }

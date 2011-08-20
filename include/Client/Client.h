@@ -128,7 +128,6 @@ namespace Client
               */
             void logout();
         public:
-
             /**
               * Gère le login du joueur
               */
@@ -157,6 +156,7 @@ namespace Client
               * Gère la réception d'une acceptation d'entité déplacée
               */
             void handleMoveUnitAccepted(QDataStream &in);
+
         signals:
             /**
               * Emit quand le serveur s'est déconnecté

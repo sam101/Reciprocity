@@ -10,7 +10,8 @@ namespace Game
     _login(login),
     _hash(hash),
     _isOnline(true),
-    _admin(false)
+    _admin(false),
+    _endTurn(false)
     {
         _lastTime = QDateTime::currentMSecsSinceEpoch();
     }
@@ -41,6 +42,13 @@ namespace Game
     qint64 Player::getLastTime() const
     {
         return _lastTime;
+    }
+    /**
+      * Renvoie si le joueur a fini son tour
+      */
+    bool Player::hasEndTurn() const
+    {
+        return _endTurn;
     }
     /**
       * Renvoie les entités du joueur
@@ -99,6 +107,21 @@ namespace Game
     {
         _lastTime = QDateTime::currentMSecsSinceEpoch();
     }
+    /**
+      * Change le fait que le joueur aie fini son tour ou non
+      */
+    void Player::setEndTurn(bool endTurn)
+    {
+        _endTurn = endTurn;
+    }
+    /**
+      * Remet à zéro le fait que le joueur aie fini son tour
+      */
+    void Player::resetEndTurn()
+    {
+        _endTurn = false;
+    }
+
     /**
       * Ajoute une entité au joueur
       */

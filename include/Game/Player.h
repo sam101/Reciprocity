@@ -38,6 +38,10 @@ namespace Game
               */
             bool _admin;
             /**
+              * Indique si le joueur à fini son tour
+              */
+            bool _endTurn;
+            /**
               * Entités possédées par le joueur
               */
             QList<qint32> _entities;
@@ -62,6 +66,10 @@ namespace Game
               * Renvoie la date a laquelle le joueur a envoyé un message
               */
             qint64 getLastTime() const;
+            /**
+              * Renvoie si le joueur a fini son tour
+              */
+            bool hasEndTurn() const;
             /**
               * Renvoie les entités du joueur
               */
@@ -95,6 +103,14 @@ namespace Game
               * Met à jour le lastTime du Joueur.
               */
             void resetLastTime();
+            /**
+              * Change le fait que le joueur aie fini son tour ou non
+              */
+            void setEndTurn(bool endTurn = true);
+            /**
+              * Remet à zéro le fait que le joueur aie fini son tour
+              */
+            void resetEndTurn();
             /**
               * Ajoute une entité au joueur
               */
