@@ -1,5 +1,6 @@
 #ifndef GUI_SETTINGSWIDGET_H
 #define GUI_SETTINGSWIDGET_H
+#include <QtGui/QCheckBox>
 #include <QtGui/QDialog>
 namespace GUI
 {
@@ -11,6 +12,15 @@ namespace GUI
     class SettingsWidget : public QDialog
     {
         Q_OBJECT
+        protected:
+            /**
+              * CheckBox du support OpenGL
+              */
+            QCheckBox *_openGL;
+            /**
+              * CheckBox de l'antialiasing
+              */
+            QCheckBox *_antiAliasing;
         public:
             /**
               * Constructeur
