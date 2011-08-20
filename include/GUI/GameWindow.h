@@ -102,6 +102,10 @@ namespace GUI
               */
             void moveSelected(qint32 x, qint32 y);
             /**
+              * Appelé quand le joueur veut finir son tour
+              */
+            void endTurn();
+            /**
               * Change le type actuel de selection pour "Selectionner"
               */
             void setSelect();

@@ -32,6 +32,7 @@ namespace GUI
         addDockWidget(Qt::BottomDockWidgetArea,_chatDock);
         //On initialise le ActionsDock
         _actionToolBar = new ActionToolBar;
+        connect(_actionToolBar,SIGNAL(endTurnSelected()),this,SLOT(endTurn()));
         connect(_actionToolBar,SIGNAL(moveSelected()),this,SLOT(setMove()));
         connect(_actionToolBar,SIGNAL(selectSelected()),this,SLOT(setSelect()));
         addToolBar(Qt::TopToolBarArea,_actionToolBar);
@@ -169,7 +170,14 @@ namespace GUI
         //On enlève la selection actuelle
         _currentEntity = -1;
     }
-
+    /**
+      * Appelé quand le joueur veut finir son tour
+      */
+    void GameWindow::endTurn()
+    {
+        //On envoie au serveur la demande de fin de tour
+        _client->sendEndTurn();
+    }
     /**
       * Change le type actuel de selection pour "Selectionner"
       */

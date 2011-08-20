@@ -116,6 +116,10 @@ namespace Client
               */
             void sendMoveUnit(qint32 id, qint32 x, qint32 y);
             /**
+              * Envoie une demande de fin de tour
+              */
+            void sendEndTurn();
+            /**
               * Appelé quand le client reçoit un message du socket
               */
             void messageRecevied();
