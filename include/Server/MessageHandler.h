@@ -135,7 +135,7 @@ namespace Server
             /**
               * Demande de renvoyer les données d'entités à tous
               */
-            void sendEntityDataToAll();
+            void sendPlayerDataToAll();
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

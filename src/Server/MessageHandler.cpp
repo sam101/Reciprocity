@@ -361,7 +361,7 @@ namespace Server
         {
             _game->newTurn();
             emit sendNewTurnToAll();
-            emit sendEntityDataToAll();
+            emit sendPlayerDataToAll();
         }
     }
 }

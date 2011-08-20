@@ -28,6 +28,8 @@ namespace Server
         connect(_messageHandler,SIGNAL(sendKickMessage(QString)),_messageSender,SLOT(sendKickMessage(QString)));
         connect(_messageHandler,SIGNAL(kickPlayer(QString)),_clientHandler,SLOT(kickPlayer(QString)));
         connect(_messageHandler,SIGNAL(entityMoved(QTcpSocket*,Map::Entity*)),_messageSender,SLOT(sendEntityHasMoved(QTcpSocket*,Map::Entity*)));
+        connect(_messageHandler,SIGNAL(sendNewTurnToAll()),_messageSender,SLOT(sendNewTurnToAll()));
+        connect(_messageHandler,SIGNAL(sendPlayerDataToAll()),_messageSender,SLOT(sendPlayerDataToAll()));
     }
 
     /**

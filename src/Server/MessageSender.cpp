@@ -306,4 +306,20 @@ namespace Server
             }
         }
     }
+    /**
+      * Envoie les informations  à tout les joueurs
+      */
+    void MessageSender::sendPlayerDataToAll()
+    {
+        Client *c;
+        QMutableMapIterator<QTcpSocket*, Client*> it(_clients);
+        while (it.hasNext())
+        {
+            c = it.next().value();
+            if (c->isOnline())
+            {
+                sendPlayerData(c->getSocket());
+            }
+        }
+    }
 }

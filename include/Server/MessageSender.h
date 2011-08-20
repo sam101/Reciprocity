@@ -87,6 +87,10 @@ namespace Server
               * Envoie l'information de nouveau tour aux joueurs
               */
             void sendNewTurnToAll();
+            /**
+              * Envoie les informations  à tout les joueurs
+              */
+            void sendPlayerDataToAll();
     };
 }
 #endif //SERVER_MESSAGESENDER_H
