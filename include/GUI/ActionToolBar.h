@@ -83,6 +83,10 @@ namespace GUI
               * Affiche une entité dans le EntityInfoWidget
               */
             void displayEntity(Map::Entity *entity);
+            /**
+              * Efface la selection actuelle
+              */
+            void resetSelection();
        signals:
             /**
               * Emit à l'apui sur "Fin du tour"

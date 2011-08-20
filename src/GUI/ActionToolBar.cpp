@@ -107,4 +107,12 @@ namespace GUI
         }
         _entityInfo->displayEntity(entity);
     }
+    /**
+      * Efface la selection actuelle
+      */
+    void ActionToolBar::resetSelection()
+    {
+        _entityInfo->displayEntity(NULL);
+        _tileInfo->displayTile(NULL);
+    }
 }

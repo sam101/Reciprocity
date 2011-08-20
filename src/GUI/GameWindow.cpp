@@ -172,6 +172,8 @@ namespace GUI
         _client->sendMoveUnit(_currentEntity,x - e->getX() ,y - e->getY());
         //On enlève la selection actuelle
         _currentEntity = -1;
+        //On remet à zéro la selection dans ActionToolBar
+        _actionToolBar->resetSelection();
     }
     /**
       * Appelé quand le joueur veut finir son tour
