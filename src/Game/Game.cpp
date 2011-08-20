@@ -197,7 +197,7 @@ namespace Game
             return false;
         }
         //On vérifie que le joueur n'a pas demandé trop de déplacement
-        if ((x + y) > Config::Config::ENTITY_MOVE)
+        if ((abs(x) + abs(y)) > Config::Config::ENTITY_MOVE)
         {
             return false;
         }
