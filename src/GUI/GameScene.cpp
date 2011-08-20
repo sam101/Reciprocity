@@ -17,6 +17,7 @@ namespace GUI
     _entitySelected(false),
     _actionType(SELECT)
     {
+        //On met le fond en noir.
         setBackgroundBrush(Qt::black);
         //On gère la caméra
         updateSceneRect();

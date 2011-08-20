@@ -1,6 +1,9 @@
 #include <GUI/GameWindow.h>
 #include <QtGui/QApplication>
 #include <Tools/ClientSettings.h>
+#ifdef OPENGL_SUPPORT
+#include <QtOpenGL/QGLWidget>
+#endif
 using namespace Tools;
 namespace GUI
 {
@@ -21,6 +24,13 @@ namespace GUI
         restoreGeometry(ClientSettings::getValue("GameWindowGeometry").toByteArray());
         //On initialise la vue
         _view = new QGraphicsView;
+        //on active le support OpenGL si l'utilisateur l'a activé.
+        #ifdef OPENGL_SUPPORT
+        if (ClientSettings::getValue("videoMode",false).toBool())
+        {
+            _view->setViewport(new QGLWidget);
+        }
+        #endif
         setCentralWidget(_view);
         //On initialise la scène.
         _scene = new GameScene;

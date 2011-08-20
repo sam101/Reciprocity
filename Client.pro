@@ -1,8 +1,10 @@
-QT       += core network gui
+QT       += core network gui opengl
 TARGET = Reciprocity
 CONFIG   += console
 INCLUDEPATH += include
 TEMPLATE = app
+
+DEFINES += OPENGL_SUPPORT
 
 HEADERS += \
     include/Config/Config.h \
