@@ -132,6 +132,10 @@ namespace Server
               * Emit quand le tour à fini
               */
             void sendNewTurnToAll();
+            /**
+              * Demande de renvoyer les données d'entités à tous
+              */
+            void sendEntityDataToAll();
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

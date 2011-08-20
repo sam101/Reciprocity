@@ -335,6 +335,8 @@ namespace Server
         {
             return;
         }
+        //On indique qu'il à fini son tour
+        _clients[socket]->getPlayer()->setEndTurn();
         //On vérifie si tout les joueurs ont envoyé la fin du tour.
         QMapIterator<QTcpSocket*,Client*> it(_clients);
         bool everybodyEnd = true;
@@ -359,6 +361,7 @@ namespace Server
         {
             _game->newTurn();
             emit sendNewTurnToAll();
+            emit sendEntityDataToAll();
         }
     }
 }
