@@ -2,7 +2,6 @@ TODOLIST:
 
 Par ordre de priorité (plus ou moins):
 
--Gestion des tours, de la fin du tour
 -Gestion de la construction des batiments
 -Amélioration de l'affichage dans EntityInfoWidget
 -Ajouter un panel de préférences, pour OpenGL notamment
