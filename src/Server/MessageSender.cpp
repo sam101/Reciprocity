@@ -7,6 +7,7 @@
 #include <Network/LoginSuccessMessage.h>
 #include <Network/MessageInMessage.h>
 #include <Network/MoveUnitAcceptedMessage.h>
+#include <Network/NewTurnMessage.h>
 #include <Network/ServerDataMessage.h>
 #include <QtCore/QByteArray>
 #include <QtCore/QDataStream>
@@ -278,5 +279,31 @@ namespace Server
         socket->write(b);
         //On envoie les informations de l'entité.
         sendEntityData(socket,entity);
+    }
+    /**
+      * Envoie l'information de nouveau tour aux joueurs
+      */
+    void MessageSender::sendNewTurnToAll()
+    {
+        //On construit le message
+        Network::NewTurnMessage m(_game->getTurn());
+        //On construit le byteArray dans lequel le mettre
+        QByteArray b;
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in << (qint32)0;
+        in << (qint32)m.getType();
+        in << m;
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On l'envoie à tout les clients
+        QMutableMapIterator<QTcpSocket*, Client*> it(_clients);
+        while (it.hasNext())
+        {
+            Client *c = it.next().value();
+            if (c->isOnline())
+            {
+                c->getSocket()->write(b);
+            }
+        }
     }
 }

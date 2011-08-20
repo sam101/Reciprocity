@@ -83,6 +83,10 @@ namespace Server
               * Envoie l'information comme quoi une entité à bougé
               */
             void sendEntityHasMoved(QTcpSocket *socket, Map::Entity *entity);
+            /**
+              * Envoie l'information de nouveau tour aux joueurs
+              */
+            void sendNewTurnToAll();
     };
 }
 #endif //SERVER_MESSAGESENDER_H
