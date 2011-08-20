@@ -67,7 +67,10 @@ namespace GUI
       */
     void GameWindow::setTurn(qint32 turn)
     {
+        //On change le numéro de tour dans le titre de la fenêtre
         setWindowTitle(tr("Reciprocity - Tour ") + QString::number(turn) + tr("."));
+        //On réactive le bouton "Fin de tour"
+        _actionToolBar->enableEndTurn();
     }
 
     /**
