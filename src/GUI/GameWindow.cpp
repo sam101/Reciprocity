@@ -26,7 +26,7 @@ namespace GUI
         _view = new QGraphicsView;
         //on active le support OpenGL si l'utilisateur l'a activé.
         #ifdef OPENGL_SUPPORT
-        if (ClientSettings::getValue("videoMode",false).toBool())
+        if (ClientSettings::getValue("videoMode","openGL").toString() == "openGL")
         {
             _view->setViewport(new QGLWidget);
         }

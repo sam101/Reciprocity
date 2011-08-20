@@ -28,17 +28,35 @@ namespace GUI
         h->addWidget(cancel);
         //On construit le bouton valider
         QPushButton *confirm = new QPushButton(tr("Valider"));
+        connect(confirm,SIGNAL(clicked()),this,SLOT(confirmSelected()));
         h->addWidget(confirm);
 
         //On construit le CheckBox pour le support OpenGL
         QVBoxLayout *groupBoxLayout = new QVBoxLayout;
         groupBox->setLayout(groupBoxLayout);
         _openGL = new QCheckBox(tr("Support OpenGL"));
-        _openGL->setChecked(ClientSettings::getValue("openGL").toBool());
+        _openGL->setChecked(ClientSettings::getValue("videoMode").toString() == "openGL");
         groupBoxLayout->addWidget(_openGL);
         //On construit la checkBox pour l'antialiasing
         _antiAliasing = new QCheckBox(tr("Antialiasing"));
+        _antiAliasing->setChecked(ClientSettings::getValue("Antialiasing").toBool());
         groupBoxLayout->addWidget(_antiAliasing);
-
+    }
+    /**
+      * Appelé à l'appui sur "Valider".
+      * Change les options de configuration
+      */
+    void SettingsWidget::confirmSelected()
+    {
+        if (_openGL->checkState())
+        {
+            ClientSettings::setValue("videoMode","openGL");
+        }
+        else
+        {
+            ClientSettings::setValue("videoMode","software");
+        }
+        ClientSettings::setValue("Antialiasing",_antiAliasing->checkState());
+        accept();
     }
 }

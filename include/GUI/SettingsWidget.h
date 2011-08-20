@@ -26,6 +26,13 @@ namespace GUI
               * Constructeur
               */
             SettingsWidget(QWidget *parent = 0);
+        public slots:
+            /**
+              * Appelé à l'appui sur "Valider".
+              * Change les options de configuration
+              */
+            void confirmSelected();
+
     };
 }
 #endif //GUI_SETTINGSWIDGET_H
