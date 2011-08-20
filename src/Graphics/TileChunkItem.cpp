@@ -66,7 +66,6 @@ namespace Graphics
       */
     void TileChunkItem::setChunk(Chunk::Chunk *chunk)
     {
-        qDebug() << _chunk << "Changement du chunk par " << chunk;
         _chunk = chunk;
         update(_boundingRect);
     }
@@ -76,7 +75,6 @@ namespace Graphics
       */
     void TileChunkItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
     {
-        qDebug() << "Chunk:" << _chunk;
         Q_UNUSED(option)
         Q_UNUSED(widget)
         qint32 current;
