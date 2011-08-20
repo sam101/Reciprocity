@@ -22,7 +22,6 @@ namespace Client
               * Pointeur vers le DataHandler
               */
             DataHandler *_dataHandler;
-
             /**
                * Pointeur vers le socket du client
                */
@@ -156,7 +155,10 @@ namespace Client
               * Gère la réception d'une acceptation d'entité déplacée
               */
             void handleMoveUnitAccepted(QDataStream &in);
-
+            /**
+              * Gère la reception d'un message de nouveau tour
+              */
+            void handleNewTurn(QDataStream &in);
         signals:
             /**
               * Emit quand le serveur s'est déconnecté

@@ -12,6 +12,7 @@
 #include <Network/MessageOutMessage.h>
 #include <Network/MoveUnitMessage.h>
 #include <Network/MoveUnitAcceptedMessage.h>
+#include <Network/NewTurnMessage.h>
 #include <Network/RequestDataMessage.h>
 #include <Network/ServerDataMessage.h>
 #include <QtCore/QDataStream>
@@ -352,6 +353,9 @@ namespace Client
                break;
                case Network::MOVEUNIT_ACCEPTED:
                     handleMoveUnitAccepted(in);
+               break;
+               case Network::NEWTURN:
+                    handleNewTurn(in);
                 break;
                //Sinon, on lit juste les données pour les libérer
                default:
@@ -446,6 +450,17 @@ namespace Client
         Network::MoveUnitAcceptedMessage m;
         in >> m;
         //On ne fait rien pour l'instant.
+    }
+    /**
+      * Gère la reception d'un message de nouveau tour
+      */
+    void Client::handleNewTurn(QDataStream &in)
+    {
+        //On recupère le message
+        Network::NewTurnMessage m;
+        in >> m;
+        //On envoie le signal pour changer le numéro du tour
+        emit turnNumberHasChanged(m.getTurn());
     }
 
     /**
