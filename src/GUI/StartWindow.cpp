@@ -13,6 +13,8 @@ namespace GUI
     QMainWindow(parent)
     {
         setWindowTitle(tr("Reciprocity"));
+        //On construit le settingsWidget
+        _settings = new SettingsWidget(this);
         //On construit la fenêtre
         build();
     }
@@ -42,6 +44,10 @@ namespace GUI
         QPushButton *internetPlay = new QPushButton(tr("Jeu sur internet"));
         layout->addWidget(internetPlay);
         connect(internetPlay,SIGNAL(clicked()),this,SLOT(internetPlay_clicked()));
+        //On construit le bouton "Options"
+        QPushButton *settings = new QPushButton(tr("Options de jeu"));
+        connect(settings,SIGNAL(clicked()),this,SLOT(settings_clicked()));
+        layout->addWidget(settings);
         //On construit le bouton "quitter le jeu"
         QPushButton *quitGame = new QPushButton(tr("Quitter le jeu"));
         layout->addWidget(quitGame);
@@ -68,5 +74,12 @@ namespace GUI
     void StartWindow::internetPlay_clicked()
     {
         emit internetPlayRequested();
+    }
+    /**
+      * Appelé lors du clic sur "Options". Ouvre le widget d'options
+      */
+    void StartWindow::settings_clicked()
+    {
+        _settings->exec();
     }
 }

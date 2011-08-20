@@ -1,5 +1,6 @@
 #ifndef GUI_STARTWINDOW_H
 #define GUI_STARTWINDOW_H
+#include <GUI/SettingsWidget.h>
 #include <QtGui/QMainWindow>
 namespace GUI
 {
@@ -12,6 +13,10 @@ namespace GUI
     {
         Q_OBJECT
         protected:
+            /**
+              * Pointeur vers le SettingsWidget
+              */
+            SettingsWidget *_settings;
             /**
               * Construit la fenêtre
               */
@@ -34,6 +39,10 @@ namespace GUI
               * Slot appelé lors du clic sur "jeu sur internet"
               */
             void internetPlay_clicked();
+            /**
+              * Appelé lors du clic sur "Options". Ouvre le widget d'options
+              */
+            void settings_clicked();
         signals:
             void newGameRequested();
             void joinGameRequested();

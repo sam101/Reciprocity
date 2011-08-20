@@ -1,6 +1,6 @@
 #ifndef GUI_SETTINGSWIDGET_H
 #define GUI_SETTINGSWIDGET_H
-#include <QtGui/QWidget>
+#include <QtGui/QDialog>
 namespace GUI
 {
     /**
@@ -8,9 +8,14 @@ namespace GUI
       * @brief Fenêtre de gestion des paramètres de jeu
       * @author Sam101
       */
-    class SettingsWidget : public QWidget
+    class SettingsWidget : public QDialog
     {
         Q_OBJECT
+        public:
+            /**
+              * Constructeur
+              */
+            SettingsWidget(QWidget *parent = 0);
     };
 }
 #endif //GUI_SETTINGSWIDGET_H
