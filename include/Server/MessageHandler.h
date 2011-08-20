@@ -128,6 +128,10 @@ namespace Server
               * Emit quand une entité a bougé
               */
             void entityMoved(QTcpSocket *socket, Map::Entity *entity);
+            /**
+              * Emit quand le tour à fini
+              */
+            void sendNewTurnToAll();
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

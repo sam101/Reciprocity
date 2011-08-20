@@ -354,5 +354,11 @@ namespace Server
                 everybodyEnd = false;
             }
         }
+        //Si tout le monde a fini son tour, on fini le tour et on emet le signal
+        if (everybodyEnd)
+        {
+            _game->newTurn();
+            emit sendNewTurnToAll();
+        }
     }
 }
