@@ -62,6 +62,34 @@ namespace World
         }
     }
     /**
+      * Renvoie les coordonnées X d'un chunk en fonction d'une tile
+      */
+    qint32 World::getXChunk(qint32 x) const
+    {
+        if (x < 0)
+        {
+            return x / Config::Config::CHUNK_SIZE - 1;
+        }
+        else
+        {
+            return x / Config::Config::CHUNK_SIZE + 1;
+        }
+    }
+    /**
+      * Renvoie les coordonnées Y d'un chunk en fonction d'une tile
+      */
+    qint32 World::getYChunk(qint32 y) const
+    {
+        if (y < 0)
+        {
+            return y / Config::Config::CHUNK_SIZE - 1;
+        }
+        else
+        {
+            return y / Config::Config::CHUNK_SIZE + 1;
+        }
+    }
+    /**
       * Renvoie un chunk du monde. Les coordonnées
       * sont par chunk (et non par tile).
       * Cette méthode n'est pas const car il y'a possibilité
@@ -123,28 +151,8 @@ namespace World
       */
     Map::Tile& World::getTile(int x, int y)
     {
-        if (x < 0)
-        {
-            if (y < 0)
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE - 1)->getTile(x,y);
-            }
-            else
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE + 1)->getTile(x,y);
-            }
-        }
-        else
-        {
-            if (y < 0)
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE - 1)->getTile(x,y);
-            }
-            else
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE + 1)->getTile(x,y);
-            }
-        }
+        return getChunk(getXChunk(x),getYChunk(y))->getTile(x,y);
+
     }
     /**
       * Renvoie un batiment du monde
@@ -152,28 +160,7 @@ namespace World
       */
     Map::Building& World::getBuilding(int x, int y)
     {
-        if (x < 0)
-        {
-            if (y < 0)
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE - 1)->getBuilding(x,y);
-            }
-            else
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE + 1)->getBuilding(x,y);
-            }
-        }
-        else
-        {
-            if (y < 0)
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE - 1)->getBuilding(x,y);
-            }
-            else
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE + 1)->getBuilding(x,y);
-            }
-        }
+        return getChunk(getXChunk(x),getYChunk(y))->getBuilding(x,y);
     }
 
     /**
@@ -181,28 +168,7 @@ namespace World
       */
     Chunk::Chunk* World::getChunkByTile(int x, int y)
     {
-        if (x < 0)
-        {
-            if (y < 0)
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE - 1);
-            }
-            else
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE + 1);
-            }
-        }
-        else
-        {
-            if (y < 0)
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE - 1);
-            }
-            else
-            {
-                return getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE + 1);
-            }
-        }
+        return getChunk(getXChunk(x),getYChunk(y));
     }
     /**
       * Ajoute une entité et renvoie son id.
