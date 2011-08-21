@@ -62,7 +62,8 @@ namespace Client
     void DataHandler::addChunk(const Chunk::Chunk &chunk)
     {
         //On supprime le chunk si il existait déjà
-        if (_chunks.contains(Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))))
+        qDebug() << getXChunk(chunk.getX()) << getYChunk(chunk.getY());
+        if (_chunks.contains(Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))) && _chunks[Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))] != NULL)
         {
             _chunks[Coordinate(getXChunk(chunk.getX()),getYChunk(chunk.getY()))]->update(chunk);
             emit chunkUpdated(_chunks[Coordinate(getXChunk(chunk.getX()) ,getYChunk(chunk.getY()))]);
