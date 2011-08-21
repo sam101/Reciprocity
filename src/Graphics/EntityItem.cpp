@@ -37,6 +37,7 @@ namespace Graphics
         _x = entity->getX() * Config::Config::TILE_SIZE;
         _y = (entity->getY() + 1) * Config::Config::TILE_SIZE;
         setPos(_x,_y);
+        update(_boundingRect);
     }
 
     /**
