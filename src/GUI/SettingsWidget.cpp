@@ -2,6 +2,7 @@
 #include <Tools/ClientSettings.h>
 #include <QtGui/QGroupBox>
 #include <QtGui/QHBoxLayout>
+#include <QtGui/QLabel>
 #include <QtGui/QPushButton>
 #include <QtGui/QVBoxLayout>
 using namespace Tools;
@@ -34,6 +35,10 @@ namespace GUI
         //On construit le CheckBox pour le support OpenGL
         QVBoxLayout *groupBoxLayout = new QVBoxLayout;
         groupBox->setLayout(groupBoxLayout);
+        //On ajoute le label indiquant qu'il faut redemarrer
+        QLabel *reboot = new QLabel(tr("Veuillez redemarrer le jeu à chaque \n changement de paramètres"));
+        groupBoxLayout->addWidget(reboot);
+        //On ajoute le bouton OpenGL
         _openGL = new QCheckBox(tr("Support OpenGL"));
         _openGL->setChecked(ClientSettings::getValue("videoMode").toString() == "openGL");
         groupBoxLayout->addWidget(_openGL);
