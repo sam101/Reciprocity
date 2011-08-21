@@ -2,11 +2,10 @@ TODOLIST:
 
 Par ordre de priorité (plus ou moins):
 
--Debuguer BuildingChunkWidget
+
 -Gestion de la construction des batiments
 -Amélioration de l'affichage dans EntityInfoWidget
 -Gérer le cas où y'a plusieurs unités sur une tile.
--Débuguer la caméra
 -Ajouter des messages sur la partie dans la ChatBox.
 -Empécher les entités de spawner dans l'eau ou dans autre chose qu'un LandChunk.
 -Ajouter les 8 chunk adjacents à la liste des chunks envoyés
