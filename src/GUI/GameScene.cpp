@@ -55,10 +55,6 @@ namespace GUI
         BuildingChunkItem *b = new BuildingChunkItem(chunk);
         _buildings[Coordinate(chunk->getX(),chunk->getY())] = b;
         addItem(b);
-        //On change la caméra
-        _xCamera = chunk->getX();
-        _yCamera = chunk->getY();
-        updateSceneRect();
 
     }
     /**
@@ -75,10 +71,12 @@ namespace GUI
         _entities[entity->getId()] = e;
         addItem(e);
         //On change la caméra
-        _xCamera = entity->getX();
-        _yCamera = entity->getY();
-        updateSceneRect();
-
+        if (_xCamera == 0 && _yCamera == 0)
+        {
+            _xCamera = entity->getX();
+            _yCamera = entity->getY();
+            updateSceneRect();
+        }
     }
     /**
       * Met à jour une entité
