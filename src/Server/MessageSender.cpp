@@ -182,7 +182,6 @@ namespace Server
         {
             return;
         }
-        qDebug() << "Chunk envoyé:" << chunk;
         //On construit le message
         Network::ChunkDataMessage m(*chunk);
         //On construit le byteArray dans lequel le mettre
