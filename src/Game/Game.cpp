@@ -252,12 +252,16 @@ namespace Game
     void Game::addStartEntities(Player *player)
     {
         qint32 xBase, yBase;
-        //On trouve les coordonnées de départ.
-        //TODO: Vérifier qu'il y'a personne sur le chunk.
-        //TODO: Vérifier que les entités ne finissent pas dans l'eau
-        xBase = 0;//Random::next(-100,100);
-        yBase = 0; Random::next(-100,100);
-        //On ajoute 8 entitées au joueur
+        //On trouve le chunk où spawner les unités
+        //On trouve le chunk de départ
+        do
+        {
+            xBase = Random::next(-200,200);
+            yBase = Random::next(-200,200);
+
+        } while (_world->getChunkByTile(xBase,yBase)->getType() != Chunk::LAND);
+
+        //On ajoute les entitées de départ au joueur
         for (int i = 0; i < Config::Config::NB_ENTITIES; i++)
         {
             //On définit la position de l'entité
