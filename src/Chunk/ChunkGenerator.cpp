@@ -12,7 +12,7 @@ namespace Chunk
         {
             for (int j = yStart; j <= yEnd; j++)
             {
-                if (Random::next(0,10) == 5)
+                if (Random::next(0,8) == 5)
                 {
                     chunk->getTileAbs(i,j).setAsForest();
                 }
