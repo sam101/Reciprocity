@@ -80,7 +80,7 @@ namespace Chunk
       */
     const Map::Tile& Chunk::getTile(qint32 x, qint32 y) const
     {
-        return _tiles[y - _y][x - _x];
+        return _tiles[abs(y - _y)][abs(x - _x)];
     }
     /**
       * Renvoie une tile du chunk en position absolue
@@ -102,7 +102,7 @@ namespace Chunk
       */
     Map::Building& Chunk::getBuilding(qint32 x, qint32 y)
     {
-        return _buildings[y - _y][x - _x];
+        return _buildings[abs(y - _y)][abs(x - _x)];
     }
     /**
       * Renvoie un batiment du chunk.
@@ -110,7 +110,7 @@ namespace Chunk
       */
     const Map::Building& Chunk::getBuilding(qint32 x, qint32 y) const
     {
-        return _buildings[y - _y][x - _x];
+        return _buildings[abs(y - _y)][abs(x - _x)];
     }
     /**
       * Renvoie un batiment du chunk en position absolue

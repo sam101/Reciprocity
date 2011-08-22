@@ -1,6 +1,7 @@
 #include <Graphics/BuildingChunkItem.h>
 #include <Graphics/Provider.h>
 #include <QtGui/QPainter>
+#include <QtCore/QDebug>
 namespace Graphics
 {
     /**
@@ -18,19 +19,23 @@ namespace Graphics
         int x,y;
         if (_chunk->getX() < 0)
         {
-            x = (_chunk->getX() - Config::Config::CHUNK_SIZE + 1) * Config::Config::TILE_SIZE;
+            _xChunk = (_chunk->getX() - Config::Config::CHUNK_SIZE + 1);
+            x = _xChunk * Config::Config::TILE_SIZE;
         }
         else
         {
+            _xChunk = _chunk->getX();
             x = _chunk->getX() * Config::Config::TILE_SIZE;
         }
         if (_chunk->getY() < 0)
         {
-            y = (_chunk->getY() - Config::Config::CHUNK_SIZE + 1) * Config::Config::TILE_SIZE;
+            _yChunk = _chunk->getY() - Config::Config::CHUNK_SIZE + 1;
+            y = (_yChunk + 1) * Config::Config::TILE_SIZE;
         }
         else
         {
-            y = _chunk->getY() *  Config::Config::TILE_SIZE;
+            _yChunk = _chunk->getY();
+            y = (_yChunk + 1) *  Config::Config::TILE_SIZE;
         }
         setPos(x,y);
     }
@@ -64,8 +69,8 @@ namespace Graphics
         {
             for (int j = _yChunk; j < _yChunk + Config::Config::TILE_SIZE; j++)
             {
-                current = _chunk->getBuilding(j,i).getType();
-                painter->drawImage(QPoint( (j) * Config::Config::TILE_SIZE,(i) * Config::Config::TILE_SIZE),_tiles[current]);
+                current = _chunk->getBuilding(i,j).getType();
+                painter->drawImage(QPoint( (i - _xChunk) * Config::Config::TILE_SIZE,(j - _yChunk) * Config::Config::TILE_SIZE),_tiles[current]);
             }
         }
     }
