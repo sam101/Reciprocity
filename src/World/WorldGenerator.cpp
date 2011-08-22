@@ -66,7 +66,7 @@ namespace World
                 {
                     _world->_chunkTL.resize(abs(y) + 1);
                 }
-                for (int i = 1; i <= abs(y); i++)
+                for (int i = 0; i <= abs(y); i++)
                 {
                     oldSize = _world->_chunkTL[i].size();
                     oldSize = oldSize == 0 ? 1 : oldSize;
@@ -84,7 +84,7 @@ namespace World
                 {
                     _world->_chunkTR.resize(abs(y) + 1);
                 }
-                for (int i = 1; i <= abs(y); i++)
+                for (int i = 0; i <= abs(y); i++)
                 {
                     oldSize = _world->_chunkTR[i].size();
                     oldSize = oldSize == 0 ? 1 : oldSize;
@@ -108,7 +108,7 @@ namespace World
                 {
                     _world->_chunkBL.resize(y + 1);
                 }
-                for (int i = 1; i <= y; i++)
+                for (int i = 0; i <= y; i++)
                 {
                     oldSize = _world->_chunkBL[i].size();
                     oldSize = oldSize == 0 ? 1 : oldSize;
@@ -126,7 +126,7 @@ namespace World
                 {
                     _world->_chunkBR.resize(y + 1);
                 }
-                for (int i = 1; i <= y; i++)
+                for (int i = 0; i <= y; i++)
                 {
                     oldSize = _world->_chunkBR[i].size();
                     oldSize = oldSize == 0 ? 1 : oldSize;
