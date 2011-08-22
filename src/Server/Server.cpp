@@ -82,7 +82,7 @@ namespace Server
         {
             qFatal("Erreur: Impossible de commencer l'écoute sur le port");
         }
-        qDebug() << "Début de l'écoute du serveur";
+        qDebug() << "Début de l'écoute du serveur sur le port" << port;
         //On connecte les signaux au ClientHandler.
         connect(_socketServer,SIGNAL(newConnection()),_clientHandler,SLOT(handleIncomming()));
         connect(_clientHandler,SIGNAL(newClient(QTcpSocket*)),this,SLOT(newClient(QTcpSocket*)));

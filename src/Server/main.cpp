@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
     //On déclare qu'on utilise UTF-8.
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
+    //On affiche un message
+    qDebug() << "Serveur de Reciprocity - Version de dev (git)";
     //On construit un objet serveur.
     Server::Server *server = new Server::Server;
     server->init();
