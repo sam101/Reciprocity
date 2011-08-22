@@ -26,10 +26,10 @@ namespace GUI
         _move->setEnabled(false);
         addWidget(_move);
         addSeparator();
-        //On construit le bouton pour construire
-        _build = new QPushButton(tr("Construire"));
-        _build->setEnabled(false);
-        addWidget(_build);
+        //On construit le bouton pour réaliser une action
+        _action = new QPushButton(tr("Action"));
+        _action->setEnabled(false);
+        addWidget(_action);
         addSeparator();
         //On ajoute le TileInfoWidget
         _tileInfo = new TileInfoWidget;
@@ -98,12 +98,12 @@ namespace GUI
         if (entity == NULL)
         {
             _move->setEnabled(false);
-            _build->setEnabled(false);
+            _action->setEnabled(false);
         }
         else
         {
             _move->setEnabled(true);
-            _build->setEnabled(true);
+            _action->setEnabled(true);
         }
         _entityInfo->displayEntity(entity);
     }

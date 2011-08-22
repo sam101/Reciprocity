@@ -31,7 +31,7 @@ namespace GUI
             /**
               * Bouton utilisé pour construire
               */
-            QPushButton *_build;
+            QPushButton *_action;
 
             /**
               * Pointeur vers le TileInfoWidget
