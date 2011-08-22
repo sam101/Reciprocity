@@ -108,7 +108,7 @@ namespace Map
     {
         _type = LOWLAND;
         _flags = PASSABLE | FARMING_CAPABLE;
-        _output = Random::next(50,150) + Random::next(0,2) * 25;
+        _output = Random::next(50,100) + Random::next(0,2) * 25;
     }
     /**
       * Définit la tile comme étant une montagne
@@ -117,6 +117,7 @@ namespace Map
     {
         _type = MOUNTAIN;
         _flags=  PASSABLE;
+        _output = Random::next(15,110) + Random::next(0,3) * 25;
     }
     /**
       * Définit la tile comme étant une foret
@@ -125,7 +126,7 @@ namespace Map
     {
         _type = FOREST;
         _flags=  PASSABLE;
-        _output = Random::next(25,250) + Random::next(0,1) * 50;
+        _output = Random::next(20,100) + Random::next(0,1) * 50 + Random::next(0,2) * 25;
     }
     /**
       * Définit la tile comme étant un lac
@@ -150,6 +151,7 @@ namespace Map
     {
         _type = SEA;
         _flags = BOAT_PASSABLE;
+        _output = Random::next(75,100);
     }
     /**
       * Définit la tile comme étant de la mer
@@ -158,6 +160,7 @@ namespace Map
     {
         _type = BEACH;
         _flags = PASSABLE;
+        _output = Random::next(75,125);
     }
     /**
       * Définit la tile comme étant un marais
@@ -166,6 +169,7 @@ namespace Map
     {
         _type = SWAMP;
         _flags = PASSABLE;
+        _output = Random::next(50,200);
     }
     /**
       * Définit la tile comme étant un volcan
