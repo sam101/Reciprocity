@@ -260,7 +260,8 @@ namespace Game
             yBase = Random::next(-200,200);
 
         } while (_world->getChunkByTile(xBase,yBase)->getType() != Chunk::LAND);
-
+        xBase = _world->getChunkByTile(xBase,yBase)->getX() + Config::Config::CHUNK_SIZE / 2;
+        yBase = _world->getChunkByTile(xBase,yBase)->getY() + Config::Config::CHUNK_SIZE / 2;
         //On ajoute les entitées de départ au joueur
         for (int i = 0; i < Config::Config::NB_ENTITIES; i++)
         {
