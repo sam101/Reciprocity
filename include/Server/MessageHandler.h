@@ -77,6 +77,10 @@ namespace Server
               * Gère la reception d'un message de fin de tour
               */
             void handleEndTurn(QTcpSocket *socket, QDataStream &in);
+            /**
+              * Gère la reception d'une demande de construction
+              */
+            void handleBuild(QTcpSocket *socket, QDataStream &in);
         signals:
             /**
               * Emis quand une erreur est survenue

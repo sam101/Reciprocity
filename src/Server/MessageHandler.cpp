@@ -1,6 +1,7 @@
 #include <Server/MessageHandler.h>
 #include <Network/AbstractMessage.h>
 #include <Network/BeginGameMessage.h>
+#include <Network/BuildMessage.h>
 #include <Network/EndTurnMessage.h>
 #include <Network/GetServerDataMessage.h>
 #include <Network/KickPlayerMessage.h>
@@ -118,6 +119,10 @@ namespace Server
                 //Fin de tour
                 case Network::ENDTURN:
                     handleEndTurn(socket,in);
+                break;
+                //Construction
+                case Network::BUILD:
+                    handleBuild(socket,in);
                 break;
                 default:
                     //On lit les données pour les effacer
@@ -363,6 +368,20 @@ namespace Server
             _game->newTurn();
             emit sendNewTurnToAll();
             emit sendPlayerDataToAll();
+        }
+    }
+    /**
+      * Gère la reception d'une demande de construction
+      */
+    void MessageHandler::handleBuild(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::BuildMessage m;
+        in >> m;
+        //On vérifie que le client est loggué.
+        if (_clients[socket]->getPlayer() == NULL)
+        {
+            return;
         }
     }
 }

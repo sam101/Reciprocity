@@ -6,7 +6,7 @@ Par ordre de priorité (plus ou moins):
 -Ajouter un message "Nouveau joueur" dans la fenêtre de jeu pendant le jeu
 
 -Gestion de la construction des batiments
--Amélioration de l'affichage dans EntityInfoWidget
+
 -Gérer le cas où y'a plusieurs unités sur une tile.
 
 -Ajout d'un dessin de là où l'entité peut aller.
@@ -24,5 +24,6 @@ Par ordre de priorité (plus ou moins):
 -Optimiser la pile réseau
 -Ajouter un nombre maximal de joueurs
 
+-Amélioration de l'affichage dans EntityInfoWidget
 -Faire envoyer la taille du chunk par le serveur au client
 
