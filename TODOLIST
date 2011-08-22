@@ -6,6 +6,7 @@ Par ordre de priorité (plus ou moins):
 -Gestion de la construction des batiments
 -Amélioration de l'affichage dans EntityInfoWidget
 -Gérer le cas où y'a plusieurs unités sur une tile.
+-Ajout d'un dessin de là où l'entité peut aller.
 -Gérer "Config" en non-volatile pour certains paramètres.
 -Ajouter des messages sur la partie dans la ChatBox.
 -Empécher les entités de spawner dans l'eau ou dans autre chose qu'un LandChunk.
