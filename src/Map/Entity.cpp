@@ -12,6 +12,8 @@ namespace Map
     _maxLifePoints(lifePoints),
     _owner(owner),
     _will(will),
+    _hasMoved(false),
+    _dead(false),
     _age(age),
     _resources(Map::MAX,0)
     {
