@@ -106,8 +106,8 @@ namespace World
         {
             if (y < 0)
             {
-                //On geneère les chunk qui n'existent pas.
-                if (abs(x) >= _chunkTL[0].size() || abs(y) >= _chunkTL.size())
+                //On genère les chunk qui n'existent pas.
+                if (abs(y) >= _chunkTL.size() || abs(x) >= _chunkTL[abs(y)].size())
                 {
                     _generator->generate(x,y);
                 }
@@ -115,7 +115,7 @@ namespace World
             }
             else
             {
-                if (abs(x) >= _chunkBL[0].size() || y >= _chunkBL.size())
+                if (y >= _chunkBL.size() || abs(x) >= _chunkBL[y].size())
                 {
                     _generator->generate(x,y);
                 }
@@ -127,7 +127,7 @@ namespace World
             if (y < 0)
             {
                 //On genère les chunk si il y'a besoin
-                if (x >= _chunkTR[0].size() || abs(y) >= _chunkTR.size())
+                if (abs(y) >= _chunkTR.size() || x >= _chunkTR[abs(y)].size())
                 {
                     _generator->generate(x,y);
                 }
@@ -135,9 +135,8 @@ namespace World
             }
             else
             {
-                if (x >= _chunkBR[0].size() || y >= _chunkBR.size())
+                if (y >= _chunkBR.size() || x >= _chunkBR[y].size())
                 {
-
                     _generator->generate(x,y);
                 }
                 return _chunkBR[y][x];

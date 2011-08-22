@@ -64,14 +64,14 @@ namespace World
                 x = abs(x);
                 if (abs(y) >= _world->_chunkTL.size())
                 {
-                    _world->_chunkTL.resize(abs(y) + 1);
+                    _world->_chunkTL.resize(abs(y) + 2);
                 }
-                for (int i = 0; i <= abs(y); i++)
+                for (int i = 0; i <= abs(y) + 1; i++)
                 {
                     oldSize = _world->_chunkTL[i].size();
                     oldSize = oldSize == 0 ? 1 : oldSize;
-                    _world->_chunkTL[i].resize(abs(x) + 1);
-                    for (int j = oldSize; j <= x; j++)
+                    _world->_chunkTL[i].resize(abs(x) + 2);
+                    for (int j = oldSize; j <= x + 1; j++)
                     {
                         _world->_chunkTL[i][j] = new Chunk::Chunk(-1 * (j - 1) * Config::Config::CHUNK_SIZE - 1, -1 * (i - 1) * Config::Config::CHUNK_SIZE - 1);
                         list.push_back(_world->_chunkTL[i][j]);
@@ -82,14 +82,14 @@ namespace World
             {
                 if (abs(y) >= _world->_chunkTR.size())
                 {
-                    _world->_chunkTR.resize(abs(y) + 1);
+                    _world->_chunkTR.resize(abs(y) + 2);
                 }
-                for (int i = 0; i <= abs(y); i++)
+                for (int i = 0; i <= abs(y) + 1; i++)
                 {
                     oldSize = _world->_chunkTR[i].size();
                     oldSize = oldSize == 0 ? 1 : oldSize;
-                    _world->_chunkTR[i].resize(x + 1);
-                    for (int j = oldSize; j <= x; j++)
+                    _world->_chunkTR[i].resize(x + 2);
+                    for (int j = oldSize; j <= x + 1; j++)
                     {                      
                         _world->_chunkTR[i][j] = new Chunk::Chunk((j - 1) * Config::Config::CHUNK_SIZE, -1 * (i - 1) * Config::Config::CHUNK_SIZE - 1);
                         list.push_back(_world->_chunkTR[i][j]);
@@ -106,14 +106,14 @@ namespace World
                 x = abs(x);
                 if (y >= _world->_chunkBL.size())
                 {
-                    _world->_chunkBL.resize(y + 1);
+                    _world->_chunkBL.resize(y + 2);
                 }
-                for (int i = 0; i <= y; i++)
+                for (int i = 0; i <= y + 1; i++)
                 {
                     oldSize = _world->_chunkBL[i].size();
                     oldSize = oldSize == 0 ? 1 : oldSize;
-                    _world->_chunkBL[i].resize(abs(x) + 1);
-                    for (int j = oldSize; j <= abs(x); j++)
+                    _world->_chunkBL[i].resize(abs(x) + 2);
+                    for (int j = oldSize; j <= abs(x) + 1; j++)
                     {                        
                         _world->_chunkBL[i][j] = new Chunk::Chunk(-1 * (j - 1) * Config::Config::CHUNK_SIZE - 1, (i - 1)  * Config::Config::CHUNK_SIZE);
                         list.push_back(_world->_chunkBL[i][j]);
@@ -124,15 +124,15 @@ namespace World
             {
                 if (y >= _world->_chunkBR.size())
                 {
-                    _world->_chunkBR.resize(y + 1);
+                    _world->_chunkBR.resize(y + 2);
                 }
-                for (int i = 0; i <= y; i++)
+                for (int i = 0; i <= y + 1; i++)
                 {
                     oldSize = _world->_chunkBR[i].size();
                     oldSize = oldSize == 0 ? 1 : oldSize;
-                    _world->_chunkBR[i].resize(x + 1);
-                    for (int j = oldSize; j <= x; j++)
-                    {                        
+                    _world->_chunkBR[i].resize(x + 2);
+                    for (int j = oldSize; j <= x + 1; j++)
+                    {
                         _world->_chunkBR[i][j] = new Chunk::Chunk((j - 1) * Config::Config::CHUNK_SIZE, (i - 1) * Config::Config::CHUNK_SIZE);
                         list.push_back(_world->_chunkBR[i][j]);
                     }
