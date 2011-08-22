@@ -49,6 +49,6 @@ namespace GUI
         {
             _imageLabel->setPixmap(QPixmap::fromImage(Provider::getEntityI("entity")));
         }
-        _infoLabel->setText("(" + QString::number(entity->getX()) + "," + QString::number(entity->getY()) + ") : " + author);
+        _infoLabel->setText("(" + QString::number(entity->getX()) + "," + QString::number(entity->getY()) + ") : " + author + tr(" - V: ") + QString::number(entity->getLifePoints()) + tr("/") + QString::number(entity->getMaxLifePoints()) + " M: " + QString::number(entity->getWill())) ;
     }
 }
