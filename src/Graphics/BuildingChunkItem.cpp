@@ -65,9 +65,9 @@ namespace Graphics
         Q_UNUSED(widget)
         qint32 current;
 
-        for (int i = _xChunk; i < _xChunk + Config::Config::TILE_SIZE; i++)
+        for (int i = _xChunk; i < _xChunk + Config::Config::CHUNK_SIZE; i++)
         {
-            for (int j = _yChunk; j < _yChunk + Config::Config::TILE_SIZE; j++)
+            for (int j = _yChunk; j < _yChunk + Config::Config::CHUNK_SIZE; j++)
             {
                 current = _chunk->getBuilding(i,j).getType();
                 painter->drawImage(QPoint( (i - _xChunk) * Config::Config::TILE_SIZE,(j - _yChunk) * Config::Config::TILE_SIZE),_tiles[current]);
