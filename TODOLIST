@@ -2,7 +2,7 @@ TODOLIST:
 
 Par ordre de priorité (plus ou moins):
 
-
+-Faire envoyer la taille du chunk par le serveur au client
 -Gestion de la construction des batiments
 -Amélioration de l'affichage dans EntityInfoWidget
 -Gérer le cas où y'a plusieurs unités sur une tile.
