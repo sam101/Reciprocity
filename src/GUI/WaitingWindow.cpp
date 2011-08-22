@@ -34,10 +34,6 @@ namespace GUI
         //On construit la zone de texte
         _text = new QLineEdit;
         h2->addWidget(_text,8);
-        //On construit le bouton envoyer
-        QPushButton *send = new QPushButton(tr("Envoyer !"));
-        connect(send,SIGNAL(clicked()),this,SLOT(sendMessageRequested()));
-        h2->addWidget(send,2);
         //On construit les boutons d'actions
         QHBoxLayout *h3 = new QHBoxLayout;
         //Bouton pour quitter la partie
@@ -172,7 +168,7 @@ namespace GUI
         switch (event->key())
         {
             //Si on appuie sur Entrée, on envoie le message
-            case Qt::Key_Enter:
+            case Qt::Key_Return:
                 sendMessageRequested();
                 event->accept();
                 return ;
