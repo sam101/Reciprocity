@@ -265,12 +265,13 @@ namespace Game
         {
             //On définit la position de l'entité (On s'arrange pour que l'entité ne soie jamais dans de l'eau)
             qint32 xEntity, yEntity;
-            qint32 i = 0;
+            qint32 i = 0, j = 0;
             do
             {
                 xEntity = xBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE) + i;
-                yEntity = yBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE) + i;
-                i++;
+                yEntity = yBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE) + j;
+                i += Random::next(-1,1);
+                j += Random::next(-1,1);
             } while (_world->getTile(xEntity,yEntity).getType() == Map::SEA);
             //On construit l'entité
             Map::Entity entity(xEntity,yEntity,player->getId());
