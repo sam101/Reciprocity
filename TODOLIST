@@ -10,7 +10,7 @@ Par ordre de priorité (plus ou moins):
 -Gérer "Config" en non-volatile pour certains paramètres.
 -Ajout de quelque chose pour identifier le propriétaire des entités
 -Ajouter des messages sur la partie dans la ChatBox.
--Empécher les entités de spawner dans l'eau ou dans autre chose qu'un LandChunk.
+
 -Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs, 	
 -Amélioration de l'affichage des infos sur une tile 
 -Ajouter la gestion des ressources dans les unités
