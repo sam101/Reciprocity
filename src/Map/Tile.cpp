@@ -1,4 +1,6 @@
 #include <Map/Tile.h>
+#include <Tools/Random.h>
+using namespace Tools;
 namespace Map
 {
     /**
@@ -106,6 +108,7 @@ namespace Map
     {
         _type = LOWLAND;
         _flags = PASSABLE | FARMING_CAPABLE;
+        _output = Random::next(50,150) + Random::next(0,2) * 25;
     }
     /**
       * Définit la tile comme étant une montagne
@@ -122,6 +125,7 @@ namespace Map
     {
         _type = FOREST;
         _flags=  PASSABLE;
+        _output = Random::next(25,250) + Random::next(0,1) * 50;
     }
     /**
       * Définit la tile comme étant un lac
