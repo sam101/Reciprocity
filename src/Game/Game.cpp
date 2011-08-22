@@ -260,14 +260,18 @@ namespace Game
             yBase = Random::next(-200,200);
 
         } while (_world->getChunkByTile(xBase,yBase)->getType() != Chunk::LAND);
-        //xBase = _world->getChunkByTile(xBase,yBase)->getX() + Config::Config::CHUNK_SIZE / 2;
-        //yBase = _world->getChunkByTile(xBase,yBase)->getY() + Config::Config::CHUNK_SIZE / 2;
         //On ajoute les entitées de départ au joueur
         for (int i = 0; i < Config::Config::NB_ENTITIES; i++)
         {
-            //On définit la position de l'entité
-            qint32 xEntity = xBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE);
-            qint32 yEntity = yBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE);
+            //On définit la position de l'entité (On s'arrange pour que l'entité ne soie jamais dans de l'eau)
+            qint32 xEntity, yEntity;
+            qint32 i = 0;
+            do
+            {
+                xEntity = xBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE) + i;
+                yEntity = yBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE) + i;
+                i++;
+            } while (_world->getTile(xEntity,yEntity).getType() == Map::SEA);
             //On construit l'entité
             Map::Entity entity(xEntity,yEntity,player->getId());
             //On lui ajoute les ressources de base
