@@ -1,4 +1,4 @@
-#ifndef MAP_BUILDING_H
+    #ifndef MAP_BUILDING_H
 #define MAP_BUILDING_H
 #include <QtCore/QDataStream>
 #include <QtCore/Qt>
