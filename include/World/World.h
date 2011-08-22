@@ -52,14 +52,7 @@ namespace World
                * Tableau des entités.
                */
              QList<Map::Entity*> _entities;
-             /**
-               * Renvoie les coordonnées X d'un chunk en fonction d'une tile
-               */
-             qint32 getXChunk(qint32 x) const;
-             /**
-               * Renvoie les coordonnées Y d'un chunk en fonction d'une tile
-               */
-             qint32 getYChunk(qint32 y) const;
+
     public:
                 /**
                   * Constructeur
@@ -71,6 +64,14 @@ namespace World
                   * dans le monde
                   */
                 virtual ~World();
+                /**
+                  * Renvoie les coordonnées X d'un chunk en fonction d'une tile
+                  */
+                qint32 getXChunk(qint32 x) const;
+                /**
+                  * Renvoie les coordonnées Y d'un chunk en fonction d'une tile
+                  */
+                qint32 getYChunk(qint32 y) const;
                 /**
                   * Renvoie un chunk du monde. Les coordonnées
                   * sont par chunk (et non par tile).
