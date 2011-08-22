@@ -228,6 +228,11 @@ namespace Game
         _turn++;
         //On propage la demande de nouveau tour dans le monde.
         _world->newTurn();
+        //On remet à zéro le fait que les joueurs ont fini leur tour
+        for (int i = 0; i < _players.size(); i++)
+        {
+            _players[i]->resetEndTurn();
+        }
     }
 
     /**
