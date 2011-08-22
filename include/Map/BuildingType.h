@@ -16,7 +16,11 @@ namespace Map
         /**
           * Maison, loge les entitées
           */
-        HOUSE = 1
+        HOUSE = 1,
+        /**
+          * Ferme, sert à cultiver pour récupérer de la nouriture
+          */
+        FARMLAND = 2
     };
 }
 #endif //MAP_BUILDINGTYPE_H
