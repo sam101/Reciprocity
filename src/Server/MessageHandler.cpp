@@ -347,7 +347,7 @@ namespace Server
             {
 
             }
-            else if (!c->getPlayer()->isOnline())
+            else if (c->isOnline())
             {
 
             }
