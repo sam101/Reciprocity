@@ -8,6 +8,7 @@ Par ordre de priorité (plus ou moins):
 -Gérer le cas où y'a plusieurs unités sur une tile.
 -Ajout d'un dessin de là où l'entité peut aller.
 -Gérer "Config" en non-volatile pour certains paramètres.
+-Ajout de quelque chose pour identifier le propriétaire des entités
 -Ajouter des messages sur la partie dans la ChatBox.
 -Empécher les entités de spawner dans l'eau ou dans autre chose qu'un LandChunk.
 -Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs, 	
