@@ -46,11 +46,15 @@ namespace Map
               * Position Y du batiment
               */
             qint32 _y;
+            /**
+              * Propriétaire du batient
+              */
+            qint32 _owner;
         public:
             /**
               * Constructeur
               */
-            Building(qint32 x = 0, qint32  y = 0, BuildingType type = NONE, qint32 level = 0, qint32 lifePoints = 0, qint32 maxLifePoints = 0);
+            Building(qint32 x = 0, qint32  y = 0, BuildingType type = NONE, qint32 level = 0, qint32 lifePoints = 0, qint32 maxLifePoints = 0, qint32 owner = -1);
             /**
               * Renvoie le type du batiment
               */
@@ -76,9 +80,17 @@ namespace Map
               */
             qint32 getY() const;
             /**
+              * Renvoie le propriétaire du batiment
+              */
+            qint32 getOwner() const;
+            /**
               * Change le type du batiment
               */
             void setType(BuildingType type);
+            /**
+              * Change le propriétaire du batiment
+              */
+            void setOwner(qint32 owner);
             /**
               * Envoie un batiment dans un QDataStream
               */

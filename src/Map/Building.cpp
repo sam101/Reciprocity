@@ -4,13 +4,14 @@ namespace Map
     /**
       * Constructeur
       */
-    Building::Building(qint32 x, qint32 y, BuildingType type, qint32 level, qint32 lifePoints, qint32 maxLifePoints) :
+    Building::Building(qint32 x, qint32 y, BuildingType type, qint32 level, qint32 lifePoints, qint32 maxLifePoints, qint32 owner) :
     _type(type),
     _level(level),
     _lifePoints(lifePoints),
     _maxLifePoints(maxLifePoints),
     _x(x),
-    _y(y)
+    _y(y),
+    _owner(owner)
     {
 
     }
@@ -57,11 +58,25 @@ namespace Map
         return _y;
     }
     /**
+      * Renvoie le propriétaire du batiment
+      */
+    qint32 Building::getOwner() const
+    {
+        return _owner;
+    }
+    /**
       * Change le type du batiment
       */
     void Building::setType(BuildingType type)
     {
         _type = type;
+    }
+    /**
+      * Change le propriétaire du batiment
+      */
+    void Building::setOwner(qint32 owner)
+    {
+        _owner = owner;
     }
 
     /**
@@ -76,6 +91,7 @@ namespace Map
         out << b._maxLifePoints;
         out << b._x;
         out << b._y;
+        out << b._owner;
 
         return out;
     }
@@ -95,6 +111,7 @@ namespace Map
         in >> b._maxLifePoints;
         in >> b._x;
         in >> b._y;
+        in >> b._owner;
 
         return in;
     }
