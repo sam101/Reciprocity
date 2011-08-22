@@ -6,6 +6,7 @@
 #include <QtGui/QPainter>
 namespace Graphics
 {
+    QVector<QImage> TileChunkItem::_tiles;
     /**
       * Constructeur
       */
@@ -16,19 +17,21 @@ namespace Graphics
         _boundingRect = QRectF(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
         //On charge le tableau de tiles.
         //TODO: Faire un truc mieux
-        _tiles.append(Provider::getTile("nothing").toImage());
-        _tiles.append(Provider::getTile("sea").toImage());
-        _tiles.append(Provider::getTile("lowland").toImage());
-        _tiles.append(Provider::getTile("forest").toImage());
-        _tiles.append(Provider::getTile("lake").toImage());
-        _tiles.append(Provider::getTile("river").toImage());
-        _tiles.append(Provider::getTile("mountain").toImage());
-        _tiles.append(Provider::getTile("beach").toImage());
-        _tiles.append(Provider::getTile("swamp").toImage());
-        _tiles.append(Provider::getTile("oasis").toImage());
-        _tiles.append(Provider::getTile("iceberg").toImage());
-        _tiles.append(Provider::getTile("volcano").toImage());
-
+        if (_tiles.size() == 0)
+        {
+            _tiles.append(Provider::getTile("nothing").toImage());
+            _tiles.append(Provider::getTile("sea").toImage());
+            _tiles.append(Provider::getTile("lowland").toImage());
+            _tiles.append(Provider::getTile("forest").toImage());
+            _tiles.append(Provider::getTile("lake").toImage());
+            _tiles.append(Provider::getTile("river").toImage());
+            _tiles.append(Provider::getTile("mountain").toImage());
+            _tiles.append(Provider::getTile("beach").toImage());
+            _tiles.append(Provider::getTile("swamp").toImage());
+            _tiles.append(Provider::getTile("oasis").toImage());
+            _tiles.append(Provider::getTile("iceberg").toImage());
+            _tiles.append(Provider::getTile("volcano").toImage());
+        }
         //On définit la position
         int x,y;
         if (_chunk->getX() < 0)
