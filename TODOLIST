@@ -6,12 +6,13 @@ Par ordre de priorité (plus ou moins):
 -Gestion de la construction des batiments
 -Amélioration de l'affichage dans EntityInfoWidget
 -Gérer le cas où y'a plusieurs unités sur une tile.
+
 -Ajout d'un dessin de là où l'entité peut aller.
 -Gérer "Config" en non-volatile pour certains paramètres.
 -Ajout de quelque chose pour identifier le propriétaire des entités
 -Ajouter des messages sur la partie dans la ChatBox.
 -Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs, 	
--Amélioration de l'affichage des infos sur une tile 
+-Amélioration de l'affichage des infos sur une tile 	
 -Ajouter la gestion des ressources dans les unités
 -Ajouter un panel de récapitulatif de ce que possède le joueur
 -Ajouter des commandes à la console de chat

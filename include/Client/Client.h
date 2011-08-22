@@ -123,6 +123,10 @@ namespace Client
               */
             void sendEndTurn();
             /**
+              * Envoie une demande de construction de batiment
+              */
+            void sendBuild(qint32 entity, Map::BuildingType type);
+            /**
               * Appelé quand le client reçoit un message du socket
               */
             void messageRecevied();

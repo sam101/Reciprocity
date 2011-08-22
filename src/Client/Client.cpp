@@ -1,6 +1,7 @@
 #include <Client/Client.h>
 #include <Config/Config.h>
 #include <Network/BeginGameMessage.h>
+#include <Network/BuildMessage.h>
 #include <Network/ChunkDataMessage.h>
 #include <Network/EndTurnMessage.h>
 #include <Network/EntityDataMessage.h>
@@ -259,6 +260,30 @@ namespace Client
     {
         //On construit le message
         Network::EndTurnMessage m(_login);
+        //on construit le byteArray
+        QByteArray b;
+        //On déclare le flux dans lequel écrire
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in.setVersion(QDataStream::Qt_4_5);
+        //On écrit la taille vide
+        in << (qint32)0;
+        //On écrit le type du message
+        in << (qint32)m.getType();
+        //On écrit le message
+        in << m;
+        //On écrit la bonne taille
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On écrit le message
+        _socket->write(b);
+    }
+    /**
+      * Envoie une demande de construction de batiment
+      */
+    void Client::sendBuild(qint32 entity, Map::BuildingType type)
+    {
+        //On construit le message
+        Network::BuildMessage m(entity,type);
         //on construit le byteArray
         QByteArray b;
         //On déclare le flux dans lequel écrire
