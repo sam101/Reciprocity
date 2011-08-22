@@ -6,6 +6,6 @@ namespace GUI
       */
     ChooseToolBar::ChooseToolBar()
     {
-
+        setObjectName("ChooseToolBar");
     }
 }
