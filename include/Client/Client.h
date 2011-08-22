@@ -74,6 +74,10 @@ namespace Client
               */
             const DataHandler* getDataHandler() const;
             /**
+              * Renvoie l'id du client
+              */
+            qint32 getId() const;
+            /**
               * Renvoie le login du client
               */
             QString getLogin() const;

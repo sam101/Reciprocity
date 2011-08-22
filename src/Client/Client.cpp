@@ -56,6 +56,13 @@ namespace Client
         return _dataHandler;
     }
     /**
+      * Renvoie l'id du client
+      */
+    qint32 Client::getId() const
+    {
+        return _id;
+    }
+    /**
       * Renvoie le login du client
       */
     QString Client::getLogin() const

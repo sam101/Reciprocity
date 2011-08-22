@@ -5,6 +5,7 @@
 
 #include <GUI/ActionToolBar.h>
 #include <GUI/ChatDockWidget.h>
+#include <GUI/ChooseToolBar.h>
 #include <GUI/GameScene.h>
 
 #include <Client/Client.h>
@@ -41,9 +42,13 @@ namespace GUI
               */
             ChatDockWidget *_chatDock;
             /**
-              * Pointeur vers le ActionsDock
+              * Pointeur vers la ActionToolBar
               */
             ActionToolBar *_actionToolBar;
+            /**
+              * Pointeur vers la ChooseToolBar
+              */
+            ChooseToolBar *_chooseToolBar;
             /**
               * Id de l'entité actuellement sélectionnée
               */

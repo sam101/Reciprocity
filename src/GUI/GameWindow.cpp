@@ -46,6 +46,9 @@ namespace GUI
         connect(_actionToolBar,SIGNAL(moveSelected()),this,SLOT(setMove()));
         connect(_actionToolBar,SIGNAL(selectSelected()),this,SLOT(setSelect()));
         addToolBar(Qt::TopToolBarArea,_actionToolBar);
+        //On initialise la ChooseToolBar
+        _chooseToolBar = new ChooseToolBar;
+        addToolBar(Qt::TopToolBarArea,_chooseToolBar);
         //On redimensione la fenêtre
         resize(Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
     }
@@ -147,7 +150,7 @@ namespace GUI
     {
         _actionToolBar->displayTile(_dataHandler->getTile(x,y));
          Map::Entity *e = _dataHandler->getEntityByCoordinates(x,y);
-         if (e == NULL)
+         if (e == NULL || e->getOwner() != _client->getId())
          {
              //On désactive les actions sur entité
              _currentEntity = -1;
