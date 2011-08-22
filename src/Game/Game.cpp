@@ -160,6 +160,15 @@ namespace Game
             entity = _world->getEntity(player->getEntities()[i]);
             chunk = _world->getChunkByTile(entity->getX(),entity->getY());
             c << chunk;
+            //On ajoute les chunk adjacents
+            c << _world->getChunk(_world->getXChunk(chunk->getX() - Config::Config::CHUNK_SIZE - 1),_world->getYChunk((chunk->getY())));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() + Config::Config::CHUNK_SIZE + 1),_world->getYChunk((chunk->getY())));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() ),_world->getYChunk((chunk->getY() - Config::Config::CHUNK_SIZE - 1)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() ),_world->getYChunk((chunk->getY() + Config::Config::CHUNK_SIZE + 1)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() - Config::Config::CHUNK_SIZE - 1 ),_world->getYChunk((chunk->getY() - Config::Config::CHUNK_SIZE - 1)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() - Config::Config::CHUNK_SIZE - 1 ),_world->getYChunk((chunk->getY() + Config::Config::CHUNK_SIZE + 1)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() + Config::Config::CHUNK_SIZE + 1 ),_world->getYChunk((chunk->getY() - Config::Config::CHUNK_SIZE - 1)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() + Config::Config::CHUNK_SIZE + 1),_world->getYChunk((chunk->getY() + Config::Config::CHUNK_SIZE + 1)));
         }
         return c;
     }
