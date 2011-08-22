@@ -142,6 +142,45 @@ namespace Server
 
     }
     /**
+      * Envoie les informations du serveur à tous
+      */
+    void MessageSender::sendServerDataToAll()
+    {
+        //On construit le message
+        //TODO: Ajouter nom serveur
+        Network::ServerDataMessage m("",_game->getTurn());
+        //On parcours la liste des clients
+        QMutableMapIterator<QTcpSocket*, Server::Client*> it(_clients);
+        while (it.hasNext())
+        {
+            Client *c = it.next().value();
+            if (c->isOnline())
+            {
+                m.addPlayer(c->getLogin(),c->getPlayer()->isAdmin());
+            }
+        }
+        //On construit le byteArray
+        QByteArray b;
+        QDataStream in(&b,QIODevice::WriteOnly);
+        in << (qint32)0;
+        in << (qint32)Network::SERVER_DATA;
+        in << m;
+        in.device()->seek(0);
+        in << (qint32)(b.size() - sizeof(qint32));
+        //On l'envoie à tout les clients
+        //On l'envoie à tout les clients
+        QMutableMapIterator<QTcpSocket*, Client*> it2(_clients);
+        while (it2.hasNext())
+        {
+            Client *c = it2.next().value();
+            if (c->isOnline())
+            {
+                c->getSocket()->write(b);
+            }
+        }
+    }
+
+    /**
       * Envoie le message de début de parties à un client
       */
     void MessageSender::sendGameHasBegun(QTcpSocket *socket)

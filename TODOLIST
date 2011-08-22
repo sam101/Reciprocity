@@ -2,8 +2,9 @@ TODOLIST:
 
 Par ordre de priorité (plus ou moins):
 
--Signaler quand un nouveau joueur arrive aux nouveaux joueurs
--Faire envoyer la taille du chunk par le serveur au client
+
+-Ajouter un message "Nouveau joueur" dans la fenêtre de jeu pendant le jeu
+
 -Gestion de la construction des batiments
 -Amélioration de l'affichage dans EntityInfoWidget
 -Gérer le cas où y'a plusieurs unités sur une tile.
@@ -22,4 +23,6 @@ Par ordre de priorité (plus ou moins):
 -Ajouter la possibilité de zoomer/dezoomer
 -Optimiser la pile réseau
 -Ajouter un nombre maximal de joueurs
+
+-Faire envoyer la taille du chunk par le serveur au client
 

@@ -179,6 +179,7 @@ namespace Server
            qDebug() << "Login de" << socket->peerAddress().toString() << "En tant que" << msg.getLogin() << " réussi.";
            //On emet le signal
            emit loginSuccess(socket,player->getId(),player->isAdmin());
+           emit sendServerDataToAll();
         }
         //Si la partie a commencé, on envoie le signal
         if (_game->hasBegun())
