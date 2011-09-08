@@ -29,6 +29,7 @@ namespace GUI
         //On construit le bouton pour réaliser une action
         _action = new QPushButton(tr("Action"));
         _action->setEnabled(false);
+        connect(_action,SIGNAL(clicked()),this,SLOT(actionButtonSelected()));
         addWidget(_action);
         addSeparator();
         //On ajoute le TileInfoWidget
@@ -73,6 +74,13 @@ namespace GUI
     void ActionToolBar::moveButtonSelected()
     {
         emit moveSelected();
+    }
+    /**
+      * Appelé à l'appui sur le bouton d'action
+      */
+    void ActionToolBar::actionButtonSelected()
+    {
+        emit actionSelected();
     }
 
     /**

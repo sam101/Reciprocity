@@ -72,6 +72,10 @@ namespace GUI
               */
             void moveButtonSelected();
             /**
+              * Appelé à l'appui sur le bouton d'action
+              */
+            void actionButtonSelected();
+            /**
               * Change le DataHandler actuel
               */
             void setDataHandler(Client::DataHandler *dataHandler);
@@ -100,6 +104,10 @@ namespace GUI
               * Emit à l'appui sur "Se déplacer"
               */
             void moveSelected();
+            /**
+              * Emit à l'appui sur "Action"
+              */
+            void actionSelected();
 
     };
 }
