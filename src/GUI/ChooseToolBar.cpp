@@ -21,18 +21,32 @@ namespace GUI
         _separator2 = addSeparator();
         QPushButton *work = new QPushButton(tr("Travailler"));
         _work = addWidget(work);
+
+        showNothing();
     }
     /**
       * Desactive tout affichage
       */
     void ChooseToolBar::showNothing()
     {
-        qDebug() << "hide";
         _back->setVisible(false);
         _build->setVisible(false);
         _work->setVisible(false);
 
         _separator2->setVisible(false);
         _separator1->setVisible(false);
+    }
+    /**
+      * Affiche les boutons d'action
+      */
+    void ChooseToolBar::showActions()
+    {
+        _back->setVisible(true);
+        _build->setVisible(true);
+        _work->setVisible(true);
+
+        _separator2->setVisible(true);
+        _separator1->setVisible(true);
+
     }
 }

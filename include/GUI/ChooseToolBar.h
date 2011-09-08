@@ -45,6 +45,10 @@ namespace GUI
               * Desactive tout affichage
               */
             void showNothing();
+            /**
+              * Affiche les boutons d'action
+              */
+            void showActions();
     };
 }
 #endif //GUI_CHOOSETOOLBAR_H
