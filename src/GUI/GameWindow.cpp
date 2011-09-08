@@ -50,6 +50,7 @@ namespace GUI
         //On initialise la ChooseToolBar
         _chooseToolBar = new ChooseToolBar;
         addToolBar(Qt::TopToolBarArea,_chooseToolBar);
+        connect(_actionToolBar,SIGNAL(actionSelected()),_chooseToolBar,SLOT(showActions()));
         //On redimensione la fenêtre
         resize(Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
     }
