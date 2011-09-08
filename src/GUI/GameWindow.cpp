@@ -46,6 +46,7 @@ namespace GUI
         connect(_actionToolBar,SIGNAL(moveSelected()),this,SLOT(setMove()));
         connect(_actionToolBar,SIGNAL(selectSelected()),this,SLOT(setSelect()));
         addToolBar(Qt::TopToolBarArea,_actionToolBar);
+        addToolBarBreak(Qt::TopToolBarArea);
         //On initialise la ChooseToolBar
         _chooseToolBar = new ChooseToolBar;
         addToolBar(Qt::TopToolBarArea,_chooseToolBar);
