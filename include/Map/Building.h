@@ -31,6 +31,10 @@ namespace Map
               */
             qint32 _level;
             /**
+              * Indique si le batiment est fini
+              */
+            bool _finished;
+            /**
               * Points de vie du batiment
               */
             qint32 _lifePoints;
@@ -64,6 +68,10 @@ namespace Map
               */
             qint32 getLevel() const;
             /**
+              * Renvoie si le batiment est fini
+              */
+            bool isFinished() const;
+            /**
               * Renvoie les points de vie du batiment
               */
             qint32 getLifePoints() const;
@@ -91,6 +99,10 @@ namespace Map
               * Change le propriétaire du batiment
               */
             void setOwner(qint32 owner);
+            /**
+              * Avance la construction du batiment
+              */
+            void advanceBuild(qint32 n);
             /**
               * Envoie un batiment dans un QDataStream
               */

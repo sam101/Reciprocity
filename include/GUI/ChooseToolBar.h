@@ -70,6 +70,7 @@ namespace GUI
               * Affiche les boutons de construction
               */
             void showBuildings();
+        signals:
     };
 }
 #endif //GUI_CHOOSETOOLBAR_H

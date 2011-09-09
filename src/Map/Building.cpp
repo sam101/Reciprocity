@@ -7,6 +7,7 @@ namespace Map
     Building::Building(qint32 x, qint32 y, BuildingType type, qint32 level, qint32 lifePoints, qint32 maxLifePoints, qint32 owner) :
     _type(type),
     _level(level),
+    _finished(false),
     _lifePoints(lifePoints),
     _maxLifePoints(maxLifePoints),
     _x(x),
@@ -28,6 +29,13 @@ namespace Map
     qint32 Building::getLevel() const
     {
         return _level;
+    }
+    /**
+      * Renvoie si le batiment est fini
+      */
+    bool Building::isFinished() const
+    {
+        return _finished;
     }
     /**
       * Renvoie les points de vie du batiment
@@ -78,6 +86,19 @@ namespace Map
     {
         _owner = owner;
     }
+    /**
+      * Avance la construction du batiment
+      */
+    void Building::advanceBuild(qint32 n)
+    {
+        _lifePoints += n;
+        if (_lifePoints >= _maxLifePoints)
+        {
+            _lifePoints = _maxLifePoints;
+            _finished = true;
+        }
+
+    }
 
     /**
       * Envoie un batiment dans un QDataStream
@@ -87,6 +108,7 @@ namespace Map
         out << b.BUILDING_MAGICNUMBER;
         out << (qint32)b._type;
         out << b._level;
+        out << b._finished;
         out << b._lifePoints;
         out << b._maxLifePoints;
         out << b._x;
@@ -107,6 +129,7 @@ namespace Map
         //On recupère les données
         in >> (qint32&)b._type;
         in >> b._level;
+        in >> b._finished;
         in >> b._lifePoints;
         in >> b._maxLifePoints;
         in >> b._x;
