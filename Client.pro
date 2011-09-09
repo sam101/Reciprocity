@@ -61,7 +61,8 @@ HEADERS += \
     include/Network/EndTurnMessage.h \
     include/Network/NewTurnMessage.h \
     include/GUI/SettingsWidget.h \
-    include/GUI/ChooseToolBar.h
+    include/GUI/ChooseToolBar.h \
+    include/Map/ResourceType.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -112,3 +113,4 @@ SOURCES += \
     src/Network/NewTurnMessage.cpp \
     src/GUI/SettingsWidget.cpp \
     src/GUI/ChooseToolBar.cpp
+

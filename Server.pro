@@ -100,4 +100,6 @@ HEADERS += \
     include/Network/KickMessage.h \
     include/Network/BuildMessage.h \
     include/Network/EndTurnMessage.h \
-    include/Network/NewTurnMessage.h
+    include/Network/NewTurnMessage.h \
+    include/Map/ResourceType.h
+

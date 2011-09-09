@@ -53,6 +53,15 @@ namespace Config
               * Nombre de déplacements qu'une entité peut faire par tour
               */
             static const qint32 ENTITY_MOVE = 3;
+            //Liste des couts des batiments
+            /**
+              * Coût en bois d'une maison
+              */
+            static const qint32 COST_HOUSE_WOOD = 50;
+            /**
+              * Coût en bois d'une route
+              */
+            static const qint32 COST_ROAD_WOOD = 5;
     };
 }
 #endif //CONFIG_CONFIG_H
