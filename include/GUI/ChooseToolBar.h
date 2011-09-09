@@ -81,6 +81,22 @@ namespace GUI
               * Appelé au clic sur le bouton "Maison"
               */
             void houseClicked();
+            /**
+              * Appelé au clic sur le bouton "Champ"
+              */
+            void fieldClicked();
+            /**
+              * Appelé au clic sur le bouton "Route"
+              */
+            void roadClicked();
+            /**
+              * Appelé au clic sur le bouton "Mur"
+              */
+            void wallClicked();
+            /**
+              * Appelé au clic sur le bouton "Tour"
+              */
+            void towerClicked();
         signals:
             /**
               * Indique que l'utilisateur a demandé à construire un batiment

@@ -27,15 +27,19 @@ namespace GUI
         connect(work,SIGNAL(clicked()),this,SLOT(workClicked()));
         _work = addWidget(work);
         QPushButton *field = new QPushButton(tr("Champ"));
+        connect(field,SIGNAL(clicked()),this,SLOT(fieldClicked()));
         _field = addWidget(field);
         _separators[2] = addSeparator();
         QPushButton *road = new QPushButton(tr("Route"));
+        connect(road,SIGNAL(clicked()),this,SLOT(roadClicked()));
         _road = addWidget(road);
         _separators[3] = addSeparator();
         QPushButton *wall = new QPushButton(tr("Mur"));
+        connect(wall,SIGNAL(clicked()),this,SLOT(wallClicked()));
         _wall = addWidget(wall);
         _separators[4] = addSeparator();
         QPushButton *tower = new QPushButton(tr("Tour"));
+        connect(tower,SIGNAL(clicked()),this,SLOT(towerClicked()));
         _tower = addWidget(tower);
         _separators[5] = addSeparator();
         showNothing();
@@ -118,5 +122,33 @@ namespace GUI
     void ChooseToolBar::houseClicked()
     {
         emit buildRequested(Map::HOUSE);
+    }
+    /**
+      * Appelé au clic sur le bouton "Champ"
+      */
+    void ChooseToolBar::fieldClicked()
+    {
+        emit buildRequested(Map::FARMLAND);
+    }
+    /**
+      * Appelé au clic sur le bouton "Route"
+      */
+    void ChooseToolBar::roadClicked()
+    {
+        emit buildRequested(Map::ROAD);
+    }
+    /**
+      * Appelé au clic sur le bouton "Mur"
+      */
+    void ChooseToolBar::wallClicked()
+    {
+        emit buildRequested(Map::WALL);
+    }
+    /**
+      * Appelé au clic sur le bouton "Tour"
+      */
+    void ChooseToolBar::towerClicked()
+    {
+        emit buildRequested(Map::TOWER);
     }
 }
