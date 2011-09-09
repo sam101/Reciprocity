@@ -19,13 +19,9 @@ namespace GUI
               */
             QAction *_back;
             /**
-              * Premier séparateur
+              * Tableau des séparateurs
               */
-            QAction *_separator1;
-            /**
-              * Deuxième séparateur
-              */
-            QAction *_separator2;
+            QAction *_separators[6];
             //Boutons des actions possibles
             /**
               * Bouton de construction
@@ -35,6 +31,27 @@ namespace GUI
               * Bouton mettant l'entité au travail
               */
             QAction *_work;
+            //Boutons des batiments constructibles
+            /**
+              * Bouton lançant la construction d'une maison
+              */
+            QAction *_house;
+            /**
+              * Bouton lançant la construction d'un champ
+              */
+            QAction *_field;
+            /**
+              * Bouton lançant la construction d'une route
+              */
+            QAction *_road;
+            /**
+              * Bouton lançant la construction d'un mur
+              */
+            QAction *_wall;
+            /**
+              * Bouton lançant la construction d'une tour
+              */
+            QAction *_tower;
         public:
             /**
               * Constructeur
@@ -49,6 +66,10 @@ namespace GUI
               * Affiche les boutons d'action
               */
             void showActions();
+            /**
+              * Affiche les boutons de construction
+              */
+            void showBuildings();
     };
 }
 #endif //GUI_CHOOSETOOLBAR_H
