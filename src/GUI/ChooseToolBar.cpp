@@ -23,6 +23,7 @@ namespace GUI
         _house = addWidget(house);
         _separators[1] = addSeparator();
         QPushButton *work = new QPushButton(tr("Travailler"));
+        connect(work,SIGNAL(clicked()),this,SLOT(workClicked()));
         _work = addWidget(work);
         QPushButton *field = new QPushButton(tr("Champ"));
         _field = addWidget(field);
@@ -102,5 +103,12 @@ namespace GUI
             _separators[i]->setVisible(true);
         }
         _separators[5]->setVisible(false);
+    }
+    /**
+      * Appelé au clic sur le bouton "travailler"
+      */
+    void ChooseToolBar::workClicked()
+    {
+        emit workRequested();
     }
 }

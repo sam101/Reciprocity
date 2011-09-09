@@ -1,5 +1,6 @@
 #ifndef GUI_CHOOSETOOLBAR_H
 #define GUI_CHOOSETOOLBAR_H
+#include <Map/Building.h>
 #include <QtGui/QAction>
 #include <QtGui/QPushButton>
 #include <QtGui/QToolBar>
@@ -70,7 +71,21 @@ namespace GUI
               * Affiche les boutons de construction
               */
             void showBuildings();
+
+        protected slots:
+            /**
+              * Appelé au clic sur le bouton "travailler"
+              */
+            void workClicked();
         signals:
+            /**
+              * Indique que l'utilisateur a demandé à construire un batiment
+              */
+            void buildRequested(Map::BuildingType type);
+            /**
+              * Indique que l'utilisateur à demandé à faire travailler l'entité
+              */
+            void workRequested();
     };
 }
 #endif //GUI_CHOOSETOOLBAR_H
