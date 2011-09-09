@@ -144,6 +144,10 @@ namespace Server
               * Demande de renvoyer les données d'entités à tous
               */
             void sendPlayerDataToAll();
+            /**
+              * Emit quand un batiment a bien été construit
+              */
+            void buildingBuilt(QTcpSocket *socket, qint32 entityId);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

@@ -296,4 +296,12 @@ namespace Game
             addEntity(entity,xEntity,yEntity);
         }
     }
+    /**
+      * Construit un batiment
+      * @return true si réussi, false si raté
+      */
+    bool Game::build(qint32 entityId, Map::BuildingType type)
+    {
+        return true;
+    }
 }

@@ -383,5 +383,15 @@ namespace Server
         {
             return;
         }
+        //On vérifie que l'entité est bien à lui.
+        if (_clients[socket]->getPlayer()->getId() != _game->getEntity(m.getEntity())->getOwner())
+        {
+            return;
+        }
+        //On demande au jeu de construire le batiment.
+        if (_game->build(m.getEntity(),m.getType()))
+        {
+            emit buildingBuilt(socket,m.getEntity());
+        }
     }
 }

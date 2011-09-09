@@ -3,6 +3,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <Game/Player.h>
+#include <Map/BuildingType.h>
 #include <World/World.h>
 namespace Game
 {
@@ -97,9 +98,14 @@ namespace Game
             void beginGame();
             /**
               * Déplace une entité.
-              * @return Vrai si réussi, faux si raté.
+              * @return true si réussi, false si raté.
               */
             bool moveEntity(qint32 id, qint32 x, qint32 y, qint32 applicant);
+            /**
+              * Construit un batiment
+              * @return true si réussi, false si raté
+              */
+            bool build(qint32 entityId, Map::BuildingType type);
             /**
               * Commence un nouveau tour
               */
