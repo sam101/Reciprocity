@@ -77,6 +77,10 @@ namespace GUI
               * Appelé au clic sur le bouton "travailler"
               */
             void workClicked();
+            /**
+              * Appelé au clic sur le bouton "Maison"
+              */
+            void houseClicked();
         signals:
             /**
               * Indique que l'utilisateur a demandé à construire un batiment

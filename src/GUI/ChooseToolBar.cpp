@@ -20,6 +20,7 @@ namespace GUI
         _build = addWidget(build);
         connect(build,SIGNAL(clicked()),this,SLOT(showBuildings()));
         QPushButton *house = new QPushButton(tr("Maison"));
+        connect(house,SIGNAL(clicked()),this,SLOT(houseClicked()));
         _house = addWidget(house);
         _separators[1] = addSeparator();
         QPushButton *work = new QPushButton(tr("Travailler"));
@@ -110,5 +111,12 @@ namespace GUI
     void ChooseToolBar::workClicked()
     {
         emit workRequested();
+    }
+    /**
+      * Appelé au clic sur le bouton "Maison"
+      */
+    void ChooseToolBar::houseClicked()
+    {
+        emit buildRequested(Map::HOUSE);
     }
 }
