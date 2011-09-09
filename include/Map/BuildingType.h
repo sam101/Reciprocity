@@ -20,7 +20,19 @@ namespace Map
         /**
           * Ferme, sert à cultiver pour récupérer de la nouriture
           */
-        FARMLAND = 2
+        FARMLAND = 2,
+        /**
+          * Route
+          */
+        ROAD = 3,
+        /**
+          * Mur
+          */
+        WALL = 4,
+        /**
+          * Tour de défense, diminue les dégats pris par une entité sur la case
+          */
+        TOWER = 5
     };
 }
 #endif //MAP_BUILDINGTYPE_H
