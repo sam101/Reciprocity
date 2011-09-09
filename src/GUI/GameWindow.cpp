@@ -196,9 +196,8 @@ namespace GUI
       */
     void GameWindow::buildRequested(Map::BuildingType type)
     {
-
+        _client->sendBuild(_currentEntity,type);
     }
-
     /**
       * Appelé quand le joueur veut finir son tour
       */
