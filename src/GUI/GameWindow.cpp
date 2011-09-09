@@ -50,6 +50,7 @@ namespace GUI
         //On initialise la ChooseToolBar
         _chooseToolBar = new ChooseToolBar;
         addToolBar(Qt::RightToolBarArea,_chooseToolBar);
+        connect(_chooseToolBar,SIGNAL(buildRequested(Map::BuildingType)),this,SLOT(buildRequested(Map::BuildingType)));
         connect(_actionToolBar,SIGNAL(actionSelected()),_chooseToolBar,SLOT(showActions()));
         //On redimensione la fenêtre
         resize(Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
@@ -190,6 +191,14 @@ namespace GUI
         //On remet à zéro la selection dans ActionToolBar
         _actionToolBar->resetSelection();
     }
+    /**
+      * Appelé quand une demande de construction a été faite
+      */
+    void GameWindow::buildRequested(Map::BuildingType type)
+    {
+
+    }
+
     /**
       * Appelé quand le joueur veut finir son tour
       */

@@ -107,6 +107,10 @@ namespace GUI
               */
             void moveSelected(qint32 x, qint32 y);
             /**
+              * Appelé quand une demande de construction a été faite
+              */
+            void buildRequested(Map::BuildingType type);
+            /**
               * Appelé quand le joueur veut finir son tour
               */
             void endTurn();
