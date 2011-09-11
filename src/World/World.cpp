@@ -185,6 +185,20 @@ namespace World
         return id;
     }
     /**
+      * Commence la construction d'un batiment
+      * @return Si la construction à réussi (Non-présence d'un batiment sur la case)
+      */
+    bool World::addBuilding(qint32 x, qint32 y, Map::BuildingType type)
+    {
+        //On vérifie qu'il y'a pas déjà un batiment
+        if (getBuilding(x,y).getType() != Map::NONE)
+        {
+            return false;
+        }
+
+    }
+
+    /**
       * Déplace une entité
       */
     void World::moveEntity(qint32 id, qint32 x, qint32 y)

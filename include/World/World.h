@@ -98,6 +98,11 @@ namespace World
                   */
                 qint32 addEntity(const Map::Entity &entity, qint32 x, qint32 y);
                 /**
+                  * Commence la construction d'un batiment
+                  * @return Si la construction à réussi (Non-présence d'un batiment sur la case)
+                  */
+                bool addBuilding(qint32 x, qint32 y, Map::BuildingType type);
+                /**
                   * Déplace une entité
                   */
                 void moveEntity(qint32 id, qint32 x, qint32 y);
