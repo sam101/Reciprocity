@@ -1,4 +1,5 @@
 #include <GUI/ChooseToolBar.h>
+#include <Config/Config.h>
 #include <QtCore/QDebug>
 namespace GUI
 {
@@ -20,6 +21,7 @@ namespace GUI
         _build = addWidget(build);
         connect(build,SIGNAL(clicked()),this,SLOT(showBuildings()));
         QPushButton *house = new QPushButton(tr("Maison"));
+        house->setToolTip(tr("Maison - ") + QString::number(Config::Config::COST_HOUSE_WOOD) + tr("Bois") );
         connect(house,SIGNAL(clicked()),this,SLOT(houseClicked()));
         _house = addWidget(house);
         _separators[1] = addSeparator();
