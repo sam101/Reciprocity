@@ -101,7 +101,7 @@ namespace World
                   * Commence la construction d'un batiment
                   * @return Si la construction à réussi (Non-présence d'un batiment sur la case)
                   */
-                bool addBuilding(qint32 x, qint32 y, Map::BuildingType type);
+                bool addBuilding(qint32 x, qint32 y, Map::BuildingType type, qint32 owner);
                 /**
                   * Déplace une entité
                   */

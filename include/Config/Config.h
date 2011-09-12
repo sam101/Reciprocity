@@ -62,6 +62,11 @@ namespace Config
               * Coût en bois d'une route
               */
             static const qint32 COST_ROAD_WOOD = 5;
+            //Points de vie des batiments
+            /**
+              * Points de vie d'une maison
+              */
+            static const qint32 LIFE_HOUSE = 25;
     };
 }
 #endif //CONFIG_CONFIG_H

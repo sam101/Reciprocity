@@ -302,6 +302,34 @@ namespace Game
       */
     bool Game::build(qint32 entityId, Map::BuildingType type)
     {
+        Map::Entity *entity = _world->getEntity(entityId);
+        //Verification de l'id de l'entité
+        if (entity == NULL)
+        {
+            return false;
+        }
+        //Première étape -> On vérifie si l'entité possède les ressources
+        switch (type)
+        {
+            case Map::HOUSE:
+                if (entity->getResource(Map::WOOD) < Config::Config::COST_HOUSE_WOOD)
+                {
+                    return false;
+                }
+                if (_world->addBuilding(entity->getX(),entity->getY(),type,entity->getOwner()))
+                {
+                    entity->delRessource(Map::WOOD,Config::Config::COST_HOUSE_WOOD);
+                }
+                else
+                {
+                    return false;
+                }
+            break;
+            default:
+
+            break;
+        }
+
         return true;
     }
 }

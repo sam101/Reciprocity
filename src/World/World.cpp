@@ -188,13 +188,23 @@ namespace World
       * Commence la construction d'un batiment
       * @return Si la construction à réussi (Non-présence d'un batiment sur la case)
       */
-    bool World::addBuilding(qint32 x, qint32 y, Map::BuildingType type)
+    bool World::addBuilding(qint32 x, qint32 y, Map::BuildingType type, qint32 owner)
     {
         //On vérifie qu'il y'a pas déjà un batiment
         if (getBuilding(x,y).getType() != Map::NONE)
         {
             return false;
         }
+        //On construit le batiment.
+        switch (type)
+        {
+            case Map::HOUSE:
+                getBuilding(x,y) = Map::Building(x,y,type,1,1,Config::Config::LIFE_HOUSE,owner);
+            break;
+            default:
+            break;
+        }
+        return true;
 
     }
 
