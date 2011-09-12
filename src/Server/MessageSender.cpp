@@ -322,6 +322,7 @@ namespace Server
         socket->write(b);
         //On envoie les informations de l'entité.
         sendEntityData(socket,entity);
+        //TODO: Envoyer les informations aux autres joueurs qui voient l'entité
     }
     /**
       * Envoie l'information de nouveau tour aux joueurs
