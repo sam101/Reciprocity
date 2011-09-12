@@ -126,7 +126,7 @@ namespace Server
                 break;
                 default:
                     //On lit les données pour les effacer
-                    socket->read(_sizes[socket]);
+                    //socket->read(_sizes[socket]);
                     qDebug() << "Le message reçu est de type inconnu.";
             }
         }
