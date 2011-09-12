@@ -178,6 +178,7 @@ namespace Game
     QList<Map::Entity*> Game::getPlayerEntities(Player *player)
     {
         //TODO: Ajouter un cache
+        //TODO: Ajouter les entités que le joueur voit.
         QList<Map::Entity*> l;
         for (qint32 i = 0; i < player->getEntities().size(); i++)
         {

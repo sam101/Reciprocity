@@ -370,6 +370,13 @@ namespace Server
       */
     void MessageSender::sendBuildingBuilt(QTcpSocket *socket, qint32 entityId)
     {
+        Map::Entity *entity = _game->getEntity(entityId);
+        //On envoie tout d'abord les informations sur l'entité au joueur
+        sendEntityData(socket,entity);
+        //On renvoie les informations sur l'entité à tout les joueurs qui la voient
         //TODO
+
+        //On renvoie les informations sur le chunk au joueur
+        sendChunkData(socket,_game->getWorld()->getChunkByTile(entity->getX(),entity->getY()));
     }
 }
