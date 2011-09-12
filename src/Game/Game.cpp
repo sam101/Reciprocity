@@ -308,7 +308,7 @@ namespace Game
         {
             return false;
         }
-        //Première étape -> On vérifie si l'entité possède les ressources
+        //On vérifie si l'entité possède les ressources
         switch (type)
         {
             case Map::HOUSE:
