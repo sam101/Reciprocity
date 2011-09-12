@@ -95,6 +95,10 @@ namespace Server
               * Envoie les informations  à tout les joueurs
               */
             void sendPlayerDataToAll();
+            /**
+              * Envoie les informations sur le fait qu'un batiment a été construit au joueur
+              */
+            void sendBuildingBuilt(QTcpSocket *socket, qint32 entityId);
     };
 }
 #endif //SERVER_MESSAGESENDER_H

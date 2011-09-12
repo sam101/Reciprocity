@@ -128,7 +128,7 @@ namespace Server
               * Utilisé par ClientHandler
               */
             void kickPlayer(QString login);
-            /**
+            /**remière étape ->
               * Emit quand un joueur a été kické
               */
             void sendKickMessage(QString login);

@@ -31,6 +31,7 @@ namespace Server
         connect(_messageHandler,SIGNAL(entityMoved(QTcpSocket*,Map::Entity*)),_messageSender,SLOT(sendEntityHasMoved(QTcpSocket*,Map::Entity*)));
         connect(_messageHandler,SIGNAL(sendNewTurnToAll()),_messageSender,SLOT(sendNewTurnToAll()));
         connect(_messageHandler,SIGNAL(sendPlayerDataToAll()),_messageSender,SLOT(sendPlayerDataToAll()));
+        connect(_messageHandler,SIGNAL(buildingBuilt(QTcpSocket*,qint32)),_messageSender,SLOT(sendBuildingBuilt(QTcpSocket*,qint32)));
     }
 
     /**

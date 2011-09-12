@@ -365,4 +365,11 @@ namespace Server
             }
         }
     }
+    /**
+      * Envoie les informations sur le fait qu'un batiment a été construit au joueur
+      */
+    void MessageSender::sendBuildingBuilt(QTcpSocket *socket, qint32 entityId)
+    {
+        //TODO
+    }
 }
