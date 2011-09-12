@@ -292,7 +292,7 @@ namespace Client
         //On écrit la taille vide
         in << (qint32)0;
         //On écrit le type du message
-        in << (qint32)m.getType();
+        in << Network::BUILD;
         //On écrit le message
         in << m;
         //On écrit la bonne taille
