@@ -10,6 +10,7 @@ namespace Map
     _flags(flags),
     _type(type),
     _output(output),
+    _maxOutput(output),
     _x(x),
     _y(y),
     _resources(Map::MAX,0)
@@ -47,9 +48,16 @@ namespace Map
     /**
       * Renvoie la productivité de la tile.
       */
-    qint32 Tile::getOutput() const
+    qint16 Tile::getOutput() const
     {
         return _output;
+    }
+    /**
+      * Renvoie la productivité maximale de la tile
+      */
+    qint16 Tile::getMaxOutput() const
+    {
+        return _maxOutput;
     }
     /**
       * Renvoie une ressource de la tile
@@ -74,10 +82,28 @@ namespace Map
     /**
       * Définit le rendement de la tile.
       */
-    void Tile::setOutput(qint32 output)
+    void Tile::setOutput(qint16 output)
     {
         _output = output;
     }
+    /**
+      * Diminue la productivité de la tile
+      */
+    void Tile::delOutput(qint16 output)
+    {
+        _output -= output;
+        _output = _output < 0 ? 0 : _output;
+    }
+    /**
+      * Remonte la productivité de la tile.
+      * Ne peut pas monter au dessus de la productivité maximale
+      */
+    void Tile::restoreOutput(qint16 output)
+    {
+        _output += output;
+        _output = _output > _maxOutput ? _maxOutput : _output;
+    }
+
     /**
       * Change la valeur d'une ressource
       */
@@ -99,8 +125,6 @@ namespace Map
     {
         _resources[id] = value;
     }
-
-
     /**
       * Définit la tile comme étant une plaine
       */
@@ -189,6 +213,7 @@ namespace Map
         out << t._flags;
         out << (qint32)t._type;
         out << t._output;
+        out << t._maxOutput;
         out << t._x;
         out << t._y;
         out << t._resources;
@@ -208,6 +233,7 @@ namespace Map
         in >> t._flags;
         in >> (qint32&)t._type;
         in >> t._output;
+        in >> t._maxOutput;
         in >> t._x;
         in >> t._y;
         in >> t._resources;

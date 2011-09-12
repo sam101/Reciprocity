@@ -45,7 +45,11 @@ namespace Map
            /**
              * Productivité de la tile
              */
-          qint32 _output;
+          qint16 _output;
+          /**
+            * Productivité maximale
+            */
+          qint16 _maxOutput;
           /**
             * Position X de la tile
             */
@@ -82,7 +86,11 @@ namespace Map
           /**
             * Renvoie la productivité de la tile.
             */
-          qint32 getOutput() const;
+          qint16 getOutput() const;
+          /**
+            * Renvoie la productivité maximale de la tile
+            */
+          qint16 getMaxOutput() const;
           /**
             * Renvoie une ressource de la tile
             */
@@ -95,7 +103,16 @@ namespace Map
           /**
             * Définit le rendement de la tile.
             */
-          void setOutput(qint32 output);
+          void setOutput(qint16 output);
+          /**
+            * Diminue la productivité de la tile
+            */
+          void delOutput(qint16 output);
+          /**
+            * Remonte la productivité de la tile.
+            * Ne peut pas monter au dessus de la productivité maximale
+            */
+          void restoreOutput(qint16 output);
           /**
             * Change la valeur d'une ressource
             */
