@@ -244,7 +244,7 @@ namespace Server
         }
         if (!_clients[socket]->getPlayer()->isAdmin())
         {
-            qDebug() << "Attention: non-administrateur demande le début de la partie";
+            qDebug() << "Attention: non-ad16902ministrateur demande le début de la partie";
             emit errorHappened(socket,tr("Accès refusé"));
             return;
         }
