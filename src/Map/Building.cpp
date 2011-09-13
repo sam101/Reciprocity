@@ -4,7 +4,7 @@ namespace Map
     /**
       * Constructeur
       */
-    Building::Building(qint32 x, qint32 y, BuildingType type, qint32 level, qint32 lifePoints, qint32 maxLifePoints, qint32 owner) :
+    Building::Building(qint32 x, qint32 y, BuildingType type, qint8 level, qint32 lifePoints, qint32 maxLifePoints, qint32 owner) :
     _type(type),
     _level(level),
     _finished(false),
@@ -26,7 +26,7 @@ namespace Map
     /**
       * Renvoie le niveau du batiment
       */
-    qint32 Building::getLevel() const
+    qint8 Building::getLevel() const
     {
         return _level;
     }

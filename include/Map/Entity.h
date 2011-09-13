@@ -1,4 +1,4 @@
-#ifndef MAP_ENTITY_H
+    #ifndef MAP_ENTITY_H
 #define MAP_ENTITY_H
 #include <Config/Config.h>
 #include <QtCore/QDataStream>

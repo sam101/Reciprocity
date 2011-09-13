@@ -196,7 +196,10 @@ namespace GUI
       */
     void GameWindow::buildRequested(Map::BuildingType type)
     {
+        //On envoie le message de construction
         _client->sendBuild(_currentEntity,type);
+        //On ferme la ChooseToolBar
+        _chooseToolBar->showNothing();
     }
     /**
       * Appelé quand le joueur veut finir son tour

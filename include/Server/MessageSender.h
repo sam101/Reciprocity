@@ -36,7 +36,7 @@ namespace Server
               * Change l'objet de jeu actuel
               */
             void setGame(Game::Game *game);
-        public slots:
+        public slots:            
             /**
               * Envoie un message comme quoi le login demandé par le client
               * existe déjà

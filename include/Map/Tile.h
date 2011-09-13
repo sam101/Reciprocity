@@ -37,7 +37,7 @@ namespace Map
            /**
              * Capacités de la tile
              */
-           qint32 _flags;
+           qint8 _flags;
            /**
              * Type de la tile
              */
@@ -61,12 +61,12 @@ namespace Map
          /**
            * Ressources présentes sur la Tile
            */
-          QVector<qint32> _resources;
+          qint16 _resources[Map::MAX];
       public:
           /**
             * Constructeur
             */
-          Tile(qint32 x = 0, qint32 y = 0,qint32 flags = PASSABLE, TileType type = NOTHING  , qint32 output = 0);
+          Tile(qint32 x = 0, qint32 y = 0,qint8 flags = PASSABLE, TileType type = NOTHING  , qint32 output = 0);
           /**
             * Renvoie la position X de la tile
             */
@@ -78,7 +78,7 @@ namespace Map
           /**
             * Renvoie les capacités de la tile
             */
-          qint32 getFlags() const;
+          qint8 getFlags() const;
           /**
             * Renvoie le type de la tile.
             */
@@ -94,7 +94,7 @@ namespace Map
           /**
             * Renvoie une ressource de la tile
             */
-          qint32 getResource(qint32 id);
+          qint16 getResource(qint32 id);
 
           /**
             * Définit les paramètres de la tile
@@ -116,15 +116,15 @@ namespace Map
           /**
             * Change la valeur d'une ressource
             */
-          void setResource(qint32 id, qint32 value);
+          void setResource(qint32 id, qint16 value);
           /**
             * Ajoute une ressource à la tile
             */
-          void addResource(qint32 id, qint32 value);
+          void addResource(qint32 id, qint16 value);
           /**
             * Enlève une ressource à la tile
             */
-          void delResource(qint32 id, qint32 value);
+          void delResource(qint32 id, qint16 value);
           /**
             * Définit la tile comme étant une plaine
             */

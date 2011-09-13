@@ -132,5 +132,39 @@ namespace Game
             _entities.append(id);
         }
     }
+    /**
+      * Envoie le Player dans un QDataStream
+      */
+    QDataStream& operator<<(QDataStream &out, const Player &p)
+    {
+        out << p.MAGICNUMBER_PLAYER;
+        out << p._id;
+        out << p._login;
+        out << p._hash;
+        out << p._lastTime;
+        out << p._isOnline;
+        out << p._admin;
+        out << p._endTurn;
+        out << p._entities;
 
+        return out;
+    }
+    /**
+      * Recupère le Player d'un QDataStream
+      */
+    QDataStream& operator>>(QDataStream &in, Player &p)
+    {
+        qint32 magicNumber;
+        in >> magicNumber;
+        in >> p._id;
+        in >> p._login;
+        in >> p._hash;
+        in >> p._lastTime;
+        in >> p._isOnline;
+        in >> p._admin;
+        in >> p._endTurn;
+        in >> p._entities;
+
+        return in;
+    }
 }
