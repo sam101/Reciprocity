@@ -173,7 +173,7 @@ namespace Chunk
             for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
             {
                 //On restaure la prodctivité
-                _tiles[]
+                _tiles[i][j].restoreOutput(outputToRestore);
             }
         }
     }
