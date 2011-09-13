@@ -25,6 +25,18 @@ namespace Network
               * Constructeur
               */
             WorkAcceptedMessage(qint32 entity = -1);
+            /**
+              * Renvoie l'entité dont le travail a été accepté
+              */
+            qint32 getEntity() const;
+            /**
+              * Envoie le message dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const WorkAcceptedMessage &m);
+            /**
+              * Recupère le message depuis un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, WorkAcceptedMessage &m);
     };
 }
 #endif //NETWORK_WORKACCEPTEDMESSAGE_H
