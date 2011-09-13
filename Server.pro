@@ -52,7 +52,8 @@ SOURCES += \
     src/Network/BuildMessage.cpp \
     src/Network/EndTurnMessage.cpp \
     src/Network/NewTurnMessage.cpp \
-    src/Network/WorkMessage.cpp
+    src/Network/WorkMessage.cpp \
+    src/Network/WorkAcceptedMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -103,7 +104,10 @@ HEADERS += \
     include/Network/EndTurnMessage.h \
     include/Network/NewTurnMessage.h \
     include/Map/ResourceType.h \
-    include/Network/WorkMessage.h
+    include/Network/WorkMessage.h \
+    include/Network/WorkAcceptedMessage.h
+
+
 
 
 
