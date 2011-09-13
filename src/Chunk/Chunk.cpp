@@ -172,8 +172,10 @@ namespace Chunk
         {
             for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
             {
-                //On restaure la prodctivité
+                //On restaure la productivité
                 _tiles[i][j].restoreOutput(outputToRestore);
+                //On avance la construction des batiments
+                _buildings[i][j].advanceBuild(1);
             }
         }
     }
