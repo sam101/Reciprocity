@@ -11,10 +11,12 @@ namespace Map
     _type(type),
     _output(output),
     _x(x),
-    _y(y),
-    _resources(Map::MAX,0)
+    _y(y)
     {
-
+        for (int i = 0; i < Map::MAX; i++)
+        {
+            _resources[i] = 0;
+        }
     }
     /**
       * Renvoie la position X de la tile
@@ -54,7 +56,7 @@ namespace Map
     /**
       * Renvoie une ressource de la tile
       */
-    qint32 Tile::getResource(qint32 id)
+    qint16 Tile::getResource(qint32 id)
     {
         //TODO: Vérification.
         return _resources[id];
@@ -81,21 +83,21 @@ namespace Map
     /**
       * Change la valeur d'une ressource
       */
-    void Tile::setResource(qint32 id, qint32 value)
+    void Tile::setResource(qint32 id, qint16 value)
     {
         _resources[id] = value;
     }
     /**
       * Ajoute une ressource à la tile
       */
-    void Tile::addResource(qint32 id, qint32 value)
+    void Tile::addResource(qint32 id, qint16 value)
     {
         _resources[id] = value;
     }
     /**
       * Enlève une ressource à la tile
       */
-    void Tile::delResource(qint32 id, qint32 value)
+    void Tile::delResource(qint32 id, qint16 value)
     {
         _resources[id] = value;
     }
@@ -191,7 +193,10 @@ namespace Map
         out << t._output;
         out << t._x;
         out << t._y;
-        out << t._resources;
+        for (int i = 0; i < Map::MAX; i++)
+        {
+            out << t._resources[i];
+        }
 
         return out;
     }
@@ -210,7 +215,10 @@ namespace Map
         in >> t._output;
         in >> t._x;
         in >> t._y;
-        in >> t._resources;
+        for (int i = 0; i < Map::MAX; i++)
+        {
+            in >> t._resources[i];
+        }
         return in;
     }
 }

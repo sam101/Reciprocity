@@ -57,7 +57,7 @@ namespace Map
          /**
            * Ressources présentes sur la Tile
            */
-          QVector<qint32> _resources;
+          qint16 _resources[Map::MAX];
       public:
           /**
             * Constructeur
@@ -86,7 +86,7 @@ namespace Map
           /**
             * Renvoie une ressource de la tile
             */
-          qint32 getResource(qint32 id);
+          qint16 getResource(qint32 id);
 
           /**
             * Définit les paramètres de la tile
@@ -99,15 +99,15 @@ namespace Map
           /**
             * Change la valeur d'une ressource
             */
-          void setResource(qint32 id, qint32 value);
+          void setResource(qint32 id, qint16 value);
           /**
             * Ajoute une ressource à la tile
             */
-          void addResource(qint32 id, qint32 value);
+          void addResource(qint32 id, qint16 value);
           /**
             * Enlève une ressource à la tile
             */
-          void delResource(qint32 id, qint32 value);
+          void delResource(qint32 id, qint16 value);
           /**
             * Définit la tile comme étant une plaine
             */
