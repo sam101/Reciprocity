@@ -20,6 +20,18 @@ namespace Network
               * Constructeur
               */
             WorkMessage(qint32 entity = -1);
+            /**
+              * Renvoie l'entité qui doit travailler
+              */
+            qint32 getEntity() const;
+            /**
+              * Envoie le message dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const WorkMessage &m);
+            /**
+              * Recupère le message d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, WorkMessage &m);
     };
 }
 #endif //NETWORK_WORKMESSAGE_H
