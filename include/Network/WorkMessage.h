@@ -3,6 +3,11 @@
 #include <Network/AbstractMessage.h>
 namespace Network
 {
+    /**
+      * Message demandant à une entité de travailler
+      * @brief Message demandant à une entité de travailler
+      * @author Sam101
+      */
     class WorkMessage : public AbstractMessage
     {
         public:
