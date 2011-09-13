@@ -309,6 +309,11 @@ namespace Game
         {
             return false;
         }
+        //On vérifie si l'entité ne s'est pas déplacée.
+        if (entity->hasMoved())
+        {
+            return false;
+        }
         //On vérifie si l'entité possède les ressources
         switch (type)
         {
@@ -319,6 +324,7 @@ namespace Game
                 }
                 if (_world->addBuilding(entity->getX(),entity->getY(),type,entity->getOwner()))
                 {
+                    entity->setHasMoved();
                     entity->delRessource(Map::WOOD,Config::Config::COST_HOUSE_WOOD);
                 }
                 else
