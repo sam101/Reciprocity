@@ -126,6 +126,12 @@ namespace Chunk
               */
             bool hasEntity(qint32 id) const;
             /**
+              * Executé au début d'un tour.
+              * Restore la productivité des tiles, et
+              * avance la construction des batiments
+              */
+            void newTurn(qint32 outputToRestore);
+            /**
               * Stocke un chunk dans un QDataStream
               */
             friend QDataStream& operator<<(QDataStream &out, const Chunk &c);

@@ -162,6 +162,23 @@ namespace Chunk
         return _entities.contains(id);
     }
     /**
+      * Executé au début d'un tour.
+      * Restaure la productivité des tiles, et
+      * avance la construction des batiments
+      */
+    void Chunk::newTurn(qint32 outputToRestore)
+    {
+        for (int i = 0; i < Config::Config::CHUNK_SIZE; i++)
+        {
+            for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
+            {
+                //On restaure la prodctivité
+                _tiles[]
+            }
+        }
+    }
+
+    /**
       * Stocke un chunk dans un QDataStream
       */
     QDataStream& operator<<(QDataStream &out, const Chunk &c)

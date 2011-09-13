@@ -25,6 +25,11 @@ namespace Config
               */
             static const qint32 TILE_SIZE = 32;
             /**
+              * Productivité regagnée par tour pour les Tiles
+              */
+            static const qint16 OUTPUT_TURN = 1;
+
+            /**
               * Points de vie de base d'une entité
               */
             static const qint32 BASE_LIFE_POINTS = 100;
