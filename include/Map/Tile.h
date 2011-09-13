@@ -37,7 +37,7 @@ namespace Map
            /**
              * Capacités de la tile
              */
-           qint32 _flags;
+           qint8 _flags;
            /**
              * Type de la tile
              */
@@ -62,7 +62,7 @@ namespace Map
           /**
             * Constructeur
             */
-          Tile(qint32 x = 0, qint32 y = 0,qint32 flags = PASSABLE, TileType type = NOTHING  , qint32 output = 0);
+          Tile(qint32 x = 0, qint32 y = 0,qint8 flags = PASSABLE, TileType type = NOTHING  , qint32 output = 0);
           /**
             * Renvoie la position X de la tile
             */
@@ -74,7 +74,7 @@ namespace Map
           /**
             * Renvoie les capacités de la tile
             */
-          qint32 getFlags() const;
+          qint8 getFlags() const;
           /**
             * Renvoie le type de la tile.
             */

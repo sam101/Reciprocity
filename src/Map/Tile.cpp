@@ -6,7 +6,7 @@ namespace Map
     /**
       * Constructeur
       */
-    Tile::Tile(qint32 x, qint32 y,qint32 flags, TileType type, qint32 output) :
+    Tile::Tile(qint32 x, qint32 y,qint8 flags, TileType type, qint32 output) :
     _flags(flags),
     _type(type),
     _output(output),
@@ -35,7 +35,7 @@ namespace Map
     /**
       * Renvoie les capacités de la tile
       */
-    qint32 Tile::getFlags() const
+    qint8 Tile::getFlags() const
     {
         return _flags;
     }

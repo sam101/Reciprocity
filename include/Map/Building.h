@@ -29,7 +29,7 @@ namespace Map
             /**
               * Niveau du batiment
               */
-            qint32 _level;
+            qint8 _level;
             /**
               * Indique si le batiment est fini
               */
@@ -58,7 +58,7 @@ namespace Map
             /**
               * Constructeur
               */
-            Building(qint32 x = 0, qint32  y = 0, BuildingType type = NONE, qint32 level = 0, qint32 lifePoints = 0, qint32 maxLifePoints = 0, qint32 owner = -1);
+            Building(qint32 x = 0, qint32  y = 0, BuildingType type = NONE, qint8 level = 0, qint32 lifePoints = 0, qint32 maxLifePoints = 0, qint32 owner = -1);
             /**
               * Renvoie le type du batiment
               */
@@ -66,7 +66,7 @@ namespace Map
             /**
               * Renvoie le niveau du batiment
               */
-            qint32 getLevel() const;
+            qint8 getLevel() const;
             /**
               * Renvoie si le batiment est fini
               */
