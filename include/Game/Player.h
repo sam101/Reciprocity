@@ -2,6 +2,7 @@
 #define GAME_PLAYER_H
 #include <Map/Entity.h>
 
+#include <QtCore/QDataStream>
 #include <QtCore/QString>
 namespace Game
 {
@@ -12,6 +13,11 @@ namespace Game
       */
     class Player
     {
+        public:
+            /**
+              * MagicNumber de Player
+              */
+            static const qint32 MAGICNUMBER_PLAYER = 0x4242;
         protected:
             /**
               * Id du joueur
@@ -115,7 +121,14 @@ namespace Game
               * Ajoute une entité au joueur
               */
             void addEntity(qint32 id);
-
+            /**
+              * Envoie le Player dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const Player &p);
+            /**
+              * Recupère le Player d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, Player &p);
 
     };
 }
