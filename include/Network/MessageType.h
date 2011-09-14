@@ -33,8 +33,9 @@ namespace Network
         BUILD_ACCEPTED = 18,
         WORK = 19,
         WORK_ACCEPTED = 20,
-        ENDTURN = 21,
-        NEWTURN = 22
+        RESOURCE = 21,
+        ENDTURN = 22,
+        NEWTURN = 23
     };
 }
 #endif //NETWORK_MESSAGETYPE_H

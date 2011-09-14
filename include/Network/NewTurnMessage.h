@@ -14,7 +14,7 @@ namespace Network
             /**
               * MagicNumber de NewTurnMessage
               */
-            static const qint32 MAGICNUMBER_NEWTURN = 0x4222;
+            static const qint32 MAGICNUMBER_NEWTURN = 0x4223;
         protected:
             /**
               * Numéro du tour
