@@ -127,6 +127,10 @@ namespace Client
               */
             void sendBuild(qint32 entity, Map::BuildingType type);
             /**
+              * Envoie une demande de travail sur une entité
+              */
+            void sendWork(qint32 entity);
+            /**
               * Appelé quand le client reçoit un message du socket
               */
             void messageRecevied();
