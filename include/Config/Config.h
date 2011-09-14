@@ -66,7 +66,15 @@ namespace Config
             /**
               * Coût en bois d'une route
               */
-            static const qint32 COST_ROAD_WOOD = 5;
+            static const qint32 COST_ROAD_WOOD = 2;
+            /**
+              * Coût en bois d'un champ
+              */
+            static const qint32 COST_FARMLAND_WOOD = 5;
+            /**
+              * Coût en productivité d'un champ
+              */
+            static const qint32 COST_FARMLAND_OUTPUT = 50;
             //Points de vie des batiments
             /**
               * Points de vie d'une maison

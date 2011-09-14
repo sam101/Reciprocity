@@ -320,10 +320,12 @@ namespace Game
         {
             //Construction d'une maison
             case Map::HOUSE:
+                //On vérifie qu'on a assez de ressources
                 if (entity->getResource(Map::WOOD) < Config::Config::COST_HOUSE_WOOD)
                 {
                     return false;
                 }
+                //On construit la maison
                 if (_world->addBuilding(entity->getX(),entity->getY(),type,entity->getOwner()))
                 {
                     entity->setHasMoved();
@@ -334,8 +336,32 @@ namespace Game
                     return false;
                 }
             break;
-            default:
+            //Construction d'un champ
 
+            case Map::FARMLAND:
+                if (entity->getResource(Map::WOOD) < Config::Config::COST_FARMLAND_WOOD)
+                {
+                    return false;
+                }
+                //On vérifie que la tile à assez de productivité
+                if (_world->getTile(entity->getX(),entity->getY()).getOutput() < Config::Config::COST_FARMLAND_OUTPUT)
+                {
+                    return false;
+                }
+                //On construit le champ
+                if (_world->addBuilding(entity->getX(),entity->getY(),type,entity->getOwner()))
+                {
+                    //On enlève la productivité à la tile
+                    _world->getTile(entity->getX(),entity->getY()).delOutput(Config::Config::COST_FARMLAND_OUTPUT);
+                }
+                else
+                {
+                    return false;
+                }
+            break;
+
+            default:
+                //On ne fait rien
             break;
         }
 
@@ -347,6 +373,7 @@ namespace Game
       */
     bool Game::work(qint32 entityId)
     {
+        Q_UNUSED(entityId)
         //TODO
         return true;
     }
