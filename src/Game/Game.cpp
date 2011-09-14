@@ -328,6 +328,7 @@ namespace Game
                 //On construit la maison
                 if (_world->addBuilding(entity->getX(),entity->getY(),type,entity->getOwner()))
                 {
+                    //On enlève les ressources à l'entité et on indique qu'elle s'est déplacée
                     entity->setHasMoved();
                     entity->delRessource(Map::WOOD,Config::Config::COST_HOUSE_WOOD);
                 }
@@ -351,6 +352,9 @@ namespace Game
                 //On construit le champ
                 if (_world->addBuilding(entity->getX(),entity->getY(),type,entity->getOwner()))
                 {
+                    //On enlève les ressources à l'entité et on indique qu'elle s'est déplacée
+                    entity->setHasMoved();
+                    entity->delRessource(Map::WOOD,Config::Config::COST_FARMLAND_WOOD);
                     //On enlève la productivité à la tile
                     _world->getTile(entity->getX(),entity->getY()).delOutput(Config::Config::COST_FARMLAND_OUTPUT);
                 }
