@@ -340,4 +340,14 @@ namespace Game
 
         return true;
     }
+    /**
+      * Fait travailler une entité
+      * @return true si réussi, false si impossible
+      */
+    bool Game::work(qint32 entityId)
+    {
+        //TODO
+        return true;
+    }
 }
+

@@ -9,6 +9,7 @@
 #include <Network/MessageOutMessage.h>
 #include <Network/MoveUnitMessage.h>
 #include <Network/RequestDataMessage.h>
+#include <Network/WorkMessage.h>
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
@@ -123,6 +124,10 @@ namespace Server
                 //Construction
                 case Network::BUILD:
                     handleBuild(socket,in);
+                break;
+                //Travail des entités
+                case Network::WORK:
+
                 break;
                 default:
                     //On lit les données pour les effacer
@@ -391,6 +396,30 @@ namespace Server
         if (_game->build(m.getEntity(),m.getType()))
         {
             emit buildingBuilt(socket,m.getEntity());
+        }
+    }
+    /**
+      * Gère la reception d'une demande de travail
+      */
+    void MessageHandler::handleWork(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::WorkMessage m;
+        in >> m;
+        //On vérifie que le client est loggué.
+        if (_clients[socket]->getPlayer() == NULL)
+        {
+            return;
+        }
+        //On vérifie que l'entité est bien à lui.
+        if (_clients[socket]->getPlayer()->getId() != _game->getEntity(m.getEntity())->getOwner())
+        {
+            return;
+        }
+        //On demande au jeu de faire travailler l'entité
+        if (_game->work(m.getEntity()))
+        {
+            //TODO
         }
     }
 }

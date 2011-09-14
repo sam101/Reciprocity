@@ -98,14 +98,19 @@ namespace Game
             void beginGame();
             /**
               * Déplace une entité.
-              * @return true si réussi, false si raté.
+              * @return true si réussi, false si impossible.
               */
             bool moveEntity(qint32 id, qint32 x, qint32 y, qint32 applicant);
             /**
               * Construit un batiment
-              * @return true si réussi, false si raté
+              * @return true si réussi, false si impossible
               */
             bool build(qint32 entityId, Map::BuildingType type);
+            /**
+              * Fait travailler une entité
+              * @return true si réussi, false si impossible
+              */
+            bool work(qint32 entityId);
             /**
               * Commence un nouveau tour
               */
