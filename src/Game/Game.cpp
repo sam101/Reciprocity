@@ -318,6 +318,7 @@ namespace Game
         //On vérifie si l'entité possède les ressources
         switch (type)
         {
+            //Construction d'une maison
             case Map::HOUSE:
                 if (entity->getResource(Map::WOOD) < Config::Config::COST_HOUSE_WOOD)
                 {
