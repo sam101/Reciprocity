@@ -15,6 +15,7 @@ namespace Graphics
         //On charge le tableau des batiments
         _tiles.append(Provider::getBuilding("none").toImage());
         _tiles.append(Provider::getBuilding("house").toImage());
+        _tiles.append(Provider::getBuilding("farmland").toImage());
         //On définit la position.
         int x,y;
         if (_chunk->getX() < 0)
