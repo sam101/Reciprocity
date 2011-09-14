@@ -88,6 +88,11 @@ namespace Config
               * Points de vie d'un champ perdus par utilisation
               */
             static const qint32 LIFE_LOST_FARMLAND = 20;
+            //Gestion du moral
+            /**
+              * Moral perdu par tour quand non sur une maison
+              */
+            static const qint32 WILL_LOST_TURN = 1;
     };
 }
 #endif //CONFIG_CONFIG_H

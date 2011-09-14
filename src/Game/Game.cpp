@@ -376,8 +376,30 @@ namespace Game
       */
     bool Game::work(qint32 entityId)
     {
-        Q_UNUSED(entityId)
-        //TODO
+        Map::Entity *entity = _world->getEntity(entityId);
+        //Verification de l'id de l'entité
+        if (entity == NULL)
+        {
+            return false;
+        }
+        //On vérifie si l'entité ne s'est pas déplacée.
+        if (entity->hasMoved())
+        {
+            return false;
+        }
+        //On agit différament selon ce sur quoi l'entité se trouve.
+        Map::Tile &tile = _world->getTile(entity->getX(),entity->getY());
+        switch (tile.getType())
+        {
+            //Sur une forêt, une entité coupe du bois
+            case Map::FOREST:
+
+            break;
+            default:
+
+            break;
+        }
+
         return true;
     }
 }
