@@ -300,7 +300,7 @@ namespace Game
     }
     /**
       * Construit un batiment
-      * @return true si réussi, false si raté
+      * @return true si réussi, false si échoué
       */
     bool Game::build(qint32 entityId, Map::BuildingType type)
     {
@@ -338,7 +338,6 @@ namespace Game
                 }
             break;
             //Construction d'un champ
-
             case Map::FARMLAND:
                 if (entity->getResource(Map::WOOD) < Config::Config::COST_FARMLAND_WOOD)
                 {

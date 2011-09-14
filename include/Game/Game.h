@@ -103,7 +103,7 @@ namespace Game
             bool moveEntity(qint32 id, qint32 x, qint32 y, qint32 applicant);
             /**
               * Construit un batiment
-              * @return true si réussi, false si impossible
+              * @return true si réussi, false si échoué
               */
             bool build(qint32 entityId, Map::BuildingType type);
             /**
