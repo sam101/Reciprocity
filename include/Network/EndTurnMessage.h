@@ -14,7 +14,7 @@ namespace Network
             /**
               * MagicNumber de EndTurnMessage
               */
-            static const qint32 MAGICNUMBER_ENDTURNMESSAGE = 0x4221;
+            static const qint32 MAGICNUMBER_ENDTURNMESSAGE = 0x4222;
         protected:
             /**
               * Login du joueur qui a demandé la fin de tour

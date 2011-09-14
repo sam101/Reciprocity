@@ -64,7 +64,8 @@ HEADERS += \
     include/GUI/ChooseToolBar.h \
     include/Map/ResourceType.h \
     include/Network/WorkMessage.h \
-    include/Network/WorkAcceptedMessage.h
+    include/Network/WorkAcceptedMessage.h \
+    include/GUI/BuildingInfoWidget.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -116,7 +117,10 @@ SOURCES += \
     src/GUI/SettingsWidget.cpp \
     src/GUI/ChooseToolBar.cpp \
     src/Network/WorkMessage.cpp \
-    src/Network/WorkAcceptedMessage.cpp
+    src/Network/WorkAcceptedMessage.cpp \
+    src/GUI/BuildingInfoWidget.cpp
+
+
 
 
 
