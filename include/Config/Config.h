@@ -80,6 +80,14 @@ namespace Config
               * Points de vie d'une maison
               */
             static const qint32 LIFE_HOUSE = 25;
+            /**
+              * Points de vie d'un champ
+              */
+            static const qint32 LIFE_FARMLAND = 100;
+            /**
+              * Points de vie d'un champ perdus par utilisation
+              */
+            static const qint32 LIFE_LOST_FARMLAND = 20;
     };
 }
 #endif //CONFIG_CONFIG_H

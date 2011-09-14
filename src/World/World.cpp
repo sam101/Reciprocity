@@ -199,7 +199,20 @@ namespace World
         switch (type)
         {
             case Map::HOUSE:
+                //On vérifie que on essaye pas de construire sur l'eau
+                if ((getTile(x,y).getFlags() & Map::Tile::PASSABLE) == 0)
+                {
+                    return false;
+                }
                 getBuilding(x,y) = Map::Building(x,y,type,1,1,Config::Config::LIFE_HOUSE,owner);
+            break;
+            case Map::FARMLAND:
+                //On vérifie que on peut bien construire un champ sur la tile
+                if ((getTile(x,y).getFlags() & Map::Tile::FARMING_CAPABLE) == 0)
+                {
+                    return false;
+                }
+                getBuilding(x,y) = Map::Building(x,y,type,1,1,Config::Config::LIFE_FARMLAND,owner);
             break;
             default:
             break;
