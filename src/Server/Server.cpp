@@ -18,6 +18,7 @@ namespace Server
         _messageSender = new MessageSender(_clients);
 
         //On connecte entre eux le MessageHandler et le MessageSender
+        //TODO: Rajouter des commentaires
         connect(_messageHandler,SIGNAL(loginSuccess(QTcpSocket*,qint32,bool)),_messageSender,SLOT(sendLoginSuccess(QTcpSocket*,qint32,bool)));
         connect(_messageHandler,SIGNAL(loginAlreadyExists(QTcpSocket*,QString)),_messageSender,SLOT(sendLoginAlreadyExists(QTcpSocket*,QString)));
         connect(_messageHandler,SIGNAL(sendMessage(QString,QString,QString)),_messageSender,SLOT(sendChatMessage(QString,QString,QString)));
@@ -32,6 +33,7 @@ namespace Server
         connect(_messageHandler,SIGNAL(sendNewTurnToAll()),_messageSender,SLOT(sendNewTurnToAll()));
         connect(_messageHandler,SIGNAL(sendPlayerDataToAll()),_messageSender,SLOT(sendPlayerDataToAll()));
         connect(_messageHandler,SIGNAL(buildingBuilt(QTcpSocket*,qint32)),_messageSender,SLOT(sendBuildingBuilt(QTcpSocket*,qint32)));
+        connect(_messageHandler,SIGNAL(workAccepted(QTcpSocket*,qint32)),_messageSender,SLOT(sendWorkAccepted(QTcpSocket*,qint32)));
     }
 
     /**

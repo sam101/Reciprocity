@@ -152,6 +152,10 @@ namespace Server
               * Emit quand un batiment a bien été construit
               */
             void buildingBuilt(QTcpSocket *socket, qint32 entityId);
+            /**
+              * Emit quand un travail d'entité a été accepté
+              */
+            void workAccepted(QTcpSocket *socket, qint32 entityId);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H
