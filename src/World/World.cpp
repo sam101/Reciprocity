@@ -292,7 +292,36 @@ namespace World
                 _entities[i]->delWill(Config::Config::WILL_LOST_TURN);
             }
         }
-        //TODO
+        //On propage le nouveau tour dans tout les chunks
+        for (int i = 1; i < _chunkTL.size(); i++)
+        {
+            for (int j = 1; j < _chunkTL[i].size(); j++)
+            {
+                _chunkTL[i][j]->newTurn(Config::Config::OUTPUT_TURN);
+            }
+        }
+        for (int i = 1; i < _chunkTR.size(); i++)
+        {
+            for (int j = 1; j < _chunkTR[i].size(); j++)
+            {
+                _chunkTR[i][j]->newTurn(Config::Config::OUTPUT_TURN);
+            }
+        }
+        for (int i = 1; i < _chunkBL.size(); i++)
+        {
+            for (int j = 1; j < _chunkBL[i].size(); j++)
+            {
+                _chunkBL[i][j]->newTurn(Config::Config::OUTPUT_TURN);
+            }
+        }
+        for (int i = 1; i < _chunkBR.size(); i++)
+        {
+            for (int j = 1; j < _chunkBR[i].size(); j++)
+            {
+                _chunkBR[i][j]->newTurn(Config::Config::OUTPUT_TURN);
+            }
+        }
+
     }
 
     /**
