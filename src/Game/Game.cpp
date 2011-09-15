@@ -394,12 +394,16 @@ namespace Game
             //Sur une forêt, une entité coupe du bois
             case Map::FOREST:
                 //On vérifie si la forêt est pas morte ?
-                if (tile.getOutput() < Config::Config::WOOD_GAIN)
+                if (tile.getOutput() < Config::Config::FOREST_WOOD_BY_WORK)
                 {
                     return false;
                 }
                 //On retire le moral à l'entité
                 entity->delWill(Config::Config::WILL_LOST_FOREST);
+                //On retire la productivité à la forêt
+                tile.delOutput(Config::Config::FOREST_WOOD_BY_WORK);
+                //On rajoute le bois à l'entité
+                entity->addResource(Map::WOOD,Config::Config::FOREST_WOOD_BY_WORK * entity->getWill() / 100);
             break;
             default:
 

@@ -105,7 +105,7 @@ namespace Config
             /**
               * Bois gagné en coupant du bois
               */
-            static const qint32 WOOD_GAIN = 10;
+            static const qint32 FOREST_WOOD_BY_WORK = 10;
     };
 }
 #endif //CONFIG_CONFIG_H
