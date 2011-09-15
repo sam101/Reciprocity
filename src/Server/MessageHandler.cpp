@@ -419,7 +419,7 @@ namespace Server
         //On demande au jeu de faire travailler l'entité
         if (_game->work(m.getEntity()))
         {
-            //TODO
+            emit workAccepted(socket,m.getEntity());
         }
     }
 }
