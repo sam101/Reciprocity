@@ -389,12 +389,18 @@ namespace Game
         }
         //On agit différament selon ce sur quoi l'entité se trouve.
         Map::Tile &tile = _world->getTile(entity->getX(),entity->getY());
+        Map::Building &building = _world->getBuilding(entity->getX(),entity->getY());
         switch (tile.getType())
         {
             //Sur une forêt, une entité coupe du bois
             case Map::FOREST:
                 //On vérifie si la forêt est pas morte ?
                 if (tile.getOutput() < Config::Config::FOREST_WOOD_BY_WORK)
+                {
+                    return false;
+                }
+                //On vérifie que il n'y'a pas de batiments
+                if (building.getType() != Map::NONE)
                 {
                     return false;
                 }
