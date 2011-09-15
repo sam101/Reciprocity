@@ -234,8 +234,6 @@ namespace Game
         {
             _players[i]->resetEndTurn();
         }
-        //On restore la productivité des tiles / On avance la construction des batiments
-        _world->newTurn();
     }
 
     /**
