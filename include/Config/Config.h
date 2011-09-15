@@ -110,6 +110,10 @@ namespace Config
               * Bois gagné en coupant du bois
               */
             static const qint32 FOREST_WOOD_BY_WORK = 10;
+            /**
+              * Facteur d'aléatoire du bois
+              */
+            static const qint32 FOREST_WOOD_RANDOM = 40;
     };
 }
 #endif //CONFIG_CONFIG_H

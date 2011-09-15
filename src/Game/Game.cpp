@@ -408,7 +408,7 @@ namespace Game
                 //On retire la productivité à la forêt
                 tile.delOutput(Config::Config::FOREST_WOOD_BY_WORK);
                 //On rajoute le bois à l'entité
-                entity->addResource(Map::WOOD,Config::Config::FOREST_WOOD_BY_WORK * entity->getWill() / 100);
+                entity->addResource(Map::WOOD,Config::Config::FOREST_WOOD_BY_WORK * (entity->getWill() + Random::next(-Config::Config::FOREST_WOOD_RANDOM,Config::Config::FOREST_WOOD_RANDOM)) / 100);
                 //On indique que l'entité s'est déplacée
                 entity->setHasMoved();
             break;
