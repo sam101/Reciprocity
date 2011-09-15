@@ -87,7 +87,7 @@ namespace Config
             /**
               * Points de vie d'un champ
               */
-            static const qint32 LIFE_FARMLAND = 100;
+            static const qint32 LIFE_FARMLAND = 5;
             /**
               * Points de vie d'un champ perdus par utilisation
               */

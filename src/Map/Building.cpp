@@ -91,6 +91,10 @@ namespace Map
       */
     void Building::advanceBuild(qint32 n)
     {
+        if (_finished)
+        {
+            return;
+        }
         _lifePoints += n;
         if (_lifePoints >= _maxLifePoints)
         {
