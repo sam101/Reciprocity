@@ -1,5 +1,6 @@
 #include <Map/Tile.h>
 #include <Tools/Random.h>
+#include <QtCore/QDebug>
 using namespace Tools;
 namespace Map
 {
@@ -87,6 +88,7 @@ namespace Map
     void Tile::setOutput(qint16 output)
     {
         _output = output;
+        _maxOutput = output;
     }
     /**
       * Diminue la productivité de la tile
@@ -153,6 +155,7 @@ namespace Map
         _type = FOREST;
         _flags=  PASSABLE;
         _output = Random::next(20,100) + Random::next(0,1) * 50 + Random::next(0,2) * 25;
+        _maxOutput = _output;
     }
     /**
       * Définit la tile comme étant un lac
@@ -161,6 +164,8 @@ namespace Map
     {
         _type = LAKE;
         _flags = BOAT_PASSABLE;
+        _output = 0;
+        _maxOutput = _output;
     }
     /**
       * Définit la tile comme étant une rivière
@@ -169,6 +174,8 @@ namespace Map
     {
         _type = RIVER;
         _flags = BOAT_PASSABLE | PASSABLE;
+        _output = 0;
+        _maxOutput = _output;
     }
     /**
       * Définit la tile comme étant de la mer
@@ -178,6 +185,7 @@ namespace Map
         _type = SEA;
         _flags = BOAT_PASSABLE;
         _output = Random::next(75,100);
+        _maxOutput = _output;
     }
     /**
       * Définit la tile comme étant de la mer
@@ -187,6 +195,7 @@ namespace Map
         _type = BEACH;
         _flags = PASSABLE;
         _output = Random::next(75,125);
+        _maxOutput = _output;
     }
     /**
       * Définit la tile comme étant un marais
@@ -196,6 +205,7 @@ namespace Map
         _type = SWAMP;
         _flags = PASSABLE;
         _output = Random::next(50,200);
+        _maxOutput = _output;
     }
     /**
       * Définit la tile comme étant un volcan
@@ -204,6 +214,8 @@ namespace Map
     {
         _type = VOLCANO;
         _flags = 0;
+        _output = Random::next(0,1000);
+        _maxOutput = _output;
     }
 
     /**
