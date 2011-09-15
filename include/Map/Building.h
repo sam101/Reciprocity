@@ -104,6 +104,10 @@ namespace Map
               */
             void advanceBuild(qint32 n);
             /**
+              * Enlève des points de vie au batiment
+              */
+            void damage(qint32 damage);
+            /**
               * Envoie un batiment dans un QDataStream
               */
             friend QDataStream& operator<<(QDataStream &out, const Building &b);

@@ -91,7 +91,7 @@ namespace Config
             /**
               * Points de vie d'un champ perdus par utilisation
               */
-            static const qint32 LIFE_LOST_FARMLAND = 20;
+            static const qint32 LIFE_LOST_FARMLAND = 1;
             //Gestion du moral
             /**
               * Moral perdu par tour quand non sur une maison
@@ -114,6 +114,14 @@ namespace Config
               * Facteur d'aléatoire du bois
               */
             static const qint32 FOREST_WOOD_RANDOM = 40;
+            /**
+              * Nouriture gagnée dans un champ
+              */
+            static const qint32 FARMLAND_FOOD_BY_WORK = 5;
+            /**
+              * Facteure d'aléatoire du champ
+              */
+            static const qint32 FARMLAND_FOOD_RANDOM = 10;
     };
 }
 #endif //CONFIG_CONFIG_H

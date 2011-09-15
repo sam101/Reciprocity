@@ -103,6 +103,14 @@ namespace Map
         }
 
     }
+    /**
+      * Enlève des points de vie au batiment
+      */
+    void Building::damage(qint32 damage)
+    {
+        _lifePoints -= damage;
+        _lifePoints = _lifePoints < 0 ? 0 : _lifePoints;
+    }
 
     /**
       * Envoie un batiment dans un QDataStream

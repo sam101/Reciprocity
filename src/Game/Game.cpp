@@ -418,7 +418,15 @@ namespace Game
                 {
                     //Si c'est un champ, l'entité recupère de la nouriture
                     case Map::FARMLAND:
-
+                        //On ne peut utiliser qu'un farmland terminé
+                        if (!building.isFinished())
+                        {
+                            return false;
+                        }
+                        //On retire des points de vie au champ
+                        building.damage(Config::Config::LIFE_LOST_FARMLAND);
+                        //On rajoute de la nouriture à l'entité
+                        entity->addResource(Map::FOOD,Config::Config::FARMLAND_FOOD_BY_WORK * (entity->getWill() + Random::next(-Config::Config::FARMLAND_FOOD_RANDOM,Config::Config::FARMLAND_FOOD_RANDOM)) / 100);
                     break;
                     default:
 
