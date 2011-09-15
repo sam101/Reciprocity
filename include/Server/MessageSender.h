@@ -99,6 +99,10 @@ namespace Server
               * Envoie les informations sur le fait qu'un batiment a été construit au joueur
               */
             void sendBuildingBuilt(QTcpSocket *socket, qint32 entityId);
+            /**
+              * Envoie les informations sur le fait qu'un travail a été accepté
+              */
+            void sendWorkAccepted(QTcpSocket *socket, qint32 entityId);
     };
 }
 #endif //SERVER_MESSAGESENDER_H

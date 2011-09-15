@@ -379,5 +379,19 @@ namespace Server
 
         //On renvoie les informations sur le chunk au joueur
         sendChunkData(socket,_game->getWorld()->getChunkByTile(entity->getX(),entity->getY()));
+        //On envoie le message "BUILD_ACCEPTED"
+        //TODO
+    }
+    /**
+      * Envoie les informations sur le fait qu'un travail a été accepté
+      */
+    void MessageSender::sendWorkAccepted(QTcpSocket *socket, qint32 entityId)
+    {
+        Map::Entity *entity = _game->getEntity(entityId);
+        //On envoie les informations sur l'enttié au joueur
+        sendEntityData(socket,entity);
+
+        //On envoie le message "WORK_ACCEPTED"
+        //TODO
     }
 }
