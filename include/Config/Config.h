@@ -93,6 +93,15 @@ namespace Config
               * Moral perdu par tour quand non sur une maison
               */
             static const qint32 WILL_LOST_TURN = 1;
+            /**
+              * Moral perdu quand l'entité coupe du bois
+              */
+            static const qint32 WILL_LOST_FOREST = 10;
+            //Ressources gagnées en travaillant
+            /**
+              * Bois gagné en coupant du bois
+              */
+            static const qint32 WOOD_GAIN = 10;
     };
 }
 #endif //CONFIG_CONFIG_H

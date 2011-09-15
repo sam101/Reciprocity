@@ -393,7 +393,13 @@ namespace Game
         {
             //Sur une forêt, une entité coupe du bois
             case Map::FOREST:
-
+                //On vérifie si la forêt est pas morte ?
+                if (tile.getOutput() < Config::Config::WOOD_GAIN)
+                {
+                    return false;
+                }
+                //On retire le moral à l'entité
+                entity->delWill(Config::Config::WILL_LOST_FOREST);
             break;
             default:
 
