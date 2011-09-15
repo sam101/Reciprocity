@@ -127,7 +127,7 @@ namespace Server
                 break;
                 //Travail des entités
                 case Network::WORK:
-
+                    handleWork(socket,in);
                 break;
                 default:
                     //On lit les données pour les effacer

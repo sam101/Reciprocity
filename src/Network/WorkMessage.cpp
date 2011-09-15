@@ -22,7 +22,7 @@ namespace Network
       */
     QDataStream& operator<<(QDataStream &out, const WorkMessage &m)
     {
-        out << m.MAGICNUMBER_WORK;
+        out << (qint32)m.MAGICNUMBER_WORK;
         out << m._entity;
 
         return out;
