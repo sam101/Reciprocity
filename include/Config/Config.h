@@ -28,6 +28,10 @@ namespace Config
               * Productivité regagnée par tour pour les Tiles
               */
             static const qint16 OUTPUT_TURN = 1;
+            /**
+              * Productivité minimale pour que la case retrouve sa productivité
+              */
+            static const qint16 OUTPUT_MINIMAL = 5;
 
             /**
               * Points de vie de base d'une entité
