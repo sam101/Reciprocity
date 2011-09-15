@@ -277,10 +277,20 @@ namespace World
       */
     void World::newTurn()
     {
-        //On remet à zéro le compteur de déplacement
         for (int i = 0; i < _entities.size(); i++)
         {
+            //On remet à zéro le compteur de déplacement
             _entities[i]->resetMove();
+            //On restaure le moral si l'entité est sur une maison
+            if (getBuilding(_entities[i]->getX(),_entities[i]->getY()).getType() == Map::HOUSE)
+            {
+                _entities[i]->restoreWill(Config::Config::WILL_HOUSE);
+            }
+            //Sinon, on baisse le moral de l'entité
+            else
+            {
+                _entities[i]->delWill(Config::Config::WILL_LOST_TURN);
+            }
         }
         //TODO
     }
