@@ -413,6 +413,17 @@ namespace Game
                 entity->setHasMoved();
             break;
             default:
+                //Si la tile n'est pas spéciale, on teste le batiment
+                switch (building.getType())
+                {
+                    //Si c'est un champ, l'entité recupère de la nouriture
+                    case Map::FARMLAND:
+
+                    break;
+                    default:
+
+                    break;
+                }
 
             break;
         }
