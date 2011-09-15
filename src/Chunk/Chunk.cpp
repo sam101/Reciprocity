@@ -178,7 +178,7 @@ namespace Chunk
                     _tiles[i][j].restoreOutput(outputToRestore);
                 }
                 //On avance la construction des batiments
-                _buildings[i][j].advanceBuild(1);
+                _buildings[i][j].advanceBuild(1);                
             }
         }
     }

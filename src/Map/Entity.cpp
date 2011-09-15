@@ -144,6 +144,15 @@ namespace Map
         _will -= will;
         _will = _will < 0 ? 0 : _will;
     }
+    /**
+      * Restaure la volonté de l'entité.
+      * Ne peut être supérieur à la volonté max
+      */
+    void Entity::restoreWill(qint32 will)
+    {
+        _will += will;
+        _will = _will > Config::Config::BASE_WILL ? Config::Config::BASE_WILL : _will;
+    }
 
     /**
       * Tue l'entité

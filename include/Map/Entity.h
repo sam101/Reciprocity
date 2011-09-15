@@ -148,6 +148,11 @@ namespace Map
               */
             void delWill(qint32 will);
             /**
+              * Restaure la volonté de l'entité.
+              * Ne peut être supérieur à la volonté max
+              */
+            void restoreWill(qint32 will);
+            /**
               * Tue l'entité
               */
             void kill();
