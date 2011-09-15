@@ -111,6 +111,10 @@ namespace GUI
               */
             void buildRequested(Map::BuildingType type);
             /**
+              * Appelé quand une demande de travail est faite
+              */
+            void workRequested();
+            /**
               * Appelé quand le joueur veut finir son tour
               */
             void endTurn();

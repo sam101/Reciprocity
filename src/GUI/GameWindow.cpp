@@ -51,6 +51,7 @@ namespace GUI
         _chooseToolBar = new ChooseToolBar;
         addToolBar(Qt::RightToolBarArea,_chooseToolBar);
         connect(_chooseToolBar,SIGNAL(buildRequested(Map::BuildingType)),this,SLOT(buildRequested(Map::BuildingType)));
+        connect(_chooseToolBar,SIGNAL(workRequested()),this,SLOT(workRequested()));
         connect(_actionToolBar,SIGNAL(actionSelected()),_chooseToolBar,SLOT(showActions()));
         //On redimensione la fenêtre
         resize(Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
@@ -201,6 +202,17 @@ namespace GUI
         //On ferme la ChooseToolBar
         _chooseToolBar->showNothing();
     }
+    /**
+      * Appelé quand une demande de travail est faite
+      */
+    void GameWindow::workRequested()
+    {
+        //On envoie le message de travail
+        _client->sendWork(_currentEntity);
+        //On ferme la ChooseToolBar
+        _chooseToolBar->showNothing();
+    }
+
     /**
       * Appelé quand le joueur veut finir son tour
       */
