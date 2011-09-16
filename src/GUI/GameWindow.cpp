@@ -197,6 +197,10 @@ namespace GUI
       */
     void GameWindow::buildRequested(Map::BuildingType type)
     {
+        if (_currentEntity < 0)
+        {
+            return;
+        }
         //On envoie le message de construction
         _client->sendBuild(_currentEntity,type);
         //On ferme la ChooseToolBar
@@ -207,6 +211,10 @@ namespace GUI
       */
     void GameWindow::workRequested()
     {
+        if (_currentEntity < 0)
+        {
+            return;
+        }
         //On envoie le message de travail
         _client->sendWork(_currentEntity);
         //On ferme la ChooseToolBar

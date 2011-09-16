@@ -7,10 +7,6 @@ Par ordre de priorité (plus ou moins):
 
 -Gérer le cas où y'a plusieurs unités sur une tile.
 
--Ajouter la gestion de la vie et du moral, de la construction des batiments.
-
--Gérer le travail des unités
-
 -Ajouter une toolBar d'info sur les batiments.
 
 -Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs,
