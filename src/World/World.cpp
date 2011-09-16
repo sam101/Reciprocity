@@ -214,6 +214,14 @@ namespace World
                 }
                 getBuilding(x,y) = Map::Building(x,y,type,1,1,Config::Config::LIFE_FARMLAND,owner);
             break;
+            case Map::ROAD:
+                //On vérifie qu'on construit pas sur l'eau
+                if ((getTile(x,y).getFlags() & Map::Tile::PASSABLE) == 0)
+                {
+                    return false;
+                }
+                getBuilding(x,y) = Map::Building(x,y,type,Config::Config::LIFE_ROAD,Config::Config::LIFE_ROAD,owner);
+            break;
             default:
             break;
         }

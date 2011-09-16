@@ -93,6 +93,10 @@ namespace Config
               */
             static const qint32 LIFE_FARMLAND = 5;
             /**
+              * Points de vie d'une route
+              */
+            static const qint32 LIFE_ROAD = 25;
+            /**
               * Points de vie d'un champ perdus par utilisation
               */
             static const qint32 LIFE_LOST_FARMLAND = 1;
