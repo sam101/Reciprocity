@@ -1,0 +1,42 @@
+# Contributor: Sam101 <lepetit.samuel@gmail.com>
+pkgname=reciprocity-server-git
+pkgver=20110916
+pkgrel=1
+pkgdesc="A draft of a strategy game, where war is not the best option. Server"
+arch=('i686', 'x86_64')
+
+depends=('qt>=4.5')
+makedepends=('git')	
+provides=('reciprocity-server')
+source=()
+md5sums=()
+license=('GPL3')
+_gitroot="https://github.com/sam101/Reciprocity.git"
+_gitname="Reciprocity"
+
+build() 
+{
+	cd "$srcdir"
+	msg "Connecting to GIT server...."
+
+	if [ -d $_gitname ] ; then
+		cd $_gitname && git pull origin
+		msg "The local files are updated."
+	else
+		git clone $_gitroot $_gitname
+		cd "$_gitname"
+
+	fi
+
+	msg "GIT checkout done or server timeout"	
+		
+	#We build the sources
+	msg "Start building.."
+
+	qmake Server.pro
+	make clean
+	make -j 4
+	
+	mkdir -p $pkgdir/usr/bin
+	cp Server $pkgdir/usr/bin/Reciprocity_server
+}
