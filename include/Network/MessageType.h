@@ -35,7 +35,8 @@ namespace Network
         WORK_ACCEPTED = 20,
         RESOURCE = 21,
         ENDTURN = 22,
-        NEWTURN = 23
+        NEWTURN = 23,
+        ATTACK = 24
     };
 }
 #endif //NETWORK_MESSAGETYPE_H
