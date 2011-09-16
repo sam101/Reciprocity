@@ -16,6 +16,7 @@ namespace Graphics
         _tiles.append(Provider::getBuilding("none").toImage());
         _tiles.append(Provider::getBuilding("house").toImage());
         _tiles.append(Provider::getBuilding("farmland").toImage());
+        _tiles.append(Provider::getBuilding("road").toImage());
         //On définit la position.
         int x,y;
         if (_chunk->getX() < 0)
