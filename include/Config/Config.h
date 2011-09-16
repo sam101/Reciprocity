@@ -119,7 +119,7 @@ namespace Config
               */
             static const qint32 FARMLAND_FOOD_BY_WORK = 5;
             /**
-              * Facteure d'aléatoire du champ
+              * Facteur d'aléatoire du champ
               */
             static const qint32 FARMLAND_FOOD_RANDOM = 10;
     };
