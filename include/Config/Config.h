@@ -79,6 +79,10 @@ namespace Config
               * Coût en productivité d'un champ
               */
             static const qint32 COST_FARMLAND_OUTPUT = 50;
+            /**
+              * Coût en pierre d'une route
+              */
+            static const qint32 COST_ROAD_STONE = 1;
             //Points de vie des batiments
             /**
               * Points de vie d'une maison

@@ -361,7 +361,19 @@ namespace Game
                     return false;
                 }
             break;
-
+            //Construction d'une route
+            case Map::ROAD:
+                if (entity->getResource(Map::STONE) < Config::Config::COST_ROAD_STONE)
+                {
+                    return false;
+                }
+                //On construit la route
+                if (_world->addBuilding(entity->getX(),entity->getY(),Map::ROAD,entity->getOwner()))
+                {
+                    entity->setHasMoved();
+                    entity->delRessource(Map::STONE,Config::Config::COST_ROAD_STONE);
+                }
+            break;
             default:
                 //On ne fait rien
             break;
