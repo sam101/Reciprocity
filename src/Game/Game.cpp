@@ -367,6 +367,11 @@ namespace Game
                 {
                     return false;
                 }
+                //On vérifie qu'on construit pas sur l'eau
+                if ((_world->getTile(entity->getX(),entity->getY()).getFlags() & Map::Tile::PASSABLE) == 0)
+                {
+                    return false;
+                }
                 //On construit la route
                 if (_world->addBuilding(entity->getX(),entity->getY(),Map::ROAD,entity->getOwner()))
                 {
