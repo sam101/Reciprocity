@@ -2,6 +2,7 @@
 #include <Config/Config.h>
 #include <Network/BeginGameMessage.h>
 #include <Network/BuildMessage.h>
+#include <Network/BuildAcceptedMessage.h>
 #include <Network/ChunkDataMessage.h>
 #include <Network/EndTurnMessage.h>
 #include <Network/EntityDataMessage.h>
@@ -17,6 +18,7 @@
 #include <Network/RequestDataMessage.h>
 #include <Network/ServerDataMessage.h>
 #include <Network/WorkMessage.h>
+#include <Network/WorkAcceptedMessage.h>
 #include <QtCore/QDataStream>
 #include <QtCore/QDebug>
 namespace Client
@@ -411,6 +413,12 @@ namespace Client
                case Network::MOVEUNIT_ACCEPTED:
                     handleMoveUnitAccepted(in);
                break;
+               case Network::BUILD_ACCEPTED:
+                    handleBuildAccepted(in);
+               break;
+               case Network::WORK_ACCEPTED:
+                    handleWorkAccepted(in);
+               break;
                case Network::NEWTURN:
                     handleNewTurn(in);
                 break;
@@ -507,6 +515,26 @@ namespace Client
         Network::MoveUnitAcceptedMessage m;
         in >> m;
         //On ne fait rien pour l'instant.
+    }
+    /**
+      * Gère la reception d'un message de construction acceptée
+      */
+    void Client::handleBuildAccepted(QDataStream &in)
+    {
+        //On recupère le message
+        Network::BuildAcceptedMessage m;
+        in >> m;
+        //On ne fait rien pour l'instant
+    }
+    /**
+      * Gère la reception d'un message de travail accepté
+      */
+    void Client::handleWorkAccepted(QDataStream &in)
+    {
+        //On recupère le message
+        Network::WorkAcceptedMessage m;
+        in >> m;
+        //On ne fait rien pour l'instant
     }
     /**
       * Gère la reception d'un message de nouveau tour

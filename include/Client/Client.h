@@ -168,6 +168,14 @@ namespace Client
               */
             void handleMoveUnitAccepted(QDataStream &in);
             /**
+              * Gère la reception d'un message de construction acceptée
+              */
+            void handleBuildAccepted(QDataStream &in);
+            /**
+              * Gère la reception d'un message de travail accepté
+              */
+            void handleWorkAccepted(QDataStream &in);
+            /**
               * Gère la reception d'un message de nouveau tour
               */
             void handleNewTurn(QDataStream &in);
