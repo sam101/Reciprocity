@@ -32,6 +32,16 @@ namespace GUI
               * Tableau contenant les pixmap des batiments
               */
             QVector<QPixmap> _buildings;
+        public:
+            /**
+              * Constructeur
+              */
+            BuildingInfoWidget();
+            /**
+              * Affiche les informations sur le batiment
+              */
+            void displayBuilding(Map::Building *building);
     };
 }
 #endif //GUI_BUILDINGINFOWIDGET_H
+

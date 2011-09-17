@@ -13,6 +13,7 @@ namespace Graphics
         //On construit le boundingRect de l'objet
         _boundingRect = QRectF(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
         //On charge le tableau des batiments
+        //TODO: Faire un truc mieux
         _tiles.append(Provider::getBuilding("none").toImage());
         _tiles.append(Provider::getBuilding("house").toImage());
         _tiles.append(Provider::getBuilding("farmland").toImage());
