@@ -425,6 +425,27 @@ namespace Game
                 //On indique que l'entité s'est déplacée
                 entity->setHasMoved();
             break;
+            //Sur une montagne, une entité peut recolter de la pierre.
+            case Map::MOUNTAIN:
+                //On vérifie qu'on à pas détruit la montagne
+                if (tile.getOutput() <  Config::Config::MOUNTAIN_STONE_BY_WORK / 2)
+                {
+                    return false;
+                }
+                //On vérifie qu'il y'a pas de batiments.
+                if (building.getType() != Map::NONE)
+                {
+                    return false;
+                }
+                //On retire le moral a l'entité
+                entity->delWill(Config::Config::WILL_LOST_MOUNTAIN);
+                //On retire la productivité à la montagne
+                tile.delOutput(Config::Config::MOUNTAIN_STONE_BY_WORK / 2);
+                //On ajoute la pierre à l'entité
+                entity->addResource(Map::STONE,Config::Config::MOUNTAIN_STONE_BY_WORK * (entity->getWill() + Random::next(-Config::Config::MOUNTAIN_STONE_RANDOM,Config::Config::MOUNTAIN_STONE_RANDOM)) / 100);
+                //On indique que l'entité s'est déplacée
+                entity->setHasMoved();
+                break;
             default:
                 //Si la tile n'est pas spéciale, on teste le batiment
                 switch (building.getType())
