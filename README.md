@@ -11,7 +11,7 @@ There are several subprojects in this git repo:
 	-A world viewer, mainly used to test the world generation algorithms.
 
 How to build
-_____________
+-------------
 
 You will need Qt >= 4.5 to build the game, which can be found at Nokia's website (http://qt.nokia.com ). 
 
@@ -19,3 +19,7 @@ Linux users should use a package from their package manager ("libqt4-dev" on Deb
 
 
 The game should build on Windows/Mac OS X/Linux, but has only been tested of Linux for now.
+
+How to play
+------------
+Soon.
