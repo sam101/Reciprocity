@@ -2,6 +2,7 @@
 #include <QtGui/QHBoxLayout>
 #include <QtCore/QDebug>
 #include <Graphics/Provider.h>
+using namespace Graphics;
 namespace GUI
 {
     /**
@@ -19,10 +20,10 @@ namespace GUI
         layout->addWidget(_infoLabel);
         //On construit le tableau des batiments
         //TODO: Faire un truc mieux.
-        _tiles.append(Provider::getBuilding("none").toImage());
-        _tiles.append(Provider::getBuilding("house").toImage());
-        _tiles.append(Provider::getBuilding("farmland").toImage());
-        _tiles.append(Provider::getBuilding("road").toImage());
+        _buildings.append(Provider::getBuilding("none"));
+        _buildings.append(Provider::getBuilding("house"));
+        _buildings.append(Provider::getBuilding("farmland"));
+        _buildings.append(Provider::getBuilding("road"));
     }
     /**
       * Affiche les informations sur le batiment
