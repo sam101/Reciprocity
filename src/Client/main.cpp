@@ -12,6 +12,7 @@
 #include <GUI/WaitingWindow.h>
 #include <Tools/ClientSettings.h>
 #include <Tools/Random.h>
+#include <QtCore/QStringList>
 int main(int argc, char *argv[])
 {
     QApplication a(argc,argv);
@@ -19,8 +20,21 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
 
+    //On définit le chemin par défaut des données
+    QString dataPath = "../Reciprocity/data";
+    //On reucpère les arguments passés
+    QStringList args = a.arguments();
+    //On parse les arguments
+    for (int i = 0; i < args.size(); i++)
+    {
+        //On teste le cas où l'utilisateur souhaite spécifier le chemin vers les données
+        if (args[i] == "-datapath" && i != (args.size() - 1))
+        {
+            dataPath = args[i + 1];
+        }
+    }
     //On initialise Provider
-    Graphics::Provider::init("../Reciprocity/data");
+    Graphics::Provider::init(dataPath);
     //On initialise l'objet de paramètres
     Tools::ClientSettings::init();
     //On initialise le générateur de nombres pseudo-aléatoires
