@@ -1,6 +1,7 @@
 #include <World/World.h>
 #include <Config/BaseConfig.h>
 #include <Config/Config.h>
+#include <Config/EntityConfig.h>
 #include <Config/LifeConfig.h>
 #include <Config/OutputConfig.h>
 #include <QDebug>
@@ -311,12 +312,12 @@ namespace World
             Map::Building &building = getBuilding(_entities[i]->getX(),_entities[i]->getY());
             if (building.getType() == Map::HOUSE && building.isFinished())
             {
-                _entities[i]->restoreWill(Config::Config::WILL_HOUSE);
+                _entities[i]->restoreWill(EntityConfig::WILL_HOUSE);
             }
             //Sinon, on baisse le moral de l'entité
             else
             {
-                _entities[i]->delWill(Config::Config::WILL_LOST_TURN);
+                _entities[i]->delWill(EntityConfig::WILL_LOST_TURN);
             }
         }
         //On propage le nouveau tour dans tout les chunks

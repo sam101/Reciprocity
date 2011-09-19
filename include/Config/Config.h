@@ -11,27 +11,8 @@ namespace Config
     class Config
     {
         public:
-            //TODO: Faire une classe qui permetterait de modifier ces valeurs
+            //TODO: Faire une classe qui permetterait de charger/modifier les valeurs
 
-            //Points de vie des batiments
-
-            //Gestion du moral
-            /**
-              * Moral perdu par tour quand non sur une maison
-              */
-            static const qint32 WILL_LOST_TURN = 1;
-            /**
-              * Moral gagné quand sur une maison
-              */
-            static const qint32 WILL_HOUSE = 5;
-            /**
-              * Moral perdu quand l'entité coupe du bois
-              */
-            static const qint32 WILL_LOST_FOREST = 10;
-            /**
-              * Moral perdu quand l'entité creuse dans la montagne
-              */
-            static const qint32 WILL_LOST_MOUNTAIN = 20;
             //Ressources gagnées en travaillant
             /**
               * Bois gagné en coupant du bois
