@@ -32,7 +32,11 @@ namespace Map
         /**
           * Tour de défense, diminue les dégats pris par une entité sur la case
           */
-        TOWER = 5
+        TOWER = 5,
+        /**
+          * Port
+          */
+        DOCK = 6
     };
 }
 #endif //MAP_BUILDINGTYPE_H
