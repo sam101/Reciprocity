@@ -116,6 +116,10 @@ namespace World
                   */
                 const Map::Entity* getEntity(qint32 id) const;
                 /**
+                  * Renvoie le nombre d'entités à une position donnée
+                  */
+                qint32 getNbEntitiesOnTile(qint32 x, qint32 y);
+                /**
                   * Passe au tour suivant:
                   *  - Remet le compteur de déplacement des entités à zéro
                   *  - Termine les actions des entités

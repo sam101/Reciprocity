@@ -279,6 +279,20 @@ namespace World
         return _entities.at(id);
     }
     /**
+      * Renvoie le nombre d'entités à une position donnée
+      */
+    qint32 World::getNbEntitiesOnTile(qint32 x, qint32 y)
+    {
+        qint32 nb = 0;
+        QSetIterator<qint32> it(getChunkByTile(x,y)->getEntities());
+        while (it.hasNext())
+        {
+            nb++;
+            it.next();
+        }
+        return nb;
+    }
+    /**
       * Passe au tour suivant:
       *  - Remet le compteur de déplacement des entités à zéro
       *  - Termine les actions des entités

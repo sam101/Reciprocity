@@ -35,7 +35,6 @@ SERVEUR
 ________
 -Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs,
 -Optimiser la pile réseau
--Ajouter un nombre maximal de joueurs
 -Faire envoyer la taille du chunk par le serveur au client
 -Ajouter la centralisation des serveurs de jeu sur un serveur internet.
 

@@ -128,6 +128,14 @@ namespace Chunk
         return _buildings[y][x];
     }
     /**
+      * Renvoie la liste des entités présentes sur le chunk
+      * surchargé constant
+      */
+    const QSet<qint32>& Chunk::getEntities() const
+    {
+        return _entities;
+    }
+    /**
       * Définit le type du chunk
       */
     void Chunk::setType(ChunkType type)
