@@ -62,7 +62,7 @@ namespace Server
     /**
       * Initialise le serveur
       */
-    void Server::init(qint32 port)
+    void Server::init(qint32 port, QString name)
     {
         //On initialise l'objet de jeu.
         if (_game != NULL)
@@ -79,7 +79,9 @@ namespace Server
             _socketServer->close();
             delete _socketServer;
         }
-        //On alloue l'objet
+        //On définit le nom du serveur
+        _name = name;
+        //On construit le socket
         _socketServer = new QTcpServer;
         //On commence à écouter les connexions entrantes
         if (!_socketServer->listen(QHostAddress::Any,port))
