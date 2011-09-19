@@ -5,6 +5,14 @@ _________
 -Ajouter le fait que les entités ne regagnent pas leur moral si elles sont plus de X sur une tile.
 -Ajouter la création de nouvelles entités
 -Ajouter la gestion des ressources dans les unités
+-Ajouter la gestion de la suppression d'entités/batiments
+
+-Ajouter la construction de bateaux
+
+COMMUN
+_______
+
+-Gérer "Config" en non-volatile pour certains paramètres.
 
 
 CLIENT
@@ -13,7 +21,6 @@ __________
 -Ajouter un message "Nouveau joueur" dans la fenêtre de jeu pendant le jeu
 -Gérer le cas où y'a plusieurs unités sur une tile.
 -Ajout d'un dessin de là où l'entité peut aller.
--Gérer "Config" en non-volatile pour certains paramètres.
 -Ajout de quelque chose pour identifier le propriétaire des entités
 -Ajouter des messages sur la partie dans la ChatBox.
 -Ajouter la possibilité de zoomer/dezoomer
