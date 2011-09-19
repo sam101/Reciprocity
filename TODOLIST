@@ -30,5 +30,5 @@ ________
 -Optimiser la pile réseau
 -Ajouter un nombre maximal de joueurs
 -Faire envoyer la taille du chunk par le serveur au client
-
+-Ajouter la centralisation des serveurs de jeu sur un serveur internet.
 
