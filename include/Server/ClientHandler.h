@@ -15,14 +15,18 @@ namespace Server
         Q_OBJECT
         protected:
             /**
+              * Nombre maximal de clients autorisés
+              */
+            qint32 _maxPlayers;
+            /**
               * Référence vers le Map des clients.
               */
-        QMap<QTcpSocket*,Client*>& _clients;
+            QMap<QTcpSocket*,Client*>& _clients;
         public:
             /**
               * Constructeur
               */
-            ClientHandler(QMap<QTcpSocket*,Client*>& clients);
+            ClientHandler(QMap<QTcpSocket*,Client*>& clients, qint32 maxPlayers = Config::Config::MAX_PLAYERS);
             /**
               * Renvoie le nombre de clients actuellement connectés
               */
