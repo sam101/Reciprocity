@@ -1,5 +1,6 @@
 #ifndef CONFIG_COSTSCONFIG_H
 #define CONFIG_COSTSCONFIG_H
+#include <QtCore/Qt>
 namespace Config
 {
     /**

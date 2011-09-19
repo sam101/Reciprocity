@@ -1,5 +1,6 @@
 #include <Chunk/Chunk.h>
 #include <Config/BaseConfig.h>
+#include <Config/OutputConfig.h>
 #include <QtCore/QDebug>
 using namespace Config;
 namespace Chunk
@@ -184,7 +185,7 @@ namespace Chunk
             for (int j = 0; j < BaseConfig::CHUNK_SIZE; j++)
             {
                 //On restaure la productivité
-                if (_tiles[i][j].getOutput() > Config::Config::OUTPUT_MINIMAL)
+                if (_tiles[i][j].getOutput() > OutputConfig::OUTPUT_MINIMAL)
                 {
                     _tiles[i][j].restoreOutput(outputToRestore);
                 }

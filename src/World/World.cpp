@@ -1,6 +1,7 @@
 #include <World/World.h>
 #include <Config/BaseConfig.h>
 #include <Config/Config.h>
+#include <Config/OutputConfig.h>
 #include <QDebug>
 using namespace Config;
 namespace World
@@ -322,28 +323,28 @@ namespace World
         {
             for (int j = 1; j < _chunkTL[i].size(); j++)
             {
-                _chunkTL[i][j]->newTurn(Config::Config::OUTPUT_TURN);
+                _chunkTL[i][j]->newTurn(OutputConfig::OUTPUT_TURN);
             }
         }
         for (int i = 1; i < _chunkTR.size(); i++)
         {
             for (int j = 1; j < _chunkTR[i].size(); j++)
             {
-                _chunkTR[i][j]->newTurn(Config::Config::OUTPUT_TURN);
+                _chunkTR[i][j]->newTurn(OutputConfig::OUTPUT_TURN);
             }
         }
         for (int i = 1; i < _chunkBL.size(); i++)
         {
             for (int j = 1; j < _chunkBL[i].size(); j++)
             {
-                _chunkBL[i][j]->newTurn(Config::Config::OUTPUT_TURN);
+                _chunkBL[i][j]->newTurn(OutputConfig::OUTPUT_TURN);
             }
         }
         for (int i = 1; i < _chunkBR.size(); i++)
         {
             for (int j = 1; j < _chunkBR[i].size(); j++)
             {
-                _chunkBR[i][j]->newTurn(Config::Config::OUTPUT_TURN);
+                _chunkBR[i][j]->newTurn(OutputConfig::OUTPUT_TURN);
             }
         }
 

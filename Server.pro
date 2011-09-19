@@ -107,7 +107,11 @@ HEADERS += \
     include/Network/WorkMessage.h \
     include/Network/WorkAcceptedMessage.h \
     include/Config/BaseConfig.h \
-    include/Config/EntityConfig.h
+    include/Config/EntityConfig.h \
+    include/Config/CostsConfig.h \
+    include/Config/OutputConfig.h
+
+
 
 
 
