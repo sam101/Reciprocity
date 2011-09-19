@@ -19,7 +19,7 @@ namespace GUI
             /**
               * Batiment actuel
               */
-            Map::Building _building;
+            Map::Building *_building;
             /**
               * Label contenant l'image du batiment
               */

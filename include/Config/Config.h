@@ -12,10 +12,15 @@ namespace Config
     {
         public:
             //TODO: Faire une classe qui permetterait de modifier ces valeurs
+            //Informations de base sur le serveur
             /**
               * Port de base du serveur
               */
             static const qint32 SERVER_PORT = 4242;
+            /**
+              * Nombre maximal de joueurs dans le serveur
+              */
+            static const qint32 MAX_PLAYERS = 8;
             /**
               * Taille d'un chunk
               */
@@ -89,17 +94,29 @@ namespace Config
               */
             static const qint32 LIFE_HOUSE = 25;
             /**
+              * Points de vie gagnés par tour pendant la construction
+              */
+            static const qint32 LIFE_HOUSE_BUILD = 10;
+            /**
               * Points de vie d'un champ
               */
             static const qint32 LIFE_FARMLAND = 5;
+            /**
+              * Points de vie d'un champ gagnés pendant la construction
+              */
+            static const qint32 LIFE_FARMLAND_BUILD = 1;
+            /**
+              * Points de vie d'un champ perdus par utilisation
+              */
+            static const qint32 LIFE_LOST_FARMLAND = 1;
             /**
               * Points de vie d'une route
               */
             static const qint32 LIFE_ROAD = 25;
             /**
-              * Points de vie d'un champ perdus par utilisation
+              * Points de vie d'une route gagnés pendant la construction
               */
-            static const qint32 LIFE_LOST_FARMLAND = 1;
+            static const qint32 LIFE_ROAD_BUILD = 25;
             //Gestion du moral
             /**
               * Moral perdu par tour quand non sur une maison

@@ -36,7 +36,9 @@ namespace Network
         RESOURCE = 21,
         ENDTURN = 22,
         NEWTURN = 23,
-        ATTACK = 24
+        ATTACK = 24,
+        NEWENTITY = 25,
+        DELETE = 26
     };
 }
 #endif //NETWORK_MESSAGETYPE_H

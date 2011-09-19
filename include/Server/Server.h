@@ -23,6 +23,10 @@ namespace Server
         Q_OBJECT
         protected:
             /**
+              * Nom du serveur
+              */
+            QString _name;
+            /**
               * Map des clients présents sur le serveur
               */
             QMap<QTcpSocket*,Client*> _clients;
@@ -58,7 +62,7 @@ namespace Server
             /**
               * Initialise le serveur et commence l'écoute.
               */
-            void init(qint32 port = Config::Config::SERVER_PORT);
+            void init(qint32 port = Config::Config::SERVER_PORT, QString name = "");
       public slots:
             /**
               * Ajoute un client à la liste des clients

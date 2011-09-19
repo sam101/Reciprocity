@@ -1,8 +1,10 @@
 #ifndef GUI_ACTIONTOOLBAR_H
 #define GUI_ACTIONTOOLBAR_H
+#include <QtGui/QAction>
 #include <QtGui/QPushButton>
 #include <QtGui/QToolBar>
 #include <Client/DataHandler.h>
+#include <GUI/BuildingInfoWidget.h>
 #include <GUI/EntityInfoWidget.h>
 #include <GUI/TileInfoWidget.h>
 namespace GUI
@@ -37,6 +39,18 @@ namespace GUI
               * Pointeur vers le TileInfoWidget
               */
             TileInfoWidget *_tileInfo;
+            /**
+              * QAction du TileInfoWidget
+              */
+            QAction *_tileInfoAction;
+            /**
+              * Pointeur vers le BuildingInfoWidget
+              */
+            BuildingInfoWidget *_buildingInfo;
+            /**
+              * QAction du BuildingInfoWidget
+              */
+            QAction *_buildingInfoAction;
             /**
               * Poniteur vers le TileInfoWidget
               */
@@ -83,6 +97,10 @@ namespace GUI
               * Affiche une tile dans le TileInfo
               */
             void displayTile(Map::Tile *tile);
+            /**
+              * Affiche un batiment dans le BuildingInfo
+              */
+            void displayBuilding(Map::Building *building);
             /**
               * Affiche une entité dans le EntityInfoWidget
               */

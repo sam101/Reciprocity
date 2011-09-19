@@ -87,6 +87,10 @@ namespace Client
               * si elle n'est pas présente
               */
             Map::Tile* getTile(qint32 x, qint32 y);
+            /**
+              * Renvoie un batiment en fonction du chunk, ou NULL si elle n'est pas présente
+              */
+            Map::Building* getBuilding(qint32 x, qint32 y);
 
         signals:
             /**

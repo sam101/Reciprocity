@@ -7,10 +7,29 @@ namespace Server
     /**
       * Constructeur
       */
-    ClientHandler::ClientHandler(QMap<QTcpSocket*,Client*> &clients) :
+    ClientHandler::ClientHandler(QMap<QTcpSocket*,Client*> &clients, qint32 maxPlayers) :
+    _maxPlayers(maxPlayers),
     _clients(clients)
     {
 
+    }
+    /**
+      * Renvoie le nombre de clients actuellement connectés
+      */
+    qint32 ClientHandler::getClientsOnline() const
+    {
+        qint32 nb = 0;
+
+        QMapIterator<QTcpSocket*,Client*> it(_clients);
+        while (it.hasNext())
+        {
+            if (it.next().value()->isOnline())
+            {
+                nb++;
+            }
+        }
+
+        return nb;
     }
     /**
       * Appelé quand un client se connecte au serveur.
@@ -38,6 +57,16 @@ namespace Server
         qDebug() << "Nouvelle connexion en provenance de " << socket->peerAddress().toString();
         //Sinon, on procède à des vérifications
 
+        //On vérifie que le nombre maximal de joueurs n'est pas atteint
+        if (getClientsOnline() >= _maxPlayers)
+        {
+            //On affiche un message dans la console
+            qDebug() << "Trop de joueurs dans le serveur.";
+            //On deconnecte le client
+            socket->close();
+
+            return;
+        }
         //TODO: Programmer la véfification du client.
 
         //On connecte le signal pour la deconnexion

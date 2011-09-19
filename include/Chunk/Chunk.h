@@ -110,6 +110,11 @@ namespace Chunk
               */
             const Map::Building& getBuildingAbs(qint32 x, qint32 y) const;
             /**
+              * Renvoie la liste des entités présentes sur le chunk
+              * surchargé constant
+              */
+            const QSet<qint32>& getEntities() const;
+            /**
               * Défini le type du chunk
               */
             void setType(ChunkType type);

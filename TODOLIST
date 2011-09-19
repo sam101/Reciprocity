@@ -1,39 +1,40 @@
-TODOLIST:
+TODOLIST
+_________
+GAMEPLAY
+_________
+-Ajouter le fait que les entités ne regagnent pas leur moral si elles sont plus de X sur une tile.
+-Ajouter la création de nouvelles entités
+-Ajouter la gestion des ressources dans les unités
+-Ajouter la gestion de la suppression d'entités/batiments
 
-Par ordre de priorité (plus ou moins):
+-Ajouter la construction de bateaux
 
-
--Ajouter un message "Nouveau joueur" dans la fenêtre de jeu pendant le jeu
-
--Gérer le cas où y'a plusieurs unités sur une tile.
-
--Ajouter une toolBar d'info sur les batiments.
-
--Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs,
-
--Ajout d'un dessin de là où l'entité peut aller.
+COMMUN
+_______
 
 -Gérer "Config" en non-volatile pour certains paramètres.
 
+
+CLIENT
+__________
+
+-Ajouter un message "Nouveau joueur" dans la fenêtre de jeu pendant le jeu
+-Gérer le cas où y'a plusieurs unités sur une tile.
+-Ajout d'un dessin de là où l'entité peut aller.
 -Ajout de quelque chose pour identifier le propriétaire des entités
-
 -Ajouter des messages sur la partie dans la ChatBox.
-
--Amélioration de l'affichage des infos sur une tile 	
-
--Ajouter la gestion des ressources dans les unités
-
--Ajouter un panel de récapitulatif de ce que possède le joueur
-
--Ajouter des commandes à la console de chat
-
 -Ajouter la possibilité de zoomer/dezoomer
-
--Optimiser la pile réseau
-
--Ajouter un nombre maximal de joueurs
-
+-Amélioration de l'affichage des infos sur une tile
+-Ajouter un panel de récapitulatif de ce que possède le joueur
+-Ajouter des commandes à la console de chat
 -Amélioration de l'affichage dans EntityInfoWidget
 
+
+
+SERVEUR
+________
+-Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs,
+-Optimiser la pile réseau
 -Faire envoyer la taille du chunk par le serveur au client
+-Ajouter la centralisation des serveurs de jeu sur un serveur internet.
 

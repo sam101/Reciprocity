@@ -152,21 +152,25 @@ namespace GUI
       */
     void GameWindow::tileSelected(qint32 x, qint32 y)
     {
+        //On affiche la tile
         _actionToolBar->displayTile(_dataHandler->getTile(x,y));
-         Map::Entity *e = _dataHandler->getEntityByCoordinates(x,y);
-         if (e == NULL || e->getOwner() != _client->getId())
-         {
-             //On désactive les actions sur entité
-             _currentEntity = -1;
-             _scene->setEntitySelected(false);
-         }
-         else
-         {
-             //On met à jour l'entité selectionnée sinon
-             _currentEntity = e->getId();
-             _scene->setEntitySelected(true);
-         }
-         _actionToolBar->displayEntity(e);
+        //On affiche le batiment
+        _actionToolBar->displayBuilding(_dataHandler->getBuilding(x,y));
+        //On recupère l'entité
+        Map::Entity *e = _dataHandler->getEntityByCoordinates(x,y);
+        if (e == NULL || e->getOwner() != _client->getId())
+        {
+            //On désactive les actions sur entité
+            _currentEntity = -1;
+            _scene->setEntitySelected(false);
+        }
+        else
+        {
+            //On met à jour l'entité selectionnée sinon
+            _currentEntity = e->getId();
+            _scene->setEntitySelected(true);
+        }
+        _actionToolBar->displayEntity(e);
     }
     /**
       * Appelé quand une demande de mouvement d'unité a été envoyée
