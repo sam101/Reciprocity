@@ -5,7 +5,7 @@ namespace Network
 {
     /**
       * Envoyé d'un administrateur au serveur, pour ejecter un joueur de la partie
-      * @brief Demande d'ejection d'un joueur de la partie
+      * @brief Demande d'ejection d'un joueur de la partie d'un joueur au serveur.
       * @author Sam101
       */
     class KickPlayerMessage : public AbstractMessage

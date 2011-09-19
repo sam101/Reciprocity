@@ -12,7 +12,7 @@ namespace Network
         IP_BANNED = -3,
         SERVER_IS_FULL = -2,
         ERROR = -1,
-        NONE = 0,
+        HELLO = 0,
         LOGIN = 1,
         LOGIN_FAILED = 2,
         LOGIN_SUCCESS = 3,

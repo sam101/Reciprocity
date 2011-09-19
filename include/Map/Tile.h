@@ -11,6 +11,7 @@ namespace Map
       * Gère une tile sur la carte
       * @brief Gère une tile sur la carte
       * Une tile est l'élément de base de la carte.
+      * @author Sam101
       */
     class Tile
     {

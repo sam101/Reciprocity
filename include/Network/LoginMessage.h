@@ -5,7 +5,7 @@
 namespace Network
 {
     /**
-      * Stocke un message de type "Login"
+      * Stocke un message de type "Login", envoyé du client au serveur
       * @brief Stocke un message de type "Login"
       * @author Sam101
       */
