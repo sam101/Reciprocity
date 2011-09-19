@@ -379,9 +379,6 @@ namespace Client
             //On gère selon le type
             switch (type)
             {
-                case Network::NONE:
-                //On ne fait rien
-                break;
                 //Si le login est reussi...
                 case Network::LOGIN_SUCCESS:
                     handleLoginSuccess(in);
