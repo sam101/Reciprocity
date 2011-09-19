@@ -63,7 +63,10 @@ namespace GUI
                 text = "";
             break;
         }
-        _infoLabel->setText(text);
+        _infoLabel->setText(text + " \n (" + QString::number(building->getX()) + "," + QString::number(building->getY()) + ") - "
+        + QString::number(building->getLifePoints()) + "/" +
+        QString::number(building->getMaxLifePoints()) );
+
     }
 
 }
