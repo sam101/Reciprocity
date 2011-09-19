@@ -1,5 +1,6 @@
 #ifndef SERVER_SERVER_H
 #define SERVER_SERVER_H
+#include <Config/BaseConfig.h>
 #include <Config/Config.h>
 #include <Game/Game.h>
 #include <Server/Client.h>
@@ -62,7 +63,7 @@ namespace Server
             /**
               * Initialise le serveur et commence l'écoute.
               */
-            void init(qint32 port = Config::Config::SERVER_PORT, QString name = "");
+            void init(qint32 port = Config::BaseConfig::SERVER_PORT, QString name = "");
       public slots:
             /**
               * Ajoute un client à la liste des clients

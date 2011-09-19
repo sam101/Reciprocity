@@ -1,6 +1,7 @@
 #include <World/WorldGenerator.h>
 #include <World/World.h>
 
+#include <Config/BaseConfig.h>
 #include <Config/Config.h>
 #include <Chunk/DesertLandChunkGenerator.h>
 #include <Chunk/IslandChunkGenerator.h>
@@ -10,6 +11,7 @@
 
 #include <QtCore/QDebug>
 
+using namespace Config;
 using namespace Tools;
 namespace World
 {
@@ -73,7 +75,7 @@ namespace World
                     _world->_chunkTL[i].resize(abs(x) + 2);
                     for (int j = oldSize; j <= x + 1; j++)
                     {
-                        _world->_chunkTL[i][j] = new Chunk::Chunk(-1 * (j - 1) * Config::Config::CHUNK_SIZE - 1, -1 * (i - 1) * Config::Config::CHUNK_SIZE - 1);
+                        _world->_chunkTL[i][j] = new Chunk::Chunk(-1 * (j - 1) * BaseConfig::CHUNK_SIZE - 1, -1 * (i - 1) * BaseConfig::CHUNK_SIZE - 1);
                         list.push_back(_world->_chunkTL[i][j]);
                     }
                 }
@@ -91,7 +93,7 @@ namespace World
                     _world->_chunkTR[i].resize(x + 2);
                     for (int j = oldSize; j <= x + 1; j++)
                     {                      
-                        _world->_chunkTR[i][j] = new Chunk::Chunk((j - 1) * Config::Config::CHUNK_SIZE, -1 * (i - 1) * Config::Config::CHUNK_SIZE - 1);
+                        _world->_chunkTR[i][j] = new Chunk::Chunk((j - 1) * BaseConfig::CHUNK_SIZE, -1 * (i - 1) * BaseConfig::CHUNK_SIZE - 1);
                         list.push_back(_world->_chunkTR[i][j]);
                     }
 
@@ -115,7 +117,7 @@ namespace World
                     _world->_chunkBL[i].resize(abs(x) + 2);
                     for (int j = oldSize; j <= abs(x) + 1; j++)
                     {                        
-                        _world->_chunkBL[i][j] = new Chunk::Chunk(-1 * (j - 1) * Config::Config::CHUNK_SIZE - 1, (i - 1)  * Config::Config::CHUNK_SIZE);
+                        _world->_chunkBL[i][j] = new Chunk::Chunk(-1 * (j - 1) * BaseConfig::CHUNK_SIZE - 1, (i - 1)  * BaseConfig::CHUNK_SIZE);
                         list.push_back(_world->_chunkBL[i][j]);
                     }
                 }
@@ -133,7 +135,7 @@ namespace World
                     _world->_chunkBR[i].resize(x + 2);
                     for (int j = oldSize; j <= x + 1; j++)
                     {
-                        _world->_chunkBR[i][j] = new Chunk::Chunk((j - 1) * Config::Config::CHUNK_SIZE, (i - 1) * Config::Config::CHUNK_SIZE);
+                        _world->_chunkBR[i][j] = new Chunk::Chunk((j - 1) * BaseConfig::CHUNK_SIZE, (i - 1) * BaseConfig::CHUNK_SIZE);
                         list.push_back(_world->_chunkBR[i][j]);
                     }
                 }

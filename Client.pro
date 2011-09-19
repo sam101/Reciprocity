@@ -65,7 +65,8 @@ HEADERS += \
     include/Map/ResourceType.h \
     include/Network/WorkMessage.h \
     include/Network/WorkAcceptedMessage.h \
-    include/GUI/BuildingInfoWidget.h
+    include/GUI/BuildingInfoWidget.h \
+    include/Config/BaseConfig.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -119,6 +120,7 @@ SOURCES += \
     src/Network/WorkMessage.cpp \
     src/Network/WorkAcceptedMessage.cpp \
     src/GUI/BuildingInfoWidget.cpp
+
 
 
 

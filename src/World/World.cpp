@@ -1,6 +1,8 @@
 #include <World/World.h>
+#include <Config/BaseConfig.h>
 #include <Config/Config.h>
 #include <QDebug>
+using namespace Config;
 namespace World
 {
     /**
@@ -68,11 +70,11 @@ namespace World
     {
         if (x < 0)
         {
-            return x / Config::Config::CHUNK_SIZE - 1;
+            return x / BaseConfig::CHUNK_SIZE - 1;
         }
         else
         {
-            return x / Config::Config::CHUNK_SIZE + 1;
+            return x / BaseConfig::CHUNK_SIZE + 1;
         }
     }
     /**
@@ -82,11 +84,11 @@ namespace World
     {
         if (y < 0)
         {
-            return y / Config::Config::CHUNK_SIZE - 1;
+            return y / BaseConfig::CHUNK_SIZE - 1;
         }
         else
         {
-            return y / Config::Config::CHUNK_SIZE + 1;
+            return y / BaseConfig::CHUNK_SIZE + 1;
         }
     }
     /**

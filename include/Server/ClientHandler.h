@@ -1,5 +1,6 @@
 #ifndef SERVER_CLIENTHANDLER_H
 #define SERVER_CLIENTHANDLER_H
+#include <Config/BaseConfig.h>
 #include <Server/Client.h>
 #include <QtNetwork/QTcpSocket>
 #include <QtCore/QObject>
@@ -26,7 +27,7 @@ namespace Server
             /**
               * Constructeur
               */
-            ClientHandler(QMap<QTcpSocket*,Client*>& clients, qint32 maxPlayers = Config::Config::MAX_PLAYERS);
+            ClientHandler(QMap<QTcpSocket*,Client*>& clients, qint32 maxPlayers = Config::BaseConfig::MAX_PLAYERS);
             /**
               * Renvoie le nombre de clients actuellement connectés
               */

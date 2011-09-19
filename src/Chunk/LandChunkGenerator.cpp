@@ -1,7 +1,9 @@
 #include <Chunk/LandChunkGenerator.h>
+#include <Config/BaseConfig.h>
 #include <Config/Config.h>
 #include <Tools/Random.h>
 using namespace Tools;
+using namespace Config;
 namespace Chunk
 {
     /**
@@ -14,9 +16,9 @@ namespace Chunk
         /*
          * On genère de l'eau sur tout le chunk tout d'abord.
          */
-        for (int i = 0; i  < Config::Config::CHUNK_SIZE; i++)
+        for (int i = 0; i  < BaseConfig::CHUNK_SIZE; i++)
         {
-            for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
+            for (int j = 0; j < BaseConfig::CHUNK_SIZE; j++)
             {
                 chunk->getTileAbs(j,i).setAsSea();
             }
@@ -26,15 +28,15 @@ namespace Chunk
           */
         const int NB = 5;
         int xStart, xEnd, yStart, yEnd;
-        int nbIsles = Random::next(Config::Config::CHUNK_SIZE * 3,Config::Config::CHUNK_SIZE * 4);
+        int nbIsles = Random::next(BaseConfig::CHUNK_SIZE * 3,BaseConfig::CHUNK_SIZE * 4);
         for (int i = 0; i < nbIsles; i++)
         {
-            xStart = Random::next(0,Config::Config::CHUNK_SIZE);
+            xStart = Random::next(0,BaseConfig::CHUNK_SIZE);
             xEnd = xStart + Random::next(0,NB);
-            xEnd = xEnd >= Config::Config::CHUNK_SIZE ? Config::Config::CHUNK_SIZE - 1 : xEnd;
-            yStart = Random::next(5,Config::Config::CHUNK_SIZE);
+            xEnd = xEnd >= BaseConfig::CHUNK_SIZE ? BaseConfig::CHUNK_SIZE - 1 : xEnd;
+            yStart = Random::next(5,BaseConfig::CHUNK_SIZE);
             yEnd = yStart + Random::next(0,NB );
-            yEnd = yEnd >= Config::Config::CHUNK_SIZE ? Config::Config::CHUNK_SIZE - 1 : yEnd;
+            yEnd = yEnd >= BaseConfig::CHUNK_SIZE ? BaseConfig::CHUNK_SIZE - 1 : yEnd;
             genSquareIsland(chunk,xStart,xEnd,yStart,yEnd);
         }
         //On rajoute des marais au milieu.
@@ -42,8 +44,8 @@ namespace Chunk
         int x, y;
         for (int i = 0; i < nb; i++)
         {
-            x = Random::next(1,Config::Config::CHUNK_SIZE - 1);
-            y = Random::next(1,Config::Config::CHUNK_SIZE - 1);
+            x = Random::next(1,BaseConfig::CHUNK_SIZE - 1);
+            y = Random::next(1,BaseConfig::CHUNK_SIZE - 1);
             chunk->getTileAbs(x,y).setAsSwamp();
         }
         //On ajoute un volcan
@@ -51,8 +53,8 @@ namespace Chunk
         {
             for (int i = 0; i < 42; i++)
             {
-                int x = Random::next(10,Config::Config::CHUNK_SIZE - 10);
-                int y = Random::next(10,Config::Config::CHUNK_SIZE - 10);
+                int x = Random::next(10,BaseConfig::CHUNK_SIZE - 10);
+                int y = Random::next(10,BaseConfig::CHUNK_SIZE - 10);
                 chunk->getTileAbs(x,y).setAsVolcano();
             }
         }

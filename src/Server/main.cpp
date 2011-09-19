@@ -1,16 +1,20 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QTextCodec>
+
 #include <ctime>
+
+#include <Config/BaseConfig.h>
 #include <Server/Server.h>
 #include <Tools/Random.h>
 #include <QtCore/QStringList>
 using namespace Tools;
+using namespace Config;
 int main(int argc, char *argv[])
 {
     //On construit l'objet application.
     QCoreApplication a(argc,argv);
     //On déclare les variables pour le port/nom du serveur
-    qint32 serverPort = Config::Config::SERVER_PORT;
+    qint32 serverPort = BaseConfig::SERVER_PORT;
     QString name = QObject::tr("Yet another Reciprocity server");
     //On initialise Random
     Random::init(time(NULL));

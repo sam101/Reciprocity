@@ -1,5 +1,7 @@
 #include <Client/DataHandler.h>
+#include <Config/BaseConfig.h>
 #include <QtCore/QDebug>
+using namespace Config;
 namespace Client
 {
     /**
@@ -34,11 +36,11 @@ namespace Client
     {
         if (x < 0)
         {
-            return x / Config::Config::CHUNK_SIZE - 1;
+            return x / BaseConfig::CHUNK_SIZE - 1;
         }
         else
         {
-            return x / Config::Config::CHUNK_SIZE + 1;
+            return x / BaseConfig::CHUNK_SIZE + 1;
         }
     }
     /**
@@ -48,11 +50,11 @@ namespace Client
     {
         if (y < 0)
         {
-            return y / Config::Config::CHUNK_SIZE - 1;
+            return y / BaseConfig::CHUNK_SIZE - 1;
         }
         else
         {
-            return y / Config::Config::CHUNK_SIZE + 1;
+            return y / BaseConfig::CHUNK_SIZE + 1;
         }
     }
 
@@ -152,22 +154,22 @@ namespace Client
         {
             if (y < 0)
             {
-                c = getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE - 1);
+                c = getChunk(x / BaseConfig::CHUNK_SIZE - 1,y / BaseConfig::CHUNK_SIZE - 1);
             }
             else
             {
-                c = getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE + 1);
+                c = getChunk(x / BaseConfig::CHUNK_SIZE - 1,y / BaseConfig::CHUNK_SIZE + 1);
             }
         }
         else
         {
             if (y < 0)
             {
-                c = getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE - 1);
+                c = getChunk(x / BaseConfig::CHUNK_SIZE + 1,y / BaseConfig::CHUNK_SIZE - 1);
             }
             else
             {
-                c = getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE + 1);
+                c = getChunk(x / BaseConfig::CHUNK_SIZE + 1,y / BaseConfig::CHUNK_SIZE + 1);
             }
         }
         //Si le chunk existe pas, on renvoie NULL
@@ -189,22 +191,22 @@ namespace Client
         {
             if (y < 0)
             {
-                c = getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE - 1);
+                c = getChunk(x / BaseConfig::CHUNK_SIZE - 1,y / BaseConfig::CHUNK_SIZE - 1);
             }
             else
             {
-                c = getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE + 1);
+                c = getChunk(x / BaseConfig::CHUNK_SIZE - 1,y / BaseConfig::CHUNK_SIZE + 1);
             }
         }
         else
         {
             if (y < 0)
             {
-                c = getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE - 1);
+                c = getChunk(x / BaseConfig::CHUNK_SIZE + 1,y / BaseConfig::CHUNK_SIZE - 1);
             }
             else
             {
-                c = getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE + 1);
+                c = getChunk(x / BaseConfig::CHUNK_SIZE + 1,y / BaseConfig::CHUNK_SIZE + 1);
             }
         }
         //Si le chunk existe pas, on renvoie NULL

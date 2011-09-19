@@ -12,32 +12,6 @@ namespace Config
     {
         public:
             //TODO: Faire une classe qui permetterait de modifier ces valeurs
-            //Informations de base sur le serveur
-            /**
-              * Port de base du serveur
-              */
-            static const qint32 SERVER_PORT = 4242;
-            /**
-              * Nombre maximal de joueurs dans le serveur
-              */
-            static const qint32 MAX_PLAYERS = 8;
-            /**
-              * Taille d'un chunk
-              */
-            static const qint32 CHUNK_SIZE = 32;
-            /**
-              * Stocke la taille d'une tile
-              */
-            static const qint32 TILE_SIZE = 32;
-            /**
-              * Productivité regagnée par tour pour les Tiles
-              */
-            static const qint16 OUTPUT_TURN = 1;
-            /**
-              * Productivité minimale pour que la case retrouve sa productivité
-              */
-            static const qint16 OUTPUT_MINIMAL = 5;
-
             /**
               * Points de vie de base d'une entité
               */
@@ -159,6 +133,15 @@ namespace Config
               * Facteur d'aléatoire de la collecte de pierre
               */
             static const qint32 MOUNTAIN_STONE_RANDOM = 10;
+            //Paramètres sur la productivité
+            /**
+              * Productivité regagnée par tour pour les Tiles
+              */
+            static const qint16 OUTPUT_TURN = 1;
+            /**
+              * Productivité minimale pour que la case retrouve sa productivité
+              */
+            static const qint16 OUTPUT_MINIMAL = 5;
             //Productivité des tiles
             /**
               * Productivité minimale des plaines.

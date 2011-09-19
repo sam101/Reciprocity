@@ -1,8 +1,9 @@
 #include <GUI/GameScene.h>
-#include <Config/Config.h>
+#include <Config/BaseConfig.h>
 #include <QtCore/QDebug>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QGraphicsSceneMouseEvent>
+using namespace Config;
 namespace GUI
 {
     /**
@@ -132,9 +133,9 @@ namespace GUI
       */
     void GameScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     {
-        qint32 x = event->scenePos().x() / Config::Config::TILE_SIZE;
+        qint32 x = event->scenePos().x() / BaseConfig::TILE_SIZE;
         if (x <= 0) x--;
-        qint32 y = event->scenePos().y() / Config::Config::TILE_SIZE;
+        qint32 y = event->scenePos().y() / BaseConfig::TILE_SIZE;
         if (y <= 0) y--;
         //On envoie pas le signal si la tile n'a pas changé.
         if (x == _tileX && y == _tileY)
@@ -176,6 +177,6 @@ namespace GUI
       */
     void GameScene::updateSceneRect()
     {
-        setSceneRect(_xCamera * Config::Config::TILE_SIZE,_yCamera * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE / 2);
+        setSceneRect(_xCamera * BaseConfig::TILE_SIZE,_yCamera * BaseConfig::TILE_SIZE,BaseConfig::CHUNK_SIZE * BaseConfig::TILE_SIZE / 2,BaseConfig::CHUNK_SIZE * BaseConfig::TILE_SIZE / 2);
     }
 }

@@ -1,7 +1,11 @@
 #include <Game/Game.h>
+#include <Config/BaseConfig.h>
+
 #include <QtCore/QDebug>
 #include <Config/Config.h>
 #include <Tools/Random.h>
+
+using namespace Config;
 using namespace Tools;
 namespace Game
 {
@@ -161,14 +165,14 @@ namespace Game
             chunk = _world->getChunkByTile(entity->getX(),entity->getY());
             c << chunk;
             //On ajoute les chunk adjacents
-            c << _world->getChunk(_world->getXChunk(chunk->getX() - Config::Config::CHUNK_SIZE),_world->getYChunk((chunk->getY())));
-            c << _world->getChunk(_world->getXChunk(chunk->getX() + Config::Config::CHUNK_SIZE),_world->getYChunk((chunk->getY())));
-            c << _world->getChunk(_world->getXChunk(chunk->getX() ),_world->getYChunk((chunk->getY() - Config::Config::CHUNK_SIZE)));
-            c << _world->getChunk(_world->getXChunk(chunk->getX() ),_world->getYChunk((chunk->getY() + Config::Config::CHUNK_SIZE)));
-            c << _world->getChunk(_world->getXChunk(chunk->getX() - Config::Config::CHUNK_SIZE),_world->getYChunk((chunk->getY() - Config::Config::CHUNK_SIZE)));
-            c << _world->getChunk(_world->getXChunk(chunk->getX() - Config::Config::CHUNK_SIZE),_world->getYChunk((chunk->getY() + Config::Config::CHUNK_SIZE)));
-            c << _world->getChunk(_world->getXChunk(chunk->getX() + Config::Config::CHUNK_SIZE),_world->getYChunk((chunk->getY() - Config::Config::CHUNK_SIZE)));
-            c << _world->getChunk(_world->getXChunk(chunk->getX() + Config::Config::CHUNK_SIZE),_world->getYChunk((chunk->getY() + Config::Config::CHUNK_SIZE)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() - BaseConfig::CHUNK_SIZE),_world->getYChunk((chunk->getY())));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() + BaseConfig::CHUNK_SIZE),_world->getYChunk((chunk->getY())));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() ),_world->getYChunk((chunk->getY() - BaseConfig::CHUNK_SIZE)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() ),_world->getYChunk((chunk->getY() + BaseConfig::CHUNK_SIZE)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() - BaseConfig::CHUNK_SIZE),_world->getYChunk((chunk->getY() - BaseConfig::CHUNK_SIZE)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() - BaseConfig::CHUNK_SIZE),_world->getYChunk((chunk->getY() + BaseConfig::CHUNK_SIZE)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() + BaseConfig::CHUNK_SIZE),_world->getYChunk((chunk->getY() - BaseConfig::CHUNK_SIZE)));
+            c << _world->getChunk(_world->getXChunk(chunk->getX() + BaseConfig::CHUNK_SIZE),_world->getYChunk((chunk->getY() + BaseConfig::CHUNK_SIZE)));
         }
         return c;
     }

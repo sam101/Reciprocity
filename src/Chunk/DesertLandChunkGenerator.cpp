@@ -1,5 +1,7 @@
 #include <Chunk/DesertLandChunkGenerator.h>
 #include <Tools/Random.h>
+#include <Config/BaseConfig.h>
+using namespace Config;
 using namespace Tools;
 namespace Chunk
 {
@@ -12,9 +14,9 @@ namespace Chunk
         /*
          * On genère de l'eau sur tout le chunk tout d'abord.
          */
-        for (int i = 0; i  < Config::Config::CHUNK_SIZE; i++)
+        for (int i = 0; i  < BaseConfig::CHUNK_SIZE; i++)
         {
-            for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
+            for (int j = 0; j < BaseConfig::CHUNK_SIZE; j++)
             {
                 chunk->getTileAbs(j,i).setAsSea();
             }
@@ -23,10 +25,10 @@ namespace Chunk
           * On genère une plage géante
           */
         int xStart, yStart, xEnd, yEnd;
-        xStart = Random::next(0,Config::Config::CHUNK_SIZE / 2);
-        yStart = Random::next(0,Config::Config::CHUNK_SIZE / 2);
-        xEnd = Random::next(Config::Config::CHUNK_SIZE - 2,Config::Config::CHUNK_SIZE);
-        yEnd = Random::next(Config::Config::CHUNK_SIZE - 2,Config::Config::CHUNK_SIZE);
+        xStart = Random::next(0,BaseConfig::CHUNK_SIZE / 2);
+        yStart = Random::next(0,BaseConfig::CHUNK_SIZE / 2);
+        xEnd = Random::next(BaseConfig::CHUNK_SIZE - 2,BaseConfig::CHUNK_SIZE);
+        yEnd = Random::next(BaseConfig::CHUNK_SIZE - 2,BaseConfig::CHUNK_SIZE);
         for (int i = xStart; i <= xEnd; i++)
         {
             for (int j = yStart; j <= yEnd; j++)
@@ -49,12 +51,12 @@ namespace Chunk
         {
             yTopCoast += Random::next(-2,2);
             if (yTopCoast < 0) yTopCoast = 0;
-            if (yTopCoast >= Config::Config::CHUNK_SIZE) yTopCoast = Config::Config::CHUNK_SIZE - 1;
+            if (yTopCoast >= BaseConfig::CHUNK_SIZE) yTopCoast = BaseConfig::CHUNK_SIZE - 1;
             yBottomCoast += Random::next(-2,2);
             if (yBottomCoast < 0) yBottomCoast = 0;
-            if (yBottomCoast >= Config::Config::CHUNK_SIZE) yBottomCoast = Config::Config::CHUNK_SIZE - 1;
+            if (yBottomCoast >= BaseConfig::CHUNK_SIZE) yBottomCoast = BaseConfig::CHUNK_SIZE - 1;
 
-            for (int j = yBottomCoast; j < Config::Config::CHUNK_SIZE; j++)
+            for (int j = yBottomCoast; j < BaseConfig::CHUNK_SIZE; j++)
             {
                 chunk->getTileAbs(i,j).setAsSea();
             }
@@ -71,10 +73,10 @@ namespace Chunk
             xLeftCoast += Random::next(-2,2);
             xRightCoast += Random::next(-2,2);
             if (xLeftCoast <= 0) xLeftCoast = 0;
-            else if (xLeftCoast >= Config::Config::CHUNK_SIZE) xLeftCoast = Config::Config::CHUNK_SIZE - 1;
+            else if (xLeftCoast >= BaseConfig::CHUNK_SIZE) xLeftCoast = BaseConfig::CHUNK_SIZE - 1;
             if (xRightCoast <= 0) xRightCoast = 0;
-            else if (xRightCoast >= Config::Config::CHUNK_SIZE) xRightCoast = Config::Config::CHUNK_SIZE - 1;
-            for (int j = xRightCoast; j < Config::Config::CHUNK_SIZE; j++)
+            else if (xRightCoast >= BaseConfig::CHUNK_SIZE) xRightCoast = BaseConfig::CHUNK_SIZE - 1;
+            for (int j = xRightCoast; j < BaseConfig::CHUNK_SIZE; j++)
             {
                 chunk->getTileAbs(j,i).setAsSea();
             }

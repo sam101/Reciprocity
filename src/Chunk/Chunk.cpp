@@ -1,6 +1,7 @@
 #include <Chunk/Chunk.h>
-#include <Config/Config.h>
+#include <Config/BaseConfig.h>
 #include <QtCore/QDebug>
+using namespace Config;
 namespace Chunk
 {
     /**
@@ -16,10 +17,10 @@ namespace Chunk
         /*
          * On construit le tableau de tiles
          */
-        _tiles.resize(Config::Config::CHUNK_SIZE);
+        _tiles.resize(BaseConfig::CHUNK_SIZE);
         for (int i = 0; i < _tiles.size(); i++)
         {
-            _tiles[i].resize(Config::Config::CHUNK_SIZE);
+            _tiles[i].resize(BaseConfig::CHUNK_SIZE);
             for (int j = 0; j < _tiles[i].size(); j++)
             {
                 _tiles[i][j] = Map::Tile(signX * j  + _x,signY * i + _y,0,Map::NOTHING);
@@ -28,10 +29,10 @@ namespace Chunk
         /*
           * On construit le tableau de batiments
           */
-        _buildings.resize(Config::Config::CHUNK_SIZE);
+        _buildings.resize(BaseConfig::CHUNK_SIZE);
         for (int i = 0; i < _tiles.size(); i++)
         {
-            _buildings[i].resize(Config::Config::CHUNK_SIZE);
+            _buildings[i].resize(BaseConfig::CHUNK_SIZE);
             for (int j = 0; j < _buildings[i].size(); j++)
             {
                 _buildings[i][j] = Map::Building(signX * j + _x,signY * i + _y);
@@ -178,9 +179,9 @@ namespace Chunk
     {
         //TODO: A déporter ailleurs
         qint32 buildAdvance;
-        for (int i = 0; i < Config::Config::CHUNK_SIZE; i++)
+        for (int i = 0; i < BaseConfig::CHUNK_SIZE; i++)
         {
-            for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
+            for (int j = 0; j < BaseConfig::CHUNK_SIZE; j++)
             {
                 //On restaure la productivité
                 if (_tiles[i][j].getOutput() > Config::Config::OUTPUT_MINIMAL)

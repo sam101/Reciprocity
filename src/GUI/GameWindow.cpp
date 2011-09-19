@@ -1,9 +1,11 @@
 #include <GUI/GameWindow.h>
 #include <QtGui/QApplication>
+#include <Config/BaseConfig.h>
 #include <Tools/ClientSettings.h>
 #ifdef OPENGL_SUPPORT
 #include <QtOpenGL/QGLWidget>
 #endif
+using namespace Config;
 using namespace Tools;
 namespace GUI
 {
@@ -54,7 +56,7 @@ namespace GUI
         connect(_chooseToolBar,SIGNAL(workRequested()),this,SLOT(workRequested()));
         connect(_actionToolBar,SIGNAL(actionSelected()),_chooseToolBar,SLOT(showActions()));
         //On redimensione la fenêtre
-        resize(Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
+        resize(BaseConfig::CHUNK_SIZE * BaseConfig::TILE_SIZE,BaseConfig::CHUNK_SIZE * BaseConfig::TILE_SIZE);
     }
     /**
       * Destructeur

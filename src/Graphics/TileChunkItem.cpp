@@ -1,9 +1,11 @@
 #include <Graphics/TileChunkItem.h>
 #include <Graphics/Provider.h>
+#include <Config/BaseConfig.h>
 #include <Config/Config.h>
 
 #include <QtCore/QDebug>
 #include <QtGui/QPainter>
+using namespace Config;
 namespace Graphics
 {
     QVector<QImage> TileChunkItem::_tiles;
@@ -14,7 +16,7 @@ namespace Graphics
     _chunk(chunk)
     {
         //On définit le boundingRect de l'Item
-        _boundingRect = QRectF(0,0,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE,Config::Config::CHUNK_SIZE * Config::Config::TILE_SIZE);
+        _boundingRect = QRectF(0,0,BaseConfig::CHUNK_SIZE * BaseConfig::TILE_SIZE,BaseConfig::CHUNK_SIZE * BaseConfig::TILE_SIZE);
         //On charge le tableau de tiles.
         //TODO: Faire un truc mieux
         if (_tiles.size() == 0)
@@ -36,23 +38,23 @@ namespace Graphics
         int x,y;
         if (_chunk->getX() < 0)
         {
-            _xChunk = (_chunk->getX() - Config::Config::CHUNK_SIZE + 1);
-            x = _xChunk * Config::Config::TILE_SIZE;
+            _xChunk = (_chunk->getX() - BaseConfig::CHUNK_SIZE + 1);
+            x = _xChunk * BaseConfig::TILE_SIZE;
         }
         else
         {
             _xChunk = _chunk->getX();
-            x = _chunk->getX() * Config::Config::TILE_SIZE;
+            x = _chunk->getX() * BaseConfig::TILE_SIZE;
         }
         if (_chunk->getY() < 0)
         {
-            _yChunk = _chunk->getY() - Config::Config::CHUNK_SIZE + 1;
-            y = (_yChunk + 1) * Config::Config::TILE_SIZE;
+            _yChunk = _chunk->getY() - BaseConfig::CHUNK_SIZE + 1;
+            y = (_yChunk + 1) * BaseConfig::TILE_SIZE;
         }
         else
         {
             _yChunk = _chunk->getY();
-            y = (_yChunk + 1) *  Config::Config::TILE_SIZE;
+            y = (_yChunk + 1) *  BaseConfig::TILE_SIZE;
         }
         setPos(x,y);
     }
@@ -81,12 +83,12 @@ namespace Graphics
         Q_UNUSED(option)
         Q_UNUSED(widget)
         qint32 current;
-        for (int i = _xChunk; i < _xChunk + Config::Config::CHUNK_SIZE; i++)
+        for (int i = _xChunk; i < _xChunk + BaseConfig::CHUNK_SIZE; i++)
         {
-            for (int j = _yChunk; j < _yChunk + Config::Config::CHUNK_SIZE; j++)
+            for (int j = _yChunk; j < _yChunk + BaseConfig::CHUNK_SIZE; j++)
             {
                 current = _chunk->getTile(i,j).getType();
-                painter->drawImage(QPoint( (i - _xChunk) * Config::Config::TILE_SIZE,(j - _yChunk) * Config::Config::TILE_SIZE),_tiles[current]);
+                painter->drawImage(QPoint( (i - _xChunk) * BaseConfig::TILE_SIZE,(j - _yChunk) * BaseConfig::TILE_SIZE),_tiles[current]);
             }
         }
     }
