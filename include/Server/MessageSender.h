@@ -75,6 +75,10 @@ namespace Server
               */
             void sendEntityData(QTcpSocket *socket, Map::Entity *entity);
             /**
+              * Envoie les informations sur une entité à tout ceux qui peuvent la voir
+              */
+            void sendEntityDataToAll(Map::Entity *entity);
+            /**
               * Envoie les informations à un joueur sur les chunk qu'il peut
               * voir ainsi que sur ses entités
               */
