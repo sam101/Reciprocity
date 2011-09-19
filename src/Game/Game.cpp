@@ -3,6 +3,7 @@
 #include <Config/CostsConfig.h>
 #include <Config/EntityConfig.h>
 #include <Config/LifeConfig.h>
+#include <Config/WorkConfig.h>
 
 #include <QtCore/QDebug>
 #include <Config/Config.h>
@@ -414,7 +415,7 @@ namespace Game
             //Sur une forêt, une entité coupe du bois
             case Map::FOREST:
                 //On vérifie si la forêt est pas morte ?
-                if (tile.getOutput() < Config::Config::FOREST_WOOD_BY_WORK)
+                if (tile.getOutput() < WorkConfig::FOREST_WOOD_BY_WORK)
                 {
                     return false;
                 }
@@ -426,16 +427,16 @@ namespace Game
                 //On retire le moral à l'entité
                 entity->delWill(EntityConfig::WILL_LOST_FOREST);
                 //On retire la productivité à la forêt
-                tile.delOutput(EntityConfig::FOREST_WOOD_BY_WORK);
+                tile.delOutput(WorkConfig::FOREST_WOOD_BY_WORK);
                 //On rajoute le bois à l'entité
-                entity->addResource(Map::WOOD,Config::Config::FOREST_WOOD_BY_WORK * (entity->getWill() + Random::next(-Config::Config::FOREST_WOOD_RANDOM,Config::Config::FOREST_WOOD_RANDOM)) / 100);
+                entity->addResource(Map::WOOD,WorkConfig::FOREST_WOOD_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::FOREST_WOOD_RANDOM,WorkConfig::FOREST_WOOD_RANDOM)) / 100);
                 //On indique que l'entité s'est déplacée
                 entity->setHasMoved();
             break;
             //Sur une montagne, une entité peut recolter de la pierre.
             case Map::MOUNTAIN:
                 //On vérifie qu'on à pas détruit la montagne
-                if (tile.getOutput() <  EntityConfig::MOUNTAIN_STONE_BY_WORK / 2)
+                if (tile.getOutput() <  WorkConfig::MOUNTAIN_STONE_BY_WORK / 2)
                 {
                     return false;
                 }
@@ -447,9 +448,9 @@ namespace Game
                 //On retire le moral a l'entité
                 entity->delWill(EntityConfig::WILL_LOST_MOUNTAIN);
                 //On retire la productivité à la montagne
-                tile.delOutput(EntityConfig::MOUNTAIN_STONE_BY_WORK / 2);
+                tile.delOutput(WorkConfig::MOUNTAIN_STONE_BY_WORK / 2);
                 //On ajoute la pierre à l'entité
-                entity->addResource(Map::STONE,EntityConfig::MOUNTAIN_STONE_BY_WORK * (entity->getWill() + Random::next(-Config::Config::MOUNTAIN_STONE_RANDOM,Config::Config::MOUNTAIN_STONE_RANDOM)) / 100);
+                entity->addResource(Map::STONE,WorkConfig::MOUNTAIN_STONE_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::MOUNTAIN_STONE_RANDOM,WorkConfig::MOUNTAIN_STONE_RANDOM)) / 100);
                 //On indique que l'entité s'est déplacée
                 entity->setHasMoved();
                 break;
@@ -467,7 +468,7 @@ namespace Game
                         //On retire des points de vie au champ
                         building.damage(LifeConfig::LIFE_LOST_FARMLAND);
                         //On rajoute de la nouriture à l'entité
-                        entity->addResource(Map::FOOD,EntityConfig::FARMLAND_FOOD_BY_WORK * (entity->getWill() + Random::next(-Config::Config::FARMLAND_FOOD_RANDOM,Config::Config::FARMLAND_FOOD_RANDOM)) / 100);
+                        entity->addResource(Map::FOOD,WorkConfig::FARMLAND_FOOD_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::FARMLAND_FOOD_RANDOM,WorkConfig::FARMLAND_FOOD_RANDOM)) / 100);
                     break;
                     default:
 

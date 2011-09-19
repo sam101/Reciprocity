@@ -70,7 +70,8 @@ HEADERS += \
     include/Config/EntityConfig.h \
     include/Config/CostsConfig.h \
     include/Config/OutputConfig.h \
-    include/Config/LifeConfig.h
+    include/Config/LifeConfig.h \
+    include/Config/WorkConfig.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -124,6 +125,7 @@ SOURCES += \
     src/Network/WorkMessage.cpp \
     src/Network/WorkAcceptedMessage.cpp \
     src/GUI/BuildingInfoWidget.cpp
+
 
 
 
