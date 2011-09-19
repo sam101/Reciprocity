@@ -23,7 +23,10 @@ namespace Server
               * Constructeur
               */
             ClientHandler(QMap<QTcpSocket*,Client*>& clients);
-
+            /**
+              * Renvoie le nombre de clients actuellement connectés
+              */
+            qint32 getClientsOnline() const;
         signals:
             /**
               * Envoyé pour signaler qu'un nouveau client s'est connecté

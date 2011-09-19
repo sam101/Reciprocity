@@ -13,6 +13,24 @@ namespace Server
 
     }
     /**
+      * Renvoie le nombre de clients actuellement connectés
+      */
+    qint32 ClientHandler::getClientsOnline() const
+    {
+        qint32 nb = 0;
+
+        QMapIterator<QTcpSocket*,Client*> it(_clients);
+        while (it.hasNext())
+        {
+            if (it.next().value()->isOnline())
+            {
+                nb++;
+            }
+        }
+
+        return nb;
+    }
+    /**
       * Appelé quand un client se connecte au serveur.
       * Envoie la connexion au serveur si celle-ci
       * n'est pas filtrée

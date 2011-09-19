@@ -6,6 +6,7 @@ This repository contains the source code for Reciprocity. Reciprocity is a turn 
 The gameplay involves an infinite randomly-generated world. War is not the best option in the game. The game is not playable yet.
 
 There are several subprojects in this git repo:
+
 * The client side of the game, what the player use to play
 * The server side of the game, which is used to host the games
 * A world viewer, mainly used to test the world generation algorithms.

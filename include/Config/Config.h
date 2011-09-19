@@ -12,10 +12,15 @@ namespace Config
     {
         public:
             //TODO: Faire une classe qui permetterait de modifier ces valeurs
+            //Informations de base sur le serveur
             /**
               * Port de base du serveur
               */
             static const qint32 SERVER_PORT = 4242;
+            /**
+              * Nombre maximal de joueurs dans le serveur
+              */
+            static const qint32 MAX_PLAYERS = 8;
             /**
               * Taille d'un chunk
               */
