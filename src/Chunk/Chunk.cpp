@@ -1,5 +1,6 @@
 #include <Chunk/Chunk.h>
 #include <Config/BaseConfig.h>
+#include <Config/LifeConfig.h>
 #include <Config/OutputConfig.h>
 #include <QtCore/QDebug>
 using namespace Config;
@@ -193,13 +194,13 @@ namespace Chunk
                 switch (_buildings[i][j].getType())
                 {
                     case Map::HOUSE:
-                        buildAdvance = Config::Config::LIFE_HOUSE_BUILD;
+                        buildAdvance = LifeConfig::LIFE_HOUSE_BUILD;
                     break;
                     case Map::ROAD:
-                        buildAdvance = Config::Config::LIFE_ROAD_BUILD;
+                        buildAdvance = LifeConfig::LIFE_ROAD_BUILD;
                     break;
                     case Map::FARMLAND:
-                        buildAdvance = Config::Config::LIFE_FARMLAND_BUILD;
+                        buildAdvance = LifeConfig::LIFE_FARMLAND_BUILD;
                     break;
                     default:
                         buildAdvance = 1;

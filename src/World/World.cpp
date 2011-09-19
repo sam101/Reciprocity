@@ -1,6 +1,7 @@
 #include <World/World.h>
 #include <Config/BaseConfig.h>
 #include <Config/Config.h>
+#include <Config/LifeConfig.h>
 #include <Config/OutputConfig.h>
 #include <QDebug>
 using namespace Config;
@@ -207,7 +208,7 @@ namespace World
                 {
                     return false;
                 }
-                getBuilding(x,y) = Map::Building(x,y,type,1,1,Config::Config::LIFE_HOUSE,owner);
+                getBuilding(x,y) = Map::Building(x,y,type,1,1,LifeConfig::LIFE_HOUSE,owner);
             break;
             case Map::FARMLAND:
                 //On vérifie que on peut bien construire un champ sur la tile
@@ -215,7 +216,7 @@ namespace World
                 {
                     return false;
                 }
-                getBuilding(x,y) = Map::Building(x,y,type,1,1,Config::Config::LIFE_FARMLAND,owner);
+                getBuilding(x,y) = Map::Building(x,y,type,1,1,LifeConfig::LIFE_FARMLAND,owner);
             break;
             case Map::ROAD:
                 //On vérifie qu'on construit pas sur l'eau
@@ -223,7 +224,7 @@ namespace World
                 {
                     return false;
                 }
-                getBuilding(x,y) = Map::Building(x,y,type,Config::Config::LIFE_ROAD,Config::Config::LIFE_ROAD,owner);
+                getBuilding(x,y) = Map::Building(x,y,type,LifeConfig::LIFE_ROAD,LifeConfig::LIFE_ROAD,owner);
             break;
             default:
             break;

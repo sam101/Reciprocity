@@ -2,6 +2,7 @@
 #include <Config/BaseConfig.h>
 #include <Config/CostsConfig.h>
 #include <Config/EntityConfig.h>
+#include <Config/LifeConfig.h>
 
 #include <QtCore/QDebug>
 #include <Config/Config.h>
@@ -464,7 +465,7 @@ namespace Game
                             return false;
                         }
                         //On retire des points de vie au champ
-                        building.damage(Config::Config::LIFE_LOST_FARMLAND);
+                        building.damage(LifeConfig::LIFE_LOST_FARMLAND);
                         //On rajoute de la nouriture à l'entité
                         entity->addResource(Map::FOOD,Config::Config::FARMLAND_FOOD_BY_WORK * (entity->getWill() + Random::next(-Config::Config::FARMLAND_FOOD_RANDOM,Config::Config::FARMLAND_FOOD_RANDOM)) / 100);
                     break;

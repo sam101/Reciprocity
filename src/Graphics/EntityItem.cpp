@@ -2,6 +2,8 @@
 #include <Graphics/Provider.h>
 #include <QtGui/QPainter>
 #include <QtCore/QDebug>
+#include <Config/BaseConfig.h>
+using namespace Config;
 namespace Graphics
 {
     /**
@@ -15,10 +17,10 @@ namespace Graphics
         _image = Provider::getEntityI("entity");
         _imageMoved = Provider::getEntityI("entityMoved");
         //On construit le boundingRect
-        _boundingRect = QRectF(0,0,Config::Config::TILE_SIZE,Config::Config::TILE_SIZE);
+        _boundingRect = QRectF(0,0,BaseConfig::TILE_SIZE,BaseConfig::TILE_SIZE);
         //On met à jour les coordonnées
-        _x = entity->getX() * Config::Config::TILE_SIZE;
-        _y = (entity->getY() + 1) * Config::Config::TILE_SIZE;
+        _x = entity->getX() * BaseConfig::TILE_SIZE;
+        _y = (entity->getY() + 1) * BaseConfig::TILE_SIZE;
         setPos(_x,_y);
     }
     /**
@@ -34,8 +36,8 @@ namespace Graphics
     void EntityItem::updateEntity(Map::Entity *entity)
     {
         _entity = entity;
-        _x = entity->getX() * Config::Config::TILE_SIZE;
-        _y = (entity->getY() + 1) * Config::Config::TILE_SIZE;
+        _x = entity->getX() * BaseConfig::TILE_SIZE;
+        _y = (entity->getY() + 1) * BaseConfig::TILE_SIZE;
         setPos(_x,_y);
         update(_boundingRect);
     }
