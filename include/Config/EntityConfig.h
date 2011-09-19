@@ -50,6 +50,10 @@ namespace Config
               */
             static const qint32 WILL_HOUSE = 5;
             /**
+              * Nombre maximal d'entités sur une maison
+              */
+            static const qint32 NB_ENTITIES_HOUSE_MAX = 3;
+            /**
               * Moral perdu quand l'entité coupe du bois
               */
             static const qint32 WILL_LOST_FOREST = 10;

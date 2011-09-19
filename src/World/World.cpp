@@ -310,7 +310,7 @@ namespace World
             _entities[i]->resetMove();
             //On restaure le moral si l'entité est sur une maison
             Map::Building &building = getBuilding(_entities[i]->getX(),_entities[i]->getY());
-            if (building.getType() == Map::HOUSE && building.isFinished())
+            if (building.getType() == Map::HOUSE && building.isFinished() && getNbEntitiesOnTile(_entities[i]->getX(),_entities[i]->getY()) <= EntityConfig::NB_ENTITIES_HOUSE_MAX)
             {
                 _entities[i]->restoreWill(EntityConfig::WILL_HOUSE);
             }

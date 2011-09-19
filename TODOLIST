@@ -2,7 +2,6 @@ TODOLIST
 _________
 GAMEPLAY
 _________
--Ajouter le fait que les entités ne regagnent pas leur moral si elles sont plus de X sur une tile.
 -Ajouter la création de nouvelles entités
 -Ajouter la gestion des ressources dans les unités
 -Ajouter la gestion de la suppression d'entités/batiments

@@ -12,11 +12,6 @@ namespace Config
     {
         public:
             //TODO: Faire une classe qui permetterait de charger/modifier les valeurs
-
-            //Ressources gagnées en travaillant
-
-
-
     };
 }
 #endif //CONFIG_CONFIG_H
