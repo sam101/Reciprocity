@@ -85,10 +85,6 @@ namespace Server
             //On gère selon le type.
             switch (type)
             {
-                //Si on a reçu un message de type vide
-                case Network::NONE:
-                    //On ne fait rien.
-                break;
                 //Si on a reçu un message de type "Login"
                 case Network::LOGIN:
                     handleLogin(socket,in);
