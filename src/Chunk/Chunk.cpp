@@ -168,6 +168,8 @@ namespace Chunk
       */
     void Chunk::newTurn(qint32 outputToRestore)
     {
+        //TODO: A déporter ailleurs
+        qint32 buildAdvance;
         for (int i = 0; i < Config::Config::CHUNK_SIZE; i++)
         {
             for (int j = 0; j < Config::Config::CHUNK_SIZE; j++)
@@ -178,7 +180,22 @@ namespace Chunk
                     _tiles[i][j].restoreOutput(outputToRestore);
                 }
                 //On avance la construction des batiments
-                _buildings[i][j].advanceBuild(1);                
+                switch (_buildings[i][j].getType())
+                {
+                    case Map::HOUSE:
+                        buildAdvance = Config::Config::LIFE_HOUSE_BUILD;
+                    break;
+                    case Map::ROAD:
+                        buildAdvance = Config::Config::LIFE_ROAD_BUILD;
+                    break;
+                    case Map::FARMLAND:
+                        buildAdvance = Config::Config::LIFE_FARMLAND_BUILD;
+                    break;
+                    default:
+                        buildAdvance = 1;
+                    break;
+                }
+                _buildings[i][j].advanceBuild(buildAdvance);
             }
         }
     }
