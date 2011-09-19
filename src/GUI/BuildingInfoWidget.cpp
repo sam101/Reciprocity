@@ -62,8 +62,8 @@ namespace GUI
             default:
                 text = "";
             break;
-
         }
+        _infoLabel->setText(text);
     }
 
 }

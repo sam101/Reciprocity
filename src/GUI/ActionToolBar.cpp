@@ -34,7 +34,11 @@ namespace GUI
         addSeparator();
         //On ajoute le TileInfoWidget
         _tileInfo = new TileInfoWidget;
-        addWidget(_tileInfo);
+        _tileInfoAction = addWidget(_tileInfo);
+        //On ajotue le BuildingInfoWidget
+        _buildingInfo = new BuildingInfoWidget;
+        _buildingInfoAction = addWidget(_buildingInfo);
+        _buildingInfoAction->setVisible(false);
         addSeparator();
         //On ajoute le EntityInfoWidget
         _entityInfo = new EntityInfoWidget;
@@ -98,6 +102,26 @@ namespace GUI
     {
         _tileInfo->displayTile(tile);
     }
+    /**
+      * Affiche un batiment dans le BuildingInfo
+      */
+    void ActionToolBar::displayBuilding(Map::Building *building)
+    {
+        //Si le batiment n'existe pas, on n'affiche pas le BuildingInfoWidget
+        if (building->getType() == Map::NONE)
+        {
+            _tileInfoAction->setVisible(true);
+            _buildingInfoAction->setVisible(false);
+        }
+        //Sinon,on affiche le batiment
+        else
+        {
+            _tileInfoAction->setVisible(false);
+            _buildingInfoAction->setVisible(true);
+            _buildingInfo->displayBuilding(building);
+        }
+    }
+
     /**
       * Affiche une entité dans le EntityInfoWidget
       */

@@ -146,6 +146,7 @@ namespace Client
       */
     Map::Tile* DataHandler::getTile(qint32 x, qint32 y)
     {
+        //TODO: A simplifier
         Chunk::Chunk *c;
         if (x < 0)
         {
@@ -176,5 +177,42 @@ namespace Client
         }
         //Sinon, on renvoie la tile
         return &c->getTile(x,y);
+    }
+    /**
+      * Renvoie un batiment en fonction du chunk, ou NULL si elle n'est pas présente
+      */
+    Map::Building* DataHandler::getBuilding(qint32 x, qint32 y)
+    {
+        //TODO: A simplifier
+        Chunk::Chunk *c;
+        if (x < 0)
+        {
+            if (y < 0)
+            {
+                c = getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE - 1);
+            }
+            else
+            {
+                c = getChunk(x / Config::Config::CHUNK_SIZE - 1,y / Config::Config::CHUNK_SIZE + 1);
+            }
+        }
+        else
+        {
+            if (y < 0)
+            {
+                c = getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE - 1);
+            }
+            else
+            {
+                c = getChunk(x / Config::Config::CHUNK_SIZE + 1,y / Config::Config::CHUNK_SIZE + 1);
+            }
+        }
+        //Si le chunk existe pas, on renvoie NULL
+        if (c == NULL)
+        {
+            return NULL;
+        }
+        //Sinon, on renvoie la tile
+        return &c->getBuilding(x,y);
     }
 }
