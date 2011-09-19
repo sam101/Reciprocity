@@ -290,7 +290,8 @@ namespace World
             //On remet à zéro le compteur de déplacement
             _entities[i]->resetMove();
             //On restaure le moral si l'entité est sur une maison
-            if (getBuilding(_entities[i]->getX(),_entities[i]->getY()).getType() == Map::HOUSE)
+            Map::Building &building = getBuilding(_entities[i]->getX(),_entities[i]->getY());
+            if (building.getType() == Map::HOUSE && building.isFinished())
             {
                 _entities[i]->restoreWill(Config::Config::WILL_HOUSE);
             }
