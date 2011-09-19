@@ -1,4 +1,5 @@
 #include <Map/Entity.h>
+using namespace Config;
 namespace Map
 {
     /**
@@ -151,7 +152,7 @@ namespace Map
     void Entity::restoreWill(qint32 will)
     {
         _will += will;
-        _will = _will > Config::Config::BASE_WILL ? Config::Config::BASE_WILL : _will;
+        _will = _will > EntityConfig::BASE_WILL ? EntityConfig::BASE_WILL : _will;
     }
 
     /**

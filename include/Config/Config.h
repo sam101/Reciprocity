@@ -12,35 +12,7 @@ namespace Config
     {
         public:
             //TODO: Faire une classe qui permetterait de modifier ces valeurs
-            /**
-              * Points de vie de base d'une entité
-              */
-            static const qint32 BASE_LIFE_POINTS = 100;
-            /**
-              * Volonté de base d'une entité
-              */
-            static const qint32 BASE_WILL = 100;
 
-            /**
-              * Nombre d'entités de base
-              */
-            static const qint32 NB_ENTITIES = 8;
-            /**
-              * Nourriture de base données aux entités
-              */
-            static const qint32 FOOD_ENTITY = 100;
-            /**
-              * Bois de base donné aux entités
-              */
-            static const qint32 WOOD_ENTITY = 100;
-            /**
-              * Zone dans laquelle les entités sont dispersées en début de partie
-              */
-            static const qint32 ENTITY_ZONE = 5;
-            /**
-              * Nombre de déplacements qu'une entité peut faire par tour
-              */
-            static const qint32 ENTITY_MOVE = 3;
             //Liste des couts des batiments
             /**
               * Coût en bois d'une maison

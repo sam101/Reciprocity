@@ -1,6 +1,7 @@
     #ifndef MAP_ENTITY_H
 #define MAP_ENTITY_H
 #include <Config/Config.h>
+#include <Config/EntityConfig.h>
 #include <QtCore/QDataStream>
 #include <QtCore/Qt>
 #include <QtCore/QVector>
@@ -77,7 +78,7 @@ namespace Map
             /**
               * Constructeur
               */
-            Entity(qint32 x = 0, qint32 y = 0, qint32 owner = -1, qint32 lifePoints = Config::Config::BASE_LIFE_POINTS, qint32 will = Config::Config::BASE_WILL, qint32 age = 0);
+            Entity(qint32 x = 0, qint32 y = 0, qint32 owner = -1, qint32 lifePoints = Config::EntityConfig::BASE_LIFE_POINTS, qint32 will = Config::EntityConfig::BASE_WILL, qint32 age = 0);
             /**
               * Renvoie l'id de l'entité
               */

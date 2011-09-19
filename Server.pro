@@ -105,7 +105,11 @@ HEADERS += \
     include/Network/NewTurnMessage.h \
     include/Map/ResourceType.h \
     include/Network/WorkMessage.h \
-    include/Network/WorkAcceptedMessage.h
+    include/Network/WorkAcceptedMessage.h \
+    include/Config/BaseConfig.h \
+    include/Config/EntityConfig.h
+
+
 
 
 

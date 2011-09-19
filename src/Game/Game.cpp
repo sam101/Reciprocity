@@ -1,5 +1,6 @@
 #include <Game/Game.h>
 #include <Config/BaseConfig.h>
+#include <Config/EntityConfig.h>
 
 #include <QtCore/QDebug>
 #include <Config/Config.h>
@@ -211,7 +212,7 @@ namespace Game
             return false;
         }
         //On vérifie que le joueur n'a pas demandé trop de déplacement
-        if ((abs(x) + abs(y)) > Config::Config::ENTITY_MOVE)
+        if ((abs(x) + abs(y)) > EntityConfig::ENTITY_MOVE)
         {
             return false;
         }
@@ -280,23 +281,23 @@ namespace Game
 
         } while (_world->getChunkByTile(xBase,yBase)->getType() != Chunk::LAND);
         //On ajoute les entitées de départ au joueur
-        for (int i = 0; i < Config::Config::NB_ENTITIES; i++)
+        for (int i = 0; i < EntityConfig::NB_ENTITIES; i++)
         {
             //On définit la position de l'entité (On s'arrange pour que l'entité ne soie jamais dans de l'eau)
             qint32 xEntity, yEntity;
             qint32 i = 0, j = 0;
             do
             {
-                xEntity = xBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE) + i;
-                yEntity = yBase + Random::next(-Config::Config::ENTITY_ZONE,Config::Config::ENTITY_ZONE) + j;
+                xEntity = xBase + Random::next(-EntityConfig::ENTITY_ZONE,EntityConfig::ENTITY_ZONE) + i;
+                yEntity = yBase + Random::next(-EntityConfig::ENTITY_ZONE,EntityConfig::ENTITY_ZONE) + j;
                 i += Random::next(-1,1);
                 j += Random::next(-1,1);
             } while (_world->getTile(xEntity,yEntity).getType() == Map::SEA);
             //On construit l'entité
             Map::Entity entity(xEntity,yEntity,player->getId());
             //On lui ajoute les ressources de base
-            entity.addResource(Map::FOOD,Config::Config::FOOD_ENTITY);
-            entity.addResource(Map::WOOD,Config::Config::WOOD_ENTITY);
+            entity.addResource(Map::FOOD,EntityConfig::FOOD_ENTITY);
+            entity.addResource(Map::WOOD,EntityConfig::WOOD_ENTITY);
             //On l'ajoute au monde
             addEntity(entity,xEntity,yEntity);
         }
