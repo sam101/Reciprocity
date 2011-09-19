@@ -28,5 +28,42 @@ namespace GUI
     /**
       * Affiche les informations sur le batiment
       */
+    void BuildingInfoWidget::displayBuilding(Map::Building *building)
+    {
+        //On change l'objet actuel
+        _building = building;
+        if (_building == NULL)
+        {
+            _imageLabel->setPixmap(QPixmap());
+            _infoLabel->setText("");
+            return;
+        }
+        //On affiche l'image
+        _imageLabel->setPixmap(_buildings[building->getType()]);
+        //On affiche le titre
+        QString text;
+        switch (building->getType())
+        {
+            case Map::HOUSE:
+                text = tr("Maison");
+            break;
+            case Map::FARMLAND:
+                text = tr("Champ");
+            break;
+            case Map::ROAD:
+                text = tr("Route");
+            break;
+            case Map::WALL:
+                text = tr("Mur");
+            break;
+            case Map::TOWER:
+                text = tr("Tour de défense");
+            break;
+            default:
+                text = "";
+            break;
+
+        }
+    }
 
 }
