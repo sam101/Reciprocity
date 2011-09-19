@@ -1,5 +1,6 @@
 #include <Game/Game.h>
 #include <Config/BaseConfig.h>
+#include <Config/CostsConfig.h>
 #include <Config/EntityConfig.h>
 
 #include <QtCore/QDebug>
@@ -325,7 +326,7 @@ namespace Game
             //Construction d'une maison
             case Map::HOUSE:
                 //On vérifie qu'on a assez de ressources
-                if (entity->getResource(Map::WOOD) < Config::Config::COST_HOUSE_WOOD)
+                if (entity->getResource(Map::WOOD) < EntityConfig::COST_HOUSE_WOOD)
                 {
                     return false;
                 }
@@ -334,7 +335,7 @@ namespace Game
                 {
                     //On enlève les ressources à l'entité et on indique qu'elle s'est déplacée
                     entity->setHasMoved();
-                    entity->delRessource(Map::WOOD,Config::Config::COST_HOUSE_WOOD);
+                    entity->delRessource(Map::WOOD,EntityConfig::COST_HOUSE_WOOD);
                 }
                 else
                 {
@@ -343,12 +344,12 @@ namespace Game
             break;
             //Construction d'un champ
             case Map::FARMLAND:
-                if (entity->getResource(Map::WOOD) < Config::Config::COST_FARMLAND_WOOD)
+                if (entity->getResource(Map::WOOD) < EntityConfig::COST_FARMLAND_WOOD)
                 {
                     return false;
                 }
                 //On vérifie que la tile à assez de productivité
-                if (_world->getTile(entity->getX(),entity->getY()).getOutput() < Config::Config::COST_FARMLAND_OUTPUT)
+                if (_world->getTile(entity->getX(),entity->getY()).getOutput() < EntityConfig::COST_FARMLAND_OUTPUT)
                 {
                     return false;
                 }
@@ -357,9 +358,9 @@ namespace Game
                 {
                     //On enlève les ressources à l'entité et on indique qu'elle s'est déplacée
                     entity->setHasMoved();
-                    entity->delRessource(Map::WOOD,Config::Config::COST_FARMLAND_WOOD);
+                    entity->delRessource(Map::WOOD,EntityConfig::COST_FARMLAND_WOOD);
                     //On enlève la productivité à la tile
-                    _world->getTile(entity->getX(),entity->getY()).delOutput(Config::Config::COST_FARMLAND_OUTPUT);
+                    _world->getTile(entity->getX(),entity->getY()).delOutput(EntityConfig::COST_FARMLAND_OUTPUT);
                 }
                 else
                 {
@@ -368,7 +369,7 @@ namespace Game
             break;
             //Construction d'une route
             case Map::ROAD:
-                if (entity->getResource(Map::STONE) < Config::Config::COST_ROAD_STONE)
+                if (entity->getResource(Map::STONE) < EntityConfig::COST_ROAD_STONE)
                 {
                     return false;
                 }
@@ -377,7 +378,7 @@ namespace Game
                 if (_world->addBuilding(entity->getX(),entity->getY(),Map::ROAD,entity->getOwner()))
                 {
                     entity->setHasMoved();
-                    entity->delRessource(Map::STONE,Config::Config::COST_ROAD_STONE);
+                    entity->delRessource(Map::STONE,EntityConfig::COST_ROAD_STONE);
                 }
             break;
             default:
