@@ -55,6 +55,7 @@ namespace GUI
         QString::number(entity->getMaxLifePoints()) + " Moral: " +
         QString::number(entity->getWill()) + tr("\n Bois: ") +
         QString::number(entity->getResource(Map::WOOD)) +
-        tr(" - Nourriture:") + QString::number(entity->getResource(Map::FOOD)));
+        tr(" - Nourriture: ") + QString::number(entity->getResource(Map::FOOD)) +
+        tr(" - Pierre: ") + QString::number(entity->getResource(Map::STONE)));
     }
 }
