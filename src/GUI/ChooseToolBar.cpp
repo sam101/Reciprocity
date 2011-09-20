@@ -107,6 +107,7 @@ namespace GUI
         }
         _separators[0]->setVisible(true);
         _separators[1]->setVisible(true);
+        _separators[2]->setVisible(true);
 
     }
     /**
