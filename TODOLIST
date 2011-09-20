@@ -5,6 +5,7 @@ _________
 -Ajouter la création de nouvelles entités
 -Ajouter la gestion des ressources dans les unités
 -Ajouter la gestion de la suppression d'entités/batiments
+-Ajouter la mort des entités
 
 -Ajouter la construction de bateaux
 
@@ -32,7 +33,8 @@ __________
 
 SERVEUR
 ________
--Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs,
+-Ajouter un HelloMessage
+-[OK ? ] Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs
 -Optimiser la pile réseau
 -Faire envoyer la taille du chunk par le serveur au client
 -Ajouter la centralisation des serveurs de jeu sur un serveur internet.
