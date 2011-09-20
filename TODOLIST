@@ -26,6 +26,8 @@ _______
 CLIENT
 __________
 
+-Changer "Deplacement" par "Resumé" et ajouter "Deplacement" dans la ChooseToolBar
+
 -Ajouter un message "Nouveau joueur" dans la fenêtre de jeu pendant le jeu
 -Gérer le cas où y'a plusieurs unités sur une tile.
 -Ajout d'un dessin de là où l'entité peut aller.
