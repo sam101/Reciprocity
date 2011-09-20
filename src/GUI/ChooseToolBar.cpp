@@ -20,6 +20,7 @@ namespace GUI
 
         //On construit les boutons
         QPushButton *move = new QPushButton(tr("Déplacement"));
+        connect(move,SIGNAL(clicked()),this,SLOT(moveClicked()));
         _move = addWidget(move);
 
         QPushButton *house = new QPushButton(tr("Maison"));
