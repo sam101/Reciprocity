@@ -341,8 +341,8 @@ namespace Server
         in << (qint32)(b.size() - sizeof(qint32));
         //On envoie le message
         socket->write(b);
-        //On envoie les informations de l'entité.
-        sendEntityData(socket,entity);
+        //On envoie les informations de l'entité à tous.
+        sendEntityDataToAll(socket,entity);
         //TODO: Envoyer les informations aux autres joueurs qui voient l'entité
     }
     /**
