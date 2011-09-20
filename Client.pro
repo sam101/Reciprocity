@@ -71,7 +71,8 @@ HEADERS += \
     include/Config/CostsConfig.h \
     include/Config/OutputConfig.h \
     include/Config/LifeConfig.h \
-    include/Config/WorkConfig.h
+    include/Config/WorkConfig.h \
+    include/Network/HelloMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -124,7 +125,10 @@ SOURCES += \
     src/GUI/ChooseToolBar.cpp \
     src/Network/WorkMessage.cpp \
     src/Network/WorkAcceptedMessage.cpp \
-    src/GUI/BuildingInfoWidget.cpp
+    src/GUI/BuildingInfoWidget.cpp \
+    src/Network/HelloMessage.cpp
+
+
 
 
 

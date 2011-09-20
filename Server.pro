@@ -53,7 +53,8 @@ SOURCES += \
     src/Network/EndTurnMessage.cpp \
     src/Network/NewTurnMessage.cpp \
     src/Network/WorkMessage.cpp \
-    src/Network/WorkAcceptedMessage.cpp
+    src/Network/WorkAcceptedMessage.cpp \
+    src/Network/HelloMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -109,7 +110,10 @@ HEADERS += \
     include/Config/BaseConfig.h \
     include/Config/EntityConfig.h \
     include/Config/CostsConfig.h \
-    include/Config/OutputConfig.h
+    include/Config/OutputConfig.h \
+    include/Network/HelloMessage.h
+
+
 
 
 
