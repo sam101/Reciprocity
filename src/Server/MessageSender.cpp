@@ -240,6 +240,10 @@ namespace Server
       */
     void MessageSender::sendEntityData(QTcpSocket *socket, Map::Entity *entity)
     {
+        if (entity == NULL)
+        {
+            return;
+        }
         //On construit le message
         Network::EntityDataMessage m(*entity);
         //On construit le byteArray dans lequel le mettre
