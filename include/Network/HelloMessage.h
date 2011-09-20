@@ -8,7 +8,7 @@ namespace Network
       * @brief Message envoyé du serveur au client les infos de base du serveur
       * @author Sam101
       */
-    class HelloMessage
+    class HelloMessage : public AbstractMessage
     {
         public:
             /**
