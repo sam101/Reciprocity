@@ -12,6 +12,10 @@ namespace Config
     {
         public:
             //TODO: Faire une classe qui permetterait de charger/modifier les valeurs
+            /**
+              * Version du protocole
+              */
+            static const qint32 PROTOCOL_VERSION = 1;
     };
 }
 #endif //CONFIG_CONFIG_H
