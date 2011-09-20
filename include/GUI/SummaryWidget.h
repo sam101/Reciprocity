@@ -28,7 +28,7 @@ namespace GUI
             /**
               * Login du joueur
               */
-            QString login;
+            QString _login;
             /**
               * Label contenant le titre
               */

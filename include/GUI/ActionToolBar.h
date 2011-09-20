@@ -27,9 +27,9 @@ namespace GUI
               */
             QPushButton *_select;
             /**
-              * Bouton utilisé pour déplacer une entité
+              * Bouton utilisé pour afficher le récapitulatif du joueur
               */
-            QPushButton *_move;
+            QPushButton *_summary;
             /**
               * Bouton utilisé pour construire
               */
@@ -81,10 +81,10 @@ namespace GUI
               */
             void selectButtonSelected();
             /**
-              * Appelé à l'appui sur le bouton déplacement,
+              * Appelé à l'appui sur le bouton d'affichage du récapitulatif,
               * gère l'envoi des signaux correspondant
               */
-            void moveButtonSelected();
+            void summaryButtonSelected();
             /**
               * Appelé à l'appui sur le bouton d'action
               */
@@ -119,9 +119,9 @@ namespace GUI
               */
             void selectSelected();
             /**
-              * Emit à l'appui sur "Se déplacer"
+              * Emit à l'appui sur "Récapitulatif"
               */
-            void moveSelected();
+            void summarySelected();
             /**
               * Emit à l'appui sur "Action"
               */

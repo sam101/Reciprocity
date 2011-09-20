@@ -20,11 +20,10 @@ namespace GUI
         connect(_select,SIGNAL(clicked()),this,SLOT(selectButtonSelected()));
         addWidget(_select);
         addSeparator();
-        //On construit le bouton de déplacement
-        _move = new QPushButton(tr("Déplacement"));
-        connect(_move,SIGNAL(clicked()),this,SLOT(moveButtonSelected()));
-        _move->setEnabled(false);
-        addWidget(_move);
+        //On construit le bouton de récapitulatif
+        _summary = new QPushButton(tr("Récapitulatif"));
+        connect(_summary,SIGNAL(clicked()),this,SLOT(summaryButtonSelected()));
+        addWidget(_summary);
         addSeparator();
         //On construit le bouton pour réaliser une action
         _action = new QPushButton(tr("Action"));
@@ -72,12 +71,12 @@ namespace GUI
         emit selectSelected();
     }
     /**
-      * Appelé à l'appui sur le bouton déplacement,
+      * Appelé à l'appui sur le bouton d'affichage du récapitulatif,
       * gère l'envoi des signaux correspondant
       */
-    void ActionToolBar::moveButtonSelected()
+    void ActionToolBar::summaryButtonSelected()
     {
-        emit moveSelected();
+        emit summarySelected();
     }
     /**
       * Appelé à l'appui sur le bouton d'action
@@ -129,12 +128,10 @@ namespace GUI
     {
         if (entity == NULL)
         {
-            _move->setEnabled(false);
             _action->setEnabled(false);
         }
         else
         {
-            _move->setEnabled(true);
             _action->setEnabled(true);
         }
         _entityInfo->displayEntity(entity);

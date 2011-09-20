@@ -62,7 +62,7 @@ namespace Client
             void addEntity(const Map::Entity &entity);
         public:
             /**
-              * Renvoie une entité
+              * Renvoie une entité. Renvoie NULL si le joueur ne peut la voir.
               */
             Map::Entity* getEntity(qint32 id);
             /**
