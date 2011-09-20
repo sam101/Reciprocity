@@ -98,7 +98,7 @@ namespace Client
         emit entityAdded(_entities[entity.getId()]);
     }
     /**
-      * Renvoie une entité
+      * Renvoie une entité. Renvoie NULL si le joueur ne peut la voir.
       */
     Map::Entity* DataHandler::getEntity(qint32 id)
     {
