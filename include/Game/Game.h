@@ -64,6 +64,15 @@ namespace Game
               */
             Map::Entity* getEntity(qint32 id);
             /**
+              * Renvoie un joueur
+              */
+            Player* getPlayer(qint32 id);
+            /**
+              * Renvoie un joueur.
+              * Surchargé constant
+              */
+            const Player* getPlayer(qint32 id) const;
+            /**
               * Ajoute une entité à la partie
               */
             void addEntity(const Map::Entity &entity, qint32 x, qint32 y);

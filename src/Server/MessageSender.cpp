@@ -261,6 +261,18 @@ namespace Server
         //On recupère la liste des joueurs pouvant voir l'entité
         QSet<qint32> playerEntityList;
         playerEntityList = _game->getWorld()->getPlayerEntityList(entity->getId());
+        //On envoie à tout les joueurs voyant l'entité.
+        QMutableMapIterator<QTcpSocket*, Client*> it(_clients);
+        while (it.hasNext())
+        {
+            //On recupère l'objet client
+            Client *c = it.next().value();
+            //Si il est dans la liste, on l'envoie
+            if (playerEntityList.contains(c->getPlayer()->getId()))
+            {
+                sendEntityData(c->getSocket(),entity);
+            }
+        }
     }
     /**
       * Envoie les informations à un joueur sur les chunk qu'il peut
@@ -381,11 +393,8 @@ namespace Server
     void MessageSender::sendBuildingBuilt(QTcpSocket *socket, qint32 entityId)
     {
         Map::Entity *entity = _game->getEntity(entityId);
-        //On envoie tout d'abord les informations sur l'entité au joueur
-        sendEntityData(socket,entity);
         //On renvoie les informations sur l'entité à tout les joueurs qui la voient
-        //TODO
-
+        sendEntityDataToAll(entity);
         //On renvoie les informations sur le chunk au joueur
         sendChunkData(socket,_game->getWorld()->getChunkByTile(entity->getX(),entity->getY()));
         //On envoie le message "BUILD_ACCEPTED"

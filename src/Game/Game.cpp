@@ -75,6 +75,21 @@ namespace Game
         return _world->getEntity(id);
     }
     /**
+      * Renvoie un joueur
+      */
+    Player* Game::getPlayer(qint32 id)
+    {
+        return _players[id];
+    }
+    /**
+      * Renvoie un joueur.
+      * Surchargé constant
+      */
+    const Player* Game::getPlayer(qint32 id) const
+    {
+        return _players[id];
+    }
+    /**
       * Ajoute une entité à la partie
       */
     void Game::addEntity(const Map::Entity &entity, qint32 x, qint32 y)
