@@ -72,7 +72,8 @@ HEADERS += \
     include/Config/OutputConfig.h \
     include/Config/LifeConfig.h \
     include/Config/WorkConfig.h \
-    include/Network/HelloMessage.h
+    include/Network/HelloMessage.h \
+    include/GUI/SummaryWidget.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -126,7 +127,10 @@ SOURCES += \
     src/Network/WorkMessage.cpp \
     src/Network/WorkAcceptedMessage.cpp \
     src/GUI/BuildingInfoWidget.cpp \
-    src/Network/HelloMessage.cpp
+    src/Network/HelloMessage.cpp \
+    src/GUI/SummaryWidget.cpp
+
+
 
 
 
