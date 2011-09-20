@@ -25,6 +25,10 @@ namespace GUI
             QAction *_separators[6];
             //Boutons des actions possibles
             /**
+              * Bouton de déplacement
+              */
+            QAction *_move;
+            /**
               * Bouton de construction
               */
             QAction *_build;
@@ -74,6 +78,10 @@ namespace GUI
 
         protected slots:
             /**
+              * Appelé au clic sur le bouton "se déplacer"
+              */
+            void moveClicked();
+            /**
               * Appelé au clic sur le bouton "travailler"
               */
             void workClicked();
@@ -98,6 +106,10 @@ namespace GUI
               */
             void towerClicked();
         signals:
+            /**
+              * Indique que l'utilisateur souhaite déplacer l'entité
+              */
+            void moveRequested();
             /**
               * Indique que l'utilisateur a demandé à construire un batiment
               */

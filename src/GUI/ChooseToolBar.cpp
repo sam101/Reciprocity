@@ -19,33 +19,48 @@ namespace GUI
         _separators[0] = addSeparator();
 
         //On construit les boutons
-        QPushButton *build = new QPushButton(tr("Construire"));
-        _build = addWidget(build);
-        connect(build,SIGNAL(clicked()),this,SLOT(showBuildings()));
+        QPushButton *move = new QPushButton(tr("Déplacement"));
+        _move = addWidget(move);
+
         QPushButton *house = new QPushButton(tr("Maison"));
         house->setToolTip(tr("Maison - ") + QString::number(CostsConfig::COST_HOUSE_WOOD) + tr("Bois") );
         connect(house,SIGNAL(clicked()),this,SLOT(houseClicked()));
         _house = addWidget(house);
+
         _separators[1] = addSeparator();
-        QPushButton *work = new QPushButton(tr("Travailler"));
-        connect(work,SIGNAL(clicked()),this,SLOT(workClicked()));
-        _work = addWidget(work);
+
+        QPushButton *build = new QPushButton(tr("Construire"));
+        _build = addWidget(build);
+        connect(build,SIGNAL(clicked()),this,SLOT(showBuildings()));
+
         QPushButton *field = new QPushButton(tr("Champ"));
         connect(field,SIGNAL(clicked()),this,SLOT(fieldClicked()));
         _field = addWidget(field);
+
         _separators[2] = addSeparator();
+
+        QPushButton *work = new QPushButton(tr("Travailler"));
+        connect(work,SIGNAL(clicked()),this,SLOT(workClicked()));
+        _work = addWidget(work);
+
         QPushButton *road = new QPushButton(tr("Route"));
         connect(road,SIGNAL(clicked()),this,SLOT(roadClicked()));
         _road = addWidget(road);
+
         _separators[3] = addSeparator();
+
         QPushButton *wall = new QPushButton(tr("Mur"));
         connect(wall,SIGNAL(clicked()),this,SLOT(wallClicked()));
         _wall = addWidget(wall);
+
         _separators[4] = addSeparator();
+
         QPushButton *tower = new QPushButton(tr("Tour"));
         connect(tower,SIGNAL(clicked()),this,SLOT(towerClicked()));
         _tower = addWidget(tower);
+
         _separators[5] = addSeparator();
+
         showNothing();
     }
     /**
@@ -54,6 +69,7 @@ namespace GUI
     void ChooseToolBar::showNothing()
     {
         _back->setVisible(false);
+        _move->setVisible(false);
         _build->setVisible(false);
         _work->setVisible(false);
 
@@ -75,6 +91,7 @@ namespace GUI
     void ChooseToolBar::showActions()
     {
         _back->setVisible(true);
+        _move->setVisible(true);
         _build->setVisible(true);
         _work->setVisible(true);
 
@@ -99,6 +116,7 @@ namespace GUI
     {
         _back->setVisible(true);
         _build->setVisible(false);
+        _move->setVisible(false);
         _work->setVisible(false);
 
         _house->setVisible(true);
@@ -113,6 +131,14 @@ namespace GUI
         }
         _separators[5]->setVisible(false);
     }
+    /**
+      * Appelé au clic sur le bouton "se déplacer"
+      */
+    void ChooseToolBar::moveClicked()
+    {
+        emit moveRequested();
+    }
+
     /**
       * Appelé au clic sur le bouton "travailler"
       */
