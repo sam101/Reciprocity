@@ -51,6 +51,7 @@ namespace GUI
         //On initialise la ChooseToolBar
         _chooseToolBar = new ChooseToolBar;
         addToolBar(Qt::RightToolBarArea,_chooseToolBar);
+        connect(_chooseToolBar,SIGNAL(moveRequested()),this,SLOT(setMove()));
         connect(_chooseToolBar,SIGNAL(buildRequested(Map::BuildingType)),this,SLOT(buildRequested(Map::BuildingType)));
         connect(_chooseToolBar,SIGNAL(workRequested()),this,SLOT(workRequested()));
         connect(_actionToolBar,SIGNAL(actionSelected()),_chooseToolBar,SLOT(showActions()));
