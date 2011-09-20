@@ -45,7 +45,6 @@ namespace GUI
         //On initialise le ActionsDock
         _actionToolBar = new ActionToolBar;
         connect(_actionToolBar,SIGNAL(endTurnSelected()),this,SLOT(endTurn()));
-        connect(_actionToolBar,SIGNAL(moveSelected()),this,SLOT(setMove()));
         connect(_actionToolBar,SIGNAL(selectSelected()),this,SLOT(setSelect()));
         addToolBar(Qt::TopToolBarArea,_actionToolBar);
         addToolBarBreak(Qt::TopToolBarArea);
