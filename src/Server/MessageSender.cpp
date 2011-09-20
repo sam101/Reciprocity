@@ -254,6 +254,15 @@ namespace Server
         socket->write(b);
     }
     /**
+      * Envoie les informations sur une entité à tout ceux qui peuvent la voir
+      */
+    void MessageSender::sendEntityDataToAll(Map::Entity *entity)
+    {
+        //On recupère la liste des joueurs pouvant voir l'entité
+        QSet<qint32> playerEntityList;
+        playerEntityList = _game->getWorld()->getPlayerEntityList(entity->getId());
+    }
+    /**
       * Envoie les informations à un joueur sur les chunk qu'il peut
       * voir ainsi que sur ses entités
       */

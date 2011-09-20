@@ -284,6 +284,32 @@ namespace World
         return _entities.at(id);
     }
     /**
+      * Renvoie la liste des joueurs voyant l'entité
+      */
+    QSet<qint32> World::getPlayerEntityList(qint32 id)
+    {
+        //TODO: Maintenir un cache
+        //On vérifie l'id de l'entité
+        if (id < 0 || id > _entities.size())
+        {
+            return QSet<qint32>();
+        }
+        //On déclare la liste
+        QSet<qint32> list;
+        //On recupère le chunk
+        Chunk::Chunk *chunk = getChunkByTile(_entities[id]->getX(),_entities[id]->getY());
+        //On recupère les entités du chunk
+        const QSet<qint32> &entitiesOnChunk = chunk->getEntities();
+        //On remplit la liste
+        QSetIterator<qint32> it(entitiesOnChunk);
+        while (it.hasNext())
+        {
+            list << _entities[it.next()]->getOwner();
+        }
+        //On renvoie la liste
+        return list;
+    }
+    /**
       * Renvoie le nombre d'entités à une position donnée
       */
     qint32 World::getNbEntitiesOnTile(qint32 x, qint32 y)

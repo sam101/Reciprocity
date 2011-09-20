@@ -1,4 +1,4 @@
-#ifndef WORLD_WORLD_H
+    #ifndef WORLD_WORLD_H
 #define WORLD_WORLD_H
 #include <QtCore/QDataStream>
 #include <QtCore/QVector>
@@ -115,6 +115,10 @@ namespace World
                   * Surchargé constant
                   */
                 const Map::Entity* getEntity(qint32 id) const;
+                /**
+                  * Renvoie la liste des joueurs voyant l'entité
+                  */
+                QSet<qint32> getPlayerEntityList(qint32 id);
                 /**
                   * Renvoie le nombre d'entités à une position donnée
                   */
