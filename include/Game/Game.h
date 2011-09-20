@@ -100,7 +100,7 @@ namespace Game
             /**
               * Renvoie les entités d'un joueur
               */
-            QList<Map::Entity*> getPlayerEntities(Player *player);
+            QList<Map::Entity*> getPlayerEntities(Player *player, QSet<Chunk::Chunk*> chunks);
             /**
               * Commence la partie
               */

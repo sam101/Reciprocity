@@ -196,16 +196,29 @@ namespace Game
         return c;
     }
     /**
-      * Renvoie les entités d'un joueur
+      * Renvoie les entités d'un groupe de chunks
       */
-    QList<Map::Entity*> Game::getPlayerEntities(Player *player)
+    QList<Map::Entity*> Game::getPlayerEntities(Player *player, QSet<Chunk::Chunk*> chunks)
     {
+        Q_UNUSED(player)
         //TODO: Ajouter un cache
-        //TODO: Ajouter les entités que le joueur voit.
         QList<Map::Entity*> l;
-        for (qint32 i = 0; i < player->getEntities().size(); i++)
+        //On parcourt la liste des chunks
+        QSetIterator<Chunk::Chunk*> it(chunks);
+        while (it.hasNext())
         {
-            l << _world->getEntity(player->getEntities()[i]);
+            //On recupère le chunk
+            Chunk::Chunk *chunk = it.next();
+            //On itère sur la liste des entités du chunk
+            QSetIterator<qint32> itEntity(chunk->getEntities());
+            while (itEntity.hasNext())
+            {
+                /*
+                 * On recupère le pointeur vers l'entité
+                 * et on l'ajoute à la liste
+                 */
+                l << getEntity(itEntity.next());
+            }
         }
         return l;
     }

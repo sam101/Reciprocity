@@ -289,13 +289,12 @@ namespace Server
         QSet<Chunk::Chunk*> chunks = _game->getPlayerChunks(_clients[socket]->getPlayer());
         //On itère pour recupérer tout les chunks.
         QSetIterator<Chunk::Chunk*> it(chunks);
-
         while (it.hasNext())
         {
             sendChunkData(socket,it.next());
         }
-        //On envoie toutes les entités.
-        QList<Map::Entity*> e = _game->getPlayerEntities(_clients[socket]->getPlayer());
+        //On envoie toutes les entités
+        QList<Map::Entity*> e = _game->getPlayerEntities(_clients[socket]->getPlayer(),chunks);
         for (int i = 0; i < e.size(); i++)
         {
             sendEntityData(socket,e[i]);
@@ -346,8 +345,7 @@ namespace Server
         //On envoie le message
         socket->write(b);
         //On envoie les informations de l'entité à tous.
-        sendEntityDataToAll(socket,entity);
-        //TODO: Envoyer les informations aux autres joueurs qui voient l'entité
+        sendEntityDataToAll(entity);
     }
     /**
       * Envoie l'information de nouveau tour aux joueurs
