@@ -29,6 +29,22 @@ namespace Network
               * Constructeur
               */
             HelloMessage(QString name, qint32 version);
+            /**
+              * Renvoie le nom du serveur
+              */
+            QString getName() const;
+            /**
+              * Renvoie la version du protocole
+              */
+            qint32 getVersion() const;
+            /**
+              * Envoie le message dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const HelloMessage &m);
+            /**
+              * Recupère le message d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, HelloMessage &m);
     };
 }
 #endif //NETWORK_HELLOMESSAGE_H
