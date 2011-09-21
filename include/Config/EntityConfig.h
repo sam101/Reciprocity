@@ -26,11 +26,11 @@ namespace Config
             /**
               * Nourriture de base données aux entités
               */
-            static const qint32 FOOD_ENTITY = 100;
+            static const qint32 FOOD_ENTITY = 50;
             /**
               * Bois de base donné aux entités
               */
-            static const qint32 WOOD_ENTITY = 100;
+            static const qint32 WOOD_ENTITY = 50;
             /**
               * Zone dans laquelle les entités sont dispersées en début de partie
               */
