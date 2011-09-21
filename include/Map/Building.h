@@ -92,6 +92,10 @@ namespace Map
               */
             qint32 getOwner() const;
             /**
+              * Change la position du batiment
+              */
+            void setXY(qint32 x, qint32 y);
+            /**
               * Change le type du batiment
               */
             void setType(BuildingType type);

@@ -73,6 +73,15 @@ namespace Map
         return _owner;
     }
     /**
+      * Change la position du batiment
+      */
+    void Building::setXY(qint32 x, qint32 y)
+    {
+        _x = x;
+        _y = y;
+    }
+
+    /**
       * Change le type du batiment
       */
     void Building::setType(BuildingType type)
@@ -123,8 +132,6 @@ namespace Map
         out << b._finished;
         out << b._lifePoints;
         out << b._maxLifePoints;
-        out << b._x;
-        out << b._y;
         out << b._owner;
 
         return out;
@@ -144,8 +151,6 @@ namespace Map
         in >> b._finished;
         in >> b._lifePoints;
         in >> b._maxLifePoints;
-        in >> b._x;
-        in >> b._y;
         in >> b._owner;
 
         return in;
