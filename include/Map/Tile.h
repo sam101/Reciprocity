@@ -102,6 +102,10 @@ namespace Map
             */
           void setTile(TileType type, qint32 flags = 0);
           /**
+            * Change la position de la tile
+            */
+          void setXY(qint32 x, qint32 y);
+          /**
             * Définit le rendement de la tile.
             */
           void setOutput(qint16 output);

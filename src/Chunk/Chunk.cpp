@@ -245,6 +245,17 @@ namespace Chunk
         in >> c._y;
         in >> (qint32&)c._type;
         in >> c._tiles;
+        //On recalcule la position des tiles
+        int signX = c._x >= 0 ? 1 : -1;
+        int signY = c._y >= 0 ? 1 : -1;
+
+        for (int i = 0; i < BaseConfig::CHUNK_SIZE; i++)
+        {
+            for (int j = 0; j < BaseConfig::CHUNK_SIZE; j++)
+            {
+                c._tiles[i][j].setXY(signX * j  + c._x,signY * i + c._y);
+            }
+        }
         in >> c._buildings;
         in >> c._entities;
 

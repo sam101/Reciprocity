@@ -83,6 +83,14 @@ namespace Map
         }
     }
     /**
+      * Change la position de la tile
+      */
+    void Tile::setXY(qint32 x, qint32 y)
+    {
+        _x = x;
+        _y = y;
+    }
+    /**
       * Définit le rendement de la tile.
       */
     void Tile::setOutput(qint16 output)
@@ -228,8 +236,6 @@ namespace Map
         out << (qint32)t._type;
         out << t._output;
         out << t._maxOutput;
-        out << t._x;
-        out << t._y;
         for (int i = 0; i < Map::MAX; i++)
         {
             out << t._resources[i];
@@ -251,8 +257,6 @@ namespace Map
         in >> (qint32&)t._type;
         in >> t._output;
         in >> t._maxOutput;
-        in >> t._x;
-        in >> t._y;
         for (int i = 0; i < Map::MAX; i++)
         {
             in >> t._resources[i];
