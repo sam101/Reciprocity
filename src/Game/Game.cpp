@@ -495,6 +495,10 @@ namespace Game
                         }
                         //On retire des points de vie au champ
                         building.damage(LifeConfig::LIFE_LOST_FARMLAND);
+                        if (building.getLifePoints() <= 0)
+                        {
+                            building.setType(Map::NONE);
+                        }
                         //On rajoute de la nouriture à l'entité
                         entity->addResource(Map::FOOD,WorkConfig::FARMLAND_FOOD_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::FARMLAND_FOOD_RANDOM,WorkConfig::FARMLAND_FOOD_RANDOM)) / 100);
                     break;
