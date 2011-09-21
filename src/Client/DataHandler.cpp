@@ -126,7 +126,13 @@ namespace Client
         }
         return NULL;
     }
-
+    /**
+      * Renvoie la liste des entités
+      */
+    QMap<qint32, Map::Entity*>& DataHandler::getEntities()
+    {
+        return _entities;
+    }
     /**
       * Renvoie la liste des joueurs présents
       */

@@ -36,6 +36,19 @@ namespace GUI
       */
     void SummaryWidget::updateEntityList()
     {
-        //TODO
+        //On vide le modèle
+        _model->clear();
+        //On itère sur la liste des entités
+        QMapIterator<qint32, Map::Entity*> it(_dataHandler->getEntities());
+        while (it.hasNext())
+        {
+            //On recupère l'entité
+            Map::Entity *entity = it.next().value();
+            //On ajoute l'entité que si elle nous appartient
+            if (entity->getOwner() == _client->getId())
+            {
+
+            }
+        }
     }
 }
