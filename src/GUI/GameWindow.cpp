@@ -17,7 +17,8 @@ namespace GUI
     _dataHandler(NULL),
     _view(NULL),
     _scene(NULL),
-    _currentEntity(-1)
+    _currentEntity(-1),
+    _widgetShow(MAP)
     {
         //On connecte les signaux
         connect(qApp,SIGNAL(aboutToQuit()),this,SLOT(saveWindowState()));
@@ -236,7 +237,17 @@ namespace GUI
       */
     void GameWindow::summaryRequested()
     {
-        _summaryWidget->show();
+        //TODO: Utiliser un QStackedLayout
+        if (_widgetShow == SUMMARY)
+        {
+            setCentralWidget(_view);
+            _widgetShow = MAP;
+        }
+        else
+        {
+            setCentralWidget(_summaryWidget);
+            _widgetShow = SUMMARY;
+        }
     }
     /**
       * Appelé quand le joueur veut finir son tour

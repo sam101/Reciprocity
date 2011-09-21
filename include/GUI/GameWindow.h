@@ -58,6 +58,19 @@ namespace GUI
               * Id de l'entité actuellement sélectionnée
               */
             qint32 _currentEntity;
+
+            /**
+              * Type de widget pouvant être affiché
+              */
+            enum WidgetType
+            {
+                MAP = 0,
+                SUMMARY = 1
+            };
+            /**
+              * Indique le widget actuellement affiché
+              */
+            WidgetType _widgetShow;
         public:
             /**
               * Constructeur
