@@ -37,11 +37,11 @@ namespace Map
             /**
               * Points de vie du batiment
               */
-            qint32 _lifePoints;
+            qint16 _lifePoints;
             /**
               * Points de vie maximums du batiment
               */
-            qint32 _maxLifePoints;
+            qint16 _maxLifePoints;
             /**
               * Position X du batiment
               */

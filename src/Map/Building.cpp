@@ -127,7 +127,7 @@ namespace Map
     QDataStream& operator<<(QDataStream &out, const Building &b)
     {
         out << b.BUILDING_MAGICNUMBER;
-        out << (qint32)b._type;
+        out << (qint8)b._type;
         out << b._level;
         out << b._finished;
         out << b._lifePoints;
@@ -146,7 +146,7 @@ namespace Map
         in >> magicNumber;
         Q_ASSERT(magicNumber == Building::BUILDING_MAGICNUMBER);
         //On recupère les données
-        in >> (qint32&)b._type;
+        in >> (qint8&)b._type;
         in >> b._level;
         in >> b._finished;
         in >> b._lifePoints;

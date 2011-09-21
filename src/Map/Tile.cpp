@@ -233,7 +233,7 @@ namespace Map
     {
         out << Tile::TILE_MAGICNUMBER;
         out << t._flags;
-        out << (qint32)t._type;
+        out << (qint8)t._type;
         out << t._output;
         out << t._maxOutput;
         for (int i = 0; i < Map::MAX; i++)
@@ -254,7 +254,7 @@ namespace Map
         Q_ASSERT(magicNumber == Tile::TILE_MAGICNUMBER);
         //On recupère les données
         in >> t._flags;
-        in >> (qint32&)t._type;
+        in >> (qint8&)t._type;
         in >> t._output;
         in >> t._maxOutput;
         for (int i = 0; i < Map::MAX; i++)
