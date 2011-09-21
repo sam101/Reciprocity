@@ -1,4 +1,5 @@
 #include <GUI/SummaryWidget.h>
+#include <QtGui/QStandardItem>
 #include <QtGui/QVBoxLayout>
 namespace GUI
 {
@@ -38,6 +39,11 @@ namespace GUI
     {
         //On vide le modèle
         _model->clear();
+        //On ajoute le header
+        QList<QStandardItem*> header;
+        header << new QStandardItem(tr("Id")) << new QStandardItem(tr("X")) << new QStandardItem(tr("Y"));
+        header << new QStandardItem(tr("PV","Points de vie"))<< new QStandardItem(tr("Moral"));
+        _model->appendRow(header);
         //On itère sur la liste des entités
         QMapIterator<qint32, Map::Entity*> it(_dataHandler->getEntities());
         while (it.hasNext())
@@ -47,8 +53,17 @@ namespace GUI
             //On ajoute l'entité que si elle nous appartient
             if (entity->getOwner() == _client->getId())
             {
+                //On ajoute une ligne
+                QList<QStandardItem*> line;
+                line << new QStandardItem(QString::number(entity->getId()));
+                line << new QStandardItem(QString::number(entity->getX()));
+                line << new QStandardItem(QString::number(entity->getY()));
+                line << new QStandardItem(QString::number(entity->getLifePoints()) + "/" + QString::number(entity->getMaxLifePoints()));
+                line << new QStandardItem(QString::number(entity->getWill()));
 
+                _model->appendRow(line);
             }
         }
+        _tableView->setModel(_model);
     }
 }
