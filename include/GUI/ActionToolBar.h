@@ -59,6 +59,10 @@ namespace GUI
               * Pointeur vers le DataHandler
               */
             Client::DataHandler *_dataHandler;
+            /**
+              * Indique si le résumé est actuellement actif
+              */
+            bool _summaryActive;
         public:
             /**
               * Constructeur

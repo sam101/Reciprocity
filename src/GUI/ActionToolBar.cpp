@@ -5,7 +5,8 @@ namespace GUI
     /**
       * Constructeur
       */
-    ActionToolBar::ActionToolBar()
+    ActionToolBar::ActionToolBar() :
+    _summaryActive(false)
     {
         setObjectName("ActionToolBar");
         setWindowTitle(tr("Barre d'actions"));
@@ -76,6 +77,15 @@ namespace GUI
       */
     void ActionToolBar::summaryButtonSelected()
     {
+        if (_summaryActive)
+        {
+            _summary->setText(tr("Récapitulatif"));
+        }
+        else
+        {
+            _summary->setText(tr("Vue carte  "));
+        }
+        _summaryActive = !_summaryActive;
         emit summarySelected();
     }
     /**
