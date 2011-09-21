@@ -46,6 +46,7 @@ namespace GUI
         _actionToolBar = new ActionToolBar;
         connect(_actionToolBar,SIGNAL(endTurnSelected()),this,SLOT(endTurn()));
         connect(_actionToolBar,SIGNAL(selectSelected()),this,SLOT(setSelect()));
+        connect(_actionToolBar,SIGNAL(summarySelected()),this,SLOT(summaryRequested()));
         addToolBar(Qt::TopToolBarArea,_actionToolBar);
         addToolBarBreak(Qt::TopToolBarArea);
         //On initialise la ChooseToolBar
@@ -55,6 +56,8 @@ namespace GUI
         connect(_chooseToolBar,SIGNAL(buildRequested(Map::BuildingType)),this,SLOT(buildRequested(Map::BuildingType)));
         connect(_chooseToolBar,SIGNAL(workRequested()),this,SLOT(workRequested()));
         connect(_actionToolBar,SIGNAL(actionSelected()),_chooseToolBar,SLOT(showActions()));
+        //On initialise le SummaryWidget
+        _summaryWidget = new SummaryWidget;
         //On redimensione la fenêtre
         resize(BaseConfig::CHUNK_SIZE * BaseConfig::TILE_SIZE,BaseConfig::CHUNK_SIZE * BaseConfig::TILE_SIZE);
     }
@@ -79,6 +82,7 @@ namespace GUI
             _chatDock->setClient(c);
             _dataHandler = _client->getDataHandler();
             _actionToolBar->setDataHandler(_dataHandler);
+            _summaryWidget->setClient(c);
         }
     }
     /**
@@ -138,6 +142,7 @@ namespace GUI
     void GameWindow::addEntity(Map::Entity *entity)
     {
         _scene->addEntity(entity);
+        _summaryWidget->updateEntityList();
     }
     /**
       * Met à jour une entité
@@ -145,8 +150,8 @@ namespace GUI
     void GameWindow::updateEntity(Map::Entity *entity)
     {
         _scene->updateEntity(entity);
+        _summaryWidget->updateEntityList();
     }
-
     /**
       * Appelé quand une tile a été selectionnée.
       * Transmet l'information à ActionBar pour
@@ -226,7 +231,13 @@ namespace GUI
         //On ferme la ChooseToolBar
         _chooseToolBar->showNothing();
     }
-
+    /**
+      * Appelé quand l'utilisateur souhaite voir le récapitulatif
+      */
+    void GameWindow::summaryRequested()
+    {
+        _summaryWidget->show();
+    }
     /**
       * Appelé quand le joueur veut finir son tour
       */

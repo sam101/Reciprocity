@@ -140,7 +140,6 @@ namespace GUI
     {
         emit moveRequested();
     }
-
     /**
       * Appelé au clic sur le bouton "travailler"
       */

@@ -7,6 +7,7 @@
 #include <GUI/ChatDockWidget.h>
 #include <GUI/ChooseToolBar.h>
 #include <GUI/GameScene.h>
+#include <GUI/SummaryWidget.h>
 
 #include <Client/Client.h>
 #include <Client/DataHandler.h>
@@ -49,6 +50,10 @@ namespace GUI
               * Pointeur vers la ChooseToolBar
               */
             ChooseToolBar *_chooseToolBar;
+            /**
+              * Pointeur vers le SummaryWidget
+              */
+            SummaryWidget *_summaryWidget;
             /**
               * Id de l'entité actuellement sélectionnée
               */
@@ -110,6 +115,10 @@ namespace GUI
               * Appelé quand une demande de construction a été faite
               */
             void buildRequested(Map::BuildingType type);
+            /**
+              * Appelé quand l'utilisateur souhaite voir le récapitulatif
+              */
+            void summaryRequested();
             /**
               * Appelé quand une demande de travail est faite
               */

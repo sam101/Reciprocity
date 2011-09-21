@@ -3,6 +3,7 @@
 #include <Client/Client.h>
 #include <Client/DataHandler.h>
 #include <QtGui/QLabel>
+#include <QtGui/QListView>
 #include <QtGui/QStandardItemModel>
 #include <QtGui/QTableView>
 #include <QtGui/QWidget>
