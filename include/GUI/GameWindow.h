@@ -1,6 +1,7 @@
 #ifndef GUI_GAMEWINDOW_H
 #define GUI_GAMEWINDOW_H
 #include <QtGui/QGraphicsView>
+#include <QtGui/QStackedLayout>
 #include <QtGui/QMainWindow>
 
 #include <GUI/ActionToolBar.h>
@@ -59,6 +60,10 @@ namespace GUI
               */
             qint32 _currentEntity;
 
+            /**
+              * Layout contenant les widgets
+              */
+            QStackedLayout *_stack;
             /**
               * Type de widget pouvant être affiché
               */

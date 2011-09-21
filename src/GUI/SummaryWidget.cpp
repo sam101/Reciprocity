@@ -15,6 +15,7 @@ namespace GUI
         setLayout(layout);
         //On construit le titre.
         _title = new QLabel("<h1>" + tr("Récapitulatif: ") + _login + "</h1>");
+        _title->setAlignment(Qt::AlignHCenter);
         layout->addWidget(_title);
         //On construit la tableView.
         _tableView = new QTableView;
@@ -22,6 +23,7 @@ namespace GUI
         _tableView->setCornerButtonEnabled(false);
         _tableView->horizontalHeader()->setVisible(false);
         _tableView->verticalHeader()->setVisible(false);
+        _tableView->setSelectionMode(QAbstractItemView::NoSelection);
         _tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         layout->addWidget(_tableView);
         //On construit le modèle

@@ -25,6 +25,11 @@ namespace GUI
         //On restaure l'état de la fenêtre
         restoreState(ClientSettings::getValue("GameWindowState",QVariant()).toByteArray());
         restoreGeometry(ClientSettings::getValue("GameWindowGeometry").toByteArray());
+        //On construit le widget principal et son layout
+        QWidget *widget = new QWidget;
+        _stack = new QStackedLayout;
+        widget->setLayout(_stack);
+        setCentralWidget(widget);
         //On initialise la vue
         _view = new QGraphicsView;
         //on active le support OpenGL si l'utilisateur l'a activé.
@@ -34,7 +39,7 @@ namespace GUI
             _view->setViewport(new QGLWidget);
         }
         #endif
-        setCentralWidget(_view);
+        _stack->addWidget(_view);
         //On initialise la scène.
         _scene = new GameScene;
         connect(_scene,SIGNAL(moveRequested(qint32,qint32)),this,SLOT(moveSelected(qint32,qint32)));
@@ -59,6 +64,8 @@ namespace GUI
         connect(_actionToolBar,SIGNAL(actionSelected()),_chooseToolBar,SLOT(showActions()));
         //On initialise le SummaryWidget
         _summaryWidget = new SummaryWidget;
+        _stack->addWidget(_summaryWidget);
+        _stack->setCurrentIndex(0);
         //On redimensione la fenêtre
         resize(BaseConfig::CHUNK_SIZE * BaseConfig::TILE_SIZE,BaseConfig::CHUNK_SIZE * BaseConfig::TILE_SIZE);
     }
@@ -237,15 +244,16 @@ namespace GUI
       */
     void GameWindow::summaryRequested()
     {
-        //TODO: Utiliser un QStackedLayout
+        //Si on est sur la vue "Résumé", on passe à la vue carte
         if (_widgetShow == SUMMARY)
         {
-            setCentralWidget(_view);
+            _stack->setCurrentIndex(0);
             _widgetShow = MAP;
         }
+        //Si on est sur la vue carte, on passe à la vue résumé
         else
         {
-            setCentralWidget(_summaryWidget);
+            _stack->setCurrentIndex(1);
             _widgetShow = SUMMARY;
         }
     }
