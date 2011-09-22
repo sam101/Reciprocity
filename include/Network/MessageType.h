@@ -37,8 +37,9 @@ namespace Network
         ENDTURN = 22,
         NEWTURN = 23,
         ATTACK = 24,
-        NEWENTITY = 25,
-        DELETE = 26
+        ATTACKED = 25,
+        NEWENTITY = 26,
+        DELETE = 27
     };
 }
 #endif //NETWORK_MESSAGETYPE_H
