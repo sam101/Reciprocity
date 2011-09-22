@@ -203,34 +203,27 @@
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="19"/>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="39"/>
-        <source>Pas de selection 
-</source>
+        <source>Pas de selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="53"/>
-        <source> - Vie: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/GUI/EntityInfoWidget.cpp" line="54"/>
-        <source>/</source>
+        <source>Vie: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="56"/>
-        <source>
- Bois: </source>
+        <source>Bois: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="58"/>
-        <source> - Nourriture: </source>
+        <source>Nourriture: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="59"/>
-        <source> - Pierre: </source>
+        <source>Pierre: </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -239,11 +232,6 @@
     <message>
         <location filename="../src/GUI/GameWindow.cpp" line="102"/>
         <source>Reciprocity - Tour </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/GUI/GameWindow.cpp" line="102"/>
-        <source>.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

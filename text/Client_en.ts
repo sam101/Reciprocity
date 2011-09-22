@@ -12,28 +12,28 @@
     <message>
         <location filename="../src/GUI/ActionToolBar.cpp" line="15"/>
         <source>Fin du tour</source>
-        <translation type="unfinished"></translation>
+        <translation>End turn</translation>
     </message>
     <message>
         <location filename="../src/GUI/ActionToolBar.cpp" line="20"/>
         <source>Selectionner</source>
-        <translation type="unfinished"></translation>
+        <translation>Select</translation>
     </message>
     <message>
         <location filename="../src/GUI/ActionToolBar.cpp" line="25"/>
         <location filename="../src/GUI/ActionToolBar.cpp" line="82"/>
         <source>Récapitulatif</source>
-        <translation type="unfinished"></translation>
+        <translation>Summary</translation>
     </message>
     <message>
         <location filename="../src/GUI/ActionToolBar.cpp" line="30"/>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>Action</translation>
     </message>
     <message>
         <location filename="../src/GUI/ActionToolBar.cpp" line="86"/>
         <source>Vue carte  </source>
-        <translation type="unfinished"></translation>
+        <translation>Map view</translation>
     </message>
 </context>
 <context>
@@ -46,27 +46,27 @@
     <message>
         <location filename="../src/GUI/BuildingInfoWidget.cpp" line="48"/>
         <source>Maison</source>
-        <translation type="unfinished"></translation>
+        <translation>House</translation>
     </message>
     <message>
         <location filename="../src/GUI/BuildingInfoWidget.cpp" line="51"/>
         <source>Champ</source>
-        <translation type="unfinished"></translation>
+        <translation>Field</translation>
     </message>
     <message>
         <location filename="../src/GUI/BuildingInfoWidget.cpp" line="54"/>
         <source>Route</source>
-        <translation type="unfinished"></translation>
+        <translation>Road</translation>
     </message>
     <message>
         <location filename="../src/GUI/BuildingInfoWidget.cpp" line="57"/>
         <source>Mur</source>
-        <translation type="unfinished"></translation>
+        <translation>Wall</translation>
     </message>
     <message>
         <location filename="../src/GUI/BuildingInfoWidget.cpp" line="60"/>
         <source>Tour de défense</source>
-        <translation type="unfinished"></translation>
+        <translation>Defence tower</translation>
     </message>
 </context>
 <context>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../src/GUI/ChatDockWidget.cpp" line="34"/>
         <source>Vous avez rejoint la partie</source>
-        <translation type="unfinished"></translation>
+        <translation>You joined the game</translation>
     </message>
 </context>
 <context>
@@ -82,62 +82,62 @@
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="16"/>
         <source>&lt;-</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;-</translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="22"/>
         <source>Déplacement</source>
-        <translation type="unfinished"></translation>
+        <translation>Move</translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="26"/>
         <source>Maison</source>
-        <translation type="unfinished"></translation>
+        <translation>House</translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="27"/>
         <source>Maison - </source>
-        <translation type="unfinished"></translation>
+        <translation>House - </translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="27"/>
         <source>Bois</source>
-        <translation type="unfinished"></translation>
+        <translation>Wood</translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="33"/>
         <source>Construire</source>
-        <translation type="unfinished"></translation>
+        <translation>Build</translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="37"/>
         <source>Champ</source>
-        <translation type="unfinished"></translation>
+        <translation>Field</translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="43"/>
         <source>Travailler</source>
-        <translation type="unfinished"></translation>
+        <translation>Work</translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="47"/>
         <source>Route</source>
-        <translation type="unfinished"></translation>
+        <translation>Road</translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="53"/>
         <source>Attaquer</source>
-        <translation type="unfinished"></translation>
+        <translation>Attack</translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="57"/>
         <source>Mur</source>
-        <translation type="unfinished"></translation>
+        <translation>Wall</translation>
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="63"/>
         <source>Tour</source>
-        <translation type="unfinished"></translation>
+        <translation>Tower</translation>
     </message>
 </context>
 <context>
@@ -203,34 +203,27 @@
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="19"/>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="39"/>
-        <source>Pas de selection 
-</source>
+        <source>Pas de selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="53"/>
-        <source> - Vie: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/GUI/EntityInfoWidget.cpp" line="54"/>
-        <source>/</source>
-        <translation type="unfinished"></translation>
+        <source>Vie: </source>
+        <translation>Life:</translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="56"/>
-        <source>
- Bois: </source>
+        <source>Bois: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="58"/>
-        <source> - Nourriture: </source>
+        <source>Nourriture: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="59"/>
-        <source> - Pierre: </source>
+        <source>Pierre: </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -239,11 +232,6 @@
     <message>
         <location filename="../src/GUI/GameWindow.cpp" line="102"/>
         <source>Reciprocity - Tour </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/GUI/GameWindow.cpp" line="102"/>
-        <source>.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

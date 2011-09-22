@@ -16,7 +16,7 @@ namespace GUI
         //On construit les deux widgets
         _imageLabel = new QLabel;
         layout->addWidget(_imageLabel);
-        _infoLabel = new QLabel(tr("Pas de selection \n"));
+        _infoLabel = new QLabel(tr("Pas de selection") + " \n");
         layout->addWidget(_infoLabel);
     }
     /**
@@ -36,7 +36,7 @@ namespace GUI
         if (entity == NULL)
         {
             _imageLabel->setPixmap(QPixmap());
-            _infoLabel->setText(tr("Pas de selection \n"));
+            _infoLabel->setText(tr("Pas de selection") + " \n");
             return;
         }
         QString author = _dataHandler->getPlayers()[entity->getOwner()].first;
@@ -50,12 +50,12 @@ namespace GUI
             _imageLabel->setPixmap(QPixmap::fromImage(Provider::getEntityI("entity")));
         }
         _infoLabel->setText(author + " - (" + QString::number(entity->getX()) + "," +
-        QString::number(entity->getY()) + ") " +   tr(" - Vie: ") +
-        QString::number(entity->getLifePoints()) + tr("/") +
-        QString::number(entity->getMaxLifePoints()) + " Moral: " +
-        QString::number(entity->getWill()) + tr("\n Bois: ") +
+        QString::number(entity->getY()) + ") - " +   tr("Vie: ") +
+        QString::number(entity->getLifePoints()) + "/" +
+        QString::number(entity->getMaxLifePoints()) + " " +  "Moral: " +
+        QString::number(entity->getWill()) + "\n " + tr("Bois: ") +
         QString::number(entity->getResource(Map::WOOD)) +
-        tr(" - Nourriture: ") + QString::number(entity->getResource(Map::FOOD)) +
-        tr(" - Pierre: ") + QString::number(entity->getResource(Map::STONE)));
+        + " - " + tr("Nourriture: ") + QString::number(entity->getResource(Map::FOOD)) +
+        + " - " + tr("Pierre: ") + QString::number(entity->getResource(Map::STONE)));
     }
 }
