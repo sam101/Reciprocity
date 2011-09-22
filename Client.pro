@@ -6,6 +6,8 @@ TEMPLATE = app
 
 DEFINES += OPENGL_SUPPORT
 
+TRANSLATIONS = text/Client_fr.ts text/Client_en.ts
+
 HEADERS += \
     include/Config/Config.h \
     include/Graphics/TileChunkItem.h \
