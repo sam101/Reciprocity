@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
 <TS version="2.0" language="en_US">
+<defaultcodec>UTF-8</defaultcodec>
 <context>
     <name>GUI::ActionToolBar</name>
     <message>
@@ -21,7 +22,7 @@
     <message>
         <location filename="../src/GUI/ActionToolBar.cpp" line="25"/>
         <location filename="../src/GUI/ActionToolBar.cpp" line="82"/>
-        <source>RÃ©capitulatif</source>
+        <source>Récapitulatif</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -64,7 +65,7 @@
     </message>
     <message>
         <location filename="../src/GUI/BuildingInfoWidget.cpp" line="60"/>
-        <source>Tour de dÃ©fense</source>
+        <source>Tour de défense</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -85,7 +86,7 @@
     </message>
     <message>
         <location filename="../src/GUI/ChooseToolBar.cpp" line="22"/>
-        <source>DÃ©placement</source>
+        <source>Déplacement</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -153,47 +154,47 @@
     </message>
     <message>
         <location filename="../src/GUI/ConnectingWindow.cpp" line="18"/>
-        <source>Statut: Connexion non initiÃ©e</source>
+        <source>Statut: Connexion non initiée</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/ConnectingWindow.cpp" line="33"/>
-        <source>Statut: Nom d&apos;hote trouvÃ©, connexion en cours...</source>
+        <source>Statut: Nom d&apos;hote trouvé, connexion en cours...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/ConnectingWindow.cpp" line="41"/>
-        <source>Statut: Connexion au serveur Ã©tablie, envoi des informations d&apos;authentification...</source>
+        <source>Statut: Connexion au serveur établie, envoi des informations d&apos;authentification...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/ConnectingWindow.cpp" line="50"/>
-        <source>Statut: Authentification rÃ©ussie !</source>
+        <source>Statut: Authentification réussie !</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/ConnectingWindow.cpp" line="64"/>
-        <source>Statut: RÃ©solution de l&apos;addresse du serveur en cours...</source>
+        <source>Statut: Résolution de l&apos;addresse du serveur en cours...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/GUI/ConnectingWindow.cpp" line="80"/>
+        <source>Statut: Erreur: La connexion a été refusée.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/GUI/ConnectingWindow.cpp" line="88"/>
+        <source>Statut: Erreur: Le nom d&apos;hôte n&apos;existe pas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/GUI/ConnectingWindow.cpp" line="95"/>
+        <source>Statut: Erreur: L&apos;authentification auprès du serveur a échoué</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/ConnectingWindow.cpp" line="73"/>
         <source>Statut: Une erreur inconnue s&apos;est produite</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/GUI/ConnectingWindow.cpp" line="80"/>
-        <source>Statut: Erreur: La connexion a Ã©tÃ© refusÃ©e.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/GUI/ConnectingWindow.cpp" line="88"/>
-        <source>Statut: Erreur: Le nom d&apos;hÃ´te n&apos;existe pas</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/GUI/ConnectingWindow.cpp" line="95"/>
-        <source>Statut: Erreur: L&apos;authentification auprÃ¨s du serveur a Ã©chouÃ©</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -255,7 +256,7 @@
     </message>
     <message>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="25"/>
-        <source>Pseudo Ã  utiliser:</source>
+        <source>Pseudo à utiliser:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -280,23 +281,23 @@
     </message>
     <message>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="52"/>
-        <source>Le pseudo Ã  utiliser doit Ãªtre rempli</source>
+        <source>Le pseudo à utiliser doit être rempli</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="52"/>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="56"/>
-        <source>Le pseudo Ã  utiliser doit Ãªtre rempli.</source>
+        <source>Le pseudo à utiliser doit être rempli.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="56"/>
-        <source>Le hash Ã  utiliser doit Ãªtre rempli</source>
+        <source>Le hash à utiliser doit être rempli</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="61"/>
-        <source>L&apos;ip du serveur Ã  rejoindre doit Ãªtre remplie</source>
+        <source>L&apos;ip du serveur à rejoindre doit être remplie</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -319,8 +320,8 @@
     </message>
     <message>
         <location filename="../src/GUI/SettingsWidget.cpp" line="39"/>
-        <source>Veuillez redemarrer le jeu Ã  chaque 
- changement de paramÃ¨tres</source>
+        <source>Veuillez redemarrer le jeu à chaque 
+ changement de paramètres</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -377,7 +378,7 @@
     <message>
         <location filename="../src/GUI/SummaryWidget.cpp" line="17"/>
         <location filename="../src/GUI/SummaryWidget.cpp" line="43"/>
-        <source>RÃ©capitulatif: </source>
+        <source>Récapitulatif: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -441,7 +442,7 @@
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="70"/>
-        <source>RiviÃ¨re</source>
+        <source>Rivière</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -499,7 +500,7 @@
     </message>
     <message>
         <location filename="../src/GUI/WaitingWindow.cpp" line="135"/>
-        <source>Le serveur s&apos;est dÃ©connectÃ© !</source>
+        <source>Le serveur s&apos;est déconnecté !</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

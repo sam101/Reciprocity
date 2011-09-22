@@ -6,6 +6,8 @@ CONFIG   += console
 
 TEMPLATE = app
 
+CODECFORTR = UTF-8
+
 INCLUDEPATH += include
 
 SOURCES += \

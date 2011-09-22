@@ -3,7 +3,7 @@ TARGET = Reciprocity
 CONFIG   += console
 INCLUDEPATH += include
 TEMPLATE = app
-
+CODECFORTR = UTF-8
 DEFINES += OPENGL_SUPPORT
 
 TRANSLATIONS = text/Client_fr.ts text/Client_en.ts

@@ -8,6 +8,8 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
+CODECFORTR = UTF-8
+
 INCLUDEPATH += include
 
 SOURCES += \
