@@ -50,6 +50,10 @@ namespace GUI
 
         _separators[3] = addSeparator();
 
+        QPushButton *attack = new QPushButton(tr("Attaquer"));
+        connect(attack,SIGNAL(clicked()),this,SLOT(attackClicked()));
+        _attack = addWidget(attack);
+
         QPushButton *wall = new QPushButton(tr("Mur"));
         connect(wall,SIGNAL(clicked()),this,SLOT(wallClicked()));
         _wall = addWidget(wall);
@@ -73,6 +77,7 @@ namespace GUI
         _move->setVisible(false);
         _build->setVisible(false);
         _work->setVisible(false);
+        _attack->setVisible(false);
 
         _house->setVisible(false);
         _field->setVisible(false);
@@ -95,6 +100,7 @@ namespace GUI
         _move->setVisible(true);
         _build->setVisible(true);
         _work->setVisible(true);
+        _attack->setVisible(true);
 
         _house->setVisible(false);
         _field->setVisible(false);
@@ -109,7 +115,7 @@ namespace GUI
         _separators[0]->setVisible(true);
         _separators[1]->setVisible(true);
         _separators[2]->setVisible(true);
-
+        _separators[3]->setVisible(true);
     }
     /**
       * Affiche les boutons de construction
@@ -120,6 +126,7 @@ namespace GUI
         _build->setVisible(false);
         _move->setVisible(false);
         _work->setVisible(false);
+        _attack->setVisible(true);
 
         _house->setVisible(true);
         _field->setVisible(true);
@@ -147,6 +154,14 @@ namespace GUI
     {
         emit workRequested();
     }
+    /**
+      * Appelé au clic sur le bouton "Attaquer"
+      */
+    void ChooseToolBar::attackClicked()
+    {
+        emit attackRequested();
+    }
+
     /**
       * Appelé au clic sur le bouton "Maison"
       */

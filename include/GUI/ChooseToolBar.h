@@ -36,6 +36,10 @@ namespace GUI
               * Bouton mettant l'entité au travail
               */
             QAction *_work;
+            /**
+              * Bouton ordonnant à l'entité d'attaquer
+              */
+            QAction *_attack;
             //Boutons des batiments constructibles
             /**
               * Bouton lançant la construction d'une maison
@@ -86,6 +90,10 @@ namespace GUI
               */
             void workClicked();
             /**
+              * Appelé au clic sur le bouton "Attaquer"
+              */
+            void attackClicked();
+            /**
               * Appelé au clic sur le bouton "Maison"
               */
             void houseClicked();
@@ -118,6 +126,10 @@ namespace GUI
               * Indique que l'utilisateur à demandé à faire travailler l'entité
               */
             void workRequested();
+            /**
+              * Indique que l'utilisateur à demandé à attaquer
+              */
+            void attackRequested();
     };
 }
 #endif //GUI_CHOOSETOOLBAR_H
