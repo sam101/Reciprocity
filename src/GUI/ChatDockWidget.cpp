@@ -51,6 +51,13 @@ namespace GUI
         _messages->addItem("<" + sender + ">" + contents);
     }
     /**
+      * Ajoute le message de nouveau tour dans le ChatDock
+      */
+    void ChatDockWidget::newTurnMessage(qint32 turnId)
+    {
+        _messages->addItem(tr("Début du tour ") + QString::number(turnId));
+    }
+    /**
       * Appelé lors de l'appui sur une touche.
       * Gère l'envoi du message
       */

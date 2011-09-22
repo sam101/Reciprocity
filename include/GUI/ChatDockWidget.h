@@ -43,6 +43,10 @@ namespace GUI
               * Ajoute un message
               */
             void messageRecevied(QString sender, QString contents);
+            /**
+              * Ajoute le message de nouveau tour dans le ChatDock
+              */
+            void newTurnMessage(qint32 turnId);
         protected:
             /**
               * Appelé lors de l'appui sur une touche.
