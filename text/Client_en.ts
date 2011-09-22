@@ -41,7 +41,7 @@
     <message>
         <location filename="../src/GUI/BuildingInfoWidget.cpp" line="19"/>
         <source>Pas de selection</source>
-        <translation type="unfinished"></translation>
+        <translation>No selection</translation>
     </message>
     <message>
         <location filename="../src/GUI/BuildingInfoWidget.cpp" line="48"/>
@@ -204,7 +204,7 @@
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="19"/>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="39"/>
         <source>Pas de selection</source>
-        <translation type="unfinished"></translation>
+        <translation>No selection</translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="53"/>
@@ -214,17 +214,17 @@
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="56"/>
         <source>Bois: </source>
-        <translation type="unfinished"></translation>
+        <translation>Wood:</translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="58"/>
         <source>Nourriture: </source>
-        <translation type="unfinished"></translation>
+        <translation>Food:</translation>
     </message>
     <message>
         <location filename="../src/GUI/EntityInfoWidget.cpp" line="59"/>
         <source>Pierre: </source>
-        <translation type="unfinished"></translation>
+        <translation>Stone:</translation>
     </message>
 </context>
 <context>
@@ -232,7 +232,7 @@
     <message>
         <location filename="../src/GUI/GameWindow.cpp" line="102"/>
         <source>Reciprocity - Tour </source>
-        <translation type="unfinished"></translation>
+        <translation>Reciprocity - Turn </translation>
     </message>
 </context>
 <context>
@@ -250,22 +250,22 @@
     <message>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="28"/>
         <source>Hash:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hash:</translation>
     </message>
     <message>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="32"/>
         <source>Adresse du serveur:</source>
-        <translation type="unfinished"></translation>
+        <translation>Server address:</translation>
     </message>
     <message>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="38"/>
         <source>Port:</source>
-        <translation type="unfinished"></translation>
+        <translation>Port:</translation>
     </message>
     <message>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="40"/>
         <source>Se connecter !</source>
-        <translation type="unfinished"></translation>
+        <translation>Connect !</translation>
     </message>
     <message>
         <location filename="../src/GUI/JoinGameWindow.cpp" line="52"/>
@@ -328,37 +328,37 @@
     <message>
         <location filename="../src/GUI/StartWindow.cpp" line="15"/>
         <source>Reciprocity</source>
-        <translation type="unfinished"></translation>
+        <translation>Reciprocity</translation>
     </message>
     <message>
         <location filename="../src/GUI/StartWindow.cpp" line="32"/>
         <source>&lt;h1 align=&quot;center&quot;&gt;Reciprocity&lt;/h1&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h1 align=&quot;center&quot;&gt;Reciprocity&lt;/h1&gt;</translation>
     </message>
     <message>
         <location filename="../src/GUI/StartWindow.cpp" line="36"/>
         <source>Nouvelle partie en local</source>
-        <translation type="unfinished"></translation>
+        <translation>Start new game</translation>
     </message>
     <message>
         <location filename="../src/GUI/StartWindow.cpp" line="40"/>
         <source>Rejoindre une partie</source>
-        <translation type="unfinished"></translation>
+        <translation>Join game</translation>
     </message>
     <message>
         <location filename="../src/GUI/StartWindow.cpp" line="44"/>
         <source>Jeu sur internet</source>
-        <translation type="unfinished"></translation>
+        <translation>Internet play</translation>
     </message>
     <message>
         <location filename="../src/GUI/StartWindow.cpp" line="48"/>
         <source>Options de jeu</source>
-        <translation type="unfinished"></translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <location filename="../src/GUI/StartWindow.cpp" line="52"/>
         <source>Quitter le jeu</source>
-        <translation type="unfinished"></translation>
+        <translation>Exit the game</translation>
     </message>
 </context>
 <context>
@@ -367,33 +367,33 @@
         <location filename="../src/GUI/SummaryWidget.cpp" line="17"/>
         <location filename="../src/GUI/SummaryWidget.cpp" line="43"/>
         <source>Récapitulatif: </source>
-        <translation type="unfinished"></translation>
+        <translation>Summary:</translation>
     </message>
     <message>
         <location filename="../src/GUI/SummaryWidget.cpp" line="56"/>
         <source>Id</source>
-        <translation type="unfinished"></translation>
+        <translation>Id</translation>
     </message>
     <message>
         <location filename="../src/GUI/SummaryWidget.cpp" line="56"/>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation>X</translation>
     </message>
     <message>
         <location filename="../src/GUI/SummaryWidget.cpp" line="56"/>
         <source>Y</source>
-        <translation type="unfinished"></translation>
+        <translation>Y</translation>
     </message>
     <message>
         <location filename="../src/GUI/SummaryWidget.cpp" line="57"/>
         <source>PV</source>
         <comment>Points de vie</comment>
-        <translation type="unfinished"></translation>
+        <translation>HP</translation>
     </message>
     <message>
         <location filename="../src/GUI/SummaryWidget.cpp" line="57"/>
         <source>Moral</source>
-        <translation type="unfinished"></translation>
+        <translation>Will</translation>
     </message>
 </context>
 <context>
@@ -401,57 +401,57 @@
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="20"/>
         <source>Pas de selection</source>
-        <translation type="unfinished"></translation>
+        <translation>No selection</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="48"/>
         <source>Hors terrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Out of land</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="58"/>
         <source>Mer</source>
-        <translation type="unfinished"></translation>
+        <translation>Sea</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="61"/>
         <source>Plaines</source>
-        <translation type="unfinished"></translation>
+        <translation>Lowland</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="64"/>
         <source>Foret</source>
-        <translation type="unfinished"></translation>
+        <translation>Forest</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="67"/>
         <source>Lac</source>
-        <translation type="unfinished"></translation>
+        <translation>Lake</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="70"/>
         <source>Rivière</source>
-        <translation type="unfinished"></translation>
+        <translation>River</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="73"/>
         <source>Montagne</source>
-        <translation type="unfinished"></translation>
+        <translation>Mountain</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="76"/>
         <source>Plage</source>
-        <translation type="unfinished"></translation>
+        <translation>Beach</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="79"/>
         <source>Marais</source>
-        <translation type="unfinished"></translation>
+        <translation>Swamp</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="82"/>
         <source>Inconnu</source>
-        <translation type="unfinished"></translation>
+        <translation>Unknown</translation>
     </message>
     <message>
         <location filename="../src/GUI/TileInfoWidget.cpp" line="84"/>
@@ -469,27 +469,27 @@
     <message>
         <location filename="../src/GUI/WaitingWindow.cpp" line="16"/>
         <source>Reciprocity - En attente du commencement de la partie...</source>
-        <translation type="unfinished"></translation>
+        <translation>Reciprocity - Waiting for game to begun...</translation>
     </message>
     <message>
         <location filename="../src/GUI/WaitingWindow.cpp" line="40"/>
         <source>Quitter</source>
-        <translation type="unfinished"></translation>
+        <translation>Exit</translation>
     </message>
     <message>
         <location filename="../src/GUI/WaitingWindow.cpp" line="45"/>
         <source>Lancer la partie</source>
-        <translation type="unfinished"></translation>
+        <translation>Launch game</translation>
     </message>
     <message>
         <location filename="../src/GUI/WaitingWindow.cpp" line="50"/>
         <source>Kicker</source>
-        <translation type="unfinished"></translation>
+        <translation>Kick</translation>
     </message>
     <message>
         <location filename="../src/GUI/WaitingWindow.cpp" line="135"/>
         <source>Le serveur s&apos;est déconnecté !</source>
-        <translation type="unfinished"></translation>
+        <translation>The server has disconnected !</translation>
     </message>
 </context>
 </TS>

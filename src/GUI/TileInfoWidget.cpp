@@ -81,6 +81,6 @@ namespace GUI
             default:
                 text = tr("Inconnu");
         }
-        _infoLabel->setText(text + " \n (" + QString::number((tile->getX())) + "," + QString::number(tile->getY()) + ") " + tr(" - ") + QString::number(tile->getOutput()) + tr("%"));
+        _infoLabel->setText(text + " \n (" + QString::number((tile->getX())) + "," + QString::number(tile->getY()) + ") - " + QString::number(tile->getOutput()) + "%";
     }
 }
