@@ -45,6 +45,14 @@ namespace Network
               * Renvoie la position Y à attaquer
               */
             qint32 getY() const;
+            /**
+              * Envoie le message un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const AttackMessage &m);
+            /**
+              * Recupère le message d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &i, AttackMessage &m);
     };
 }
 #endif //NETWORK_ATTACKMESSAGE_H

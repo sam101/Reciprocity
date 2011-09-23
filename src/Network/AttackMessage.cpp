@@ -33,4 +33,30 @@ namespace Network
     {
         return _y;
     }
+    /**
+      * Recupère le message d'un QDataStream
+      */
+    QDataStream& operator<<(QDataStream &out, const AttackMessage &m)
+    {
+        out << m.MAGICNUMBER_ATTACK;
+        out << m._entityId;
+        out << m._x;
+        out << m._y;
+
+        return out;
+    }
+    /**
+      * Recupère le message d'un QDataStream
+      */
+    QDataStream& operator>>(QDataStream &in, AttackMessage &m)
+    {
+        qint32 magicNumber;
+        in >> magicNumber;
+
+        in >> m._entityId;
+        in >> m._x;
+        in >> m._y;
+
+        return in;
+    }
 }
