@@ -8,7 +8,7 @@ namespace Network
       * @brief Message d'attaque d'une entité vers une entité/batiment
       * @author Sam101
       */
-    class AttackMessage
+    class AttackMessage : public AbstractMessage
     {
         public:
             /**
@@ -36,7 +36,7 @@ namespace Network
             /**
               * Renvoie l'id de l'entité
               */
-            qint32 getId() const;
+            qint32 getEntityId() const;
             /**
               * Renvoie la position X à attaquer
               */

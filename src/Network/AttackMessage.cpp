@@ -15,9 +15,9 @@ namespace Network
     /**
       * Renvoie l'id de l'entité
       */
-    qint32 AttackMessage::getId() const
+    qint32 AttackMessage::getEntityId() const
     {
-        return _id;
+        return _entityId;
     }
     /**
       * Renvoie la position X à attaquer
