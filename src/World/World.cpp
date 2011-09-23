@@ -345,6 +345,15 @@ namespace World
             {
                 _entities[i]->delWill(EntityConfig::WILL_LOST_TURN);
             }
+            //On baisse la nouriture de l'entité et sa vie si elle n'en a pas
+            if (_entities[i]->getResource(Map::FOOD) < EntityConfig::ENTITY_FOOD_USED)
+            {
+                _entities[i]->damage(EntityConfig::LIFE_STARVING);
+            }
+            else
+            {
+                _entities[i]->delRessource(Map::FOOD,EntityConfig::ENTITY_FOOD_USED);
+            }
         }
         //On propage le nouveau tour dans tout les chunks
         for (int i = 1; i < _chunkTL.size(); i++)

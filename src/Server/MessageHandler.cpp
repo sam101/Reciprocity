@@ -1,5 +1,6 @@
 #include <Server/MessageHandler.h>
 #include <Network/AbstractMessage.h>
+#include <Network/AttackMessage.h>
 #include <Network/BeginGameMessage.h>
 #include <Network/BuildMessage.h>
 #include <Network/EndTurnMessage.h>
@@ -124,6 +125,10 @@ namespace Server
                 //Travail des entités
                 case Network::WORK:
                     handleWork(socket,in);
+                break;
+                //Attaque d'une entité sur une autre entité/batiment
+                case Network::ATTACK:
+                    handleAttack(socket,in);
                 break;
                 default:
                     //On lit les données pour les effacer
@@ -417,5 +422,14 @@ namespace Server
         {
             emit workAccepted(socket,m.getEntity());
         }
+    }
+    /**
+      * Gère la reception d'un message d'attaque
+      */
+    void MessageHandler::handleAttack(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::AttackMessage m;
+        in >> m;
     }
 }

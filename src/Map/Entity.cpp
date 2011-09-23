@@ -124,6 +124,18 @@ namespace Map
         _y += y;
     }
     /**
+      * Enlève des points de vie à l'entité
+      */
+    void Entity::damage(qint32 d)
+    {
+        _lifePoints -= d;
+        if (_lifePoints <= 0)
+        {
+            _dead = true;
+        }
+    }
+
+    /**
       * Change la volonté de l'entité.
       */
     void Entity::setWill(qint32 will)

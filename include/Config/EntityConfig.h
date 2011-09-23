@@ -39,6 +39,14 @@ namespace Config
               * Nombre de déplacements qu'une entité peut faire par tour
               */
             static const qint32 ENTITY_MOVE = 3;
+            /**
+              * Nouriture dépensée par tour
+              */
+            static const qint32 ENTITY_FOOD_USED = 1;
+            /**
+              * Vie perdue quand l'entité meurt de faim
+              */
+            static const qint32 LIFE_STARVING = 10;
 
             //Gestion du moral
             /**
