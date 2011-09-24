@@ -3,6 +3,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <Game/Player.h>
+#include <Game/WorkHandler.h>
 #include <Map/BuildingType.h>
 #include <World/World.h>
 namespace Game
@@ -18,6 +19,10 @@ namespace Game
     {
         Q_OBJECT
         protected:
+            /**
+              * Pointeur vers le WorkHandler
+              */
+            WorkHandler *_workHandler;
             /**
               * Pointeur vers le monde
               */
