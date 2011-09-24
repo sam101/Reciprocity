@@ -2,6 +2,8 @@
 #define GAME_GAME_H
 #include <QtCore/QObject>
 #include <QtCore/QString>
+
+#include <Game/BuildHandler.h>
 #include <Game/Player.h>
 #include <Game/WorkHandler.h>
 #include <Map/BuildingType.h>
@@ -19,6 +21,10 @@ namespace Game
     {
         Q_OBJECT
         protected:
+            /**
+              * Pointeur vers le BuildHandler
+              */
+            BuildHandler *_buildHandler;
             /**
               * Pointeur vers le WorkHandler
               */

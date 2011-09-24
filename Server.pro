@@ -58,7 +58,8 @@ SOURCES += \
     src/Network/WorkAcceptedMessage.cpp \
     src/Network/HelloMessage.cpp \
     src/Network/AttackMessage.cpp \
-    src/Game/WorkHandler.cpp
+    src/Game/WorkHandler.cpp \
+    src/Game/BuildHandler.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -117,7 +118,10 @@ HEADERS += \
     include/Config/OutputConfig.h \
     include/Network/HelloMessage.h \
     include/Network/AttackMessage.h \
-    include/Game/WorkHandler.h
+    include/Game/WorkHandler.h \
+    include/Game/BuildHandler.h
+
+
 
 
 
