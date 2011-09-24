@@ -36,67 +36,91 @@ namespace Game
         {
             //Construction d'une maison
             case Map::HOUSE:
-                //On vérifie qu'on a assez de ressources
-                if (entity->getResource(Map::WOOD) < CostsConfig::COST_HOUSE_WOOD)
-                {
-                    return false;
-                }
-                //On construit la maison
-                if (_world->addBuilding(entity->getX(),entity->getY(),type,entity->getOwner()))
-                {
-                    //On enlève les ressources à l'entité et on indique qu'elle s'est déplacée
-                    entity->setHasMoved();
-                    entity->delRessource(Map::WOOD,CostsConfig::COST_HOUSE_WOOD);
-                }
-                else
-                {
-                    return false;
-                }
+                return buildHouse(entity);
             break;
             //Construction d'un champ
             case Map::FARMLAND:
-                if (entity->getResource(Map::WOOD) < CostsConfig::COST_FARMLAND_WOOD)
-                {
-                    return false;
-                }
-                //On vérifie que la tile à assez de productivité
-                if (_world->getTile(entity->getX(),entity->getY()).getOutput() < CostsConfig::COST_FARMLAND_OUTPUT)
-                {
-                    return false;
-                }
-                //On construit le champ
-                if (_world->addBuilding(entity->getX(),entity->getY(),type,entity->getOwner()))
-                {
-                    //On enlève les ressources à l'entité et on indique qu'elle s'est déplacée
-                    entity->setHasMoved();
-                    entity->delRessource(Map::WOOD,CostsConfig::COST_FARMLAND_WOOD);
-                    //On enlève la productivité à la tile
-                    _world->getTile(entity->getX(),entity->getY()).delOutput(CostsConfig::COST_FARMLAND_OUTPUT);
-                }
-                else
-                {
-                    return false;
-                }
+                return buildFarmland(entity);
             break;
             //Construction d'une route
             case Map::ROAD:
-                if (entity->getResource(Map::STONE) < CostsConfig::COST_ROAD_STONE)
-                {
-                    return false;
-                }
-
-                //On construit la route
-                if (_world->addBuilding(entity->getX(),entity->getY(),Map::ROAD,entity->getOwner()))
-                {
-                    entity->setHasMoved();
-                    entity->delRessource(Map::STONE,CostsConfig::COST_ROAD_STONE);
-                }
+                return buildRoad(entity);
             break;
             default:
                 //On ne fait rien
             break;
         }
 
+        return true;
+    }
+    /**
+      * Construit une maison
+      */
+    bool BuildHandler::buildHouse(Map::Entity *entity)
+    {
+        //On vérifie qu'on a assez de ressources
+        if (entity->getResource(Map::WOOD) < CostsConfig::COST_HOUSE_WOOD)
+        {
+            return false;
+        }
+        //On construit la maison
+        if (_world->addBuilding(entity->getX(),entity->getY(),Map::HOUSE,entity->getOwner()))
+        {
+            //On enlève les ressources à l'entité et on indique qu'elle s'est déplacée
+            entity->setHasMoved();
+            entity->delRessource(Map::WOOD,CostsConfig::COST_HOUSE_WOOD);
+        }
+        else
+        {
+            return false;
+        }
+        return true;
+    }
+    /**
+      * Construction d'un champ
+      */
+    bool BuildHandler::buildFarmland(Map::Entity *entity)
+    {
+        if (entity->getResource(Map::WOOD) < CostsConfig::COST_FARMLAND_WOOD)
+        {
+            return false;
+        }
+        //On vérifie que la tile à assez de productivité
+        if (_world->getTile(entity->getX(),entity->getY()).getOutput() < CostsConfig::COST_FARMLAND_OUTPUT)
+        {
+            return false;
+        }
+        //On construit le champ
+        if (_world->addBuilding(entity->getX(),entity->getY(),Map::FARMLAND,entity->getOwner()))
+        {
+            //On enlève les ressources à l'entité et on indique qu'elle s'est déplacée
+            entity->setHasMoved();
+            entity->delRessource(Map::WOOD,CostsConfig::COST_FARMLAND_WOOD);
+            //On enlève la productivité à la tile
+            _world->getTile(entity->getX(),entity->getY()).delOutput(CostsConfig::COST_FARMLAND_OUTPUT);
+        }
+        else
+        {
+            return false;
+        }
+        return true;
+    }
+    /**
+      * Construction d'une route
+      */
+    bool BuildHandler::buildRoad(Map::Entity *entity)
+    {
+        if (entity->getResource(Map::STONE) < CostsConfig::COST_ROAD_STONE)
+        {
+            return false;
+        }
+
+        //On construit la route
+        if (_world->addBuilding(entity->getX(),entity->getY(),Map::ROAD,entity->getOwner()))
+        {
+            entity->setHasMoved();
+            entity->delRessource(Map::STONE,CostsConfig::COST_ROAD_STONE);
+        }
         return true;
     }
 }

@@ -30,6 +30,19 @@ namespace Game
               * @return true si réussi, false si échoué
               */
             bool build(qint32 entityId, Map::BuildingType type);
+        protected:
+            /**
+              * Construction d'une maison
+              */
+            bool buildHouse(Map::Entity *entity);
+            /**
+              * Construction d'un champ
+              */
+            bool buildFarmland(Map::Entity *entity);
+            /**
+              * Construction d'une route
+              */
+            bool buildRoad(Map::Entity *entity);
     };
 }
 #endif //GAME_BUILDHANDLER_H
