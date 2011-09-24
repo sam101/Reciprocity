@@ -47,53 +47,23 @@ namespace Game
             break;
             //Sur une montagne, une entité peut recolter de la pierre.
             case Map::MOUNTAIN:
-                //On vérifie qu'on à pas détruit la montagne
-                if (tile.getOutput() <  WorkConfig::MOUNTAIN_STONE_BY_WORK / 2)
-                {
-                    return false;
-                }
-                //On vérifie qu'il y'a pas de batiments.
-                if (building.getType() != Map::NONE)
-                {
-                    return false;
-                }
-                //On retire le moral a l'entité
-                entity->delWill(EntityConfig::WILL_LOST_MOUNTAIN);
-                //On retire la productivité à la montagne
-                tile.delOutput(WorkConfig::MOUNTAIN_STONE_BY_WORK / 2);
-                //On ajoute la pierre à l'entité
-                entity->addResource(Map::STONE,WorkConfig::MOUNTAIN_STONE_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::MOUNTAIN_STONE_RANDOM,WorkConfig::MOUNTAIN_STONE_RANDOM)) / 100);
-                //On indique que l'entité s'est déplacée
-                entity->setHasMoved();
-                break;
+                return mountainWork(entity,tile,building);
+            break;
             default:
                 //Si la tile n'est pas spéciale, on teste le batiment
                 switch (building.getType())
                 {
                     //Si c'est un champ, l'entité recupère de la nouriture
                     case Map::FARMLAND:
-                        //On ne peut utiliser qu'un farmland terminé
-                        if (!building.isFinished())
-                        {
-                            return false;
-                        }
-                        //On retire des points de vie au champ
-                        building.damage(LifeConfig::LIFE_LOST_FARMLAND);
-                        if (building.getLifePoints() <= 0)
-                        {
-                            building.setType(Map::NONE);
-                        }
-                        //On rajoute de la nouriture à l'entité
-                        entity->addResource(Map::FOOD,WorkConfig::FARMLAND_FOOD_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::FARMLAND_FOOD_RANDOM,WorkConfig::FARMLAND_FOOD_RANDOM)) / 100);
                     break;
                     default:
-
+                        return farmlandWork(entity,building);
                     break;
                 }
 
             break;
         }
-        return true;
+        return false;
     }
     /**
       * Fait travailler une entité dans une forêt
@@ -118,6 +88,53 @@ namespace Game
         entity->addResource(Map::WOOD,WorkConfig::FOREST_WOOD_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::FOREST_WOOD_RANDOM,WorkConfig::FOREST_WOOD_RANDOM)) / 100);
         //On indique que l'entité s'est déplacée
         entity->setHasMoved();
+        //On retourne que tout s'est bien passé
+        return true;
+    }
+    /**
+      * Fait travailler une entité dans une montagne
+      */
+    bool WorkHandler::mountainWork(Map::Entity *entity, Map::Tile &tile, Map::Building &building)
+    {
+        //On vérifie qu'on à pas détruit la montagne
+        if (tile.getOutput() <  WorkConfig::MOUNTAIN_STONE_BY_WORK / 2)
+        {
+            return false;
+        }
+        //On vérifie qu'il y'a pas de batiments.
+        if (building.getType() != Map::NONE)
+        {
+            return false;
+        }
+        //On retire le moral a l'entité
+        entity->delWill(EntityConfig::WILL_LOST_MOUNTAIN);
+        //On retire la productivité à la montagne
+        tile.delOutput(WorkConfig::MOUNTAIN_STONE_BY_WORK / 2);
+        //On ajoute la pierre à l'entité
+        entity->addResource(Map::STONE,WorkConfig::MOUNTAIN_STONE_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::MOUNTAIN_STONE_RANDOM,WorkConfig::MOUNTAIN_STONE_RANDOM)) / 100);
+        //On indique que l'entité s'est déplacée
+        entity->setHasMoved();
+        //On retourne que tout s'est bien passé
+        return true;
+    }
+    /**
+      * Fait travailler une entité dans un champ
+      */
+    bool WorkHandler::farmlandWork(Map::Entity *entity, Map::Building &building)
+    {
+        //On ne peut utiliser qu'un farmland terminé
+        if (!building.isFinished())
+        {
+            return false;
+        }
+        //On retire des points de vie au champ
+        building.damage(LifeConfig::LIFE_LOST_FARMLAND);
+        if (building.getLifePoints() <= 0)
+        {
+            building.setType(Map::NONE);
+        }
+        //On rajoute de la nouriture à l'entité
+        entity->addResource(Map::FOOD,WorkConfig::FARMLAND_FOOD_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::FARMLAND_FOOD_RANDOM,WorkConfig::FARMLAND_FOOD_RANDOM)) / 100);
         //On retourne que tout s'est bien passé
         return true;
     }

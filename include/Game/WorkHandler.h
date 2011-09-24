@@ -35,6 +35,14 @@ namespace Game
               * Fait travailler une entité dans une forêt
               */
             bool forestWork(Map::Entity *entity, Map::Tile &tile, Map::Building &building);
+            /**
+              * Fait travailler une entité dans une montagne
+              */
+            bool mountainWork(Map::Entity *entity, Map::Tile &tile, Map::Building &building);
+            /**
+              * Fait travailler une entité dans un champ
+              */
+            bool farmlandWork(Map::Entity *entity, Map::Building &building);
     };
 }
 #endif //GAME_WORKHANDLER_H
