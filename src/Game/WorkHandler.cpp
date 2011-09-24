@@ -43,24 +43,7 @@ namespace Game
         {
             //Sur une forêt, une entité coupe du bois
             case Map::FOREST:
-                //On vérifie si la forêt est pas morte ?
-                if (tile.getOutput() < WorkConfig::FOREST_WOOD_BY_WORK)
-                {
-                    return false;
-                }
-                //On vérifie que il n'y'a pas de batiments
-                if (building.getType() != Map::NONE)
-                {
-                    return false;
-                }
-                //On retire le moral à l'entité
-                entity->delWill(EntityConfig::WILL_LOST_FOREST);
-                //On retire la productivité à la forêt
-                tile.delOutput(WorkConfig::FOREST_WOOD_BY_WORK);
-                //On rajoute le bois à l'entité
-                entity->addResource(Map::WOOD,WorkConfig::FOREST_WOOD_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::FOREST_WOOD_RANDOM,WorkConfig::FOREST_WOOD_RANDOM)) / 100);
-                //On indique que l'entité s'est déplacée
-                entity->setHasMoved();
+                return forestWork(entity,tile,building);
             break;
             //Sur une montagne, une entité peut recolter de la pierre.
             case Map::MOUNTAIN:
@@ -110,6 +93,32 @@ namespace Game
 
             break;
         }
+        return true;
+    }
+    /**
+      * Fait travailler une entité dans une forêt
+      */
+    bool WorkHandler::forestWork(Map::Entity *entity, Map::Tile &tile, Map::Building &building)
+    {
+        //On vérifie si la forêt est pas morte ?
+        if (tile.getOutput() < WorkConfig::FOREST_WOOD_BY_WORK)
+        {
+            return false;
+        }
+        //On vérifie que il n'y'a pas de batiments
+        if (building.getType() != Map::NONE)
+        {
+            return false;
+        }
+        //On retire le moral à l'entité
+        entity->delWill(EntityConfig::WILL_LOST_FOREST);
+        //On retire la productivité à la forêt
+        tile.delOutput(WorkConfig::FOREST_WOOD_BY_WORK);
+        //On rajoute le bois à l'entité
+        entity->addResource(Map::WOOD,WorkConfig::FOREST_WOOD_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::FOREST_WOOD_RANDOM,WorkConfig::FOREST_WOOD_RANDOM)) / 100);
+        //On indique que l'entité s'est déplacée
+        entity->setHasMoved();
+        //On retourne que tout s'est bien passé
         return true;
     }
 }

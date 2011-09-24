@@ -30,6 +30,11 @@ namespace Game
               * @return true si réussi, false si impossible
               */
             bool work(qint32 entityId);
+        protected:
+            /**
+              * Fait travailler une entité dans une forêt
+              */
+            bool forestWork(Map::Entity *entity, Map::Tile &tile, Map::Building &building);
     };
 }
 #endif //GAME_WORKHANDLER_H
