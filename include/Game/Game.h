@@ -1,4 +1,4 @@
-    #ifndef GAME_GAME_H
+#ifndef GAME_GAME_H
 #define GAME_GAME_H
 #include <QtCore/QObject>
 #include <QtCore/QString>
@@ -13,6 +13,7 @@ namespace Game
        * @brief Gère toutes les actions liées au jeu
        * @author Sam101
        */
+    //TODO: Couper cette classe en plusieurs.
     class Game : public QObject
     {
         Q_OBJECT
@@ -120,6 +121,10 @@ namespace Game
               * @return true si réussi, false si impossible
               */
             bool work(qint32 entityId);
+            /**
+              * Fait attaquer une entité
+              */
+            bool attack(qint32 entityId, qint32 x, qint32 y);
             /**
               * Commence un nouveau tour
               */

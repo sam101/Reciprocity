@@ -509,8 +509,14 @@ namespace Game
 
             break;
         }
-
         return true;
+    }
+    /**
+      * Fait attaquer une entité
+      */
+    bool Game::attack(qint32 entityId, qint32 x, qint32 y)
+    {
+        return false;
     }
 }
 

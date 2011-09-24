@@ -439,5 +439,10 @@ namespace Server
         {
             return;
         }
+        //On demande au jeu de faire l'attaque
+        if (_game->attack(m.getEntityId(),m.getX(),m.getY()))
+        {
+            emit attackAccepted(socket,m.getEntityId(),m.getX(),m.getY());
+        }
     }
 }
