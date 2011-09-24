@@ -383,8 +383,8 @@ namespace Server
         //On recupère le message
         Network::BuildMessage m;
         in >> m;
-        //On vérifie que le client est loggué.
-        if (_clients[socket]->getPlayer() == NULL)
+        //On vérifie que le client est loggué et que l'entité existe.
+        if (_clients[socket]->getPlayer() == NULL || _game->getEntity(m.getEntity()) == NULL)
         {
             return;
         }
@@ -408,7 +408,8 @@ namespace Server
         Network::WorkMessage m;
         in >> m;
         //On vérifie que le client est loggué.
-        if (_clients[socket]->getPlayer() == NULL)
+        if (_clients[socket]->getPlayer() == NULL ||
+        _game->getEntity(m.getEntity()) == NULL)
         {
             return;
         }
@@ -431,5 +432,12 @@ namespace Server
         //On recupère le message
         Network::AttackMessage m;
         in >> m;
+        //On vérifie que le client est loggué et que l'entité est bien à lui
+        if (_clients[socket]->getPlayer() == NULL ||
+        _game->getEntity(m.getEntityId()) == NULL ||
+        _clients[socket]->getPlayer()->getId() != _game->getEntity(m.getEntityId())->getOwner())
+        {
+            return;
+        }
     }
 }
