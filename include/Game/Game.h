@@ -5,6 +5,7 @@
 
 #include <Game/BuildHandler.h>
 #include <Game/Player.h>
+#include <Game/StartEntitiesHandler.h>
 #include <Game/WorkHandler.h>
 #include <Map/BuildingType.h>
 #include <World/World.h>
@@ -29,6 +30,10 @@ namespace Game
               * Pointeur vers le WorkHandler
               */
             WorkHandler *_workHandler;
+            /**
+              * Pointeur vers le StartEntitiesHandler
+              */
+            StartEntitiesHandler *_startEntitiesHandler;
             /**
               * Pointeur vers le monde
               */
