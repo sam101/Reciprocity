@@ -17,12 +17,17 @@ namespace Game
       * Constructeur
       */
     Game::Game() :
+    _workHandler(NULL),
     _world(NULL),
     _turn(0),
     _hasBegun(false)
     {
         //On alloue l'objet de monde
         _world = new World::World;
+        //On alloue les handlers
+        _buildHandler = new BuildHandler(_world,_players);
+        _workHandler = new WorkHandler(_world,_players);
+        _startEntitiesHandler = new StartEntitiesHandler(this,_world);
     }
     /**
       * Destructeur
@@ -37,6 +42,10 @@ namespace Game
         {
             delete _players[i];
         }
+        //On détruit les handlers
+        delete _workHandler;
+        delete _buildHandler;
+        delete _startEntitiesHandler;
     }
     /**
       * Renvoie le monde actuel
@@ -302,36 +311,7 @@ namespace Game
       */
     void Game::addStartEntities(Player *player)
     {
-        qint32 xBase, yBase;
-        //On trouve le chunk où spawner les unités
-        //On trouve le chunk de départ
-        do
-        {
-            xBase = Random::next(-200,200);
-            yBase = Random::next(-200,200);
-
-        } while (_world->getChunkByTile(xBase,yBase)->getType() != Chunk::LAND);
-        //On ajoute les entitées de départ au joueur
-        for (int i = 0; i < EntityConfig::NB_ENTITIES; i++)
-        {
-            //On définit la position de l'entité (On s'arrange pour que l'entité ne soie jamais dans de l'eau)
-            qint32 xEntity, yEntity;
-            qint32 i = 0, j = 0;
-            do
-            {
-                xEntity = xBase + Random::next(-EntityConfig::ENTITY_ZONE,EntityConfig::ENTITY_ZONE) + i;
-                yEntity = yBase + Random::next(-EntityConfig::ENTITY_ZONE,EntityConfig::ENTITY_ZONE) + j;
-                i += Random::next(-1,1);
-                j += Random::next(-1,1);
-            } while (_world->getTile(xEntity,yEntity).getType() == Map::SEA);
-            //On construit l'entité
-            Map::Entity entity(xEntity,yEntity,player->getId());
-            //On lui ajoute les ressources de base
-            entity.addResource(Map::FOOD,EntityConfig::FOOD_ENTITY);
-            entity.addResource(Map::WOOD,EntityConfig::WOOD_ENTITY);
-            //On l'ajoute au monde
-            addEntity(entity,xEntity,yEntity);
-        }
+        _startEntitiesHandler->addStartEntities(player);
     }
     /**
       * Construit un batiment
@@ -339,84 +319,7 @@ namespace Game
       */
     bool Game::build(qint32 entityId, Map::BuildingType type)
     {
-        Map::Entity *entity = _world->getEntity(entityId);
-        //Verification de l'id de l'entité
-        if (entity == NULL)
-        {
-            return false;
-        }
-        //On vérifie si l'entité ne s'est pas déplacée.
-        if (entity->hasMoved())
-        {
-            return false;
-        }
-        //On vérifie si l'entité possède les ressources
-        switch (type)
-        {
-            //Construction d'une maison
-            case Map::HOUSE:
-                //On vérifie qu'on a assez de ressources
-                if (entity->getResource(Map::WOOD) < CostsConfig::COST_HOUSE_WOOD)
-                {
-                    return false;
-                }
-                //On construit la maison
-                if (_world->addBuilding(entity->getX(),entity->getY(),type,entity->getOwner()))
-                {
-                    //On enlève les ressources à l'entité et on indique qu'elle s'est déplacée
-                    entity->setHasMoved();
-                    entity->delRessource(Map::WOOD,CostsConfig::COST_HOUSE_WOOD);
-                }
-                else
-                {
-                    return false;
-                }
-            break;
-            //Construction d'un champ
-            case Map::FARMLAND:
-                if (entity->getResource(Map::WOOD) < CostsConfig::COST_FARMLAND_WOOD)
-                {
-                    return false;
-                }
-                //On vérifie que la tile à assez de productivité
-                if (_world->getTile(entity->getX(),entity->getY()).getOutput() < CostsConfig::COST_FARMLAND_OUTPUT)
-                {
-                    return false;
-                }
-                //On construit le champ
-                if (_world->addBuilding(entity->getX(),entity->getY(),type,entity->getOwner()))
-                {
-                    //On enlève les ressources à l'entité et on indique qu'elle s'est déplacée
-                    entity->setHasMoved();
-                    entity->delRessource(Map::WOOD,CostsConfig::COST_FARMLAND_WOOD);
-                    //On enlève la productivité à la tile
-                    _world->getTile(entity->getX(),entity->getY()).delOutput(CostsConfig::COST_FARMLAND_OUTPUT);
-                }
-                else
-                {
-                    return false;
-                }
-            break;
-            //Construction d'une route
-            case Map::ROAD:
-                if (entity->getResource(Map::STONE) < CostsConfig::COST_ROAD_STONE)
-                {
-                    return false;
-                }
-
-                //On construit la route
-                if (_world->addBuilding(entity->getX(),entity->getY(),Map::ROAD,entity->getOwner()))
-                {
-                    entity->setHasMoved();
-                    entity->delRessource(Map::STONE,CostsConfig::COST_ROAD_STONE);
-                }
-            break;
-            default:
-                //On ne fait rien
-            break;
-        }
-
-        return true;
+        return _buildHandler->build(entityId,type);
     }
     /**
       * Fait travailler une entité
@@ -424,93 +327,14 @@ namespace Game
       */
     bool Game::work(qint32 entityId)
     {
-        Map::Entity *entity = _world->getEntity(entityId);
-        //Verification de l'id de l'entité
-        if (entity == NULL)
-        {
-            return false;
-        }
-        //On vérifie si l'entité ne s'est pas déplacée.
-        if (entity->hasMoved())
-        {
-            return false;
-        }
-        //On agit différament selon ce sur quoi l'entité se trouve.
-        Map::Tile &tile = _world->getTile(entity->getX(),entity->getY());
-        Map::Building &building = _world->getBuilding(entity->getX(),entity->getY());
-        switch (tile.getType())
-        {
-            //Sur une forêt, une entité coupe du bois
-            case Map::FOREST:
-                //On vérifie si la forêt est pas morte ?
-                if (tile.getOutput() < WorkConfig::FOREST_WOOD_BY_WORK)
-                {
-                    return false;
-                }
-                //On vérifie que il n'y'a pas de batiments
-                if (building.getType() != Map::NONE)
-                {
-                    return false;
-                }
-                //On retire le moral à l'entité
-                entity->delWill(EntityConfig::WILL_LOST_FOREST);
-                //On retire la productivité à la forêt
-                tile.delOutput(WorkConfig::FOREST_WOOD_BY_WORK);
-                //On rajoute le bois à l'entité
-                entity->addResource(Map::WOOD,WorkConfig::FOREST_WOOD_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::FOREST_WOOD_RANDOM,WorkConfig::FOREST_WOOD_RANDOM)) / 100);
-                //On indique que l'entité s'est déplacée
-                entity->setHasMoved();
-            break;
-            //Sur une montagne, une entité peut recolter de la pierre.
-            case Map::MOUNTAIN:
-                //On vérifie qu'on à pas détruit la montagne
-                if (tile.getOutput() <  WorkConfig::MOUNTAIN_STONE_BY_WORK / 2)
-                {
-                    return false;
-                }
-                //On vérifie qu'il y'a pas de batiments.
-                if (building.getType() != Map::NONE)
-                {
-                    return false;
-                }
-                //On retire le moral a l'entité
-                entity->delWill(EntityConfig::WILL_LOST_MOUNTAIN);
-                //On retire la productivité à la montagne
-                tile.delOutput(WorkConfig::MOUNTAIN_STONE_BY_WORK / 2);
-                //On ajoute la pierre à l'entité
-                entity->addResource(Map::STONE,WorkConfig::MOUNTAIN_STONE_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::MOUNTAIN_STONE_RANDOM,WorkConfig::MOUNTAIN_STONE_RANDOM)) / 100);
-                //On indique que l'entité s'est déplacée
-                entity->setHasMoved();
-                break;
-            default:
-                //Si la tile n'est pas spéciale, on teste le batiment
-                switch (building.getType())
-                {
-                    //Si c'est un champ, l'entité recupère de la nouriture
-                    case Map::FARMLAND:
-                        //On ne peut utiliser qu'un farmland terminé
-                        if (!building.isFinished())
-                        {
-                            return false;
-                        }
-                        //On retire des points de vie au champ
-                        building.damage(LifeConfig::LIFE_LOST_FARMLAND);
-                        if (building.getLifePoints() <= 0)
-                        {
-                            building.setType(Map::NONE);
-                        }
-                        //On rajoute de la nouriture à l'entité
-                        entity->addResource(Map::FOOD,WorkConfig::FARMLAND_FOOD_BY_WORK * (entity->getWill() + Random::next(-WorkConfig::FARMLAND_FOOD_RANDOM,WorkConfig::FARMLAND_FOOD_RANDOM)) / 100);
-                    break;
-                    default:
-
-                    break;
-                }
-
-            break;
-        }
-
-        return true;
+        return _workHandler->work(entityId);
+    }
+    /**
+      * Fait attaquer une entité
+      */
+    bool Game::attack(qint32 entityId, qint32 x, qint32 y)
+    {
+        return false;
     }
 }
 

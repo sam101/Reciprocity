@@ -56,7 +56,11 @@ SOURCES += \
     src/Network/NewTurnMessage.cpp \
     src/Network/WorkMessage.cpp \
     src/Network/WorkAcceptedMessage.cpp \
-    src/Network/HelloMessage.cpp
+    src/Network/HelloMessage.cpp \
+    src/Network/AttackMessage.cpp \
+    src/Game/WorkHandler.cpp \
+    src/Game/BuildHandler.cpp \
+    src/Game/StartEntitiesHandler.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -113,7 +117,19 @@ HEADERS += \
     include/Config/EntityConfig.h \
     include/Config/CostsConfig.h \
     include/Config/OutputConfig.h \
-    include/Network/HelloMessage.h
+    include/Network/HelloMessage.h \
+    include/Network/AttackMessage.h \
+    include/Game/WorkHandler.h \
+    include/Game/BuildHandler.h \
+    include/Game/StartEntitiesHandler.h
+
+
+
+
+
+
+
+
 
 
 

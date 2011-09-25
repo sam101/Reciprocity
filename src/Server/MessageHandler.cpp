@@ -1,5 +1,6 @@
 #include <Server/MessageHandler.h>
 #include <Network/AbstractMessage.h>
+#include <Network/AttackMessage.h>
 #include <Network/BeginGameMessage.h>
 #include <Network/BuildMessage.h>
 #include <Network/EndTurnMessage.h>
@@ -124,6 +125,10 @@ namespace Server
                 //Travail des entités
                 case Network::WORK:
                     handleWork(socket,in);
+                break;
+                //Attaque d'une entité sur une autre entité/batiment
+                case Network::ATTACK:
+                    handleAttack(socket,in);
                 break;
                 default:
                     //On lit les données pour les effacer
@@ -378,8 +383,8 @@ namespace Server
         //On recupère le message
         Network::BuildMessage m;
         in >> m;
-        //On vérifie que le client est loggué.
-        if (_clients[socket]->getPlayer() == NULL)
+        //On vérifie que le client est loggué et que l'entité existe.
+        if (_clients[socket]->getPlayer() == NULL || _game->getEntity(m.getEntity()) == NULL)
         {
             return;
         }
@@ -403,7 +408,8 @@ namespace Server
         Network::WorkMessage m;
         in >> m;
         //On vérifie que le client est loggué.
-        if (_clients[socket]->getPlayer() == NULL)
+        if (_clients[socket]->getPlayer() == NULL ||
+        _game->getEntity(m.getEntity()) == NULL)
         {
             return;
         }
@@ -416,6 +422,27 @@ namespace Server
         if (_game->work(m.getEntity()))
         {
             emit workAccepted(socket,m.getEntity());
+        }
+    }
+    /**
+      * Gère la reception d'un message d'attaque
+      */
+    void MessageHandler::handleAttack(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        Network::AttackMessage m;
+        in >> m;
+        //On vérifie que le client est loggué et que l'entité est bien à lui
+        if (_clients[socket]->getPlayer() == NULL ||
+        _game->getEntity(m.getEntityId()) == NULL ||
+        _clients[socket]->getPlayer()->getId() != _game->getEntity(m.getEntityId())->getOwner())
+        {
+            return;
+        }
+        //On demande au jeu de faire l'attaque
+        if (_game->attack(m.getEntityId(),m.getX(),m.getY()))
+        {
+            emit attackAccepted(socket,m.getEntityId(),m.getX(),m.getY());
         }
     }
 }

@@ -85,6 +85,10 @@ namespace Server
               * Gère la reception d'une demande de travail
               */
             void handleWork(QTcpSocket *socket, QDataStream &in);
+            /**
+              * Gère la reception d'un message d'attaque
+              */
+            void handleAttack(QTcpSocket *socket, QDataStream &in);
         signals:
             /**
               * Emis quand une erreur est survenue
@@ -156,6 +160,10 @@ namespace Server
               * Emit quand un travail d'entité a été accepté
               */
             void workAccepted(QTcpSocket *socket, qint32 entityId);
+            /**
+              * Emit quand une attaque a été éffectuée
+              */
+            void attackAccepted(QTcpSocket *socket, qint32 entityId, qint32 x, qint32 y);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

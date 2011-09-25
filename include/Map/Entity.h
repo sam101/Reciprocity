@@ -137,6 +137,10 @@ namespace Map
               */
             void move(qint32 x, qint32 y);
             /**
+              * Enlève des points de vie à l'entité
+              */
+            void damage(qint32 d);
+            /**
               * Change la volonté de l'entité.
               */
             void setWill(qint32 will);
