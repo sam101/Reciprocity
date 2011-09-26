@@ -76,7 +76,8 @@ HEADERS += \
     include/Config/WorkConfig.h \
     include/Network/HelloMessage.h \
     include/GUI/SummaryWidget.h \
-    include/Network/AttackMessage.h
+    include/Network/AttackMessage.h \
+    include/Network/ResourceMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -132,7 +133,10 @@ SOURCES += \
     src/GUI/BuildingInfoWidget.cpp \
     src/Network/HelloMessage.cpp \
     src/GUI/SummaryWidget.cpp \
-    src/Network/AttackMessage.cpp
+    src/Network/AttackMessage.cpp \
+    src/Network/ResourceMessage.cpp
+
+
 
 
 
