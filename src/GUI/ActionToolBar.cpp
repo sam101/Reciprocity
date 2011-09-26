@@ -116,6 +116,10 @@ namespace GUI
       */
     void ActionToolBar::displayBuilding(Map::Building *building, Map::Tile *tile)
     {
+        if (tile == NULL || building == NULL)
+        {
+            return;
+        }
         //Si le batiment n'existe pas, on n'affiche pas le BuildingInfoWidget
         if (building->getType() == Map::NONE)
         {
