@@ -76,6 +76,11 @@
         <source>Vous avez rejoint la partie</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/GUI/ChatDockWidget.cpp" line="58"/>
+        <source>Début du tour </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GUI::ChooseToolBar</name>
@@ -454,13 +459,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/GUI/TileInfoWidget.cpp" line="84"/>
-        <source> - </source>
+        <location filename="../src/GUI/TileInfoWidget.cpp" line="86"/>
+        <source>Bois: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/GUI/TileInfoWidget.cpp" line="84"/>
-        <source>%</source>
+        <location filename="../src/GUI/TileInfoWidget.cpp" line="88"/>
+        <source>Nourriture: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/GUI/TileInfoWidget.cpp" line="89"/>
+        <source>Pierre: </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
