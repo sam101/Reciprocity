@@ -46,6 +46,27 @@ namespace Network
               * Constructeur
               */
             ResourceMessage(MoveType type = NONE, qint32 entityId = -1, qint32 entityIdDest = -1);
+            /**
+              * Renvoie le type de déplacement
+              */
+            MoveType getType() const;
+            /**
+              * Renvoie l'id de l'entité source
+              */
+            qint32 getEntityId() const;
+            /**
+              * Renvoie l'id de l'entité destination
+              */
+            qint32 getEntityIdDest() const;
+            /**
+              * Envoie le message dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const ResourceMessage &m);
+            /**
+              * Recupère le message d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, ResourceMessage &m);
     };
 }
+
 #endif //NETWORK_RESOURCEMESSAGE_H
