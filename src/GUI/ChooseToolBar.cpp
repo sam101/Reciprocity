@@ -126,7 +126,7 @@ namespace GUI
         _build->setVisible(false);
         _move->setVisible(false);
         _work->setVisible(false);
-        _attack->setVisible(true);
+        _attack->setVisible(false);
 
         _house->setVisible(true);
         _field->setVisible(true);
