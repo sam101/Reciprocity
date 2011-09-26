@@ -1,6 +1,7 @@
 #ifndef GUI_BUILDINGINFOWIDGET_H
 #define GUI_BUILDINGINFOWIDGET_H
 #include <Map/Building.h>
+#include <Map/Tile.h>
 #include <QtGui/QLabel>
 #include <QtGui/QPixmap>
 #include <QtCore/QVector>
@@ -38,9 +39,9 @@ namespace GUI
               */
             BuildingInfoWidget();
             /**
-              * Affiche les informations sur le batiment
+              * Affiche les informations sur le batiment et sur la tile sous-jacente
               */
-            void displayBuilding(Map::Building *building);
+            void displayBuilding(Map::Building *building, Map::Tile *tile);
     };
 }
 #endif //GUI_BUILDINGINFOWIDGET_H

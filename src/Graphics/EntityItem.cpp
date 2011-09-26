@@ -53,7 +53,7 @@ namespace Graphics
         {
             painter->drawImage(0,0,_imageMoved);
         }
-        else
+        else if (!_entity->isDead())
         {
             painter->drawImage(0,0,_image);
         }

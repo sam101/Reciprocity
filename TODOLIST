@@ -1,5 +1,10 @@
 TODOLIST
 _________
+____
+
+0.1:
+____
+
 GAMEPLAY
 _________
 -Ajouter la création de nouvelles entités
@@ -13,26 +18,12 @@ _________
 -Ajouter le panel d'attaque et ses effets
 
 
--Ajouter la construction de bateaux
-
-COMMUN
-_______
-
--Gérer "Config" en non-volatile pour certains paramètres.
-
-
 CLIENT
 __________
 
 -Ajouter un message "Nouveau joueur" dans la fenêtre de jeu pendant le jeu
 -Gérer le cas où y'a plusieurs unités sur une tile.
--Ajout d'un dessin de là où l'entité peut aller.
 -Ajout de quelque chose pour identifier le propriétaire des entités
--Ajouter des messages sur la partie dans la ChatBox.
--Ajouter la possibilité de zoomer/dezoomer
--Amélioration de l'affichage des infos sur une tile
--Ajouter des commandes à la console de chat
--Amélioration de l'affichage dans EntityInfoWidget
 
 
 
@@ -40,7 +31,38 @@ SERVEUR
 ________
 -Ajouter un HelloMessage
 -[OK ? ] Envoyer correctement à tout les joueurs les entités de tout les joueurs sur les chunks vus par les différants joueurs
+
+_____
+
+0.2:
+_____
+
+GAMEPLAY
+_________
+
+-Ajouter la construction de bateaux
+-Donner une utilité aux routes.
+
+COMMUN
+_______
+
+-Gérer "Config" en non-volatile pour certains paramètres.
+
+
+
+CLIENT
+__________
+
+-Ajout d'un dessin de là où l'entité peut aller.
+-Ajouter des messages sur la partie dans la ChatBox.
+-Ajouter la possibilité de zoomer/dezoomer
+-Amélioration de l'affichage des infos sur une tile
+-Ajouter des commandes à la console de chat
+-Amélioration de l'affichage dans EntityInfoWidget
+
+
+SERVEUR
+________
 -Optimiser la pile réseau
 -Faire envoyer la taille du chunk par le serveur au client
 -Ajouter la centralisation des serveurs de jeu sur un serveur internet.
-

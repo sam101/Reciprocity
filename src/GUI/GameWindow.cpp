@@ -172,7 +172,7 @@ namespace GUI
         //On affiche la tile
         _actionToolBar->displayTile(_dataHandler->getTile(x,y));
         //On affiche le batiment
-        _actionToolBar->displayBuilding(_dataHandler->getBuilding(x,y));
+        _actionToolBar->displayBuilding(_dataHandler->getBuilding(x,y),_dataHandler->getTile(x,y));
         //On recupère l'entité
         Map::Entity *e = _dataHandler->getEntityByCoordinates(x,y);
         if (e == NULL || e->getOwner() != _client->getId())
