@@ -28,7 +28,7 @@ namespace GUI
     /**
       * Affiche les informations sur le batiment
       */
-    void BuildingInfoWidget::displayBuilding(Map::Building *building)
+    void BuildingInfoWidget::displayBuilding(Map::Building *building, Map::Tile *tile)
     {
         //On change l'objet actuel
         _building = building;
@@ -63,9 +63,16 @@ namespace GUI
                 text = "";
             break;
         }
-        _infoLabel->setText(text + " \n (" + QString::number(building->getX()) + "," + QString::number(building->getY()) + ") - "
+        _infoLabel->setText(text + " (" + QString::number(building->getX()) + "," + QString::number(building->getY()) + ") - "
         + QString::number(building->getLifePoints()) + "/" +
-        QString::number(building->getMaxLifePoints()) );
+        QString::number(building->getMaxLifePoints()) + "\n" +
+        tr("Bois: ") +
+        QString::number(tile->getResource(Map::WOOD)) +
+        + " - " + tr("Nourriture: ") + QString::number(tile->getResource(Map::FOOD)) +
+        + " - " + tr("Pierre: ") + QString::number(tile->getResource(Map::STONE))
+        );
+
+
 
     }
 

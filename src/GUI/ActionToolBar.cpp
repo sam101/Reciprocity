@@ -114,7 +114,7 @@ namespace GUI
     /**
       * Affiche un batiment dans le BuildingInfo
       */
-    void ActionToolBar::displayBuilding(Map::Building *building)
+    void ActionToolBar::displayBuilding(Map::Building *building, Map::Tile *tile)
     {
         //Si le batiment n'existe pas, on n'affiche pas le BuildingInfoWidget
         if (building->getType() == Map::NONE)
@@ -127,7 +127,7 @@ namespace GUI
         {
             _tileInfoAction->setVisible(false);
             _buildingInfoAction->setVisible(true);
-            _buildingInfo->displayBuilding(building);
+            _buildingInfo->displayBuilding(building,tile);
         }
     }
 

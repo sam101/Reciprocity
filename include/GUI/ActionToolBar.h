@@ -102,9 +102,10 @@ namespace GUI
               */
             void displayTile(Map::Tile *tile);
             /**
-              * Affiche un batiment dans le BuildingInfo
+              * Affiche les informations sur le batiment et sur la tile sous-jacente
+              * dans le BuildingInfoWidget
               */
-            void displayBuilding(Map::Building *building);
+            void displayBuilding(Map::Building *building, Map::Tile *tile);
             /**
               * Affiche une entité dans le EntityInfoWidget
               */
