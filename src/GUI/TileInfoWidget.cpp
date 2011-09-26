@@ -81,6 +81,13 @@ namespace GUI
             default:
                 text = tr("Inconnu");
         }
-        _infoLabel->setText(text + " \n (" + QString::number((tile->getX())) + "," + QString::number(tile->getY()) + ") - " + QString::number(tile->getOutput()) + "%");
+        _infoLabel->setText(text + " (" + QString::number((tile->getX())) + "," +
+        QString::number(tile->getY()) + ") - " +
+        QString::number(tile->getOutput()) + "%" + "\n" + tr("Bois: ") +
+        QString::number(tile->getResource(Map::WOOD)) +
+        + " - " + tr("Nourriture: ") + QString::number(tile->getResource(Map::FOOD)) +
+        + " - " + tr("Pierre: ") + QString::number(tile->getResource(Map::STONE))
+        );
+
     }
 }
