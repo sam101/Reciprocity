@@ -34,7 +34,7 @@ ________
 
 _____
 
-0.2:
+0.2+:
 _____
 
 GAMEPLAY
@@ -42,6 +42,8 @@ _________
 
 -Ajouter la construction de bateaux
 -Donner une utilité aux routes.
+-Ajouter le support des niveaux d'entités et de l'expérience
+-Ajouter le trade entre joueurs, les routes commerciales
 
 COMMUN
 _______
@@ -59,6 +61,7 @@ __________
 -Amélioration de l'affichage des infos sur une tile
 -Ajouter des commandes à la console de chat
 -Amélioration de l'affichage dans EntityInfoWidget
+
 
 
 SERVEUR
