@@ -29,6 +29,22 @@ namespace Network
               * Constructeur
               */
             AttackedMessage(qint32 destId = -1, qint32 sourceId = -1);
+            /**
+              * Renvoie l'id de l'entité attaquée
+              */
+            qint32 getDestId() const;
+            /**
+              * Renvoie l'id de l'entité attaquante
+              */
+            qint32 getSourceId() const;
+            /**
+              * Envoie le message dans un QDataStream
+              */
+            friend QDataStream& operator<<(QDataStream &out, const AttackedMessage &m);
+            /**
+              * Recupère le message d'un QDataStream
+              */
+            friend QDataStream& operator>>(QDataStream &in, AttackedMessage &m);
     };
 }
 #endif //NETWORK_ATTACKEDMESSAGE_H

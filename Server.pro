@@ -61,7 +61,8 @@ SOURCES += \
     src/Game/WorkHandler.cpp \
     src/Game/BuildHandler.cpp \
     src/Game/StartEntitiesHandler.cpp \
-    src/Network/ResourceMessage.cpp
+    src/Network/ResourceMessage.cpp \
+    src/Network/AttackedMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -123,7 +124,10 @@ HEADERS += \
     include/Game/WorkHandler.h \
     include/Game/BuildHandler.h \
     include/Game/StartEntitiesHandler.h \
-    include/Network/ResourceMessage.h
+    include/Network/ResourceMessage.h \
+    include/Network/AttackedMessage.h
+
+
 
 
 
