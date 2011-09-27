@@ -1,9 +1,9 @@
 #ifndef GAME_STARTENTITIESHANDLER_H
 #define GAME_STARTENTITIESHANDLER_H
-#include <Game/Game.h>
 #include <World/World.h>
 namespace Game
 {
+    class Player;
     class Game;
     /**
       * Gère la gestion des entités de base des joueurs

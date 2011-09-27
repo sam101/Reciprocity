@@ -1,7 +1,7 @@
 #include <Game/StartEntitiesHandler.h>
 
 #include <Config/EntityConfig.h>
-
+#include <Game/Game.h>
 #include <Tools/Random.h>
 
 using namespace Config;
