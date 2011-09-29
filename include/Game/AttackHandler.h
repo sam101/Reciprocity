@@ -1,5 +1,7 @@
 #ifndef NETWORK_ATTACKHANDLER_H
 #define NETWORK_ATTACKHANDLER_H
+#include <World/World.h>
+#include <Game/Player.h>
 namespace Network
 {
     /**
