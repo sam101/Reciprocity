@@ -1,8 +1,8 @@
-#ifndef NETWORK_ATTACKHANDLER_H
-#define NETWORK_ATTACKHANDLER_H
+#ifndef GAME_ATTACKHANDLER_H
+#define GAME_ATTACKHANDLER_H
 #include <World/World.h>
 #include <Game/Player.h>
-namespace Network
+namespace Game
 {
     /**
       * Gère la gestion de l'attaque d'une entité sur une entité/batiment
@@ -24,4 +24,4 @@ namespace Network
 
     };
 }
-#endif //NETWORK_ATTACKHANDLER_H
+#endif //GAME_ATTACKHANDLER_H
