@@ -3,6 +3,7 @@
 #include <Network/AttackMessage.h>
 #include <Network/BeginGameMessage.h>
 #include <Network/BuildMessage.h>
+#include <Network/DeleteMessage.h>
 #include <Network/EndTurnMessage.h>
 #include <Network/GetServerDataMessage.h>
 #include <Network/KickPlayerMessage.h>
@@ -129,6 +130,10 @@ namespace Server
                 //Attaque d'une entité sur une autre entité/batiment
                 case Network::ATTACK:
                     handleAttack(socket,in);
+                break;
+                //Suppression d'une entité/batiment
+                case Network::DELETE:
+                    handleDelete(socket,in);
                 break;
                 default:
                     //On lit les données pour les effacer
@@ -444,5 +449,15 @@ namespace Server
         {
             emit attackAccepted(socket,m.getEntityId(),m.getX(),m.getY());
         }
+    }
+    /**
+      * Gère la reception d'un message de suppression
+      */
+    void MessageHandler::handleDelete(QTcpSocket *socket, QDataStream &in)
+    {
+        //On recupère le message
+        //Network::DeleteMessage m;
+        //in >> m;
+
     }
 }
