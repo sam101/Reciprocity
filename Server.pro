@@ -63,7 +63,8 @@ SOURCES += \
     src/Game/StartEntitiesHandler.cpp \
     src/Network/ResourceMessage.cpp \
     src/Network/AttackedMessage.cpp \
-    src/Game/AttackHandler.cpp
+    src/Game/AttackHandler.cpp \
+    src/Network/DeleteMessage.cpp
 
 HEADERS += \
     include/World/World.h \
@@ -128,7 +129,10 @@ HEADERS += \
     include/Network/ResourceMessage.h \
     include/Network/AttackedMessage.h \
     include/Game/AttackHandler.h \
-    include/Config/LifeConfig.h
+    include/Config/LifeConfig.h \
+    include/Network/DeleteMessage.h
+
+
 
 
 

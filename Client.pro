@@ -78,7 +78,8 @@ HEADERS += \
     include/GUI/SummaryWidget.h \
     include/Network/AttackMessage.h \
     include/Network/ResourceMessage.h \
-    include/Network/AttackedMessage.h
+    include/Network/AttackedMessage.h \
+    include/Network/DeleteMessage.h
 
 SOURCES += \
     src/Graphics/TileChunkItem.cpp \
@@ -136,7 +137,10 @@ SOURCES += \
     src/GUI/SummaryWidget.cpp \
     src/Network/AttackMessage.cpp \
     src/Network/ResourceMessage.cpp \
-    src/Network/AttackedMessage.cpp
+    src/Network/AttackedMessage.cpp \
+    src/Network/DeleteMessage.cpp
+
+
 
 
 
