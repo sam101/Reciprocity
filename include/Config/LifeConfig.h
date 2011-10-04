@@ -1,5 +1,6 @@
 #ifndef CONFIG_LIFECONFIG_H
 #define CONFIG_LIFECONFIG_H
+#include <QtCore/Qt>
 namespace Config
 {
     /**
@@ -38,6 +39,14 @@ namespace Config
               * Points de vie d'une route gagnés pendant la construction
               */
             static const qint32 LIFE_ROAD_BUILD = 25;
+            /**
+              * Points de vie d'un mur
+              */
+            static const qint32 LIFE_WALL = 100;
+            /**
+              * Points de vie du mur gagnés pendant la construction
+              */
+            static const qint32 LIFE_WALL_BUILD = 25;
     };
 }
 #endif //CONFIG_LIFECONFIG_H

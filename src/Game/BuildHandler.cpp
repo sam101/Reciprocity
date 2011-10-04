@@ -46,6 +46,10 @@ namespace Game
             case Map::ROAD:
                 return buildRoad(entity);
             break;
+            //Construction d'un mur
+            case Map::WALL:
+                return buildWall(entity);
+            break;
             default:
                 //On ne fait rien
             break;
@@ -120,6 +124,32 @@ namespace Game
         {
             entity->setHasMoved();
             entity->delRessource(Map::STONE,CostsConfig::COST_ROAD_STONE);
+        }
+        else
+        {
+            return false;
+        }
+        return true;
+    }
+    /**
+      * Construction d'un mur
+      */
+    bool BuildHandler::buildWall(Map::Entity *entity)
+    {
+        if (entity->getResource(Map::WOOD) < CostsConfig::COST_WALL_WOOD || entity->getResource(Map::STONE < CostsConfig::COST_WALL_STONE))
+        {
+            return false;
+        }
+        //On construit le mur
+        if (_world->addBuilding(entity->getX(),entity->getY(),Map::WALL,entity->getOwner()))
+        {
+            entity->delRessource(Map::WOOD,CostsConfig::COST_WALL_STONE);
+            entity->delRessource(Map::STONE,CostsConfig::COST_WALL_WOOD);
+            entity->setHasMoved();
+        }
+        else
+        {
+            return false;
         }
         return true;
     }

@@ -31,6 +31,14 @@ namespace Config
               * Coût en pierre d'une route
               */
             static const qint32 COST_ROAD_STONE = 1;
+            /**
+              * Coût en bois d'un mur
+              */
+            static const qint32 COST_WALL_WOOD = 1;
+            /**
+              * Coût en pierre d'un mur
+              */
+            static const qint32 COST_WALL_STONE = 2;
     };
 }
 #endif //CONFIG_COSTSCONFIG_H

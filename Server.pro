@@ -127,7 +127,9 @@ HEADERS += \
     include/Game/StartEntitiesHandler.h \
     include/Network/ResourceMessage.h \
     include/Network/AttackedMessage.h \
-    include/Game/AttackHandler.h
+    include/Game/AttackHandler.h \
+    include/Config/LifeConfig.h
+
 
 
 

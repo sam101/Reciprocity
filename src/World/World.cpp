@@ -227,6 +227,15 @@ namespace World
                 }
                 getBuilding(x,y) = Map::Building(x,y,type,LifeConfig::LIFE_ROAD,LifeConfig::LIFE_ROAD,owner);
             break;
+            case Map::WALL:
+                //On vérifie qu'on construit pas sur l'eau
+                if ((getTile(x,y).getFlags() & Map::Tile::PASSABLE) == 0)
+                {
+                    return false;
+                }
+                getBuilding(x,y) = Map::Building(x,y,type,LifeConfig::LIFE_WALL,LifeConfig::LIFE_WALL,owner);
+
+            break;
             default:
             break;
         }

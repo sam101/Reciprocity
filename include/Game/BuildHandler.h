@@ -43,6 +43,10 @@ namespace Game
               * Construction d'une route
               */
             bool buildRoad(Map::Entity *entity);
+            /**
+              * Construction d'un mur
+              */
+            bool buildWall(Map::Entity *entity);
     };
 }
 #endif //GAME_BUILDHANDLER_H
