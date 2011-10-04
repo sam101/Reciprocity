@@ -72,3 +72,5 @@ ________
 -Optimiser la pile réseau
 -Faire envoyer la taille du chunk par le serveur au client
 -Ajouter la centralisation des serveurs de jeu sur un serveur internet.
+
+-Ajouter un système via le serveur internet de classement, de groupe/guide/etc.
