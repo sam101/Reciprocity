@@ -21,6 +21,15 @@ namespace Game
               */
             QList<Player*> &_players;
         public:
+            /**
+              * Constructeur
+              */
+            AttackHandler(World::World *world, QList<Player*> &pplayers);
+            /**
+              * Fait attaquer une entité
+              */
+            bool attack(qint32 entityId, qint32 x, qint32 y);
+
 
     };
 }

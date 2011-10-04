@@ -15,6 +15,8 @@ _________
 -Finir la construction des batiments
 -Finir le travail des entités
 
+-Ajouter le fait qu'on peut pas stocker plus de X ressources sur une case/entité
+
 -Ajouter le panel d'attaque et ses effets
 
 
@@ -43,6 +45,7 @@ _________
 -Ajouter la construction de bateaux
 -Donner une utilité aux routes.
 -Ajouter le support des niveaux d'entités et de l'expérience
+-Ajouter des mobs
 -Ajouter le trade entre joueurs, les routes commerciales
 
 COMMUN
