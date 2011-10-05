@@ -456,8 +456,13 @@ namespace Server
     void MessageHandler::handleDelete(QTcpSocket *socket, QDataStream &in)
     {
         //On recupère le message
-        //Network::DeleteMessage m;
-        //in >> m;
+        Network::DeleteMessage m;
+        in >> m;
+        //On vérifie que le client est loggué
+        if (_clients[socket]->getPlayer() == NULL)
+        {
+            return;
+        }
 
     }
 }
