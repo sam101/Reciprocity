@@ -329,6 +329,14 @@ namespace Game
         return _buildHandler->build(entityId,type);
     }
     /**
+      * Détruit un batiment
+      */
+    void Game::destroyBuilding(qint32 x, qint32 y)
+    {
+        _world->delBuilding(x,y);
+    }
+
+    /**
       * Fait travailler une entité
       * @return true si réussi, false si impossible
       */

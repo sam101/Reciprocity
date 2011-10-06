@@ -137,6 +137,10 @@ namespace Game
               */
             bool build(qint32 entityId, Map::BuildingType type);
             /**
+              * Détruit un batiment
+              */
+            void destroyBuilding(qint32 x, qint32 y);
+            /**
               * Fait travailler une entité
               * @return true si réussi, false si impossible
               */
