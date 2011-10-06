@@ -463,6 +463,16 @@ namespace Server
         {
             return;
         }
+        //Si le joueur souhaite détruire une entité, on procède à des vérifications
+        if (m.getType() == Network::DeleteMessage::ENTITY)
+        {
+            //On vérifie que l'entité est bien à lui.
+            if (_game->getEntity(m.getEntityId()) == NULL || _game->getEntity(m.getEntityId())->getOwner() != _clients[socket]->getPlayer()->getId())
+            {
+                return;
+            }
+            //On supprime l'entité
+        }
 
     }
 }
