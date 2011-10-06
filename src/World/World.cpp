@@ -242,7 +242,13 @@ namespace World
         return true;
 
     }
-
+    /**
+      * Supprime un batiment
+      */
+    void World::delBuilding(qint32 x, qint32 y)
+    {
+        getBuilding(x,y) = Map::Building(x,y);
+    }
     /**
       * Déplace une entité
       */

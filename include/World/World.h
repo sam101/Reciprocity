@@ -103,6 +103,10 @@ namespace World
                   */
                 bool addBuilding(qint32 x, qint32 y, Map::BuildingType type, qint32 owner);
                 /**
+                  * Supprime un batiment
+                  */
+                void delBuilding(qint32 x, qint32 y);
+                /**
                   * Déplace une entité
                   */
                 void moveEntity(qint32 id, qint32 x, qint32 y);
