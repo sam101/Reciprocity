@@ -472,7 +472,9 @@ namespace Server
                 return;
             }
             //On supprime l'entité
+            _game->delEntity(m.getEntityId());
+            //On emet le signal
+            emit entityKilled(socket, m.getEntityId());
         }
-
     }
 }

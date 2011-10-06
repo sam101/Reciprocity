@@ -266,6 +266,13 @@ namespace Game
         return true;
     }
     /**
+      * Supprime une entité
+      */
+    void Game::delEntity(qint32 id)
+    {
+        _world->delEntity(id);
+    }
+    /**
       * Commence un nouveau tour
       */
     void Game::newTurn()

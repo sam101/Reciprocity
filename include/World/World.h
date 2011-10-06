@@ -107,6 +107,10 @@ namespace World
                   */
                 void moveEntity(qint32 id, qint32 x, qint32 y);
                 /**
+                  * Supprime une entité
+                  */
+                void delEntity(qint32 id);
+                /**
                   * Renvoie une entité en fonction de son id
                   */
                 Map::Entity* getEntity(qint32 id);

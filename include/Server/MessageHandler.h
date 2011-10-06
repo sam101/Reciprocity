@@ -168,6 +168,10 @@ namespace Server
               * Emit quand une attaque a été éffectuée
               */
             void attackAccepted(QTcpSocket *socket, qint32 entityId, qint32 x, qint32 y);
+            /**
+              * Emit quand une entité à été supprimée
+              */
+            void entityKilled(QTcpSocket *socket, qint32 entityId);
     };
 }
 #endif //SERVER_MESSAGEHANDLER_H

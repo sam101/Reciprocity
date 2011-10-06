@@ -128,6 +128,10 @@ namespace Game
               */
             bool moveEntity(qint32 id, qint32 x, qint32 y, qint32 applicant);
             /**
+              * Supprime une entité
+              */
+            void delEntity(qint32 id);
+            /**
               * Construit un batiment
               * @return true si réussi, false si échoué
               */

@@ -268,6 +268,22 @@ namespace World
         //On indique que l'entité s'est déplacée.
         _entities[id]->setHasMoved();
     }
+    /**
+      * Supprime une entité
+      */
+    void World::delEntity(qint32 id)
+    {
+        //On vérifie la validité de l'id
+        if (id < 0 || id > _entities.size() )
+        {
+            return;
+        }
+        //On la supprime du chunk
+        Chunk::Chunk *chunk = getChunkByTile(_entities[id]->getX(),_entities[id]->getY());
+        chunk->delEntity(id);
+        //On la supprime l'entité
+        _entities[id]->kill();
+    }
 
     /**
       * Renvoie une entité en fonction de son id

@@ -39,7 +39,8 @@ namespace Network
         ATTACK = 24,
         ATTACKED = 25,
         NEWENTITY = 26,
-        DELETE = 27
+        DELETE = 27,
+        ENTITY_DEAD = 28
     };
 }
 #endif //NETWORK_MESSAGETYPE_H
